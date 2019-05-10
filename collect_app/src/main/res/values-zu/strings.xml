@@ -12,8 +12,8 @@
   <string name="recapture_osm">phinda i-OSM Tagging</string>
   <string name="capture_video">Thwebula ividiyo</string>
   <string name="change_language">shintsha ulimi</string>
-  <string name="change_password">Inombolomfihlo ye ODK</string>
-  <string name="change_username">igamamfihlo le ODK</string>
+  <string name="change_password">Inombolomfihlo ye KoBoToolbox</string>
+  <string name="change_username">igamamfihlo le KoBoToolbox</string>
   <string name="clearanswer_confirm">Susa impendulo yoku \"%s\"?</string>
   <string name="clear_answer">Susa Impendulo</string>
   <string name="clear_answer_ask">Susa lempendulo?</string>
@@ -69,7 +69,7 @@
   <string name="location_provider_accuracy">Ukusebenzisa %1$s. ukucophelela %2$s m.</string>
   <string name="location_accuracy">Ukucophelela %1s% m</string>
   <string name="main_menu">Uhlu oluwumsuka</string>
-  <string name="main_menu_details">Ukuqoqa ulwazi kwenziwe lula…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Susa ifomu elongiwe</string>
   <string name="mark_finished">Bonisa ukuthi ifomu liphothuliwe</string>
   <string name="noselect_error">Uxolo, alikho ifomu olikhethile</string>
@@ -109,7 +109,7 @@
   <string name="general_preferences">Ukuhlela Okuvamile</string>
   <string name="show_splash_summary">Ikhombisa uma uhlu luqala</string>
   <string name="splash_path">Cannot translate</string>
-  <string name="default_splash_path">ODK ngokungenhloso</string>
+  <string name="default_splash_path">KoBoToolbox ngokungenhloso</string>
   <string name="select_another_image">Khetha omunye umfanekiso</string>
   <string name="use_odk_default">Sebenzisa isithombe ngokungenhloso</string>
   <string name="change_splash_path">Shintsha umfanekiso</string>
@@ -140,7 +140,7 @@
   <string name="save_as_error">Igama eligciniwe akumele lingabi nalutho</string>
   <string name="edit_prompt">Hlela ngokushesha</string>
   <string name="selected_google_account_text">akhawunti Google</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Okunye</string>
   <string name="font_size_extra_large">Okukhulu kakhulu</string>
   <string name="font_size_large">Okukhulu </string>

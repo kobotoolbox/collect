@@ -23,7 +23,7 @@
   <string name="recapture_osm">أعادة تعليم ال OSM</string>
   <string name="capture_video">سجل فيديو</string>
   <string name="change_language">تغيير اللغة</string>
-  <string name="change_password">ODK كلمة المرور</string>
+  <string name="change_password">KoBoToolbox كلمة المرور</string>
   <string name="change_username">إسم المستخدم</string>
   <string name="clearanswer_confirm">حذف الإجابة ل \"%s\"؟</string>
   <string name="clear_answer">حذف الإجابة</string>
@@ -84,7 +84,7 @@
   <string name="location_provider_accuracy">استخدام %1$s. الدقة هي %2$s متر.</string>
   <string name="location_accuracy">الدقة هي is %1$s متر</string>
   <string name="main_menu">القائمة الأساسية</string>
-  <string name="main_menu_details">جمع البيانات أصبح أسهل…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">حذف الاستمارة المحفوظة</string>
   <string name="mark_finished">حدد الاستمارة كاستمارة منتهية</string>
   <string name="noselect_error">عذرًا، لم تختَر أيّ استمارة!</string>
@@ -134,7 +134,7 @@
   <string name="client">إعدادات واجهة المستخدم</string>
   <string name="show_splash_summary">اظهار عند بدء التطبيق</string>
   <string name="splash_path">اختيار صورة البداية</string>
-  <string name="default_splash_path">ODK الإفتراضي</string>
+  <string name="default_splash_path">KoBoToolbox الإفتراضي</string>
   <string name="select_another_image">حدد صورة أخرى</string>
   <string name="use_odk_default">استخدام الصورة الإفتراضية</string>
   <string name="change_splash_path">تغيير الصورة</string>
@@ -168,7 +168,7 @@
   <string name="save_as_error">اسم الحفظ لا يمكن أن يكون فارغ!</string>
   <string name="edit_prompt">تعديل التوجيه</string>
   <string name="selected_google_account_text">حساب جوجل</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">أخرى</string>
   <string name="font_size_extra_large">كبير جدا</string>
   <string name="font_size_large">كبير</string>
@@ -270,7 +270,7 @@
   <string name="go_drive">المحرك الخاص بي</string>
   <string name="go_shared">مشاركة معي</string>
   <string name="modified_on_date_at_time">\'تم التعديل ب \' yyyy, dd MMM, EEE  \'في الساعة\' mm:HH</string>
-  <string name="aggregate_preferences">اعدادات  ODK Aggregate</string>
+  <string name="aggregate_preferences">اعدادات  KoBoToolbox</string>
   <string name="sms_submission_preferences">إعدادات إرسال SMS</string>
   <string name="submission_transport">نقل الارسال (متقدم)</string>
   <string name="submission_transport_types_title">تقديم الارسال عبر</string>
@@ -281,9 +281,9 @@
   <string name="no_google_account">لم يتم اختيار حساب جوجل!</string>
   <string name="google_set_account">لقد قمت باختيار صفحات الجوجل كخادم لك، أرجو اختيار حساب الجوجل  المتوافق عن طريق الاعدادت العامة قبل الاستمرار</string>
   <string name="media_upload_error">فشل في تحميل ملف وسائل الاعلام التي لا وجود لها: %1$s</string>
-  <string name="odk_permissions_fail">فشل إذن إرسال التلقائي لODK  ، يرجى التأكد من منحك جميع الأذونات المطلوبة</string>
-  <string name="odk_auto_note">ODK يرسل النتائج تلقائيا</string>
-  <string name="odk_auto_download_notification_title">ODK ينزل النتائج تلقائيا</string>
+  <string name="odk_permissions_fail">فشل إذن إرسال التلقائي لKoBoToolbox  ، يرجى التأكد من منحك جميع الأذونات المطلوبة</string>
+  <string name="odk_auto_note">KoBoToolbox يرسل النتائج تلقائيا</string>
+  <string name="odk_auto_download_notification_title">KoBoToolbox ينزل النتائج تلقائيا</string>
   <string name="notification_error">خطأ في عرض اشعار النص</string>
   <string name="delete_after_send">حذف بعد الارسال</string>
   <string name="delete_after_send_summary">حذف الاستمارة النهائية والوسائط المتعددة بعد ارسالها الى الخادم</string>
@@ -299,8 +299,8 @@
   <string name="username_error_whitespace">الزيادات في البداية أو الفراغات غير مسموح بها في اسم المستخدم</string>
   <string name="google_play_services_error_occured">غير قادرعلى الوصول الى خرائط الجوجل. هل خدمات تشغيل الجوجل مثبتة؟</string>
   <string name="about_preferences">حول التطبيق</string>
-  <string name="tell_your_friends">مشاركة الرابط ODK Collect</string>
-  <string name="tell_your_friends_msg">هل ما زال زملائك يجمعون البيانات على الورق؟ مشاركة ODK Collect معهم.</string>
+  <string name="tell_your_friends">مشاركة الرابط KoBoCollect</string>
+  <string name="tell_your_friends_msg">هل ما زال زملائك يجمعون البيانات على الورق؟ مشاركة KoBoCollect معهم.</string>
   <string name="leave_a_review">اترك تعليق في Play Store</string>
   <string name="leave_a_review_msg">رأيك (نأمل إيجابيا) يزيد من رؤية التطبيق في Play Store.</string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -337,7 +337,7 @@
   <string name="enable_gps">تفعيل ال GPS</string>
   <string name="geotrace_title">Trace</string>
   <string name="geo_clear_warning">الميزة تم انشائها مسبقاً</string>
-  <string name="geo_exit_warning">تجاهل التعديلات والعودة الى ODK؟</string>
+  <string name="geo_exit_warning">تجاهل التعديلات والعودة الى KoBoToolbox؟</string>
   <string name="polygon_validator">يجب توفر 3 نقاط GeoPoint لانشاء Polygon</string>
   <string name="polyline_validator">يجب توفر 2 نقاط لانشاء إحداث Polyline</string>
   <string name="clear">الغاء</string>
@@ -407,9 +407,9 @@
   <string name="selected_answer">المحددة %s</string>
   <string name="version_number">رقم الاصدار %s</string>
   <string name="id_number">المعرف : %s</string>
-  <string name="odk_website">موقع ODK</string>
-  <string name="odk_website_summary">ملخص موقع ODK</string>
-  <string name="odk_forum">نقاشات ODK</string>
+  <string name="odk_website">موقع KoBoToolbox</string>
+  <string name="odk_website_summary">ملخص موقع KoBoToolbox</string>
+  <string name="odk_forum">نقاشات KoBoToolbox</string>
   <string name="odk_forum_summary">انضم إلى المنتدى للحصول على الدعم وطلب الميزات والمساهمة بالكود / الترجمات!</string>
   <string name="all_open_source_licenses">مكتبات و تراخيص مفتوحة المصدر</string>
   <string name="all_open_source_licenses_msg">نقف على أكتاف العمالقة!</string>
@@ -611,19 +611,19 @@
   <string name="stop_video_capture_instruction">بدأ التسجيل. إنقر مجددا للتوقف</string>
   <string name="no_columns_to_upload">لا توجد أعمدة في الاستمارة للتحميل.</string>
   <string name="storage_runtime_permission_denied_title">أذونات التخزين</string>
-  <string name="storage_runtime_permission_denied_desc">بدون هذه الأذونات ، لا يمكن لـ ODK Collect الوصول إلى الاستمارات أو حفظ الإجابات. أعد فتح التطبيق عندما تكون مستعدًا لمنحهم.</string>
+  <string name="storage_runtime_permission_denied_desc">بدون هذه الأذونات ، لا يمكن لـ KoBoCollect الوصول إلى الاستمارات أو حفظ الإجابات. أعد فتح التطبيق عندما تكون مستعدًا لمنحهم.</string>
   <string name="location_runtime_permissions_denied_title">الاذون بالموقع</string>
-  <string name="location_runtime_permissions_denied_desc">بدون هذه الأذونات ، لا يمكن لـ ODK Collect تسجيل موقعك. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحهم.</string>
+  <string name="location_runtime_permissions_denied_desc">بدون هذه الأذونات ، لا يمكن لـ KoBoCollect تسجيل موقعك. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحهم.</string>
   <string name="camera_runtime_permission_denied_title">إذن الكاميرا</string>
-  <string name="camera_runtime_permission_denied_desc">بدون هذا الإذن ، لا يمكن لـ ODK Collect الوصول إلى الكاميرا. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
+  <string name="camera_runtime_permission_denied_desc">بدون هذا الإذن ، لا يمكن لـ KoBoCollect الوصول إلى الكاميرا. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
   <string name="record_audio_runtime_permission_denied_title">إذن لتسجيل الصوت</string>
-  <string name="record_audio_runtime_permission_denied_desc">بدون هذا الإذن ، لا يمكن لـ ODK Collect الوصول إلى الميكروفون. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
+  <string name="record_audio_runtime_permission_denied_desc">بدون هذا الإذن ، لا يمكن لـ KoBoCollect الوصول إلى الميكروفون. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
   <string name="get_accounts_runtime_permission_denied_title">الحصول على إذن الحسابات</string>
-  <string name="get_accounts_runtime_permission_denied_desc">بدون هذا الإذن ، لا يمكن لـ ODK Collect الوصول إلى الحسابات. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
+  <string name="get_accounts_runtime_permission_denied_desc">بدون هذا الإذن ، لا يمكن لـ KoBoCollect الوصول إلى الحسابات. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
   <string name="send_sms_runtime_permission_denied_title">إذن لإرسال SMS</string>
-  <string name="send_sms_runtime_permission_denied_desc">بدون هذا الإذن ، لا يمكن لـ ODK Collect إرسال رسائل SMS. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
+  <string name="send_sms_runtime_permission_denied_desc">بدون هذا الإذن ، لا يمكن لـ KoBoCollect إرسال رسائل SMS. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
   <string name="read_phone_state_runtime_permission_denied_title">إذن قراءة حالة الهاتف</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">لا يقوم ODK Collect بإجراء مكالمات ولكنه يحتاج إلى الوصول إلى بعض الخصائص المتعلقة بجهازك مثل رقم الهاتف ومعرف الجهاز.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">لا يقوم KoBoCollect بإجراء مكالمات ولكنه يحتاج إلى الوصول إلى بعض الخصائص المتعلقة بجهازك مثل رقم الهاتف ومعرف الجهاز.</string>
   <string name="form_update_category">تحديث الاستمارة</string>
   <string name="periodic_form_updates_check_title">تحقق من وجود تحديثات الاستمارة بشكل دوري</string>
   <string name="never">إطلاقا</string>

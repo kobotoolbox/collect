@@ -12,8 +12,8 @@
   <string name="capture_image">Resim Çek</string>
   <string name="capture_video">Video Kayit</string>
   <string name="change_language">Dil Değiştir</string>
-  <string name="change_password">ODK Şifresi</string>
-  <string name="change_username">ODK Kullanici Adi</string>
+  <string name="change_password">KoBoToolbox Şifresi</string>
+  <string name="change_username">KoBoToolbox Kullanici Adi</string>
   <string name="clearanswer_confirm">Bu yanıt kaldırılsın mı \"%s\"?</string>
   <string name="clear_answer">Yanıtları kaldır</string>
   <string name="clear_answer_ask">Bu yanıt kaldırılsın mı ?</string>
@@ -55,7 +55,7 @@
   <string name="leave_repeat_yes">Ekleme</string>
   <string name="loading_form">Form Yükleniyor</string>
   <string name="main_menu">Ana Menu</string>
-  <string name="main_menu_details">Daha Kolay veri toplama…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Kayitli Formu Sil</string>
   <string name="mark_finished">Bitirilen Formu işaretle</string>
   <string name="noselect_error">Herhangi bir form seçilmedi !</string>
@@ -88,7 +88,7 @@
   <string name="username">Kullanici Adi</string>
   <string name="general_preferences">Genel Ayarlar</string>
   <string name="show_splash_summary">Uygulama çalıştığında göster</string>
-  <string name="default_splash_path">Geçerli ODK</string>
+  <string name="default_splash_path">Geçerli KoBoToolbox</string>
   <string name="select_another_image">Başka bir görüntü seçin</string>
   <string name="use_odk_default">Geçerli görüntüyü kullan</string>
   <string name="change_splash_path">Görüntüyü Değiştir</string>
@@ -115,7 +115,7 @@
   <string name="save_form_as">Form ismi </string>
   <string name="save_as_error">İsim alani boş bırakilamaz</string>
   <string name="selected_google_account_text">Google account</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Diğer</string>
   <string name="font_size_extra_large">Çok Büyük</string>
   <string name="font_size_large">Büyük</string>

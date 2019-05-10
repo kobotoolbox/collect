@@ -17,7 +17,7 @@
   <string name="capture_video">Gravar Vídeo</string>
   <string name="change_language">Alterar Idioma</string>
   <string name="change_password">Senha</string>
-  <string name="change_username">Usuário ODK</string>
+  <string name="change_username">Usuário KoBoToolbox</string>
   <string name="clearanswer_confirm">Remover a resposta para \"%s\"?</string>
   <string name="clear_answer">Remover a resposta</string>
   <string name="clear_answer_ask">Remover esta Resposta?</string>
@@ -77,7 +77,7 @@
   <string name="location_provider_accuracy">Usando %1$s. Precisão de %2$s m.</string>
   <string name="location_accuracy">Precisão de %1$s m</string>
   <string name="main_menu">Menu Principal</string>
-  <string name="main_menu_details">Coleta de dados facilitada…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Apagar Formulário Salvo</string>
   <string name="mark_finished">Marcar formulário como finalizado</string>
   <string name="noselect_error">Desculpe, você não selecionou nenhum formulário!</string>
@@ -125,7 +125,7 @@
   <string name="client">Interface de usuário</string>
   <string name="show_splash_summary">Mostrar quando a aplicação iniciar</string>
   <string name="splash_path">Selecionada imagem Splash</string>
-  <string name="default_splash_path">ODK Default</string>
+  <string name="default_splash_path">KoBoToolbox Default</string>
   <string name="select_another_image">Selecionar Outra Imagem</string>
   <string name="use_odk_default">Usar Imagem Padrão</string>
   <string name="change_splash_path">Trocar Imagem</string>
@@ -159,7 +159,7 @@ Escolher Imagem</string>
   <string name="save_as_error">Nome salvo não pode ser em vazio!</string>
   <string name="edit_prompt">Editar Prompt</string>
   <string name="selected_google_account_text">Conta Google</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Outro</string>
   <string name="font_size_extra_large">Extra Grande</string>
   <string name="font_size_large">Grande</string>
@@ -259,7 +259,7 @@ Escolher Imagem</string>
   <string name="go_drive">Meu Disco</string>
   <string name="go_shared">Compartilhado comigo</string>
   <string name="modified_on_date_at_time">\'Modificado em\' EEE, MMM dd, yyyy \'às\' HH:mm</string>
-  <string name="aggregate_preferences">Configurações do Agregador ODK.</string>
+  <string name="aggregate_preferences">Configurações do Agregador KoBoToolbox.</string>
   <string name="sms_submission_preferences">Parâmetros de envio SMS</string>
   <string name="submission_transport">Transporte envio (avançado)</string>
   <string name="submission_transport_types_title">Enviar submissões por</string>
@@ -270,9 +270,9 @@ Escolher Imagem</string>
   <string name="no_google_account">Nenhuma conta do Google foi selecionada!</string>
   <string name="google_set_account">Você selecionou o Google Sheets com seu servidor, por favor selecione um conta Google correspondente em Configurações Gerais antes de continuar.</string>
   <string name="media_upload_error">Falhou ao fazer o upload do arquivo de media, que n´ão existe: %1$s</string>
-  <string name="odk_permissions_fail">Permissão de envio automático do ODK falhou, por favor, certifique-se que foi dada a você todas as permissões requisitadas.</string>
-  <string name="odk_auto_note">Resultados de envio automático do ODK</string>
-  <string name="odk_auto_download_notification_title">Resultados de download automático do ODK</string>
+  <string name="odk_permissions_fail">Permissão de envio automático do KoBoToolbox falhou, por favor, certifique-se que foi dada a você todas as permissões requisitadas.</string>
+  <string name="odk_auto_note">Resultados de envio automático do KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">Resultados de download automático do KoBoToolbox</string>
   <string name="notification_error">Erro ao exibir texto de notificação.</string>
   <string name="delete_after_send">Apagar depois de enviado</string>
   <string name="delete_after_send_summary">Apaga formulários completos e arquivos de mídia depois de enviados ao servidor.</string>
@@ -287,8 +287,8 @@ Escolher Imagem</string>
   <string name="username_error_whitespace">Espaços em branco antes e depois de nomes de usuários não são permitidos</string>
   <string name="google_play_services_error_occured">Não foi capaz de acessar o Google Maps. O serviço do Google Play está instalado?</string>
   <string name="about_preferences">Sobre</string>
-  <string name="tell_your_friends">Compartilhar ODK Collect</string>
-  <string name="tell_your_friends_msg">Seus colegas ainda estão coletando dados em papel? Compartilhe o ODK Collect com eles.</string>
+  <string name="tell_your_friends">Compartilhar KoBoCollect</string>
+  <string name="tell_your_friends_msg">Seus colegas ainda estão coletando dados em papel? Compartilhe o KoBoCollect com eles.</string>
   <string name="leave_a_review">Deixe um opinião sua na Play Store</string>
   <string name="leave_a_review_msg">A sua opinião (possivelmente positiva) aumenta a visibilidade da App na Play Store.</string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -313,7 +313,7 @@ Escolher Imagem</string>
   <string name="enable_gps">Habilitar GPS</string>
   <string name="geotrace_title">GeoTrace</string>
   <string name="geo_clear_warning">A feature já foi criada. Gostaria de limpar a feature?</string>
-  <string name="geo_exit_warning">Descartar mudanças e retornar ao ODK?</string>
+  <string name="geo_exit_warning">Descartar mudanças e retornar ao KoBoToolbox?</string>
   <string name="polygon_validator">Precisa ter pelo menos 3 pontos para criar Polígono</string>
   <string name="polyline_validator">Precisa ter pelo menos 2 pontos para criar uma Cadeia de Linhas</string>
   <string name="clear">Limpar</string>
@@ -324,7 +324,7 @@ Escolher Imagem</string>
   <string name="geotrace_view_change_location">Visualizar ou Modificar GeoTrace</string>
   <string name="bearing">Rumo: %.3f</string>
   <string name="direction">Direção: %s</string>
-  <string name="select_odk_shortcut">Selecionar o Atalho ODK</string>
+  <string name="select_odk_shortcut">Selecionar o Atalho KoBoToolbox</string>
   <string name="bad_uri">URI ruim: %s</string>
   <string name="unrecognized_uri">URL não reconhecida: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -343,9 +343,9 @@ Escolher Imagem</string>
   <string name="selected_answer">Selecionado: %s</string>
   <string name="version_number">Versão: %s</string>
   <string name="id_number">ID: %s</string>
-  <string name="odk_website">Visite o site ODK</string>
-  <string name="odk_website_summary">O Open Data Kit (ODK) é utilizado para coletar dados para o bem social em ambientes desafiadores</string>
-  <string name="odk_forum">Junte-se ao fórum ODK</string>
+  <string name="odk_website">Visite o site KoBoToolbox</string>
+  <string name="odk_website_summary">O KoBoToolbox é utilizado para coletar dados para o bem social em ambientes desafiadores</string>
+  <string name="odk_forum">Junte-se ao fórum KoBoToolbox</string>
   <string name="odk_forum_summary">Junte-se ao fórum para obter suporte, requisitar funcionalidades, contribuir com o código/traduções!</string>
   <string name="all_open_source_licenses">Bibliotecas/licenças open source</string>
   <string name="all_open_source_licenses_msg">Nós estamos nos ombros dos gigantes!</string>
@@ -365,7 +365,7 @@ Escolher Imagem</string>
   <string name="encryption_error_message">%s Formulário não foi salvo como finalizado.</string>
   <string name="analytics_preferences">Uso de dados</string>
   <string name="analytics">Coletar dados anônimos</string>
-  <string name="analytics_summary">Os dados anônimos ajudam a equipe do ODK a priorizar a correção de erros e funcionalidades</string>
+  <string name="analytics_summary">Os dados anônimos ajudam a equipe do KoBoToolbox a priorizar a correção de erros e funcionalidades</string>
   <string name="select_all">Selecionar tudo</string>
   <string name="clear_all">Limpar tudo</string>
   <string name="reset_settings">Todas as configurações (configurações internas, configurações salvas)</string>

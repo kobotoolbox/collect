@@ -77,7 +77,7 @@
   <string name="location_provider_accuracy">使用 %1$s. 精度为  %2$s m.</string>
   <string name="location_accuracy">精度为  %1$s m</string>
   <string name="main_menu">主菜单</string>
-  <string name="main_menu_details">让数据收集简单…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">删除已保存表格</string>
   <string name="mark_finished">标记表格为完成</string>
   <string name="noselect_error">没有选定表格!</string>
@@ -121,7 +121,7 @@
   <string name="client">用户界面</string>
   <string name="show_splash_summary">当应用开始时显示</string>
   <string name="splash_path">选定的开始图片</string>
-  <string name="default_splash_path">ODK默认图片</string>
+  <string name="default_splash_path">KoBoToolbox默认图片</string>
   <string name="select_another_image">选择其他图片</string>
   <string name="use_odk_default">使用默认图片</string>
   <string name="change_splash_path">修改图片</string>
@@ -152,7 +152,7 @@
   <string name="save_as_error">保存的名字不能为空!</string>
   <string name="edit_prompt">修改提示</string>
   <string name="selected_google_account_text">Google账号</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">其他</string>
   <string name="font_size_extra_large">极大</string>
   <string name="font_size_large">大</string>
@@ -224,7 +224,7 @@
   <string name="delete_after_send">发送后自动删除</string>
   <string name="change_server_url">服務器 URL</string>
   <string name="about_preferences">关于</string>
-  <string name="tell_your_friends">分享ODK Collect</string>
+  <string name="tell_your_friends">分享KoBoCollect</string>
   <!--Geo string added in feature-geofeatures branch-->
   <!--TODO(ping): Delete these openmap_* strings when we're ready to move on from OSMDroid.
       These strings are only being used to preserve compatibility with pre-existing

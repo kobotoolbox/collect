@@ -23,8 +23,8 @@
   <string name="recapture_osm">OSM タグ付けを繰り返す</string>
   <string name="capture_video">ビデオを録画</string>
   <string name="change_language">言語を変更</string>
-  <string name="change_password">ODK パスワード</string>
-  <string name="change_username">ODK ユーザー名</string>
+  <string name="change_password">KoBoToolbox パスワード</string>
+  <string name="change_username">KoBoToolbox ユーザー名</string>
   <string name="clearanswer_confirm">\"%s\" への回答を削除しますか?</string>
   <string name="clear_answer">回答を削除</string>
   <string name="clear_answer_ask">回答を削除しますか?</string>
@@ -84,7 +84,7 @@
   <string name="location_provider_accuracy">%1$s を使用しています。精度は %2$s mです。</string>
   <string name="location_accuracy">精度は %1$s mです</string>
   <string name="main_menu">メイン メニュー</string>
-  <string name="main_menu_details">データが簡単に収集できます…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">保存されたフォームを削除</string>
   <string name="mark_finished">フォームを確定済にします</string>
   <string name="noselect_error">申し訳ありません、フォームが選択されていません!</string>
@@ -134,7 +134,7 @@
   <string name="client">ユーザーインターフェイス</string>
   <string name="show_splash_summary">アプリケーションの起動時に表示します</string>
   <string name="splash_path">選択したスプラッシュ画像</string>
-  <string name="default_splash_path">ODK デフォルト</string>
+  <string name="default_splash_path">KoBoToolbox デフォルト</string>
   <string name="select_another_image">別の画像を選択</string>
   <string name="use_odk_default">デフォルト画像を使用</string>
   <string name="change_splash_path">画像を変更</string>
@@ -168,7 +168,7 @@
   <string name="save_as_error">保存する名前は空にできません!</string>
   <string name="edit_prompt">プロンプトを編集</string>
   <string name="selected_google_account_text">Google アカウント</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">その他</string>
   <string name="font_size_extra_large">特大</string>
   <string name="font_size_large">大</string>
@@ -270,7 +270,7 @@
   <string name="go_drive">マイ ドライブ</string>
   <string name="go_shared">私と共有</string>
   <string name="modified_on_date_at_time">yyyy/MM/dd HH:mm \'に変更しました\'</string>
-  <string name="aggregate_preferences">ODK Aggregate 設定</string>
+  <string name="aggregate_preferences">KoBoToolbox 設定</string>
   <string name="sms_submission_preferences">SMS 送信設定</string>
   <string name="submission_transport">送信トランスポート (詳細)</string>
   <string name="submission_transport_types_title">送信…</string>
@@ -281,9 +281,9 @@
   <string name="no_google_account">Google アカウントが選択されていません!</string>
   <string name="google_set_account">サーバーとして Google スプレッドシートを選択しています。続行する前に、全般設定で対応する Google アカウントを選択してください</string>
   <string name="media_upload_error">メディアファイルが存在しないため、アップロードできませんでした: %1$s</string>
-  <string name="odk_permissions_fail">ODK 自動送信が失敗しました。必要なアクセス許可がすべて付与されていることを確認してください</string>
-  <string name="odk_auto_note">ODK 自動送信結果</string>
-  <string name="odk_auto_download_notification_title">ODK 自動ダウンロード結果</string>
+  <string name="odk_permissions_fail">KoBoToolbox 自動送信が失敗しました。必要なアクセス許可がすべて付与されていることを確認してください</string>
+  <string name="odk_auto_note">KoBoToolbox 自動送信結果</string>
+  <string name="odk_auto_download_notification_title">KoBoToolbox 自動ダウンロード結果</string>
   <string name="notification_error">通知テキストの表示中にエラー</string>
   <string name="delete_after_send">送信後に削除</string>
   <string name="delete_after_send_summary">サーバに送信した後、確定されたフォームやメディアを削除します</string>
@@ -299,8 +299,8 @@
   <string name="username_error_whitespace">ユーザー名の先頭または末尾に空白は使用できません</string>
   <string name="google_play_services_error_occured">Google マップにアクセスできません。 Google Play サービスはインストールされていますか?</string>
   <string name="about_preferences">アプリについて</string>
-  <string name="tell_your_friends">ODK Collect を共有</string>
-  <string name="tell_your_friends_msg">あなたの同僚はまだ紙でデータを収集しているのですか? ODK Collect を彼らと共有しましょう。</string>
+  <string name="tell_your_friends">KoBoCollect を共有</string>
+  <string name="tell_your_friends_msg">あなたの同僚はまだ紙でデータを収集しているのですか? KoBoCollect を彼らと共有しましょう。</string>
   <string name="leave_a_review">Play ストアにレビューを残す</string>
   <string name="leave_a_review_msg">あなたの (肯定的な) レビューが Play ストアでアプリの認知度を向上させてくれます</string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -343,7 +343,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">お使いのデバイスで GPS は無効になっています。有効にしますか?</string>
   <string name="geo_clear_warning">機能は既に作成済です。機能をクリアしますか?</string>
-  <string name="geo_exit_warning">変更を破棄して ODK の戻りますか?</string>
+  <string name="geo_exit_warning">変更を破棄して KoBoToolbox の戻りますか?</string>
   <string name="polygon_validator">ポリゴンを作成するには、少なくとも 3 点指定する必要があります</string>
   <string name="polyline_validator">ポリラインを作成するには、少なくとも2点指定する必要があります</string>
   <string name="clear">クリア</string>
@@ -381,7 +381,7 @@
   <string name="geometry_status">保存したフォーム: %d (%d 地図上に表示)</string>
   <string name="bearing">方位: %.3f</string>
   <string name="direction">方角: %s</string>
-  <string name="select_odk_shortcut">ODK ショートカットを選択</string>
+  <string name="select_odk_shortcut">KoBoToolbox ショートカットを選択</string>
   <string name="bad_uri">間違った URI: %s</string>
   <string name="unrecognized_uri">認識できない URI: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -401,9 +401,9 @@
   <string name="selected_answer">選択済: %s</string>
   <string name="version_number">バージョン: %s</string>
   <string name="id_number">ID: %s</string>
-  <string name="odk_website">ODK ウェブサイトを訪問</string>
-  <string name="odk_website_summary">オープンデータキット (ODK) は、課題のある環境での社会的利益のためのデータを収集するために使用されます。</string>
-  <string name="odk_forum">ODK フォーラムに参加</string>
+  <string name="odk_website">KoBoToolbox ウェブサイトを訪問</string>
+  <string name="odk_website_summary">オープンデータキット (KoBoToolbox) は、課題のある環境での社会的利益のためのデータを収集するために使用されます。</string>
+  <string name="odk_forum">KoBoToolbox フォーラムに参加</string>
   <string name="odk_forum_summary">フォーラムに参加して、サポートを受けたり、機能をリクエストしたり、コード/翻訳に貢献してください!</string>
   <string name="all_open_source_licenses">オープンソースライブラリー/ライセンス</string>
   <string name="all_open_source_licenses_msg">私たちは巨人の肩の上に立っています!</string>
@@ -424,7 +424,7 @@
   <string name="encryption_error_message">%s フォームはファイナライズ済みとして保存されていません。</string>
   <string name="analytics_preferences">使用状況データ</string>
   <string name="analytics">匿名の使用状況データを収集</string>
-  <string name="analytics_summary">匿名の使用状況データは、ODK チームが修正および機能に優先順位付けするのに役立ちます</string>
+  <string name="analytics_summary">匿名の使用状況データは、KoBoToolbox チームが修正および機能に優先順位付けするのに役立ちます</string>
   <string name="select_all">すべて選択</string>
   <string name="clear_all">すべてクリア</string>
   <string name="reset_settings">すべての設定 (内部設定、保存された設定)</string>
@@ -625,7 +625,7 @@
   <string name="send_sms_runtime_permission_denied_title">SMS 送信のアクセス許可</string>
   <string name="send_sms_runtime_permission_denied_desc">このアクセス許可がないと、Collect は SMS メッセージを送信できません。 付与する準備ができたら、もう一度お試しください。</string>
   <string name="read_phone_state_runtime_permission_denied_title">電話の状態読み取りアクセス許可</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect は電話はかけませんが、電話番号やデバイス ID など、デバイスに関する特定のプロパティにアクセスする必要があります。</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect は電話はかけませんが、電話番号やデバイス ID など、デバイスに関する特定のプロパティにアクセスする必要があります。</string>
   <string name="form_update_category">フォームの更新</string>
   <string name="periodic_form_updates_check_title">定期的なフォームの更新チェック</string>
   <string name="never">しない</string>

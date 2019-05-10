@@ -13,7 +13,7 @@
   <string name="capture_video">Įrašyti video</string>
   <string name="change_language">Pakeisti kalbą</string>
   <string name="change_password">Slaptažodis</string>
-  <string name="change_username">ODK naudotojo vardas</string>
+  <string name="change_username">KoBoToolbox naudotojo vardas</string>
   <string name="clearanswer_confirm">Pašalinti atsakymą į \"%s\"?</string>
   <string name="clear_answer">Pašalinti atsakymą</string>
   <string name="clear_answer_ask">Pašalinti šį atsakymą?</string>
@@ -67,7 +67,7 @@
   <string name="location_provider_accuracy">Naudojama %1$s. Tikslumas yra %2$s m.</string>
   <string name="location_accuracy">Tikslumas yra %1$s m</string>
   <string name="main_menu">Pagr. meniu</string>
-  <string name="main_menu_details">Duomenų surinkimas tapo lengvesnis…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Ištrinti užpildytą formą</string>
   <string name="mark_finished">Pažymėti formą kaip užbaigtą</string>
   <string name="noselect_error">Deja, Jūs nepažymėjote jokių formų!</string>
@@ -106,7 +106,7 @@
   <string name="general_preferences">Keisti nuostatas</string>
   <string name="show_splash_summary">Rodyti užsklandą paleidžiant programą</string>
   <string name="splash_path">Parinkta užsklanda</string>
-  <string name="default_splash_path">ODK numatytoji</string>
+  <string name="default_splash_path">KoBoToolbox numatytoji</string>
   <string name="select_another_image">Parinkti kitą paveikslėlį</string>
   <string name="use_odk_default">Naudoti numatytąjį paveikslėlį</string>
   <string name="change_splash_path">Pakeisti paveikslėlį</string>
@@ -137,7 +137,7 @@
   <string name="save_as_error">Pavadinimas negali būti tuščias!</string>
   <string name="edit_prompt">Keisti atsakymą</string>
   <string name="selected_google_account_text">Google sąskaita</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Kita</string>
   <string name="font_size_extra_large">Labai didelis</string>
   <string name="font_size_large">Didelis</string>

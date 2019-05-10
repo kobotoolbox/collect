@@ -84,7 +84,7 @@
   <string name="location_provider_accuracy">Usando %1$s. Precision es de %2$s m.</string>
   <string name="location_accuracy">Precision es de %1$s m</string>
   <string name="main_menu">Menú Principal</string>
-  <string name="main_menu_details">La recolección de datos hecha fácil…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Borrar Formularios Guardados</string>
   <string name="mark_finished">Marcar el formulario como finalizado</string>
   <string name="noselect_error">¡No ha escogido ningún formulario!</string>
@@ -169,7 +169,7 @@
   <string name="save_as_error">¡El nombre no puede estar en blanco!</string>
   <string name="edit_prompt">Editar entrada</string>
   <string name="selected_google_account_text">Cuenta de Google</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Otro</string>
   <string name="font_size_extra_large">Extra Grande</string>
   <string name="font_size_large">Grande</string>
@@ -272,7 +272,7 @@
   <string name="go_drive">Mi Drive</string>
   <string name="go_shared">Compartido conmigo</string>
   <string name="modified_on_date_at_time">\'Modificado el\' EEE, MMM dd, yyyy \'a las\' HH:mm</string>
-  <string name="aggregate_preferences">Ajustes de ODK Aggregate</string>
+  <string name="aggregate_preferences">Ajustes de KoBoToolbox</string>
   <string name="sms_submission_preferences">Ajustes para envío de SMS</string>
   <string name="submission_transport">Envío de transporte (avanzado)</string>
   <string name="submission_transport_types_title">Hacer envíos vía</string>
@@ -284,8 +284,8 @@
   <string name="google_set_account">Ha seleccionado Google Sheets como servidor, por favor, seleccionar la correspondiente cuenta Google en Características Generales antes de continuar</string>
   <string name="media_upload_error">Falla en subida de archivo multimedia. No existe: %1$s</string>
   <string name="odk_permissions_fail">Falla en permiso de auto envío. Asegúrese de haber otorgado todos los permisos requeridos. </string>
-  <string name="odk_auto_note">ODK resultados de auto-envío</string>
-  <string name="odk_auto_download_notification_title">ODK resultados de auto-descarga</string>
+  <string name="odk_auto_note">KoBoToolbox resultados de auto-envío</string>
+  <string name="odk_auto_download_notification_title">KoBoToolbox resultados de auto-descarga</string>
   <string name="notification_error">Error al mostrar texto de la notificación</string>
   <string name="delete_after_send">Eliminar después de enviar</string>
   <string name="delete_after_send_summary">Eliminar formularios finalizados y archivos multimedia después de enviar al servidor</string>
@@ -301,7 +301,7 @@
   <string name="username_error_whitespace">No se permites espacios en nombre de usuario</string>
   <string name="google_play_services_error_occured">No se puede acceder a Google Maps. ¿Hay el servicio instalado?</string>
   <string name="about_preferences">Acerca de</string>
-  <string name="tell_your_friends">Compartir ODK Collect</string>
+  <string name="tell_your_friends">Compartir KoBoCollect</string>
   <string name="tell_your_friends_msg">Sus colegas aún recogen datos en papel? Comparte con ellos la aplicación</string>
   <string name="leave_a_review">Ir a Play Store - Comentar y/o Actualizar</string>
   <string name="leave_a_review_msg">Su comentario (ojalá positivo) incrementa la visibilidad de la App en Play Store</string>
@@ -407,8 +407,8 @@
   <string name="version_number">Versión: %s</string>
   <string name="id_number">ID: %s</string>
   <string name="odk_website">Visitar el sitio web</string>
-  <string name="odk_website_summary">Open Data Kit (ODK) es usado para toma de datos  y beneficiar la sociedad en ambientes desafiantes</string>
-  <string name="odk_forum">Unirse al foro de ODK</string>
+  <string name="odk_website_summary">KoBoToolbox es usado para toma de datos  y beneficiar la sociedad en ambientes desafiantes</string>
+  <string name="odk_forum">Unirse al foro de KoBoToolbox</string>
   <string name="odk_forum_summary">Únase al foro para obtener soporte, solicitar mejoras, contribuir con el código, traducir!</string>
   <string name="all_open_source_licenses">Licencias/librerias de Código Abierto</string>
   <string name="all_open_source_licenses_msg">Sostenidos a hombros de gigantes!</string>

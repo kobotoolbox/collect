@@ -23,8 +23,8 @@
   <string name="recapture_osm">OSM-Tagging ändern</string>
   <string name="capture_video">Video aufnehmen</string>
   <string name="change_language">Sprache ändern</string>
-  <string name="change_password">ODK Passwort</string>
-  <string name="change_username">ODK Benutzername</string>
+  <string name="change_password">KoBoToolbox Passwort</string>
+  <string name="change_username">KoBoToolbox Benutzername</string>
   <string name="clearanswer_confirm">Antwort zu \"%s\" entfernen?</string>
   <string name="clear_answer">Antwort entfernen</string>
   <string name="clear_answer_ask">Diese Antwort entfernen?</string>
@@ -84,7 +84,7 @@
   <string name="location_provider_accuracy">Verwendung von %1$s. Genauigkeit beträgt %2$s m.</string>
   <string name="location_accuracy">Genauigkeit beträgt %1$s m</string>
   <string name="main_menu">Haupt-Menü</string>
-  <string name="main_menu_details">Datenerhebung leicht gemacht…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Formulare löschen</string>
   <string name="mark_finished">Formular als vollständig markieren</string>
   <string name="noselect_error">Keine Formulare ausgewählt!</string>
@@ -134,7 +134,7 @@
   <string name="client">Bedienung</string>
   <string name="show_splash_summary">Wird angezeigt, während die App startet</string>
   <string name="splash_path">Ausgewähltes Startbild</string>
-  <string name="default_splash_path">ODK Standard</string>
+  <string name="default_splash_path">KoBoToolbox Standard</string>
   <string name="select_another_image">Anderes Bild auswählen</string>
   <string name="use_odk_default">Standardbild verwenden</string>
   <string name="change_splash_path">Bild ändern</string>
@@ -168,7 +168,7 @@
   <string name="save_as_error">Gespeicherter Name darf nicht leer sein!</string>
   <string name="edit_prompt">Eingabe ändern</string>
   <string name="selected_google_account_text">Google-Konto</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Andere</string>
   <string name="font_size_extra_large">Sehr gross</string>
   <string name="font_size_large">Groß</string>
@@ -270,7 +270,7 @@
   <string name="go_drive">My Drive</string>
   <string name="go_shared">Shared with Me</string>
   <string name="modified_on_date_at_time">\'Geändert am\' EEE, dd.MM.yyyy \'um\' HH:mm</string>
-  <string name="aggregate_preferences">ODK-Aggregate-Einstellungen</string>
+  <string name="aggregate_preferences">KoBoToolbox-Aggregate-Einstellungen</string>
   <string name="sms_submission_preferences">SMS-Einsendungseinstellungen</string>
   <string name="submission_transport">Einsendungsübertragung (erweitert)</string>
   <string name="submission_transport_types_title">Einsendung über</string>
@@ -281,9 +281,9 @@
   <string name="no_google_account">Kein Google-Konto ausgewählt!</string>
   <string name="google_set_account">Sie haben Google Sheets als Server ausgewählt. Bitte geben Sie unter den Einstellungen ein Google-Konto an, bevor Sie fortfahren.</string>
   <string name="media_upload_error">Nicht vorhandene Mediendatei konnte nicht hochgeladen werden: %1$s</string>
-  <string name="odk_permissions_fail">ODK Auto-Send Berechtigungsfehler, bitte stellen Sie sicher, dass Sie alle benötigten Berechtigungen erteilt haben</string>
-  <string name="odk_auto_note">ODK Auto-Send-Ergebnisse</string>
-  <string name="odk_auto_download_notification_title">ODK Auto-Download-Ergebnisse</string>
+  <string name="odk_permissions_fail">KoBoToolbox Auto-Send Berechtigungsfehler, bitte stellen Sie sicher, dass Sie alle benötigten Berechtigungen erteilt haben</string>
+  <string name="odk_auto_note">KoBoToolbox Auto-Send-Ergebnisse</string>
+  <string name="odk_auto_download_notification_title">KoBoToolbox Auto-Download-Ergebnisse</string>
   <string name="notification_error">Fehler beim Anzeigen des Benachrichtigungstextes</string>
   <string name="delete_after_send">Löschen nach dem Senden</string>
   <string name="delete_after_send_summary">Löscht abgeschlossene Formulare und Medien nach dem Senden zum Server</string>
@@ -299,8 +299,8 @@
   <string name="username_error_whitespace">Leerzeichen am Anfang und Ende von Benutzernamen nicht erlaubt</string>
   <string name="google_play_services_error_occured">Zugriff auf Google Maps nicht möglich. Sind die Google Play Services installiert?</string>
   <string name="about_preferences">Über</string>
-  <string name="tell_your_friends">ODK Collect teilen</string>
-  <string name="tell_your_friends_msg">Erfassen Ihre Kollegen Daten immer noch auf Papier. Empfehlen Sie Ihnen ODK Collect.</string>
+  <string name="tell_your_friends">KoBoCollect teilen</string>
+  <string name="tell_your_friends_msg">Erfassen Ihre Kollegen Daten immer noch auf Papier. Empfehlen Sie Ihnen KoBoCollect.</string>
   <string name="leave_a_review">Geben Sie eine Play Store Bewertung ab</string>
   <string name="leave_a_review_msg">Ihre (hoffentlich positive) Bewertung steigert die Bekanntheit der App im Play Store.</string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -343,7 +343,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS ist auf ihrem Gerät deaktiviert. Möchten Sie es aktivieren?</string>
   <string name="geo_clear_warning">Merkmal bereits erzeugt. Möchten Sie das Merkmal löschen?</string>
-  <string name="geo_exit_warning">Änderungen verwerfen und zu ODK zurückkehren?</string>
+  <string name="geo_exit_warning">Änderungen verwerfen und zu KoBoToolbox zurückkehren?</string>
   <string name="polygon_validator">Min. 3 Punkte notwendig um ein Polygon zu erzeugen</string>
   <string name="polyline_validator">Min. 2 Punkte notwendig um eine Polylinie zu erzeugen</string>
   <string name="clear">Löschen</string>
@@ -384,7 +384,7 @@
   <string name="geometry_status">Gespeicherte Formulare: %d (%d auf der Karte angezeigt) </string>
   <string name="bearing">Kompass-Peilung: %.3f</string>
   <string name="direction">Himmelsrichtung: %s</string>
-  <string name="select_odk_shortcut">ODK Verknüpfung auswählen</string>
+  <string name="select_odk_shortcut">KoBoToolbox Verknüpfung auswählen</string>
   <string name="bad_uri">Fehlerhafte URI: %s</string>
   <string name="unrecognized_uri">Unbekannte URI: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -404,9 +404,9 @@
   <string name="selected_answer">Ausgewählt: %s</string>
   <string name="version_number">Version: %s</string>
   <string name="id_number">ID: %s</string>
-  <string name="odk_website">ODK-Webseite öffnen</string>
-  <string name="odk_website_summary">Open Data Kit (ODK) wird verwendet um Daten für soziale Zwecke in herausfordernden Umgebungen zu sammeln.</string>
-  <string name="odk_forum">Dem ODK-Forum beitreten</string>
+  <string name="odk_website">KoBoToolbox-Webseite öffnen</string>
+  <string name="odk_website_summary">KoBoToolbox wird verwendet um Daten für soziale Zwecke in herausfordernden Umgebungen zu sammeln.</string>
+  <string name="odk_forum">Dem KoBoToolbox-Forum beitreten</string>
   <string name="odk_forum_summary">Treten Sie dem Forum bei, um Hilfe zu bekommen, Funktionen vorzuschlagen, Code/Übersetzungen beizutragen!</string>
   <string name="all_open_source_licenses">Open Source Libraries/Lizenzen</string>
   <string name="all_open_source_licenses_msg">Wir stehen auf den Schultern von Riesen!</string>
@@ -427,7 +427,7 @@
   <string name="encryption_error_message">%s Formular wurde nicht als vollständig gespeichert.</string>
   <string name="analytics_preferences">Nutzungsdaten</string>
   <string name="analytics">Anonyme Nutzungsdaten sammeln</string>
-  <string name="analytics_summary">Anonyme Nutzungsdaten helfen dem ODK-Team Fehlerbehebungen und neue Funktionen zu priorisieren.</string>
+  <string name="analytics_summary">Anonyme Nutzungsdaten helfen dem KoBoToolbox-Team Fehlerbehebungen und neue Funktionen zu priorisieren.</string>
   <string name="select_all">Alle auswählen</string>
   <string name="clear_all">Auswahl aufheben</string>
   <string name="reset_settings">Alle Einstellungen (interne Einstellungen, gespeicherte Einstellungen)</string>
@@ -628,7 +628,7 @@
   <string name="send_sms_runtime_permission_denied_title">SMS-Versand-Berechtigung</string>
   <string name="send_sms_runtime_permission_denied_desc">Ohne diese Berechtigung kann Collect keine SMS versenden. Bitte versuchen Sie es erneut, wenn Sie dazu bereit sind die Berechtigung zu erteilen.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Berechtigung Telefonstatus abrufen</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect macht keine Telefonanrufe aber benötigt Zugriff auf bestimmte Eigenschaften ihres Geräts, wie die Telefonnummer und Geräte-ID.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect macht keine Telefonanrufe aber benötigt Zugriff auf bestimmte Eigenschaften ihres Geräts, wie die Telefonnummer und Geräte-ID.</string>
   <string name="form_update_category">Formular-Update</string>
   <string name="periodic_form_updates_check_title">Periodischer Formular-Update-Check</string>
   <string name="never">Nie</string>

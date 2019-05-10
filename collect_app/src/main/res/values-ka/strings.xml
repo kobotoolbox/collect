@@ -24,7 +24,7 @@
   <string name="capture_video">ვიდეოგადაღება</string>
   <string name="change_language">ენის შეცვლა</string>
   <string name="change_password">პაროლი</string>
-  <string name="change_username">ODK-ის მომხმარებლის სახელი</string>
+  <string name="change_username">KoBoToolbox-ის მომხმარებლის სახელი</string>
   <string name="clearanswer_confirm">შევცვალოთ ეს გამოპასუხება \"%s\"-ით?</string>
   <string name="clear_answer">გამოპასუხების მოცილება</string>
   <string name="clear_answer_ask">მოვაცილოთ ეს გამოპასუხება?</string>
@@ -83,7 +83,7 @@
   <string name="location_provider_accuracy">მდებარეობის მიღება %1$s-ით. აკურატულობა შეადგენს %2$s მეტრს.</string>
   <string name="location_accuracy">აკურატულობა %1$s მეტრია</string>
   <string name="main_menu">მთავარი მენიუ</string>
-  <string name="main_menu_details">მონაცემების შეგროვება უფრო გაადვილდა…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">შენახული ფორმების წაშლა</string>
   <string name="mark_finished">აღვნიშნოთ ფორმა დასრულებულად</string>
   <string name="noselect_error">უკაცრავად, თქვენ ფორმა არ აგირჩევიათ!</string>
@@ -124,7 +124,7 @@
   <string name="general_preferences">შეცვლა</string>
   <string name="show_splash_summary">აჩვენებს, როდესაც ირთვება აპლიკაცია</string>
   <string name="splash_path">არჩეული სპლეშ-სურათი</string>
-  <string name="default_splash_path">ODK დეფოლტი</string>
+  <string name="default_splash_path">KoBoToolbox დეფოლტი</string>
   <string name="select_another_image">სხვა სურათების არჩევა</string>
   <string name="use_odk_default">გამოიყენე დეფოლტ-სურათი</string>
   <string name="change_splash_path">სურათის შეცვლა</string>
@@ -155,7 +155,7 @@
   <string name="save_as_error">სახელი არ უნდა იყოს ცარიელი!</string>
   <string name="edit_prompt">გამოპასუხების რედაქტირება</string>
   <string name="selected_google_account_text">Google ექაუნთი</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">სხვა</string>
   <string name="font_size_extra_large">ძალიან დიდი</string>
   <string name="font_size_large">დიდი</string>
@@ -222,7 +222,7 @@
   <string name="survey_saving_saving_message">მიმდინარეობს SD-ბარათზე შენახვა</string>
   <string name="google_drive">Google Drive</string>
   <string name="go_drive">ჩემი Drive</string>
-  <string name="aggregate_preferences">ODK Aggregate-ის პარამეტრები</string>
+  <string name="aggregate_preferences">KoBoToolbox-ის პარამეტრები</string>
   <string name="notification_error">შეცდომა შეტყობინების ტექსტის ჩვენებისას</string>
   <string name="delete_after_send">გაგზავნის შემდგომ წაშლა</string>
   <string name="change_server_url">სერვერის ვებ-მისამართი</string>

@@ -22,8 +22,8 @@
   <string name="recapture_osm">OSM ټک کول بیا ترسره کړی</string>
   <string name="capture_video">ویدیو ثبت کړی</string>
   <string name="change_language">ژبه تغیر کړی</string>
-  <string name="change_password">ODK پټنوم</string>
-  <string name="change_username">ODK کارنوم</string>
+  <string name="change_password">KoBoToolbox پټنوم</string>
+  <string name="change_username">KoBoToolbox کارنوم</string>
   <string name="clearanswer_confirm">ځواب %sته لري کړي</string>
   <string name="clear_answer">ځواب لري کړی</string>
   <string name="clear_answer_ask">ځواب لري کړی؟</string>
@@ -66,7 +66,7 @@
   <string name="leave_repeat_yes">مه یی زیاتوي</string>
   <string name="leaving_repeat_ask">یو بل ټولګی زیات کړی؟</string>
   <string name="main_menu">اصلی مینو</string>
-  <string name="main_menu_details">د معلوماتو راغونډول اسانه کړل …</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">ثبت شوی فورمه لري کړی</string>
   <string name="mark_finished">د وروستي بڼه په توګه نښه کړئ</string>
   <string name="noselect_error">بخښنه غواړو، تاسو کومه فورمه نه ده ټاکلې</string>

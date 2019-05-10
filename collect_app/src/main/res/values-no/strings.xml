@@ -15,7 +15,7 @@
   <string name="capture_video">Ta opp video</string>
   <string name="change_language">Endre språk</string>
   <string name="change_password">Passord</string>
-  <string name="change_username">ODK brukernavn</string>
+  <string name="change_username">KoBoToolbox brukernavn</string>
   <string name="clearanswer_confirm">Slette svar til \"%s\"?</string>
   <string name="clear_answer">Slett svar</string>
   <string name="clear_answer_ask">Slette svaret?</string>
@@ -72,7 +72,7 @@
   <string name="location_provider_accuracy">Bruker %1$s. Nøyaktighet er %2$s m.</string>
   <string name="location_accuracy">Nøyaktigheten er %1$s m</string>
   <string name="main_menu">Hovedmeny</string>
-  <string name="main_menu_details">Forenklet datainnsamling…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Slett lagret skjema</string>
   <string name="mark_finished">Kryss skjema som ferdig</string>
   <string name="noselect_error">Beklager, du har ikke valgt skjema!</string>
@@ -113,7 +113,7 @@
   <string name="general_preferences">Endre innstillinger</string>
   <string name="show_splash_summary">Vis når programmet starter</string>
   <string name="splash_path">Velg oppstartbilde</string>
-  <string name="default_splash_path">ODK Default</string>
+  <string name="default_splash_path">KoBoToolbox Default</string>
   <string name="select_another_image">Velg annet bilde</string>
   <string name="use_odk_default">Bruk standard bilde</string>
   <string name="change_splash_path">Endre bilde</string>
@@ -144,7 +144,7 @@
   <string name="save_as_error">Navnet kan ikke være blank!</string>
   <string name="edit_prompt">Rediger prompt</string>
   <string name="selected_google_account_text">Google-konto</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Andre</string>
   <string name="font_size_extra_large">Ekstra stor</string>
   <string name="font_size_large">Stor</string>
@@ -238,7 +238,7 @@
   <string name="go_drive">Min Drive</string>
   <string name="go_shared">Delt med meg</string>
   <string name="modified_on_date_at_time">\'Endret den\' EEE, MMM dd, yyyy \'kl\' HH:mm</string>
-  <string name="aggregate_preferences">Innstillinger for ODK Aggregate</string>
+  <string name="aggregate_preferences">Innstillinger for KoBoToolbox</string>
   <string name="other_preferences">Andre plattforminnstillinger</string>
   <string name="google_preferences">Innstillinger for Google Sheets</string>
   <string name="drive_get_file">Henter %1$s og mediafiler.</string>

@@ -13,7 +13,7 @@
   <string name="capture_video">Mag-tala ng Bidyo</string>
   <string name="change_language">Palitan ang Wika</string>
   <string name="change_password">Hudyat</string>
-  <string name="change_username">ODK Username</string>
+  <string name="change_username">KoBoToolbox Username</string>
   <string name="clearanswer_confirm">Tanggalin ang tugon sa \"%s\"?</string>
   <string name="clear_answer">Tanggalin ang tugon</string>
   <string name="clear_answer_ask">Tanggalin ang tugon na ito?</string>
@@ -68,7 +68,7 @@
   <string name="location_provider_accuracy">Gamit ang %1$s. Ang Kawastuhan ay %2$s m.</string>
   <string name="location_accuracy">Ang kawastuhan ay %1$s m</string>
   <string name="main_menu">Main Menu</string>
-  <string name="main_menu_details">Pinadaling pangangalap ng datos…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Burahin ang Inimpok na Form</string>
   <string name="mark_finished">Markahan Yari ang Form</string>
   <string name="noselect_error">Paumanhin, walang form na pinili!</string>
@@ -106,7 +106,7 @@
   <string name="client">Client</string>
     <string name="show_splash_summary">Pinapakita sa umpisa ng application</string>
   <string name="splash_path">Piniling larawan para sa Panimulang Tabing</string>
-  <string name="default_splash_path">Paunang natukoy ng ODK</string>
+  <string name="default_splash_path">Paunang natukoy ng KoBoToolbox</string>
   <string name="select_another_image">Pumili ng Ibang Imahe</string>
   <string name="use_odk_default">Gamitin ang Paunang natukoy na Imahe</string>
   <string name="change_splash_path">Palitan ang Imahe</string>
@@ -132,7 +132,7 @@
   <string name="save_as_error">Hindi maaaring blangko ang pangalan ng form!</string>
   <string name="edit_prompt">Pamatnugutan ang Udyok</string>
   <string name="selected_google_account_text">Google Account</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="font_size_extra_large">Labis na Malaki</string>
   <string name="font_size_large">Malaki</string>
   <string name="font_size_medium">Katamtaman</string>

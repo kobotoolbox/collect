@@ -23,8 +23,8 @@
   <string name="recapture_osm">Uusi OSM-tägi</string>
   <string name="capture_video">Tallenna video</string>
   <string name="change_language">Vaihda kieltä</string>
-  <string name="change_password">ODK salasana</string>
-  <string name="change_username">ODK käyttäjätunnus</string>
+  <string name="change_password">KoBoToolbox salasana</string>
+  <string name="change_username">KoBoToolbox käyttäjätunnus</string>
   <string name="clearanswer_confirm">Poistetaanko vastaus kysymykseen \"%s\"?</string>
   <string name="clear_answer">Poista vastaus</string>
   <string name="clear_answer_ask">Poistetaanko tämä vastaus?</string>
@@ -84,7 +84,7 @@
   <string name="location_provider_accuracy">%1$s käytössä. Tarkkuus %2$s m.</string>
   <string name="location_accuracy">Tarkkuus %1$s m</string>
   <string name="main_menu">Päävalikko</string>
-  <string name="main_menu_details">Helpompaa tiedonkeruuta</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Poista tallennettu lomake</string>
   <string name="mark_finished">Merkitse lomake valmiiksi</string>
   <string name="noselect_error">Pahoittelen, et ole valinnut yhtään lomaketta!</string>
@@ -134,7 +134,7 @@
   <string name="client">Käyttöliittymä</string>
   <string name="show_splash_summary">Näytä sovelluksen käynnistyessä</string>
   <string name="splash_path">Valittu aloitusruutu</string>
-  <string name="default_splash_path">ODK oletus</string>
+  <string name="default_splash_path">KoBoToolbox oletus</string>
   <string name="select_another_image">Valitse toinen kuva</string>
   <string name="use_odk_default">Käytä oletuskuvaa</string>
   <string name="change_splash_path">Vaihda kuva</string>
@@ -168,7 +168,7 @@
   <string name="save_as_error">Tallennettu nimi ei saa olla tyhjä!</string>
   <string name="edit_prompt">Vastauksen muokkaus</string>
   <string name="selected_google_account_text">Google-tili</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Muu</string>
   <string name="font_size_extra_large">Erittäin suuri</string>
   <string name="font_size_large">Suuri</string>
@@ -270,7 +270,7 @@
   <string name="go_drive">Oma Drive</string>
   <string name="go_shared">Minun kanssani jaetut</string>
   <string name="modified_on_date_at_time">\'Muokattu\' EEE, dd MMM yyyy \'kello\' HH:mm</string>
-  <string name="aggregate_preferences">ODK Aggregate -asetukset</string>
+  <string name="aggregate_preferences">KoBoToolbox -asetukset</string>
   <string name="sms_submission_preferences">SMS lähetysasetukset</string>
   <string name="submission_transport">Lähetyksen välitys (lisäasetukset)</string>
   <string name="submission_transport_types_title">Minkä kautta lähetetään</string>
@@ -281,9 +281,9 @@
   <string name="no_google_account">Ei valittua Google-tiliä!</string>
   <string name="google_set_account">Palvelimesi on Google Sheets, valitse vastaava Google-tili yleisasetuksissa ennen jatkamista</string>
   <string name="media_upload_error">Palvelimelle ei voida siirtää tiedostoa, jota ei ole olemassa: %1$s</string>
-  <string name="odk_permissions_fail">Automaattisella ODK-lähetyksellä käyttölupavirhe, varmista että olet antanut sovellukselle kaikki tarvittavat käyttöluvat</string>
-  <string name="odk_auto_note">ODK automaattisen lähetyksen tulokset</string>
-  <string name="odk_auto_download_notification_title">ODK automaattisen lataamisen tulokset</string>
+  <string name="odk_permissions_fail">Automaattisella KoBoToolbox-lähetyksellä käyttölupavirhe, varmista että olet antanut sovellukselle kaikki tarvittavat käyttöluvat</string>
+  <string name="odk_auto_note">KoBoToolbox automaattisen lähetyksen tulokset</string>
+  <string name="odk_auto_download_notification_title">KoBoToolbox automaattisen lataamisen tulokset</string>
   <string name="notification_error">Virhe näyttäessä ilmoitustekstiä</string>
   <string name="delete_after_send">Poista lähettämisen jälkeen</string>
   <string name="delete_after_send_summary">Poistaa valmiiksi merkityt lomakkeet ja mediatiedostot kun ne on lähetetty palvelimelle</string>
@@ -299,8 +299,8 @@
   <string name="username_error_whitespace">Käyttäjänimen alussa tai lopussa ei saa olla välilyöntimerkkejä</string>
   <string name="google_play_services_error_occured">Google Maps -palveluun ei saada yhteyttä. Onko Google Play Services asennettu?</string>
   <string name="about_preferences">Lisätietoja</string>
-  <string name="tell_your_friends">Jaa ODK Collect</string>
-  <string name="tell_your_friends_msg">Keräävätkö kollegasi vielä dataa paperilla? Jaa ODK Collect heidän kanssaan.</string>
+  <string name="tell_your_friends">Jaa KoBoCollect</string>
+  <string name="tell_your_friends_msg">Keräävätkö kollegasi vielä dataa paperilla? Jaa KoBoCollect heidän kanssaan.</string>
   <string name="leave_a_review">Kirjoita Play Store -arvio</string>
   <string name="leave_a_review_msg">Sinun (toivottavasti myönteinen) arviosi lisää sovelluksen näkyvyyttä Play Store -kaupassa.</string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -343,7 +343,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS ei ole päällä laitteessasi. Haluaisitko kytkeä sen päälle?</string>
   <string name="geo_clear_warning">Ominaisuus on jo luotu. Haluatko tyhjentää ominaisuuden?</string>
-  <string name="geo_exit_warning">Hylätäänkö muutokset ja palataan ODK:hon?</string>
+  <string name="geo_exit_warning">Hylätäänkö muutokset ja palataan KoBoToolbox:hon?</string>
   <string name="polygon_validator">Monikulmion luomiseen tarvitaan vähintään 3 pistettä</string>
   <string name="polyline_validator">Polyline-kuvion luomiseen tarvitaan vähintään 2 pistettä</string>
   <string name="clear">Tyhjennä</string>
@@ -384,7 +384,7 @@
   <string name="geometry_status">Tallennettuja lomakkeita: %d (%d näytetty kartalla)</string>
   <string name="bearing">Suuntima: %.3f</string>
   <string name="direction">Suunta: %s</string>
-  <string name="select_odk_shortcut">Valitse ODK-oikotie</string>
+  <string name="select_odk_shortcut">Valitse KoBoToolbox-oikotie</string>
   <string name="bad_uri">Kelvoton URI: %s</string>
   <string name="unrecognized_uri">Tunnistamaton URI: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -404,9 +404,9 @@
   <string name="selected_answer">Valittu: %s</string>
   <string name="version_number">Versio: %s</string>
   <string name="id_number">ID: %s</string>
-  <string name="odk_website">Käy ODK:n verkkosivulla</string>
-  <string name="odk_website_summary">Open Data Kit (ODK) -sovellusta käytetään vaativissa olosuhteissa keräämään dataa yhteisen hyvän edistämiseksi.</string>
-  <string name="odk_forum">Liity ODK-foorumiin</string>
+  <string name="odk_website">Käy KoBoToolbox:n verkkosivulla</string>
+  <string name="odk_website_summary">KoBoToolbox -sovellusta käytetään vaativissa olosuhteissa keräämään dataa yhteisen hyvän edistämiseksi.</string>
+  <string name="odk_forum">Liity KoBoToolbox-foorumiin</string>
   <string name="odk_forum_summary">Liity foorumiin saadaksesi tukea, pyytääksesi toimintoja, ja auttaaksesi koodaamisessa tai kääntämisessä!</string>
   <string name="all_open_source_licenses">Avoimen lähdekoodin kirjastot/lisenssit</string>
   <string name="all_open_source_licenses_msg">Seisomme jättiläisten harteilla!</string>
@@ -427,7 +427,7 @@
   <string name="encryption_error_message">%s Lomaketta ei ole tallennettu viimeisteltynä.</string>
   <string name="analytics_preferences">Käyttötiedot</string>
   <string name="analytics">Kerää anonyymejä käyttötietoja</string>
-  <string name="analytics_summary">Anonyymit käyttötiedot auttavat ODK-tiimiä priorisoimaan korjauksia ja ominaisuuksia</string>
+  <string name="analytics_summary">Anonyymit käyttötiedot auttavat KoBoToolbox-tiimiä priorisoimaan korjauksia ja ominaisuuksia</string>
   <string name="select_all">Valitse kaikki</string>
   <string name="clear_all">Tyhjennä kaikki</string>
   <string name="reset_settings">Kaikki asetukset (sisäiset asetukset, tallennetut asetukset)</string>
@@ -628,7 +628,7 @@
   <string name="send_sms_runtime_permission_denied_title">SMS-lähetyslupa</string>
   <string name="send_sms_runtime_permission_denied_desc">Ilman tätä lupaa Collect ei pysty lähettämään SMS-viestejä. Ole hyvä ja yritä uudestaa kun olet valmis myöntämään sen.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Puhelimen tilan lukemisen käyttölupa</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect ei soita puheluita, mutta se tarvitsee tiedot joistakin laitteesi tiedoista, kuten puhelinnumero ja laitteen ID.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect ei soita puheluita, mutta se tarvitsee tiedot joistakin laitteesi tiedoista, kuten puhelinnumero ja laitteen ID.</string>
   <string name="form_update_category">Lomakepäivitys</string>
   <string name="periodic_form_updates_check_title">Ajastettu lomakepäivitysten tarkistus</string>
   <string name="never">Ei koskaan</string>

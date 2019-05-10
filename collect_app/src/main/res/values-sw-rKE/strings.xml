@@ -13,7 +13,7 @@
   <string name="capture_osm">Anzisha OpenMapkit</string>
   <string name="capture_video">Rekodi kanda</string>
   <string name="change_language">Badilisha Lugha</string>
-  <string name="change_password">Nywila ya ODK</string>
+  <string name="change_password">Nywila ya KoBoToolbox</string>
   <string name="change_username">Jina la mtumiaji</string>
   <string name="clearanswer_confirm">Ondoa jibu la \"%s\"?</string>
   <string name="clear_answer">Ondoa jibu</string>
@@ -69,7 +69,7 @@
   <string name="location_provider_accuracy">Ukitumia %1$s. Usahihi ni %2$s m.</string>
   <string name="location_accuracy">Usahihi ni %1$s m</string>
   <string name="main_menu">Menu kuu</string>
-  <string name="main_menu_details">Ukusanyaji wa data umefanywa rahisi….</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Ondoa fomu iliyo hifadhiwa</string>
   <string name="mark_finished">sahihisha fomu kama iliyo kamilika</string>
   <string name="noselect_error">Samahani, hujachagua fomu yoyote!</string>
@@ -108,7 +108,7 @@
   <string name="general_preferences">Mazingira ya Jumla</string>
   <string name="show_splash_summary">Huonyesha ala linapoanza</string>
   <string name="splash_path">Picha iliyochaguliwa</string>
-  <string name="default_splash_path">Chaguo-msingi ya ODK</string>
+  <string name="default_splash_path">Chaguo-msingi ya KoBoToolbox</string>
   <string name="select_another_image">Chagua Picha nyingine</string>
   <string name="use_odk_default">Tumia picha ya kawaida</string>
   <string name="change_splash_path">Badilisha picha</string>
@@ -139,7 +139,7 @@
   <string name="save_as_error">Jina lilohifadhiwa halifai kuwa tupu</string>
   <string name="edit_prompt">Hariri ilani</string>
   <string name="selected_google_account_text">Akaunti ya Google</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Nyingine</string>
   <string name="font_size_extra_large">Kubwa zaidi</string>
   <string name="font_size_large">Kubwa</string>

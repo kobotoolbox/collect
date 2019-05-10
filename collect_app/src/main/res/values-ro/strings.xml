@@ -14,8 +14,8 @@
   <string name="recapture_osm">Reface etichetare (tagging) OSM</string>
   <string name="capture_video">Înregistrează videoclipul</string>
   <string name="change_language">Schimbă limba</string>
-  <string name="change_password">Parola ODK</string>
-  <string name="change_username">Nume utilizator ODK</string>
+  <string name="change_password">Parola KoBoToolbox</string>
+  <string name="change_username">Nume utilizator KoBoToolbox</string>
   <string name="clearanswer_confirm">Ștergeți răspunsul de la \"%s\"?</string>
   <string name="clear_answer">Ștergeți răspunsul</string>
   <string name="clear_answer_ask">Ștergeți acest răspuns?</string>
@@ -72,7 +72,7 @@
   <string name="location_provider_accuracy">Utilizat %1$s. Precizie de %2$s m.</string>
   <string name="location_accuracy">Precizie de %1$s m</string>
   <string name="main_menu">Meniu principal</string>
-  <string name="main_menu_details">Colectare mai ușoară a datelor…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Ștergeți formular salvat</string>
   <string name="mark_finished">Marcați formularul ca finalizat</string>
   <string name="noselect_error">Ne pare rău, nu ați selectat niciun formular!</string>
@@ -113,7 +113,7 @@
   <string name="general_preferences">Modificați setările</string>
   <string name="show_splash_summary">Afișat la startul aplicației</string>
   <string name="splash_path">Pagină de start selectată</string>
-  <string name="default_splash_path">ODK Implicit</string>
+  <string name="default_splash_path">KoBoToolbox Implicit</string>
   <string name="select_another_image">Selectați altă imagine</string>
   <string name="use_odk_default">Utilizați imaginea implicită</string>
   <string name="change_splash_path">Schimbați imaginea</string>
@@ -144,7 +144,7 @@
   <string name="save_as_error">Numele salvat nu trebuie să fie gol!</string>
   <string name="edit_prompt">Editare câmp</string>
   <string name="selected_google_account_text">Cont Google</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Alte</string>
   <string name="font_size_extra_large">Extra mare</string>
   <string name="font_size_large">Mare</string>
@@ -240,7 +240,7 @@
   <string name="go_drive">Discul meu</string>
   <string name="go_shared">Partajate cu mine</string>
   <string name="modified_on_date_at_time">\'Modificat în\' EEE, dd MMM yyyy \'la\' HH:mm</string>
-  <string name="aggregate_preferences">Setări ODK Aggregate</string>
+  <string name="aggregate_preferences">Setări KoBoToolbox</string>
   <string name="other_preferences">Setările altor platforme</string>
   <string name="google_preferences">Setări Google Sheets</string>
   <string name="drive_get_file">Preluare %1$s și fișiere media.</string>

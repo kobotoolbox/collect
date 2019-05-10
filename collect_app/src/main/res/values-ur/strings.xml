@@ -22,8 +22,8 @@
   <string name="recapture_osm"> او ایس ایم ٹیگنگ دوبارہ کریں</string>
   <string name="capture_video">وڈیو ریکارڈ کریں</string>
   <string name="change_language">زبان تبدیل کریں</string>
-  <string name="change_password">  ODK  کا پاس ورڈ</string>
-  <string name="change_username">ODK استعمال کرنے والے کا نام</string>
+  <string name="change_password">  KoBoToolbox  کا پاس ورڈ</string>
+  <string name="change_username">KoBoToolbox استعمال کرنے والے کا نام</string>
   <string name="clearanswer_confirm">‎%s‏ کو دیا گیا جواب ہٹائیں</string>
   <string name="clear_answer">جواب مٹا دیں</string>
   <string name="clear_answer_ask"> یہ جواب مٹا دیں؟</string>
@@ -83,7 +83,7 @@
   <string name="location_provider_accuracy">‎%1$s‏ استعمال ہو رہا ہے، ‎%2$s‏ درستگی  میٹر ہے</string>
   <string name="location_accuracy">درستگی ‎%1$s‏ ہے</string>
   <string name="main_menu">مین مینو</string>
-  <string name="main_menu_details">ڈیٹاکولیکشن آسان بنا دی گئی۔۔۔</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">محفوظ شدہ فارم کو ڈیلیٹ کردیں۔</string>
   <string name="mark_finished">فارم کو حتمی کردیں</string>
   <string name="noselect_error">معذرت، آپنے کسی فارم کا انتخاب نہیں کیا!</string>
@@ -131,7 +131,7 @@
   <string name="client">یوزر انٹرفیس</string>
   <string name="show_splash_summary">ایپلیکیشن جب  شروع ہو، دکھاتا ہے</string>
   <string name="splash_path">منتخب شدہ سپلیش تصویر</string>
-  <string name="default_splash_path">ODK طے شدہ</string>
+  <string name="default_splash_path">KoBoToolbox طے شدہ</string>
   <string name="select_another_image">دوسری تصویر کاانتخاب کریں۔</string>
   <string name="use_odk_default">پہلے سے دی گئی  تصویر کو استعمال کریں</string>
   <string name="change_splash_path">تصویر بدل دیں</string>
@@ -165,7 +165,7 @@
   <string name="save_as_error">محفوظ کیا گیا نام خالی نہیں ہونا چاہئے</string>
   <string name="edit_prompt">پرامپٹ کی ترمیم کریں</string>
   <string name="selected_google_account_text">گوگل اکاونٹ</string>
-  <string name="server_platform_odk_aggregate">مجموعی  ODK</string>
+  <string name="server_platform_odk_aggregate">مجموعی  KoBoToolbox</string>
   <string name="server_platform_other">دیگر</string>
   <string name="font_size_extra_large">زیادہ بڑا</string>
   <string name="font_size_large">بڑا</string>

@@ -14,8 +14,8 @@
   <string name="recapture_osm">Korda OSM sildistamist</string>
   <string name="capture_video">Video salvestamine</string>
   <string name="change_language">Muuda keelt</string>
-  <string name="change_password">ODK salasõna</string>
-  <string name="change_username">ODK kasutajanimi</string>
+  <string name="change_password">KoBoToolbox salasõna</string>
+  <string name="change_username">KoBoToolbox kasutajanimi</string>
   <string name="clearanswer_confirm">Eemalda vastus \"%s\"?</string>
   <string name="clear_answer">Eemalda vastus</string>
   <string name="clear_answer_ask">Eemalda see vastus?</string>
@@ -73,7 +73,7 @@
   <string name="location_provider_accuracy">Kasutades %1$s. Täpsusasteks on %2$s m.</string>
   <string name="location_accuracy">Täpsusasteks on %1$s m</string>
   <string name="main_menu">Peamenüü</string>
-  <string name="main_menu_details">Andmekogumine on nüüd lihtsam…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Kustuta salvestatud vorm</string>
   <string name="mark_finished">Märgi vorm lõpetatuks</string>
   <string name="noselect_error">Kahjuks ei ole te ühtegi vormi valinud!</string>
@@ -117,7 +117,7 @@
   <string name="general_preferences">Üldseaded</string>
   <string name="show_splash_summary">Ilmub rakenduse avamisel</string>
   <string name="splash_path">Valitud käivitusekraani pilt</string>
-  <string name="default_splash_path">ODK vaikmisi</string>
+  <string name="default_splash_path">KoBoToolbox vaikmisi</string>
   <string name="select_another_image">Vali teine pilt</string>
   <string name="use_odk_default">Kasuta vaikimisi pildina</string>
   <string name="change_splash_path">Muuda pilti</string>
@@ -148,7 +148,7 @@
   <string name="save_as_error">Salvestatud nimi ei tohi tühjaks jääda!</string>
   <string name="edit_prompt">Muuda küsimust</string>
   <string name="selected_google_account_text">Google konto</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Mõni teine</string>
   <string name="font_size_extra_large">Väga suur</string>
   <string name="font_size_large">Suur</string>
@@ -245,7 +245,7 @@
   <string name="go_drive">Minu Drive</string>
   <string name="go_shared">Minuga jagatud</string>
   <string name="modified_on_date_at_time">\'Muudetud\' EEE, MMM dd, yyyy \'kell\' HH:mm</string>
-  <string name="aggregate_preferences">ODK Aggregate seaded</string>
+  <string name="aggregate_preferences">KoBoToolbox seaded</string>
   <string name="other_preferences">Ülejäänud platvormi seaded</string>
   <string name="google_preferences">Google Sheets seaded</string>
   <string name="drive_get_file">Laen %1$s ja meediafailid.</string>
@@ -285,7 +285,7 @@
   <string name="enable_gps">Luba GPS</string>
   <string name="geotrace_title">Rada</string>
   <string name="geo_clear_warning">Kujutis on juba loodud. Kas soovite kujutise eemaldada?</string>
-  <string name="geo_exit_warning">Loobu muudatustest ja ava ODK?</string>
+  <string name="geo_exit_warning">Loobu muudatustest ja ava KoBoToolbox?</string>
   <string name="polygon_validator">Polügooni loomiseks on vaja vähemalt 3 punkti</string>
   <string name="clear">Eemalda</string>
   <string name="geopoint_instruction">Markeri paigutamiseks tuleb teha pikk hoidmine või valida marker nupp.</string>
@@ -295,7 +295,7 @@
   <string name="geotrace_view_change_location">Vaata või muuda rada</string>
   <string name="bearing">Suund: %.3f</string>
   <string name="direction">Siht: %s</string>
-  <string name="select_odk_shortcut">Vali ODK otsetee</string>
+  <string name="select_odk_shortcut">Vali KoBoToolbox otsetee</string>
   <string name="bad_uri">Vale veebiaadress: %s</string>
   <string name="unrecognized_uri">Tundmatu veebiaadress: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -330,7 +330,7 @@
   <string name="encryption_error_message">%s vorm ei ole salvestatud ja lõpetatud.</string>
   <string name="analytics_preferences">Kasutusinfo</string>
   <string name="analytics">Anonüümne kasutusinfo kogumine</string>
-  <string name="analytics_summary">Anonüümne kasutusinfo aitab ODK meeskonnal prioritiseerida parandusi ja arendusi</string>
+  <string name="analytics_summary">Anonüümne kasutusinfo aitab KoBoToolbox meeskonnal prioritiseerida parandusi ja arendusi</string>
   <string name="select_all">Vali kõik</string>
   <string name="clear_all">Eemalda kõik</string>
   <string name="reset_settings">Kõik seaded (sisemised seaded, salvestatud seaded)</string>

@@ -15,7 +15,7 @@
   <string name="capture_video">Quay Video</string>
   <string name="change_language">Đổi ngôn ngữ</string>
   <string name="change_password">Mật khẩu</string>
-  <string name="change_username">Tên truy cập ODK</string>
+  <string name="change_username">Tên truy cập KoBoToolbox</string>
   <string name="clearanswer_confirm">Xoá câu trả lời \"%s\"?</string>
   <string name="clear_answer">Xoá câu trả lời</string>
   <string name="clear_answer_ask">Muốn xoá câu trả lời này?</string>
@@ -72,7 +72,7 @@
   <string name="location_provider_accuracy">Sử dụng %1$s. Độ chính xác là %2$s m.</string>
   <string name="location_accuracy">Độ chính xác là %1$s m</string>
   <string name="main_menu">Thực đơn</string>
-  <string name="main_menu_details">Thu thập số liệu dễ dàng và thuận tiện hơn…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Xoá biểu mẫu cũ</string>
   <string name="mark_finished">Đánh dấu biểu mẫu là hoàn thành</string>
   <string name="noselect_error">Xin lỗi, bạn không chọn biểu mẫu nào!</string>
@@ -110,7 +110,7 @@
   <string name="general_preferences">Thay đổi thiết lập</string>
   <string name="show_splash_summary">Hiển thị khi chương trình khởi động</string>
   <string name="splash_path">Chọn ảnh màn hình chào</string>
-  <string name="default_splash_path">Mặc định ODK</string>
+  <string name="default_splash_path">Mặc định KoBoToolbox</string>
   <string name="select_another_image">Chọn ảnh khác</string>
   <string name="use_odk_default">Chọn ảnh mặc định</string>
   <string name="change_splash_path">Đổi ảnh</string>
@@ -141,7 +141,7 @@
   <string name="save_as_error">Tên được lưu không để trống!</string>
   <string name="edit_prompt">Sửa thông tin</string>
   <string name="selected_google_account_text">Tài khoản Google</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Khác</string>
   <string name="font_size_extra_large">Cực lớn</string>
   <string name="font_size_large">Lớn</string>

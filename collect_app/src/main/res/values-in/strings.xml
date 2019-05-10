@@ -23,8 +23,8 @@
   <string name="recapture_osm">Ulang tandai OSM</string>
   <string name="capture_video">Simpan video</string>
   <string name="change_language">Ubah bahasa</string>
-  <string name="change_password">Kata sandi ODK</string>
-  <string name="change_username">Nama pengguna ODK</string>
+  <string name="change_password">Kata sandi KoBoToolbox</string>
+  <string name="change_username">Nama pengguna KoBoToolbox</string>
   <string name="clearanswer_confirm">Hapus jawaban atas \"%s\"?</string>
   <string name="clear_answer">Hapus jawaban</string>
   <string name="clear_answer_ask">Hapus jawaban ini?</string>
@@ -84,7 +84,7 @@
   <string name="location_provider_accuracy">Dengan %1$s. Tingkat akurasi %2$s meter.</string>
   <string name="location_accuracy">Tingkat akurasi adalah %1$s meter</string>
   <string name="main_menu">Menu Utama</string>
-  <string name="main_menu_details">Pengumpulan data menjadi lebih mudah…</string>
+  <string name="main_menu_details">Part of KoBoToolbox\nBased on ODK Collect</string>
   <string name="manage_files">Hapus formulir</string>
   <string name="mark_finished">Tandai formulir ini telah siap kirim</string>
   <string name="noselect_error">Maaf, anda belum memilih formulir!</string>
@@ -134,7 +134,7 @@
   <string name="client">Antarmuka pengguna</string>
   <string name="show_splash_summary">Tampilkan pada awal aplikasi berjalan</string>
   <string name="splash_path">Gambar tampilan pembuka yang dipilih</string>
-  <string name="default_splash_path">ODK Bawaan</string>
+  <string name="default_splash_path">KoBoToolbox Bawaan</string>
   <string name="select_another_image">Pilih gambar lainnya</string>
   <string name="use_odk_default">Gunakan gambar bawaan</string>
   <string name="change_splash_path">Ubah gambar</string>
@@ -168,7 +168,7 @@
   <string name="save_as_error">Nama tidak boleh kosong!</string>
   <string name="edit_prompt">Ubah risalah</string>
   <string name="selected_google_account_text">Akun Google</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Lainnya</string>
   <string name="font_size_extra_large">Sangat besar</string>
   <string name="font_size_large">Besar</string>
@@ -232,7 +232,7 @@
   <string name="replace_bearing">Mengganti arah suatu titik</string>
   <string name="getting_bearing">Memuat arah suatu titik</string>
   <string name="accept_bearing">Merekam arah suatu titik</string>
-  <string name="sdcard_unmounted">ODK Collect tidak dapat mengakses SD card. Mungkin itu terpasang melalui USB? (kondisi saat ini: %s)</string>
+  <string name="sdcard_unmounted">KoBoCollect tidak dapat mengakses SD card. Mungkin itu terpasang melalui USB? (kondisi saat ini: %s)</string>
   <string name="ext_file_no_data_error">File tidak memiliki data!</string>
   <string name="ext_conflicting_columns_error">Semua kolom %s sesuai!</string>
   <string name="ext_sortBy_numeric_error">Kolom terfilter anda harus hanya berisi nilai numerik. Nilai yang  konflik adalah \'%s\'.</string>
@@ -268,7 +268,7 @@
   <string name="go_drive">Drive saya</string>
   <string name="go_shared">Berbagi dengan saya</string>
   <string name="modified_on_date_at_time">\'dirubah pada tanggal\' EEE, MMM dd, yyyy \'di jam\' HH:mm</string>
-  <string name="aggregate_preferences">Pengaturan ODK Aggregate</string>
+  <string name="aggregate_preferences">Pengaturan KoBoToolbox</string>
   <string name="sms_submission_preferences">Pengaturan pengiriman SMS</string>
   <string name="submission_transport">Pengiriman (Mahir)</string>
   <string name="submission_transport_types_title">Pengiriman melalui</string>
@@ -280,8 +280,8 @@
   <string name="google_set_account">Google Sheet telah dipilih sebagai server kamu, silahkan tentukan akun Google pada Pengaturan Umum sebelum melanjutkan</string>
   <string name="media_upload_error">Gagal unggah berkas media yg tidak ditemukan: 1 %1$s</string>
   <string name="odk_permissions_fail">perizinan pengiriman otomatis gagal, pastikan semua izin yg dibutuhkan telah diberikan</string>
-  <string name="odk_auto_note">Hasil pengiriman otomatis ODK</string>
-  <string name="odk_auto_download_notification_title">Hasil unduh otomatis ODK</string>
+  <string name="odk_auto_note">Hasil pengiriman otomatis KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">Hasil unduh otomatis KoBoToolbox</string>
   <string name="notification_error">Gagal menampilkan teks notifikasi</string>
   <string name="delete_after_send">Hapus setelah mengirim</string>
   <string name="delete_after_send_summary">Menghapus media dan formulir yang sempurna setelah mengirim ke server  </string>
@@ -297,10 +297,10 @@
   <string name="username_error_whitespace">Tidak diperkenankan menggunakan spasi pada nama pengguna</string>
   <string name="google_play_services_error_occured">Tidak dapat mengakses Google Maps. Apakah Google Play Services telah terpasang?</string>
   <string name="about_preferences">Tentang</string>
-  <string name="tell_your_friends">Promosikan ODK Collect</string>
-  <string name="tell_your_friends_msg">Apakah rekan anda masih menggunakan kertas untuk pengumpulan data? Kabarkan ODK Collect ke mereka semua.</string>
+  <string name="tell_your_friends">Promosikan KoBoCollect</string>
+  <string name="tell_your_friends_msg">Apakah rekan anda masih menggunakan kertas untuk pengumpulan data? Kabarkan KoBoCollect ke mereka semua.</string>
   <string name="leave_a_review">Berikan ulasan di Play Store</string>
-  <string name="leave_a_review_msg">Ulasan anda (semoga positif) dapat mempromosikan aplikasi ODK di Play Store</string>
+  <string name="leave_a_review_msg">Ulasan anda (semoga positif) dapat mempromosikan aplikasi KoBoToolbox di Play Store</string>
   <!--Geo string added in feature-geofeatures branch-->
   <!--TODO(ping): Delete these openmap_* strings when we're ready to move on from OSMDroid.
       These strings are only being used to preserve compatibility with pre-existing
@@ -326,7 +326,7 @@
   <string name="enable_gps">Hidupkan GPS</string>
   <string name="geotrace_title">Lacak GeoTrace </string>
   <string name="geo_clear_warning">Fitur sudah dibuat. Apakah anda ingin menghapus fitur ini?</string>
-  <string name="geo_exit_warning">Abaikan perubahan dan kembali ke ODK?</string>
+  <string name="geo_exit_warning">Abaikan perubahan dan kembali ke KoBoToolbox?</string>
   <string name="polygon_validator">Minimal harus memiliki 3 poin untuk membuat Polygon</string>
   <string name="polyline_validator">Dibutuhkan setidaknya 2 buah titik untuk membuat garis</string>
   <string name="clear">Hapus</string>
@@ -337,7 +337,7 @@
   <string name="geotrace_view_change_location">Tampilkan atau Ubah GeoTrace</string>
   <string name="bearing">Bantalan: %.3f</string>
   <string name="direction">Arah: %s</string>
-  <string name="select_odk_shortcut">Pilih pintasan ODK</string>
+  <string name="select_odk_shortcut">Pilih pintasan KoBoToolbox</string>
   <string name="bad_uri">Salah URI: %s</string>
   <string name="unrecognized_uri">URI tidak dikenal: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -356,9 +356,9 @@
   <string name="selected_answer">Terpilih: %s</string>
   <string name="version_number">Versi: %s</string>
   <string name="id_number">ID: 1 %s</string>
-  <string name="odk_website">Kunjungi situs ODK </string>
-  <string name="odk_website_summary">Open Data Kit (ODK) digunakan untuk mengumpulkan data untuk kepentingan sosial di lingkungan yang menantang.</string>
-  <string name="odk_forum">Gabung forum ODK</string>
+  <string name="odk_website">Kunjungi situs KoBoToolbox </string>
+  <string name="odk_website_summary">KoBoToolbox digunakan untuk mengumpulkan data untuk kepentingan sosial di lingkungan yang menantang.</string>
+  <string name="odk_forum">Gabung forum KoBoToolbox</string>
   <string name="odk_forum_summary">Bergabung di Forum untuk mendapatkan bantuan, permintaan fitur, berkontribusi kode program/terjemahan!</string>
   <string name="all_open_source_licenses">Lisensi/pustaka kode pustaka</string>
   <string name="all_open_source_licenses_msg">Kita menjadi besar karena berkolaborasi bersama!</string>
@@ -379,7 +379,7 @@
   <string name="encryption_error_message">%s tersimpan sebagai formulir belum selesai.</string>
   <string name="analytics_preferences">Penggunaan data</string>
   <string name="analytics">Kumpulkan data penggunaan anonim</string>
-  <string name="analytics_summary">Data penggunaan anonim membantu tim ODK memprioritaskan perbaikan dan fitur</string>
+  <string name="analytics_summary">Data penggunaan anonim membantu tim KoBoToolbox memprioritaskan perbaikan dan fitur</string>
   <string name="select_all">Pilih Semua</string>
   <string name="clear_all">Hapus Semua</string>
   <string name="reset_settings">Seluruh pengaturan (pengaturan internal, pengaturan tersimpan)</string>
@@ -569,7 +569,7 @@
   <string name="send_sms_runtime_permission_denied_title">Izin kirim SMS</string>
   <string name="send_sms_runtime_permission_denied_desc">Tanapa perizinan berikut Collect tidak dapat mengirim SMS. Buka ulang aplikasi jika anda sudah yakin akan memberikan izin.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Izin untuk membaca status telepon</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect tidak akan melalukan telepon tapi memerlukan akses ke beberapa informasi mengenai perangkat kamu seperti nomor telepon dan EMEI.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect tidak akan melalukan telepon tapi memerlukan akses ke beberapa informasi mengenai perangkat kamu seperti nomor telepon dan EMEI.</string>
   <string name="form_update_category">Pembaruan formulir</string>
   <string name="periodic_form_updates_check_title">Pemeriksaan pembaruan formulir berkala</string>
   <string name="never">Jangan pernah</string>

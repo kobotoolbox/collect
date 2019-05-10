@@ -1,3 +1,15 @@
+# KoBoCollect notes
+
+This project is a whitelisted version of ODK Collect. To build a new version, follow these steps: 
+
+* Check out the latest stable tag from opendatakit/collect
+* Cherry-pick the commits from the previous KoBoCollect update (latest is: v1.23.3-aug2019)
+* Handle merge conflicts, if any
+* copy over the release keystore and secrets
+* run string replacements via "node kobo-string-replace.js"
+* manually set versionCode and versionName in build.gradle (if necessary)
+* build and release!
+
 # ODK Collect
 ![Platform](https://img.shields.io/badge/platform-Android-blue.svg)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
