@@ -11,8 +11,8 @@
   <string name="recapture_osm">Doen OSM-tagging oor</string>
   <string name="capture_video">Neem video</string>
   <string name="change_language">Verander Taal</string>
-  <string name="change_password">ODK Wagwoord</string>
-  <string name="change_username">ODK Gebruikersnaam</string>
+  <string name="change_password">KoBoToolbox Wagwoord</string>
+  <string name="change_username">KoBoToolbox Gebruikersnaam</string>
   <string name="clearanswer_confirm">Verwyer die antwoord op \"%s\"?</string>
   <string name="clear_answer">Verwyder antwoord</string>
   <string name="clear_answer_ask">Verwyder hierdie antwoord?</string>
@@ -104,7 +104,7 @@
   <string name="general_preferences">Algemene Verstellings</string>
   <string name="show_splash_summary">Vertoon wanneer program begin</string>
   <string name="splash_path">Geselekteerde splash prentjie</string>
-  <string name="default_splash_path">ODK Default</string>
+  <string name="default_splash_path">KoBoToolbox Default</string>
   <string name="select_another_image">Kies \'n ander prentjie</string>
   <string name="use_odk_default">Gebruik default prentjie</string>
   <string name="change_splash_path">Verander Prentjie</string>
@@ -136,7 +136,7 @@
   <string name="save_as_error">Gestoorde naam mag nie leeg wees nie!</string>
   <string name="edit_prompt">Wysig Vraag</string>
   <string name="selected_google_account_text">Google rekening</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Ander</string>
   <string name="font_size_extra_large">Extra Large</string>
   <string name="font_size_large">Large</string>
@@ -228,7 +228,7 @@
   <string name="go_drive">My Skyf</string>
   <string name="go_shared">Met my gedeel</string>
   <string name="modified_on_date_at_time">\'Verander op\' EEE, MMM dd, yyyy \'om\' HH:mm</string>
-  <string name="aggregate_preferences">ODK Aggregate verstellings</string>
+  <string name="aggregate_preferences">KoBoToolbox verstellings</string>
   <string name="other_preferences">Ander platform verstellings</string>
   <string name="drive_get_file">Besig om %1$s en media leêrs te haal.</string>
   <string name="no_google_account">Geen Google rekening geselekteer nie!</string>

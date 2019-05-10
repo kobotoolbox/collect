@@ -9,8 +9,8 @@
   <string name="capture_image">ຖ່າຍຮູບ</string>
   <string name="capture_video">ບັນທຶກວີດີໂອ</string>
   <string name="change_language">ເລືອກພາສາ</string>
-  <string name="change_password">ລະຫັດຜ່ານ ODK</string>
-  <string name="change_username">ບັນຊີຜູ້ໃຊ້ ODK</string>
+  <string name="change_password">ລະຫັດຜ່ານ KoBoToolbox</string>
+  <string name="change_username">ບັນຊີຜູ້ໃຊ້ KoBoToolbox</string>
   <string name="clearanswer_confirm">ຕ້ອງການລຶບຄຳຕອບໄປທີ່ \"%s\" ບໍ່?</string>
   <string name="clear_answer">ລຶບຄຳຕອບ</string>
   <string name="clear_answer_ask">ຕ້ອງການຍ້າຍຄຳຕອບນີ້ບໍ່?</string>
@@ -102,7 +102,7 @@
   <string name="general_preferences">ການ​ຕັ້ງ​ຄ່າ​ທົ່ວ​ໄປ</string>
   <string name="show_splash_summary">ສະແ​ດງເມື່ອໂປແກຼມ ເລີ່ມຕົ້ນໃຊ້ງານ</string>
   <string name="splash_path">ເລືອກພາບເລີ່ມຕົ້ນ</string>
-  <string name="default_splash_path">ຄ່າເລີ່ມຕົ້ນ ODK</string>
+  <string name="default_splash_path">ຄ່າເລີ່ມຕົ້ນ KoBoToolbox</string>
   <string name="select_another_image">ເລືອກພາບອື່ນ</string>
   <string name="use_odk_default">ເລືອກພາບທີ່ກຳນົດໄວ້</string>
   <string name="change_splash_path">ປ່ຽນຮູບພາບ</string>
@@ -133,7 +133,7 @@
   <string name="save_as_error">ການໃສ່ຊື່ເອກະສານທີ່ຈະບັນທຶກບໍ່​ຕ້ອງຍະຫວ່າງ!</string>
   <string name="edit_prompt">ແກ້ໄຂຈຸດທີ່ເລືອກ</string>
   <string name="selected_google_account_text">ບັນຊີໃຊ້ງານໃນ Google </string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">ອື່ນໆ</string>
   <string name="font_size_extra_large">ຂະໜາດໃຫຍ່ທີ່ສຸດ</string>
   <string name="font_size_large">ຂະໜາດໃຫຍ່</string>
@@ -226,7 +226,7 @@
   <string name="go_drive">ຊ້ອງຂອງຂ້ອຍ</string>
   <string name="go_shared">ແບ່ງກັບຂ້ອຍ</string>
   <string name="modified_on_date_at_time">\'ດັດແກ້ວັນທີ\' EEE, MMM dd, yyyy \'ເວລາ\' HH:mm</string>
-  <string name="aggregate_preferences">ການຕັ້ງຄ່າ ODK Aggregate</string>
+  <string name="aggregate_preferences">ການຕັ້ງຄ່າ KoBoToolbox</string>
   <string name="other_preferences">ການຕັ້ງຄ່າ platform ອື່ນໆ</string>
   <string name="drive_get_file">ໄດ້ %1$s ຂອງເອກະສານ.</string>
   <string name="no_google_account">ບໍ່ໄດ້ເລືອກບັນຊີຂອງ Google</string>

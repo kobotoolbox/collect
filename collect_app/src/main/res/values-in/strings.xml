@@ -128,7 +128,7 @@
   <string name="client">Antarmuka pengguna</string>
   <string name="show_splash_summary">Tampilkan pada awal aplikasi berjalan</string>
   <string name="splash_path">Gambar tampilan pembuka yang dipilih</string>
-  <string name="default_splash_path">ODK Bawaan</string>
+  <string name="default_splash_path">KoBoToolbox Bawaan</string>
   <string name="select_another_image">Pilih gambar lainnya</string>
   <string name="use_odk_default">Gunakan gambar bawaan</string>
   <string name="change_splash_path">Ubah gambar</string>
@@ -162,7 +162,7 @@
   <string name="save_as_error">Nama tidak boleh kosong.</string>
   <string name="edit_prompt">Ubah Risalah</string>
   <string name="selected_google_account_text">Akun Google</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Lainnya</string>
   <string name="font_size_extra_large">Sangat Besar</string>
   <string name="font_size_large">Besar</string>

@@ -12,7 +12,7 @@
   <string name="capture_video">Quay Video</string>
   <string name="change_language">Đổi ngôn ngữ</string>
   <string name="change_password">Mật khẩu</string>
-  <string name="change_username">Tên truy cập ODK</string>
+  <string name="change_username">Tên truy cập KoBoToolbox</string>
   <string name="clearanswer_confirm">Xoá câu trả lời \"%s\"?</string>
   <string name="clear_answer">Xoá câu trả lời</string>
   <string name="clear_answer_ask">Muốn xoá câu trả lời này?</string>
@@ -101,7 +101,7 @@
   <string name="general_preferences">Thay đổi thiết lập</string>
   <string name="show_splash_summary">Hiển thị khi chương trình khởi động</string>
   <string name="splash_path">Chọn ảnh màn hình chào</string>
-  <string name="default_splash_path">Mặc định ODK</string>
+  <string name="default_splash_path">Mặc định KoBoToolbox</string>
   <string name="select_another_image">Chọn ảnh khác</string>
   <string name="use_odk_default">Chọn ảnh mặc định</string>
   <string name="change_splash_path">Đổi ảnh</string>
@@ -132,7 +132,7 @@
   <string name="save_as_error">Tên được lưu không để trống!</string>
   <string name="edit_prompt">Sửa thông tin</string>
   <string name="selected_google_account_text">Tài khoản Google</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Khác</string>
   <string name="font_size_extra_large">Cực lớn</string>
   <string name="font_size_large">Lớn</string>

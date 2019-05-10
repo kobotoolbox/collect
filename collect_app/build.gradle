@@ -48,7 +48,7 @@ def getVersionName = { ->
                     commandLine 'cmd', '/c', 'git', 'describe', '--tags', '--dirty', '--always'
                     break
                 case 'unix':
-                    commandLine 'git', 'describe', '--tags', '--dirty', '--always'
+                    commandLine 'git', 'describe', '--tags', '--always'
                     break
             }
             standardOutput = stdout
@@ -74,7 +74,7 @@ android {
         applicationId('org.odk.collect.android')
         minSdkVersion(21)
         targetSdkVersion(28)
-        versionCode LEGACY_BUILD_NUMBER_OFFSET + getMasterCommitCount()
+        versionCode LEGACY_BUILD_NUMBER_OFFSET + getMasterCommitCount() + 100
         versionName getVersionName()
         testInstrumentationRunner('androidx.test.runner.AndroidJUnitRunner')
         multiDexEnabled true
@@ -90,6 +90,16 @@ android {
                 keyAlias secrets.getProperty('RELEASE_KEY_ALIAS')
                 keyPassword secrets.getProperty('RELEASE_KEY_PASSWORD')
             }
+        }
+    }
+
+    flavorDimensions "version"
+
+    productFlavors {
+        kobo {
+            applicationId "org.koboc.collect.android"
+            buildConfigField 'String', 'AUTHORITY', '"org.koboc.collect.android"'
+            resValue("bool", "FIREBASE_ENABLED", "true")
         }
     }
 

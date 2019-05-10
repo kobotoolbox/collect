@@ -20,8 +20,8 @@
   <string name="recapture_osm">Ponovo pokreni OSM Tagging</string>
   <string name="capture_video">Snimi video sadržaj</string>
   <string name="change_language">Promijeni jezik</string>
-  <string name="change_password">ODK Lozinka</string>
-  <string name="change_username">ODK Korisničko ime</string>
+  <string name="change_password">KoBoToolbox Lozinka</string>
+  <string name="change_username">KoBoToolbox Korisničko ime</string>
   <string name="clearanswer_confirm">Ukloni odgovor na \"%s\"</string>
   <string name="clear_answer">Ukloni odgovor</string>
   <string name="clear_answer_ask">Ukloni ovaj odgovor?</string>
@@ -125,7 +125,7 @@
   <string name="client">Korisnički interfejs </string>
   <string name="show_splash_summary">Prikazuje se kada se aplikacija pokrene</string>
   <string name="splash_path">Odabrana slika</string>
-  <string name="default_splash_path">ODK fabrička podešavanja</string>
+  <string name="default_splash_path">KoBoToolbox fabrička podešavanja</string>
   <string name="select_another_image">Izaberi drugu sliku</string>
   <string name="use_odk_default">Koristi uobičajenu sliku</string>
   <string name="change_splash_path">Promijeni sliku</string>
@@ -159,7 +159,7 @@
   <string name="save_as_error">Sačuvano ime ne može biti prazno!</string>
   <string name="edit_prompt">Uredi Prompt</string>
   <string name="selected_google_account_text">Google korisnički nalog</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Ostalo</string>
   <string name="font_size_extra_large">Veoma veliko</string>
   <string name="font_size_large">Veliko</string>
@@ -260,7 +260,7 @@
   <string name="go_drive">Moj Drive</string>
   <string name="go_shared">Podijeljeno sa mnom</string>
   <string name="modified_on_date_at_time">\'Modifikovano na\' EEE, MMM dd, yyyy \'u\' HH:mm</string>
-  <string name="aggregate_preferences">Podešavanja ODK Aggregate servera</string>
+  <string name="aggregate_preferences">Podešavanja KoBoToolbox servera</string>
   <string name="sms_submission_preferences">Podešavanja SMS otpremanja </string>
   <string name="submission_transport">Transport otpremanja (napredno)</string>
   <string name="submission_transport_types_title">Pošalji otpremanja preko</string>
@@ -271,9 +271,9 @@
   <string name="no_google_account">Google nalog nije odabran!</string>
   <string name="google_set_account">Odabrali ste Google Sheets kao svoj server, molim Vas da odaberete ogovarajući Goodle korisnički nalog u opštim podešavanjima prije nego nastavite</string>
   <string name="media_upload_error">Greška prilikom otpreme medija fajla koji ne postoji: %1$s</string>
-  <string name="odk_permissions_fail">ODK automatsko otpremanje nije uspjelo, molim da se uvjerite da ste odobrili sve neophodne pristupe</string>
-  <string name="odk_auto_note">Rezultati ODK auto-otpreme</string>
-  <string name="odk_auto_download_notification_title">Rezultati ODK auto-preuzimanja</string>
+  <string name="odk_permissions_fail">KoBoToolbox automatsko otpremanje nije uspjelo, molim da se uvjerite da ste odobrili sve neophodne pristupe</string>
+  <string name="odk_auto_note">Rezultati KoBoToolbox auto-otpreme</string>
+  <string name="odk_auto_download_notification_title">Rezultati KoBoToolbox auto-preuzimanja</string>
   <string name="notification_error">Greška u prikazu teksta obavještenja</string>
   <string name="delete_after_send">Obriši nakon otpreme</string>
   <string name="delete_after_send_summary">Briše završene ankete i medije nakon otpremanja na server</string>
@@ -289,8 +289,8 @@
   <string name="username_error_whitespace">Prazan prostor na početku ili kraju nije dozvoljen kod korisničkih imena</string>
   <string name="google_play_services_error_occured">Ne mogu da pristupim Google Mapama. Je li Google Play Service instaliran?</string>
   <string name="about_preferences">Informacije </string>
-  <string name="tell_your_friends">Podijeli ODK Collect</string>
-  <string name="tell_your_friends_msg">Da li tvoje kolege i dalje prikupljaju podatke na papiru? Podijeli ODK sa njima</string>
+  <string name="tell_your_friends">Podijeli KoBoCollect</string>
+  <string name="tell_your_friends_msg">Da li tvoje kolege i dalje prikupljaju podatke na papiru? Podijeli KoBoToolbox sa njima</string>
   <string name="leave_a_review">Napiši Play Store recenziju</string>
   <string name="leave_a_review_msg">Vaša (nadamo se pozitivna) recenzija povećava vidljivost aplikacije u Play Storu.</string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -319,7 +319,7 @@
   <string name="enable_gps">Omogući GPS</string>
   <string name="geotrace_title">GeoTrace</string>
   <string name="geo_clear_warning">Karakteristika je već kreirana. Da li biste željeli da obrišete karakteristiku?</string>
-  <string name="geo_exit_warning">Odbaci izmjene i vrati se na ODK?</string>
+  <string name="geo_exit_warning">Odbaci izmjene i vrati se na KoBoToolbox?</string>
   <string name="polygon_validator">Moram imati makar 3 tačke kako bih kreirao Polygon</string>
   <string name="polyline_validator">Moraju postojati najmanje 2 tačke kako bi se kreirao Polyline</string>
   <string name="clear">Očisti</string>
@@ -359,7 +359,7 @@
   <string name="geotrace_view_change_location">Vidi ili promijeni GeoTrace</string>
   <string name="bearing">Pozicioniranje: %.3f</string>
   <string name="direction">Pravac: %s</string>
-  <string name="select_odk_shortcut">Odaberi ODK prečicu</string>
+  <string name="select_odk_shortcut">Odaberi KoBoToolbox prečicu</string>
   <string name="bad_uri">Loš URL: %s</string>
   <string name="unrecognized_uri">Nepoznat URL: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -379,9 +379,9 @@
   <string name="selected_answer">Odabrano: %s</string>
   <string name="version_number">Verzija: %s</string>
   <string name="id_number">ID: %s</string>
-  <string name="odk_website">Posjeti ODK vebsajt</string>
-  <string name="odk_website_summary">Open Data Kit (ODK) se koristi za prikupljanje podataka o društvenim stvarima u izazovnim situacijama.</string>
-  <string name="odk_forum">Pridruži se ODK forumu</string>
+  <string name="odk_website">Posjeti KoBoToolbox vebsajt</string>
+  <string name="odk_website_summary">KoBoToolbox se koristi za prikupljanje podataka o društvenim stvarima u izazovnim situacijama.</string>
+  <string name="odk_forum">Pridruži se KoBoToolbox forumu</string>
   <string name="odk_forum_summary">Pridruži se forumu za podršku, traži opcije, ili doprinesi kodu/prevodu!</string>
   <string name="all_open_source_licenses">Otvori biblioteke/ licence koda</string>
   <string name="all_open_source_licenses_msg">Stojimo na ramenima velikana!</string>
@@ -402,7 +402,7 @@
   <string name="encryption_error_message">%s Formular nije sačuvan kao finalizovan!</string>
   <string name="analytics_preferences">Podaci o korišćenju</string>
   <string name="analytics">Prikupi anonimne podatke o korišćenju</string>
-  <string name="analytics_summary">Anonimni podaci o korišćenju pomađu ODK timu da prioritizuje ispravke i doda nove opcije</string>
+  <string name="analytics_summary">Anonimni podaci o korišćenju pomađu KoBoToolbox timu da prioritizuje ispravke i doda nove opcije</string>
   <string name="select_all">Obilježi sve</string>
   <string name="clear_all">Očisti sve</string>
   <string name="reset_settings">Sva podeševanja (interna podešavanja, sačuvana podešavanja)</string>

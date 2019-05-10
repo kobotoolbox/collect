@@ -20,8 +20,8 @@
   <string name="recapture_osm">ఓఎస్ఎం టాగింగ్‌ను మరలా  చేయండి</string>
   <string name="capture_video">వీడియో రికార్డు చెయ్యి </string>
   <string name="change_language">భాషని మార్చు</string>
-  <string name="change_password">ODK పాస్ వర్డ్ </string>
-  <string name="change_username">ODK యూజర్ నేమ్ </string>
+  <string name="change_password">KoBoToolbox పాస్ వర్డ్ </string>
+  <string name="change_username">KoBoToolbox యూజర్ నేమ్ </string>
   <string name="clearanswer_confirm">\"%s\" కు ప్రతిస్పందనను తొలగించాలా?</string>
   <string name="clear_answer">ప్రతిస్పందనను  తొలగించు</string>
   <string name="clear_answer_ask">ఈ ప్రతిస్పందనను తొలగించాలా?</string>
@@ -260,7 +260,7 @@
   <string name="go_drive">నా డ్రైవ్</string>
   <string name="go_shared">నాతో పంచుకున్నవి </string>
   <string name="modified_on_date_at_time">\'సవరించిన తేదీ\' EEE, MMM dd, yyyy \'సమయం\' HH:mm </string>
-  <string name="aggregate_preferences">ODK మొత్తం సెట్టింగ్‌లు</string>
+  <string name="aggregate_preferences">KoBoToolbox మొత్తం సెట్టింగ్‌లు</string>
   <string name="sms_submission_preferences">SMS సబ్మిషన్ సెట్టింగులు</string>
   <string name="submission_transport">సబ్మిషన్ రవాణా (అడ్వాన్సుడ్)</string>
   <string name="submission_transport_types_title">సబ్మిషన్ పంపండి వయా</string>
@@ -271,9 +271,9 @@
   <string name="no_google_account"> గూగుల్ ఖాతా ఎంచుకోబడలేదు</string>
   <string name="google_set_account">మీరు గూగుల్ షీట్లను మీ సర్వర్‌గా ఎంచుకున్నారు, దయచేసి కొనసాగడానికి ముందు సాధారణ సెట్టింగ్‌లలో సంబంధిత గూగుల్ అకౌంట్ ను ఎంచుకోండి</string>
   <string name="media_upload_error">ఉనికిలో లేని మీడియా ఫైల్‌ను అప్‌లోడ్ చేయడంలో విఫలమైంది:%1$s</string>
-  <string name="odk_permissions_fail">ODK ఆటోమాటిక్ గా పంపే అనుమతి లేదు, దయచేసి మీరు అవసరమైన అన్ని అనుమతులను మంజూరు చేశారని నిర్ధారించుకోండి</string>
-  <string name="odk_auto_note">ODK ఫలితాలను ఆటోమాటిక్ గా పంపండి</string>
-  <string name="odk_auto_download_notification_title">ODK ఆటోమాటిక్ డౌన్‌లోడ్ ఫలితాలు</string>
+  <string name="odk_permissions_fail">KoBoToolbox ఆటోమాటిక్ గా పంపే అనుమతి లేదు, దయచేసి మీరు అవసరమైన అన్ని అనుమతులను మంజూరు చేశారని నిర్ధారించుకోండి</string>
+  <string name="odk_auto_note">KoBoToolbox ఫలితాలను ఆటోమాటిక్ గా పంపండి</string>
+  <string name="odk_auto_download_notification_title">KoBoToolbox ఆటోమాటిక్ డౌన్‌లోడ్ ఫలితాలు</string>
   <string name="notification_error">నోటిఫికేషన్ ను ప్రదర్శించడంలో ఎర్రర్ ఏర్పడింది</string>
   <string name="delete_after_send">పంపిన తర్వాత తొలగించండి</string>
   <string name="delete_after_send_summary">సర్వర్‌కు పంపిన తర్వాత ఫైనల్ చేసిన ఫారమ్‌లను మరియు మీడియాను తొలగిస్తుంది</string>
@@ -288,9 +288,9 @@
   <string name="password_error_whitespace">పాస్ వర్డ్ ముందు లేదా తరువాత స్పేస్ ఉండకూడదు </string>
   <string name="username_error_whitespace">యూసర్ నేమ్ లో ముందు లేదా తరువాత స్పేస్ ఉండకూడదు </string>
   <string name="google_play_services_error_occured">Google మ్యాప్స్‌ను యాక్సెస్ చేయడం సాధ్యం కాట్లేదు. Google Play సేవలు ఇన్‌స్టాల్ చేయబడిందా?</string>
-  <string name="about_preferences">ODK గురించి</string>
-  <string name="tell_your_friends">ODK కలెక్ట్ ని షేర్ చెయ్యండి</string>
-  <string name="tell_your_friends_msg">మీ సహచరులు ఇప్పటికీ కాగితంపై డేటాను సేకరిస్తున్నారా? వారితో ODK Collect పంచుకోండి </string>
+  <string name="about_preferences">KoBoToolbox గురించి</string>
+  <string name="tell_your_friends">KoBoToolbox కలెక్ట్ ని షేర్ చెయ్యండి</string>
+  <string name="tell_your_friends_msg">మీ సహచరులు ఇప్పటికీ కాగితంపై డేటాను సేకరిస్తున్నారా? వారితో KoBoCollect పంచుకోండి </string>
   <string name="leave_a_review">ప్లే స్టోర్ విమర్షని ఇక్కడ రాయండి</string>
   <string name="leave_a_review_msg">మీ ( సానుకూల) సమీక్ష Play Store లో ఈ App గురించి ఎక్కువ మందికి తెలిసేలా చేస్తుంది </string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -333,7 +333,7 @@
   <string name="geotrace_title">జియోట్రేస్</string>
   <string name="gps_enable_message">మీ పరికరంలో GPS డిజేబుల్ చేయబడి ఉంది. మీరు ఎనేబుల్ చేయదలుచుకుంటున్నారా?</string>
   <string name="geo_clear_warning">ఫీచర్ ఇప్పటికే క్రియేట్ చేయబడింది. మీరు ఫీచర్ తీసెయ్యాలనుకుంటున్నారా?</string>
-  <string name="geo_exit_warning">మార్పులను విస్మరించి, ODK కి తిరిగి వెళ్లాలా?</string>
+  <string name="geo_exit_warning">మార్పులను విస్మరించి, KoBoToolbox కి తిరిగి వెళ్లాలా?</string>
   <string name="polygon_validator">బహుభుజిని సృష్టించడానికి కనీసం 3 పాయింట్లు ఉండాలి</string>
   <string name="polyline_validator">పాలిలైన్ సృష్టించడానికి కనీసం 2 పాయింట్లు ఉండాలి</string>
   <string name="clear">తొలగించు</string>
@@ -370,7 +370,7 @@
   <string name="geotrace_view_change_location">జియోట్రేస్‌ను చూడండి లేదా మార్చండి</string>
   <string name="bearing">బేరింగ్:%.3f</string>
   <string name="direction">దిశ:%s</string>
-  <string name="select_odk_shortcut">ODK సత్వరమార్గాన్ని ఎంచుకోండి</string>
+  <string name="select_odk_shortcut">KoBoToolbox సత్వరమార్గాన్ని ఎంచుకోండి</string>
   <string name="bad_uri">తప్పు URI: %s</string>
   <string name="unrecognized_uri">గుర్తించని URI: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -390,9 +390,9 @@
   <string name="selected_answer">ఎంచుకున్నది: %s</string>
   <string name="version_number">వెర్షన్: %s</string>
   <string name="id_number">ID:%s</string>
-  <string name="odk_website">ODK వెబ్‌సైట్‌ను సందర్శించండి</string>
-  <string name="odk_website_summary">సవాలు చేసే వాతావరణాలలో సామాజిక మంచి కోసం డేటాను సేకరించడానికి ఓపెన్ డేటా కిట్ (ODK) ఉపయోగించబడుతుంది.</string>
-  <string name="odk_forum">ODK ఫోరమ్‌లో చేరండి</string>
+  <string name="odk_website">KoBoToolbox వెబ్‌సైట్‌ను సందర్శించండి</string>
+  <string name="odk_website_summary">సవాలు చేసే వాతావరణాలలో సామాజిక మంచి కోసం డేటాను సేకరించడానికి ఓపెన్ డేటా కిట్ (KoBoToolbox) ఉపయోగించబడుతుంది.</string>
+  <string name="odk_forum">KoBoToolbox ఫోరమ్‌లో చేరండి</string>
   <string name="odk_forum_summary">మద్దతు పొందడానికి ఫోరమ్‌లో చేరండి, లక్షణాలను అభ్యర్థించండి, కోడ్ / అనువాదాలను అందించండి!</string>
   <string name="all_open_source_licenses">ఓపెన్ సోర్స్ లైబ్రరీలు/లైసెన్సులు</string>
   <string name="all_open_source_licenses_msg">మేము రాక్షసుల భుజాలపై నిలబడతాం!</string>
@@ -413,7 +413,7 @@
   <string name="encryption_error_message">%sఫారం ఖరారైనట్లు సేవ్ చేయబడలేదు.</string>
   <string name="analytics_preferences">వినియోగించబడిన డేటా</string>
   <string name="analytics">అనామక వినియోగ డేటాను సేకరించండి</string>
-  <string name="analytics_summary">అనామక వినియోగ డేటా వల్ల పరిష్కారాలు, లక్షణాలకు ప్రాధాన్యత ఇవ్వడానికి ODK బృందానికి వీలు కలుగుతుంది. </string>
+  <string name="analytics_summary">అనామక వినియోగ డేటా వల్ల పరిష్కారాలు, లక్షణాలకు ప్రాధాన్యత ఇవ్వడానికి KoBoToolbox బృందానికి వీలు కలుగుతుంది. </string>
   <string name="select_all">అన్నీ ఎంపిక చేసుకొండి</string>
   <string name="clear_all">అన్నీ క్లియర్ చేయండి</string>
   <string name="reset_settings">అన్ని సెట్టింగ్‌లు (అంతర్గత సెట్టింగ్‌లు, సేవ్ చేసిన సెట్టింగ్‌లు)</string>
@@ -604,7 +604,7 @@
   <string name="send_sms_runtime_permission_denied_title">SMS అనుమతి పంపండి</string>
   <string name="send_sms_runtime_permission_denied_desc">ఈ అనుమతి లేకుండా SMS సందేశాలను పంపదు. మీరు మంజూరు చేయడానికి సిద్ధంగా ఉన్నప్పుడు దయచేసి మళ్ళీ ప్రయత్నించండి.</string>
   <string name="read_phone_state_runtime_permission_denied_title">ఫోన్ స్టేట్ అనుమతి చదవండి</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect ఎటువంటి కాల్స్ చేయదు. కాని దీనికి మీ పరికరం గురించిన ఫోన్ నంబర్, పరికరం ID వంటి కొంత సమాచారాన్ని సేకరించవలసి ఉంటుంది.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect ఎటువంటి కాల్స్ చేయదు. కాని దీనికి మీ పరికరం గురించిన ఫోన్ నంబర్, పరికరం ID వంటి కొంత సమాచారాన్ని సేకరించవలసి ఉంటుంది.</string>
   <string name="form_update_category">ఫారం నవీకరణ</string>
   <string name="periodic_form_updates_check_title">ఫారంలో జరిగిన మార్పులను ఎంత సమయంలో చూడాలి</string>
   <string name="never">ఎప్పుడూ వీల్లేదు</string>

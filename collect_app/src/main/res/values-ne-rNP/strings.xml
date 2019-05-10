@@ -20,8 +20,8 @@
   <string name="recapture_osm">फेरी OSM ट्याग गर्नुहोस्</string>
   <string name="capture_video">भिडियो रेकर्ड गर्नुहोस् </string>
   <string name="change_language">भाषा परिवर्तन गर्नुहोस् |</string>
-  <string name="change_password">ODK पासवर्ड </string>
-  <string name="change_username">ODK प्रयोगकर्ता नाम </string>
+  <string name="change_password">KoBoToolbox पासवर्ड </string>
+  <string name="change_username">KoBoToolbox प्रयोगकर्ता नाम </string>
   <string name="clearanswer_confirm">\"%s\"को जवाफ हटाउनु हुन्छ ?</string>
   <string name="clear_answer">जवाफ हटाउनुहोस् </string>
   <string name="clear_answer_ask">यो जवाफ हटाउनु हुन्छ?</string>
@@ -123,7 +123,7 @@
   <string name="client">प्रयोगकर्ता अन्तरक्रिया पृष्‍ठ</string>
   <string name="show_splash_summary">एप्लिकेशन सुरु हुँदा देखाइन्छ |</string>
   <string name="splash_path">पहिलो पर्दा दृश्यको लागि तस्बिर छानियो |</string>
-  <string name="default_splash_path">ODK डिफल्ट </string>
+  <string name="default_splash_path">KoBoToolbox डिफल्ट </string>
   <string name="select_another_image">अर्को तस्विर छान्नुहोला</string>
   <string name="use_odk_default">डिफल्ट तस्विर प्रयोग गर्नुहोस् </string>
   <string name="change_splash_path">तस्विर बदल्नुहोस् </string>
@@ -156,7 +156,7 @@
   <string name="save_as_error">संचित गर्दा नाम खाली छोड्न मिल्दैन !</string>
   <string name="edit_prompt">सम्पादन गर्न प्रेरित गर्नुहोस् </string>
   <string name="selected_google_account_text">गुगल एकाउण्ट</string>
-  <string name="server_platform_odk_aggregate">ODK एग्रिगेट</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox एग्रिगेट</string>
   <string name="server_platform_other">अन्य</string>
   <string name="font_size_extra_large">अझ ठूलो </string>
   <string name="font_size_large">ठूलो </string>
@@ -256,7 +256,7 @@
   <string name="go_drive">मेरो ड्राइभ</string>
   <string name="go_shared">म संग साझा गरिएको </string>
   <string name="modified_on_date_at_time">EEE, MMM dd, yyyy \'को\' HH:mm \'मा परिवर्तन गरिएको\'</string>
-  <string name="aggregate_preferences">ODK एग्रीगेट सेटिङ्स</string>
+  <string name="aggregate_preferences">KoBoToolbox एग्रीगेट सेटिङ्स</string>
   <string name="sms_submission_preferences">SMS सेटिङहरू</string>
   <string name="submission_transport_types_title">फारमहरू कसरी पठाउने?</string>
   <string name="other_preferences">अन्य प्लेटफर्म सेटिङ्स</string>
@@ -278,8 +278,8 @@
   <string name="username_error_whitespace">प्रयोगकर्ता नाममा खाली स्पेस हुनु हुँदैन ।</string>
   <string name="google_play_services_error_occured">गुगल  म्याप्स् मा जान सकिएन । के गुगल प्ले सर्भिसेस इन्स्टल गरिएको छ ?</string>
   <string name="about_preferences">जानकारी</string>
-  <string name="tell_your_friends">ODK Collect शेयर गर्नुहोस् ।</string>
-  <string name="tell_your_friends_msg">के तपाईँका सहकर्मीहरू अझै कागजमा डाटा संकलन गर्दै हुनुहुन्छ? तिनीहरुसँग ODK Collect शेयर गर्नुहोस् ।</string>
+  <string name="tell_your_friends">KoBoCollect शेयर गर्नुहोस् ।</string>
+  <string name="tell_your_friends_msg">के तपाईँका सहकर्मीहरू अझै कागजमा डाटा संकलन गर्दै हुनुहुन्छ? तिनीहरुसँग KoBoCollect शेयर गर्नुहोस् ।</string>
   <string name="leave_a_review">हामीलाई  प्ले स्टोर आफ्नो मा समीक्षा छोड्नुहोस् ।</string>
   <!--Geo string added in feature-geofeatures branch-->
   <!--TODO(ping): Delete these openmap_* strings when we're ready to move on from OSMDroid.
@@ -310,7 +310,7 @@
   <string name="install_openmapkit">कृपया ओपन म्याप स्ट्रीट इन्सटल गर्नुहोस् !</string>
   <string name="go_back">पछाडि जानुहोस्</string>
   <string name="download_selected">चुनिएका डाउनलोड गर्नुहोस्</string>
-  <string name="odk_forum">ODK मंचमा आवद्ध हुनुहोस्</string>
+  <string name="odk_forum">KoBoToolbox मंचमा आवद्ध हुनुहोस्</string>
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in W 18°48'8"-->
   <string name="west">पश्चिम%1$s%2$s%3$s</string>
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in E 18°48'8"-->

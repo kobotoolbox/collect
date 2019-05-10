@@ -10,7 +10,7 @@
   <string name="capture_video">Įrašyti video</string>
   <string name="change_language">Pakeisti kalbą</string>
   <string name="change_password">Slaptažodis</string>
-  <string name="change_username">ODK naudotojo vardas</string>
+  <string name="change_username">KoBoToolbox naudotojo vardas</string>
   <string name="clearanswer_confirm">Pašalinti atsakymą į \"%s\"?</string>
   <string name="clear_answer">Pašalinti atsakymą</string>
   <string name="clear_answer_ask">Pašalinti šį atsakymą?</string>
@@ -97,7 +97,7 @@
   <string name="general_preferences">Keisti nuostatas</string>
   <string name="show_splash_summary">Rodyti užsklandą paleidžiant programą</string>
   <string name="splash_path">Parinkta užsklanda</string>
-  <string name="default_splash_path">ODK numatytoji</string>
+  <string name="default_splash_path">KoBoToolbox numatytoji</string>
   <string name="select_another_image">Parinkti kitą paveikslėlį</string>
   <string name="use_odk_default">Naudoti numatytąjį paveikslėlį</string>
   <string name="change_splash_path">Pakeisti paveikslėlį</string>
@@ -128,7 +128,7 @@
   <string name="save_as_error">Pavadinimas negali būti tuščias!</string>
   <string name="edit_prompt">Keisti atsakymą</string>
   <string name="selected_google_account_text">Google sąskaita</string>
-  <string name="server_platform_odk_aggregate">ODK Aggregate</string>
+  <string name="server_platform_odk_aggregate">KoBoToolbox</string>
   <string name="server_platform_other">Kita</string>
   <string name="font_size_extra_large">Labai didelis</string>
   <string name="font_size_large">Didelis</string>
