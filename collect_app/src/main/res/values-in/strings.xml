@@ -23,8 +23,8 @@
   <string name="recapture_osm">Tandai Ulang OSM</string>
   <string name="capture_video">Rekam Video</string>
   <string name="change_language">Ubah Bahasa</string>
-  <string name="change_password">Kata Sandi ODK</string>
-  <string name="change_username">Nama Pengguna ODK</string>
+  <string name="change_password">Kata Sandi KoBoToolbox</string>
+  <string name="change_username">Nama Pengguna KoBoToolbox</string>
   <string name="clearanswer_confirm">Hapus jawaban atas \"%s\"?</string>
   <string name="clear_answer">Hapus jawaban</string>
   <string name="clear_answer_ask">Hapus Jawaban Ini?</string>
@@ -124,7 +124,7 @@
   <string name="client">Antarmuka pengguna</string>
   <string name="show_splash_summary">Tampilkan pada awal aplikasi berjalan</string>
   <string name="splash_path">Gambar tampilan pembuka yang dipilih</string>
-  <string name="default_splash_path">ODK Bawaan</string>
+  <string name="default_splash_path">KoBoToolbox Bawaan</string>
   <string name="select_another_image">Pilih gambar lainnya</string>
   <string name="use_odk_default">Gunakan gambar bawaan</string>
   <string name="change_splash_path">Ubah gambar</string>
@@ -214,7 +214,7 @@
   <string name="replace_bearing">Ganti Penentuan Posisi</string>
   <string name="getting_bearing">Memuat Penentuan Posisi</string>
   <string name="accept_bearing">Rekam Penentuan Posisi</string>
-  <string name="sdcard_unmounted">ODK Collect tidak dapat mengakses SD card. Mungkin SD card terpasang melalui USB? (Kondisi saat ini: %s)</string>
+  <string name="sdcard_unmounted">Kobo Collect tidak dapat mengakses SD card. Mungkin SD card terpasang melalui USB? (Kondisi saat ini: %s)</string>
   <string name="ext_file_no_data_error">Berkas tidak memiliki data</string>
   <string name="ext_conflicting_columns_error">Semua kolom %s telah sesuai</string>
   <string name="ext_sortBy_numeric_error">Kolom terfilter anda harus hanya berisi nilai numerik. Nilai yang  konflik adalah \'%s\'.</string>
@@ -256,8 +256,8 @@
   <string name="google_set_account">Google Sheet telah dipilih sebagai server Anda, mohon tentukan akun Google pada Pengaturan Umum sebelum melanjutkan</string>
   <string name="media_upload_error">Tidak berhasil mengunggah berkas media yang tidak ditemukan: %1$s</string>
   <string name="odk_permissions_fail">Izin pengiriman otomatis tidak berhasil, mohon pastikan semua izin yang dibutuhkan telah diberikan.</string>
-  <string name="odk_auto_note">Hasil pengiriman otomatis ODK</string>
-  <string name="odk_auto_download_notification_title">Hasil unduh otomatis ODK</string>
+  <string name="odk_auto_note">Hasil pengiriman otomatis KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">Hasil unduh otomatis KoBoToolbox</string>
   <string name="notification_error">Kesalahan menampilkan teks notifikasi.</string>
   <string name="delete_after_send">Hapus setelah kirim</string>
   <string name="delete_after_send_summary">Hapus media dan formulir yang terfinalisasi setelah dikirim ke server</string>
@@ -273,10 +273,10 @@
   <string name="username_error_whitespace">Tidak diperkenankan menggunakan spasi pada nama pengguna</string>
   <string name="google_play_services_error_occured">Tidak dapat mengakses Google Maps. Apakah Google Play Services telah terinstal?</string>
   <string name="about_preferences">Tentang</string>
-  <string name="tell_your_friends">Bagikan ODK Collect</string>
-  <string name="tell_your_friends_msg">Apakah rekan Anda masih menggunakan kertas untuk pengumpulan data? Kabari mereka untuk menggunakan ODK Collect.</string>
+  <string name="tell_your_friends">Bagikan Kobo Collect</string>
+  <string name="tell_your_friends_msg">Apakah rekan Anda masih menggunakan kertas untuk pengumpulan data? Kabari mereka untuk menggunakan Kobo Collect.</string>
   <string name="leave_a_review">Berikan ulasan di Play Store</string>
-  <string name="leave_a_review_msg">Ulasan Anda (semoga positif) dapat mempromosikan aplikasi ODK di Play Store.</string>
+  <string name="leave_a_review_msg">Ulasan Anda (semoga positif) dapat mempromosikan aplikasi KoBoToolbox di Play Store.</string>
   <!--Geo string added in feature-geofeatures branch-->
   <string name="maps">Peta</string>
   <!--TODO(ping): Delete these openmap_* strings when we're ready to move on from OSMDroid.
@@ -317,7 +317,7 @@
   <string name="geotrace_title">Lacak GeoTrace </string>
   <string name="gps_enable_message">GPS dinonaktifkan pada perangkat Anda. Apakah Anda ingin mengaktifkannya?</string>
   <string name="geo_clear_warning">Fitur sudah dibuat. Apakah Anda ingin menghapus fitur ini?</string>
-  <string name="geo_exit_warning">Abaikan perubahan dan kembali ke ODK?</string>
+  <string name="geo_exit_warning">Abaikan perubahan dan kembali ke KoBoToolbox?</string>
   <string name="polygon_validator">Setidaknya dibutuhkan 3 titik untuk membuat Polygon.</string>
   <string name="polyline_validator">Setidaknya dibutuhkan 2 titik untuk membuat Poyline.</string>
   <string name="clear">Hapus</string>
@@ -355,7 +355,7 @@
   <string name="geometry_status">Formulir tersimpan: %d (%d ditampilkan di peta)</string>
   <string name="bearing">Penentuan Posisi: %.3f</string>
   <string name="direction">Arah: %s</string>
-  <string name="select_odk_shortcut">Pilih pintasan ODK</string>
+  <string name="select_odk_shortcut">Pilih pintasan KoBoToolbox</string>
   <string name="bad_uri">URI salah: %s</string>
   <string name="unrecognized_uri">URI tidak dikenal: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -374,9 +374,9 @@
   <string name="parser_exception">Pengecualian XPathParser: \"%s\"</string>
   <string name="version_number">Versi: %s</string>
   <string name="id_number">ID: %s</string>
-  <string name="odk_website">Kunjungi situs ODK </string>
-  <string name="odk_website_summary">ODK digunakan sebagai pengumpulan data untuk kepentingan sosial di lingkungan yang menantang.</string>
-  <string name="odk_forum">Gabung forum ODK</string>
+  <string name="odk_website">Kunjungi situs KoBoToolbox </string>
+  <string name="odk_website_summary">KoBoToolbox digunakan sebagai pengumpulan data untuk kepentingan sosial di lingkungan yang menantang.</string>
+  <string name="odk_forum">Gabung forum KoBoToolbox</string>
   <string name="odk_forum_summary">Bergabung di Forum untuk mendapatkan bantuan, permintaan fitur, berkontribusi kode program/terjemahan!</string>
   <string name="all_open_source_licenses">Lisensi/pustaka sumber terbuka</string>
   <string name="all_open_source_licenses_msg">Kita menjadi besar karena berkolaborasi bersama!</string>
@@ -397,7 +397,7 @@
   <string name="encryption_error_message">Formulir %s belum tersimpan dan terfinalisasi.</string>
   <string name="analytics_preferences">Penggunaan data</string>
   <string name="analytics">Kumpulkan data pengguna anonim</string>
-  <string name="analytics_summary">Data pengguna anonim membantu tim ODK untuk memprioritaskan perbaikan dan fitur tambahan.</string>
+  <string name="analytics_summary">Data pengguna anonim membantu tim KoBoToolbox untuk memprioritaskan perbaikan dan fitur tambahan.</string>
   <string name="select_all">Pilih Semua</string>
   <string name="clear_all">Batal Pilih</string>
   <string name="reset_settings">Seluruh pengaturan (pengaturan internal, pengaturan tersimpan)</string>
@@ -595,7 +595,7 @@
   <string name="get_accounts_runtime_permission_denied_title">Izin untuk mengakses akun</string>
   <string name="get_accounts_runtime_permission_denied_desc">Tanpa perizinan tadi, Collect tidak dapat mengakses akun. Buka ulang aplikasi jika Anda sudah yakin untuk memberikan izin.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Izin untuk membaca status telepon</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect tidak akan melakukan panggilan telepon, tetapi ODK Collect memerlukan akses ke beberapa informasi mengenai perangkat Anda, seperti nomor telepon dan ID perangkat.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">Kobo Collect tidak akan melakukan panggilan telepon, tetapi Kobo Collect memerlukan akses ke beberapa informasi mengenai perangkat Anda, seperti nomor telepon dan ID perangkat.</string>
   <string name="form_update_category">Pembaruan formulir</string>
   <string name="periodic_form_updates_check_title">Pemeriksaan pembaruan formulir berkala</string>
   <string name="every_fifteen_minutes">Tiap 15 menit</string>
@@ -674,8 +674,8 @@
   <string name="form_update_frequency_title">Frekuensi pembaruan otomatis</string>
   <string name="form_update_error">Pembaruan formulir tidak berhasil</string>
   <string name="report_to_project_lead">Jika anda terus mengalami masalah ini, laporkan ke orang yang meminta anda untuk mengumpulkan data.</string>
-  <string name="unreachable_error">ODK Collect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
-  <string name="security_error">ODK Collect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
+  <string name="unreachable_error">Kobo Collect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
+  <string name="security_error">Kobo Collect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
   <string name="failure">Tidak Berhasil</string>
   <string name="form_update_succeeded">Pembaruan formulir berhasil</string>
 </resources>

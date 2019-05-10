@@ -19,8 +19,8 @@
   <string name="recapture_osm"> او ایس ایم ٹیگنگ دوبارہ کریں</string>
   <string name="capture_video">وڈیو ریکارڈ کریں</string>
   <string name="change_language">زبان تبدیل کریں</string>
-  <string name="change_password">  ODK  کا پاس ورڈ</string>
-  <string name="change_username">ODK استعمال کرنے والے کا نام</string>
+  <string name="change_password">  KoBoToolbox  کا پاس ورڈ</string>
+  <string name="change_username">KoBoToolbox استعمال کرنے والے کا نام</string>
   <string name="clearanswer_confirm">‎%s‏ کو دیا گیا جواب ہٹائیں</string>
   <string name="clear_answer">جواب مٹا دیں</string>
   <string name="clear_answer_ask"> یہ جواب مٹا دیں؟</string>
@@ -114,7 +114,7 @@
   <string name="client">یوزر انٹرفیس</string>
   <string name="show_splash_summary">ایپلیکیشن جب  شروع ہو، دکھاتا ہے</string>
   <string name="splash_path">منتخب شدہ سپلیش تصویر</string>
-  <string name="default_splash_path">ODK طے شدہ</string>
+  <string name="default_splash_path">KoBoToolbox طے شدہ</string>
   <string name="select_another_image">دوسری تصویر کاانتخاب کریں۔</string>
   <string name="use_odk_default">پہلے سے دی گئی  تصویر کو استعمال کریں</string>
   <string name="change_splash_path">تصویر بدل دیں</string>

@@ -22,8 +22,8 @@
   <string name="recapture_osm">Upprepa OSM-taggning</string>
   <string name="capture_video">Spela in film</string>
   <string name="change_language">Ändra språk</string>
-  <string name="change_password">ODK lösenord</string>
-  <string name="change_username">ODK användarnamn</string>
+  <string name="change_password">KoBoToolbox lösenord</string>
+  <string name="change_username">KoBoToolbox användarnamn</string>
   <string name="clearanswer_confirm">Ta bort svar för \"%s\"</string>
   <string name="clear_answer">Ta bort svar</string>
   <string name="clear_answer_ask">Ska detta svar tas bort?</string>
@@ -119,7 +119,7 @@
   <string name="client">Användargränssnitt</string>
   <string name="show_splash_summary">Visas när programmet startas</string>
   <string name="splash_path">Vald välkomstbild</string>
-  <string name="default_splash_path">ODK standard</string>
+  <string name="default_splash_path">KoBoToolbox standard</string>
   <string name="select_another_image">Välj en annan bild</string>
   <string name="use_odk_default">Använd standardbild</string>
   <string name="change_splash_path">Byt bild</string>
@@ -250,7 +250,7 @@
   <string name="no_google_account">Inget Google-konto valt!</string>
   <string name="google_set_account">Du har valt Google Sheets som din server, vänligen välj motsvarande Google-konto under allmänna inställningar innan du fortsätter</string>
   <string name="media_upload_error">Fel vid uppladdning av mediafil som inte finns: %1$s</string>
-  <string name="odk_permissions_fail">ODK auto inskickningsfel, kontrollera att du har beviljat nödvändiga rättigheter</string>
+  <string name="odk_permissions_fail">KoBoToolbox auto inskickningsfel, kontrollera att du har beviljat nödvändiga rättigheter</string>
   <string name="notification_error">Fel vid visning av notifikationstext</string>
   <string name="delete_after_send">Radera efter sändning</string>
   <string name="delete_after_send_summary">Raderar avslutade formulär och media efter dessa sänts till servern</string>
@@ -266,9 +266,9 @@
   <string name="username_error_whitespace">Inledande eller avslutande blanksteg är inte tillåtet i användarnamn</string>
   <string name="google_play_services_error_occured">Åtkomst till Google Maps ej möjlig. Är Google Play Services installerad?</string>
   <string name="about_preferences">Om</string>
-  <string name="tell_your_friends">Dela ODK Collect</string>
+  <string name="tell_your_friends">Dela KoBoCollect</string>
   <string name="tell_your_friends_msg">Samlar dina kollegor fortfarande data på papper?
-Dela ODK Collect med dem.</string>
+Dela KoBoCollect med dem.</string>
   <string name="leave_a_review">Lämna ett omdöme på Play Store</string>
   <string name="leave_a_review_msg">Din (förhoppningsvis positiva) recension ökar synligheten av Appen i Play Store.</string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -308,7 +308,7 @@ Dela ODK Collect med dem.</string>
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS är inte aktiverad på din enhet. Vill du aktivera den?</string>
   <string name="geo_clear_warning">Objekt redan skapat. Vill du rensa objektet?</string>
-  <string name="geo_exit_warning">Ignorera ändringar och återgå till ODK?</string>
+  <string name="geo_exit_warning">Ignorera ändringar och återgå till KoBoToolbox?</string>
   <string name="polygon_validator">Minst tre punkter krävs för att skapa en polygon</string>
   <string name="polyline_validator">Det behövs minst 2 punkter för att skapa en polyline</string>
   <string name="clear">Rensa</string>
@@ -321,7 +321,7 @@ Dela ODK Collect med dem.</string>
   <string name="geotrace_view_change_location">Visa eller redigera GeoTrace</string>
   <string name="bearing">Riktning: %.3f</string>
   <string name="direction">Riktning: %s</string>
-  <string name="select_odk_shortcut">Välj ODK genväg</string>
+  <string name="select_odk_shortcut">Välj KoBoToolbox genväg</string>
   <string name="bad_uri">Ogiltig URI: %s</string>
   <string name="unrecognized_uri">Okänd URI: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -339,9 +339,9 @@ Dela ODK Collect med dem.</string>
   <string name="parser_exception">XPathParser undantag: \"%s\"</string>
   <string name="version_number">Version: %s</string>
   <string name="id_number">ID: 1%s</string>
-  <string name="odk_website">Besök ODKs hemsida</string>
-  <string name="odk_website_summary">ODK används för att samla in data för socialt arbete i utmanande miljöer</string>
-  <string name="odk_forum">Gå med i ODK forumet</string>
+  <string name="odk_website">Besök KoBoToolboxs hemsida</string>
+  <string name="odk_website_summary">KoBoToolbox används för att samla in data för socialt arbete i utmanande miljöer</string>
+  <string name="odk_forum">Gå med i KoBoToolbox forumet</string>
   <string name="odk_forum_summary">Gå med i forumet för få hjälp, föreslå nya funktioner eller bidra med kod och översättningar!</string>
   <string name="all_open_source_licenses">Bibliotek/licenser för öppen källkod</string>
   <string name="all_open_source_licenses_msg">Vi står på jättarnas axlar!</string>
@@ -362,7 +362,7 @@ Dela ODK Collect med dem.</string>
   <string name="encryption_error_message">%s formulär har inte sparats som avslutat.</string>
   <string name="analytics_preferences">Användningsdata</string>
   <string name="analytics">Samla in anonym användningsdata</string>
-  <string name="analytics_summary">Anonym användningsdata hjälper ODKs utvecklare med prioritering av korrigeringar och funktioner </string>
+  <string name="analytics_summary">Anonym användningsdata hjälper KoBoToolboxs utvecklare med prioritering av korrigeringar och funktioner </string>
   <string name="select_all">Välj alla</string>
   <string name="clear_all">Rensa alla</string>
   <string name="reset_settings">Alla inställningar (interna inställningar, sparade inställningar)</string>

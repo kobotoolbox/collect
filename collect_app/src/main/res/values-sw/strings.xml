@@ -23,8 +23,8 @@
   <string name="recapture_osm">Rudia kuweka taarifa za OSM</string>
   <string name="capture_video">Rekodi video</string>
   <string name="change_language">Badili lugha </string>
-  <string name="change_password">Nenosiri la ODK</string>
-  <string name="change_username">Jina la mtumiaji wa ODK</string>
+  <string name="change_password">Nenosiri la KoBoToolbox</string>
+  <string name="change_username">Jina la mtumiaji wa KoBoToolbox</string>
   <string name="clearanswer_confirm">Ondoa jibu la \"%s\"?</string>
   <string name="clear_answer">Ondoa jibu</string>
   <string name="clear_answer_ask">Ondoa jibu hili?</string>
@@ -120,7 +120,7 @@
   <string name="client">Kiolesura \"interface\" cha mtumiaji</string>
   <string name="show_splash_summary">Huonyesha wakati programu inapoanza</string>
   <string name="splash_path">Picha ya ukurasa wa kuanza iliyochaguliwa</string>
-  <string name="default_splash_path">Chaguo msingi la ODK</string>
+  <string name="default_splash_path">Chaguo msingi la KoBoToolbox</string>
   <string name="select_another_image">Chagua picha nyingine</string>
   <string name="use_odk_default">Tumia picha msingi \"default\"</string>
   <string name="change_splash_path">Badili picha</string>
@@ -251,9 +251,9 @@
   <string name="no_google_account">Hakuna akaunti ya Google Iliyochaguliwa!</string>
   <string name="google_set_account">Umechagua karatasi za Google kama seva yako, tafadhali chagua akaunti ya Google inayoshabiliana katika mpangilio wa jumla kabla ya kuendelea</string>
   <string name="media_upload_error">Imeshindwa kupakia mafaili ya midia ambayo hayapo%1$s</string>
-  <string name="odk_permissions_fail">Uwezo wa utumaji wenyewe wa ODK umeshindikana kwa kukosa ruhusa, tafadhali hakikisha umeipa ruhusa zote zinazohitajika</string>
-  <string name="odk_auto_note">Majibu ya ODK yanajituma yenyewe</string>
-  <string name="odk_auto_download_notification_title">Majibu ya ODK yaliyo jipakuwa yenyewe</string>
+  <string name="odk_permissions_fail">Uwezo wa utumaji wenyewe wa KoBoToolbox umeshindikana kwa kukosa ruhusa, tafadhali hakikisha umeipa ruhusa zote zinazohitajika</string>
+  <string name="odk_auto_note">Majibu ya KoBoToolbox yanajituma yenyewe</string>
+  <string name="odk_auto_download_notification_title">Majibu ya KoBoToolbox yaliyo jipakuwa yenyewe</string>
   <string name="notification_error">Kosa linaonesha ujumbe wa maandishi</string>
   <string name="delete_after_send">Futa baada ya kutuma</string>
   <string name="delete_after_send_summary">Inafuta fomu zilizokamilika na midia baada ya kuzituma kwenye seva</string>
@@ -269,8 +269,8 @@
   <string name="username_error_whitespace">Nafasi za wazi kabla au baada ya jina la mtumiaji haziruhusiwi</string>
   <string name="google_play_services_error_occured">Upatikanaji wa ramani za google umeshindikana. Je, huduma ya Google Play imesakinishwa kwenye simu?</string>
   <string name="about_preferences">Kuhusu</string>
-  <string name="tell_your_friends">Shirikisha wengine programu ya ODK collect</string>
-  <string name="tell_your_friends_msg">Je ndugu na jamaa zako bado wanakusanya taarifa kupitia karatasi? Washirikishe programu ya ODK.</string>
+  <string name="tell_your_friends">Shirikisha wengine programu ya KoBoToolbox collect</string>
+  <string name="tell_your_friends_msg">Je ndugu na jamaa zako bado wanakusanya taarifa kupitia karatasi? Washirikishe programu ya KoBoToolbox.</string>
   <string name="leave_a_review">Acha tathmini katika Play Store</string>
   <string name="leave_a_review_msg">Tathmini yako (tunatumaini itakuwa chanya) inaongeza nafasi ya programu hii kuonekana Pay Store</string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -313,7 +313,7 @@
   <string name="geotrace_title">Fatilisha mstari kijografia</string>
   <string name="gps_enable_message">GPS imezimwa kwenye kifaa chako. Ungependa kutumia?</string>
   <string name="geo_clear_warning">Umbo lishatengenezwa. Ungependa kufuta Umbo?</string>
-  <string name="geo_exit_warning">Sitisha mabadiliko na rudi kwenye ODK?</string>
+  <string name="geo_exit_warning">Sitisha mabadiliko na rudi kwenye KoBoToolbox?</string>
   <string name="polygon_validator">Lazima uwe na angalau  nukta 3 ili kutengeneza poligoni</string>
   <string name="polyline_validator">Ni lazima uwe angalau na pointi 2 kutengeneza Mistari </string>
   <string name="clear">Futa</string>
@@ -332,7 +332,7 @@
   <string name="geometry_status">Fomu zilizohifadhiwa:%d%d zimeoneshwa kwenye ramani</string>
   <string name="bearing">Uelekeo: \"Bearing\"%.3f</string>
   <string name="direction">Uelekeo: \"Direction\"%s</string>
-  <string name="select_odk_shortcut">Chagua njia fupi ya ODK </string>
+  <string name="select_odk_shortcut">Chagua njia fupi ya KoBoToolbox </string>
   <string name="bad_uri">URI mbaya:%s</string>
   <string name="unrecognized_uri">URI  Isiyotambulika: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -351,9 +351,9 @@
   <string name="parser_exception">Isipokuwa ya XPathparser: \"%s\"</string>
   <string name="version_number">Toleo: %s</string>
   <string name="id_number">Utambulisho: %s</string>
-  <string name="odk_website">Tembelea tovuti ya ODK</string>
-  <string name="odk_website_summary">ODK inatumika kwenye ukusanyaji wa taarifa za kijamii katika mazingira yenye changamoto.</string>
-  <string name="odk_forum">Jiunge na jukwaa la ODK</string>
+  <string name="odk_website">Tembelea tovuti ya KoBoToolbox</string>
+  <string name="odk_website_summary">KoBoToolbox inatumika kwenye ukusanyaji wa taarifa za kijamii katika mazingira yenye changamoto.</string>
+  <string name="odk_forum">Jiunge na jukwaa la KoBoToolbox</string>
   <string name="odk_forum_summary">Jiunge na jukwaa kupata msaada, kuomba makala,  kuchangia kanuni au kutafsiri!</string>
   <string name="all_open_source_licenses">Maktaba/leseni ya chanzo wazi</string>
   <string name="all_open_source_licenses_msg">Tumesimama kwenye mabega ya mashujaa!</string>
@@ -374,7 +374,7 @@
   <string name="encryption_error_message">         %s Fomu haija hifadhiwa kama ilivyo hitimishwa</string>
   <string name="analytics_preferences">Matumizi ya takwimu</string>
   <string name="analytics">Kusanya takwimu za matumizi bila majina</string>
-  <string name="analytics_summary"> Matumizi ya takwimu zisizojulikana husaidia timu ya ODK kutoa kipaumbele cha hitilafu na vifaa</string>
+  <string name="analytics_summary"> Matumizi ya takwimu zisizojulikana husaidia timu ya KoBoToolbox kutoa kipaumbele cha hitilafu na vifaa</string>
   <string name="select_all">Chagua zote</string>
   <string name="clear_all">Futa zote</string>
   <string name="reset_settings">Mipangilio yote (mipangilio ya ndani, mipangilio iliyohifadhiwa)</string>
@@ -411,7 +411,7 @@
   <string name="sort_the_list">Panga orodha</string>
   <string name="filter_the_list">Chuja orodha</string>
   <string name="language">Lugha</string>
-  <string name="google_auth_io_exception_msg">Haiwezi kutengeneza API za kuita. Kama umejitengenezea ODK, tafadhali pitia mradi upya.</string>
+  <string name="google_auth_io_exception_msg">Haiwezi kutengeneza API za kuita. Kama umejitengenezea KoBoToolbox, tafadhali pitia mradi upya.</string>
   <string name="form_metadata_title">Unda taarifa za data</string>
   <string name="form_metadata">Unda taarifa za data</string>
   <string name="form_metadata_summary">Thamani hizi zitaongezwa katika fomu ambazo zina jina, barua pepe na au namba ya simu kupakuliwa kabla nafasi kumtambulisha mtu aliye wasilisha data.</string>
@@ -548,7 +548,7 @@
   <string name="get_accounts_runtime_permission_denied_title">Pata ruhusa ya akaunti</string>
   <string name="get_accounts_runtime_permission_denied_desc">Bila hii ruhusa Collect haiwezi kufungua akaunti. Tafadhali jaribu tena ukiwa tayari kutoa ruhusa.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Soma ruhusa ya simu</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect haipigi simu lakini inahitaji kufikia taarifa fulani kuhusu kifaa chako kama namba ya simu na ya utambulisho wa kifaa.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect haipigi simu lakini inahitaji kufikia taarifa fulani kuhusu kifaa chako kama namba ya simu na ya utambulisho wa kifaa.</string>
   <string name="form_update_category">Tolea jipya la fomu</string>
   <string name="periodic_form_updates_check_title">Ukaguzi wa mara kwa mara wa matolea mapya ya  fomu</string>
   <string name="every_fifteen_minutes">Kila dakika kumi na tano</string>

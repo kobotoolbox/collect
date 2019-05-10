@@ -24,7 +24,7 @@
   <string name="capture_video">ვიდეოგადაღება</string>
   <string name="change_language">ენის შეცვლა</string>
   <string name="change_password">პაროლი</string>
-  <string name="change_username">ODK-ის მომხმარებლის სახელი</string>
+  <string name="change_username">KoBoToolbox-ის მომხმარებლის სახელი</string>
   <string name="clearanswer_confirm">შევცვალოთ ეს გამოპასუხება \"%s\"-ით?</string>
   <string name="clear_answer">გამოპასუხების მოცილება</string>
   <string name="clear_answer_ask">მოვაცილოთ ეს გამოპასუხება?</string>
@@ -120,7 +120,7 @@
   <string name="client">მომხმარებლის ინტერფეისი</string>
   <string name="show_splash_summary">აჩვენებს, როდესაც ირთვება აპლიკაცია</string>
   <string name="splash_path">არჩეული სპლეშ-სურათი</string>
-  <string name="default_splash_path">ODK დეფოლტი</string>
+  <string name="default_splash_path">KoBoToolbox დეფოლტი</string>
   <string name="select_another_image">სხვა სურათების არჩევა</string>
   <string name="use_odk_default">გამოიყენე დეფოლტ-სურათი</string>
   <string name="change_splash_path">სურათის შეცვლა</string>
@@ -223,7 +223,7 @@
   <string name="delete_after_send">გაგზავნის შემდგომ წაშლა</string>
   <string name="change_server_url">სერვერის ვებ-მისამართი</string>
   <string name="about_preferences">შესახებ</string>
-  <string name="tell_your_friends">ODK Collect გაზიარება</string>
+  <string name="tell_your_friends">Kobo Collect გაზიარება</string>
   <!--Geo string added in feature-geofeatures branch-->
   <string name="maps">რუკები</string>
   <!--TODO(ping): Delete these openmap_* strings when we're ready to move on from OSMDroid.
@@ -233,7 +233,7 @@
   <string name="streets">ქუჩები</string>
   <string name="start">დასაწყისი</string>
   <string name="enable_gps">GPS-ის ჩართვა</string>
-  <string name="geo_exit_warning">გაუქმდეს ცვლილებები და ბრუნდებით ODK-ში?</string>
+  <string name="geo_exit_warning">გაუქმდეს ცვლილებები და ბრუნდებით KoBoToolbox-ში?</string>
   <string name="none">არცერთი</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in W 18°48'8"-->

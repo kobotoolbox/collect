@@ -23,8 +23,8 @@
   <string name="recapture_osm">Znovu provést OSM tagování</string>
   <string name="capture_video">Nahrát video</string>
   <string name="change_language">Změnit jazyk</string>
-  <string name="change_password">Heslo do ODK</string>
-  <string name="change_username">Uživatelské jméno do ODK</string>
+  <string name="change_password">Heslo do KoBoToolbox</string>
+  <string name="change_username">Uživatelské jméno do KoBoToolbox</string>
   <string name="clearanswer_confirm">Odstranit odpověď na \"%s\"?</string>
   <string name="clear_answer">Odstranit odpověď</string>
   <string name="clear_answer_ask">Odstranit tuto odpověď?</string>
@@ -124,7 +124,7 @@
   <string name="client">Uživatelské rozhraní</string>
   <string name="show_splash_summary">Zobrazit při startu aplikace</string>
   <string name="splash_path">Vyberte úvodní obrázek</string>
-  <string name="default_splash_path">Výchozí obrazovka ODK</string>
+  <string name="default_splash_path">Výchozí obrazovka KoBoToolbox</string>
   <string name="select_another_image">Vybrat další obrázek</string>
   <string name="use_odk_default">Použít výchozí obrázek</string>
   <string name="change_splash_path">Změnit obrázek</string>
@@ -250,14 +250,14 @@
   <string name="go_drive">Můj disk</string>
   <string name="go_shared">Sdíleno se mnou</string>
   <string name="modified_on_date_at_time">\'Upraveno v \' EEE, dd MMM, yyyy \'v\' HH:mm</string>
-  <string name="google_sheets_url_hint">Formuláře musí obsahovat adresu URL pro podání. Pokud tomu tak není, použije se tato adresa URL.</string>
+  <string name="google_sheets_url_hint">Dotazníky musí obsahovat adresu URL pro podání. Pokud tomu tak není, použije se tato adresa URL.</string>
   <string name="drive_get_file">Získávám %1$s a mediální soubory</string>
   <string name="no_google_account">Není vybrán žádný účet Google!</string>
   <string name="google_set_account">Vybrali jste Tabulky Google jako svůj server, vyberte prosím odpovídající účet Google ve Všeobecných nastaveních a pokračujte</string>
   <string name="media_upload_error">Nepodařilo se nahrát soubor médií, který neexistuje.%1$s </string>
-  <string name="odk_permissions_fail">automatické odeslání oprávnění ODK selhalo, ujistěte se, že jste udělili všechna požadovaná oprávnění</string>
-  <string name="odk_auto_note">Výsledky automatického odesílání ODK</string>
-  <string name="odk_auto_download_notification_title">Výsledky automatického stahování ODK</string>
+  <string name="odk_permissions_fail">automatické odeslání oprávnění KoBoToolbox selhalo, ujistěte se, že jste udělili všechna požadovaná oprávnění</string>
+  <string name="odk_auto_note">Výsledky automatického odesílání KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">Výsledky automatického stahování KoBoToolbox</string>
   <string name="notification_error">Chyba při zobrazení oznámení</string>
   <string name="delete_after_send">Vymazat po odeslání</string>
   <string name="delete_after_send_summary">Vymaže dokončené dotazníky a média po odeslání na server</string>
@@ -273,8 +273,8 @@
   <string name="username_error_whitespace">Počáteční nebo koncové mezery v uživatelských jménech nejsou povoleny</string>
   <string name="google_play_services_error_occured">Nelze přistupovat k Mapám Google. Je služba Google Play nainstalována?</string>
   <string name="about_preferences">Více o….</string>
-  <string name="tell_your_friends">Sdílet ODK Collect</string>
-  <string name="tell_your_friends_msg">Shromažďují vaši kolegové data jen na papíře? Sdílejte s nimi ODK Collect.</string>
+  <string name="tell_your_friends">Sdílet KoBoCollect</string>
+  <string name="tell_your_friends_msg">Shromažďují vaši kolegové data jen na papíře? Sdílejte s nimi KoBoCollect.</string>
   <string name="leave_a_review">Nechte recenzi v Play Store</string>
   <string name="leave_a_review_msg">Vaše recenze (snad pozitivní) zvyšuje viditelnost aplikace v Play Store.</string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -317,7 +317,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS je ve vašem zařízení deaktivováno. Chcete ho povolit?</string>
   <string name="geo_clear_warning">Funkce již vytvořena. Chcete tuto funkci vymazat?</string>
-  <string name="geo_exit_warning">Zrušit změny a vrátit se do ODK?</string>
+  <string name="geo_exit_warning">Zrušit změny a vrátit se do KoBoToolbox?</string>
   <string name="polygon_validator">Musí mít alespoň 3 body pro vytvoření polygonu</string>
   <string name="polyline_validator">Musí mít alespoň 2 body k vytvoření křivky</string>
   <string name="clear">Vymazat</string>
@@ -364,7 +364,7 @@
   <string name="geometry_status">Uložené formuláře:%d (%d zobrazené na mapě)</string>
   <string name="bearing">Orientace: %.3f</string>
   <string name="direction">Pokyny: %s</string>
-  <string name="select_odk_shortcut">Vybrat ODK zástupce</string>
+  <string name="select_odk_shortcut">Vybrat KoBoToolbox zástupce</string>
   <string name="bad_uri">Špatný identifikátor URI: %s</string>
   <string name="unrecognized_uri">Nerozpoznaný identifikátor URI: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -383,9 +383,9 @@
   <string name="parser_exception">Výjimka XPathParser: \"%s\"</string>
   <string name="version_number">Verze: %s</string>
   <string name="id_number">ID: %s</string>
-  <string name="odk_website">Navštivte web ODK</string>
-  <string name="odk_website_summary">ODK se používá ke sběru dat pro sociální dobro v náročných prostředích.</string>
-  <string name="odk_forum">Připojit se k fóru ODK</string>
+  <string name="odk_website">Navštivte web KoBoToolbox</string>
+  <string name="odk_website_summary">KoBoToolbox slouží k shromažďování dat pro sociální účely v náročných prostředích.</string>
+  <string name="odk_forum">Připojit se k fóru KoBoToolbox</string>
   <string name="odk_forum_summary">Připojte se na fórum, abyste získali podporu, žádali o nové funkce aplikace, přispěli kódem / překlady!</string>
   <string name="all_open_source_licenses">Open source knihovny / licence</string>
   <string name="all_open_source_licenses_msg">Stojíme na ramenou obrů!</string>
@@ -406,7 +406,7 @@
   <string name="encryption_error_message">%s Formulář nebyl uložen jako dokončený.</string>
   <string name="analytics_preferences">Údaje o použití</string>
   <string name="analytics">Shromažďujte anonymní údaje o použití</string>
-  <string name="analytics_summary">Anonymní data o použití pomáhají týmům ODK upřednostňovat opravy a funkce</string>
+  <string name="analytics_summary">Anonymní data o použití pomáhají týmům KoBoToolbox upřednostňovat opravy a funkce</string>
   <string name="select_all">Vybrat vše</string>
   <string name="clear_all">Vymazat vše</string>
   <string name="reset_settings">Všechna nastavení (interní nastavení, uložená nastavení)</string>
@@ -604,7 +604,7 @@
   <string name="get_accounts_runtime_permission_denied_title">Získat oprávnění k účtům</string>
   <string name="get_accounts_runtime_permission_denied_desc">Bez tohoto povolení Collect nemůže přistupovat k účtům. Zkuste to prosím znovu, až budete  připraveni jej udělit.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Přečtěte si povolení k telefonu</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect neprovádí volání, ale potřebuje přístup k určitým vlastnostem vašeho zařízení, jako je například telefonní číslo a device ID.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect neprovádí volání, ale potřebuje přístup k určitým vlastnostem vašeho zařízení, jako je například telefonní číslo a device ID.</string>
   <string name="form_update_category">Aktualizace formuláře</string>
   <string name="periodic_form_updates_check_title">Pravidelná kontrola aktualizací formulářů</string>
   <string name="every_fifteen_minutes">Každých patnáct minut</string>
@@ -670,7 +670,7 @@
   <string name="changes_in_progress">Probíhá automatické stahování nebo odesílání prázdných formulářů. Prosím zkuste to znovu později.</string>
   <string name="storage_migration_failed">Migrace dat se nezdařila. Prosím zkuste to znovu.</string>
   <string name="storage_migration_dialog_title">Migrace úložiště</string>
-  <string name="storage_migration_progress_msg">Probíhá migrace. 
+  <string name="storage_migration_progress_msg">Probíhá migrace.
 Může to trvat několik sekund …</string>
   <string name="install_id">Install ID  - nahradí Device ID v Collect v1.29</string>
   <string name="preference_not_available">Není dostupný</string>

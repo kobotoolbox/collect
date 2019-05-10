@@ -9,8 +9,8 @@
   <string name="capture_image">ຖ່າຍຮູບ</string>
   <string name="capture_video">ບັນທຶກວີດີໂອ</string>
   <string name="change_language">ເລືອກພາສາ</string>
-  <string name="change_password">ລະຫັດຜ່ານ ODK</string>
-  <string name="change_username">ບັນຊີຜູ້ໃຊ້ ODK</string>
+  <string name="change_password">ລະຫັດຜ່ານ KoBoToolbox</string>
+  <string name="change_username">ບັນຊີຜູ້ໃຊ້ KoBoToolbox</string>
   <string name="clearanswer_confirm">ຕ້ອງການລຶບຄຳຕອບໄປທີ່ \"%s\" ບໍ່?</string>
   <string name="clear_answer">ລຶບຄຳຕອບ</string>
   <string name="clear_answer_ask">ຕ້ອງການຍ້າຍຄຳຕອບນີ້ບໍ່?</string>
@@ -96,7 +96,7 @@
   <string name="general_preferences">ການ​ຕັ້ງ​ຄ່າ​ທົ່ວ​ໄປ</string>
   <string name="show_splash_summary">ສະແ​ດງເມື່ອໂປແກຼມ ເລີ່ມຕົ້ນໃຊ້ງານ</string>
   <string name="splash_path">ເລືອກພາບເລີ່ມຕົ້ນ</string>
-  <string name="default_splash_path">ຄ່າເລີ່ມຕົ້ນ ODK</string>
+  <string name="default_splash_path">ຄ່າເລີ່ມຕົ້ນ KoBoToolbox</string>
   <string name="select_another_image">ເລືອກພາບອື່ນ</string>
   <string name="use_odk_default">ເລືອກພາບທີ່ກຳນົດໄວ້</string>
   <string name="change_splash_path">ປ່ຽນຮູບພາບ</string>

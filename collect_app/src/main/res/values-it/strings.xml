@@ -23,8 +23,8 @@
   <string name="recapture_osm">Rifai tag a OSM</string>
   <string name="capture_video">Registra Video</string>
   <string name="change_language">Cambia Lingua</string>
-  <string name="change_password">Password ODK</string>
-  <string name="change_username">Nome utente ODK</string>
+  <string name="change_password">Password KoBoToolbox</string>
+  <string name="change_username">Nome utente KoBoToolbox</string>
   <string name="clearanswer_confirm">Rimuovere la risposta a \"%s\"?</string>
   <string name="clear_answer">Rimuovere la risposta</string>
   <string name="clear_answer_ask">Rimuovere questa risposta?</string>
@@ -121,7 +121,7 @@
   <string name="client">Interfaccia utente</string>
   <string name="show_splash_summary">Indica quando l\'applicazione si avvia</string>
   <string name="splash_path">Immagine di avvio selezionata</string>
-  <string name="default_splash_path">ODK Default</string>
+  <string name="default_splash_path">KoBoToolbox Default</string>
   <string name="select_another_image">Selezionare un\'altra immagine</string>
   <string name="use_odk_default">Usa immagine di default</string>
   <string name="change_splash_path">Cambiare immagine</string>
@@ -252,9 +252,9 @@
   <string name="no_google_account">Nessun Account Google selezionato!</string>
   <string name="google_set_account">Hai selezionato Google Sheets come tuo server. Perpiacere seleziona un corrispondente account Google nelle Impostazioni Generali prima di procedere.</string>
   <string name="media_upload_error">Errore! il file di supporto da caricare non esiste: %1$s</string>
-  <string name="odk_permissions_fail">Errore auto invio ODK, perpiacere assicurati di avere tutti i permessi necessari</string>
-  <string name="odk_auto_note">Invio automatico dei risultati ODK</string>
-  <string name="odk_auto_download_notification_title">Download automatico dei risultati ODK</string>
+  <string name="odk_permissions_fail">Errore auto invio KoBoToolbox, perpiacere assicurati di avere tutti i permessi necessari</string>
+  <string name="odk_auto_note">Invio automatico dei risultati KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">Download automatico dei risultati KoBoToolbox</string>
   <string name="notification_error">Errore di visualizzazione nella notifica</string>
   <string name="delete_after_send">Elimina dopo invio</string>
   <string name="delete_after_send_summary">Elimina moduli finalizzati e media dopo l\'\'invio al server</string>
@@ -270,8 +270,8 @@
   <string name="username_error_whitespace">Spazi vuoti all\'inizio e alla fine delle username non sono ammessi</string>
   <string name="google_play_services_error_occured">Impossibile accedere a Google Maps. Il Servizio di Google Play è installato?</string>
   <string name="about_preferences">Informazioni</string>
-  <string name="tell_your_friends">Condividi ODK Collect</string>
-  <string name="tell_your_friends_msg">I tuoi colleghi stanno ancora raccogliendo dati con carta e penna? Condividi ODK Collect con loro!</string>
+  <string name="tell_your_friends">Condividi KoBoCollect</string>
+  <string name="tell_your_friends_msg">I tuoi colleghi stanno ancora raccogliendo dati con carta e penna? Condividi KoBoCollect con loro!</string>
   <string name="leave_a_review">Lascia un commento su Play Store</string>
   <string name="leave_a_review_msg">Il tuo commento (speriamo positivo) aumenta la visibilità dell\'applicazione su Play Store</string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -310,7 +310,7 @@
   <string name="geotrace_title">Geo-tracciatura</string>
   <string name="gps_enable_message">Il GPS è disabilitato sul tuo dispositivo. Vuoi abilitarlo?</string>
   <string name="geo_clear_warning">Caratteristica già creata. Vuoi cancellarla?</string>
-  <string name="geo_exit_warning">Vuoi scartare le modifiche e ritornare ad ODK?</string>
+  <string name="geo_exit_warning">Vuoi scartare le modifiche e ritornare ad KoBoToolbox?</string>
   <string name="polygon_validator">Devi avere almeno 3 punti per creare un Poligono</string>
   <string name="polyline_validator">Devi avere almeno 2 punti per creare una Polilinea</string>
   <string name="clear">Cancella</string>
@@ -346,7 +346,7 @@
   <string name="geotrace_view_change_location">Guarda o Cambia Geo-tracciatura</string>
   <string name="bearing">Orientamento: %.3f </string>
   <string name="direction">Direzione: %s</string>
-  <string name="select_odk_shortcut">Seleziona scorciatoia ODK</string>
+  <string name="select_odk_shortcut">Seleziona scorciatoia KoBoToolbox</string>
   <string name="bad_uri">URI mal strutturato : %s</string>
   <string name="unrecognized_uri">URI non riconosciuto : %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -365,8 +365,8 @@
   <string name="parser_exception">Eccezione XPathParser: \"%s\"</string>
   <string name="version_number">Versione: %s</string>
   <string name="id_number">ID: %s</string>
-  <string name="odk_website">Visitare il sito web ODK</string>
-  <string name="odk_forum">Collegati al forum di ODK</string>
+  <string name="odk_website">Visitare il sito web KoBoToolbox</string>
+  <string name="odk_forum">Collegati al forum di KoBoToolbox</string>
   <string name="odk_forum_summary">Entra nel forum per avere supporto, richiedere caratteristiche, contribuire a codificare/tradurre!</string>
   <string name="all_open_source_licenses">Librerie/Licenze open source</string>
   <string name="all_open_source_licenses_msg">Stiamo sulle spalle dei giganti!</string>
@@ -387,7 +387,7 @@
   <string name="encryption_error_message">%s Il modulo non è stato ancora salvato come completato.</string>
   <string name="analytics_preferences">Dati sull\'utilizzo</string>
   <string name="analytics">Raccolta di dati anonimi sull\'utilizzo</string>
-  <string name="analytics_summary">La raccolta di dati anonimi sull\'utilizzo aiuta il team di ODK a dare priorità a certe funzioni e fix</string>
+  <string name="analytics_summary">La raccolta di dati anonimi sull\'utilizzo aiuta il team di KoBoToolbox a dare priorità a certe funzioni e fix</string>
   <string name="select_all">Seleziona tutto</string>
   <string name="clear_all">Deseleziona tutto</string>
   <string name="reset_settings">Tutte le impostazioni (impostazioni di base, impostazioni salvate)</string>
@@ -557,7 +557,7 @@
   <string name="record_audio_runtime_permission_denied_desc">Senza questa autorizzazione Collect non può registrare i suoni. Prova di nuovo quando hai autorizzato l\'uso del microfono</string>
   <string name="get_accounts_runtime_permission_denied_title">Autorizzazione uso account</string>
   <string name="get_accounts_runtime_permission_denied_desc">Senza questa autorizzazione Collect non può accedere al tuo account. Prova di nuovo quando hai autorizzato l\'accesso al tuo account</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect non effettua chiamate ma necessita di accedere ad alcune propietà del tuo dispositivo quali ad esempio il numero telefonico e l\'Identificativo del dispositivo.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect non effettua chiamate ma necessita di accedere ad alcune propietà del tuo dispositivo quali ad esempio il numero telefonico e l\'Identificativo del dispositivo.</string>
   <string name="form_update_category">Aggiornamento Modulo</string>
   <string name="periodic_form_updates_check_title">Controllo periodico di aggiornamento questionari</string>
   <string name="every_fifteen_minutes">Ogni 15 minuti</string>

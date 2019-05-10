@@ -44,3 +44,8 @@ javarosa/
 
 # Config for the official ODK Collect build
 collect_app/src/odkCollectRelease/
+
+# Kobo-specific tools
+kobocollect*
+collect_app/kobo
+collect_app/*.key

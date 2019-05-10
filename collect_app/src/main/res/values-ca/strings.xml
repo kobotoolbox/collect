@@ -13,8 +13,8 @@
   <string name="recapture_osm">Refer signatura OSM</string>
   <string name="capture_video">Enregistrar Vídeo</string>
   <string name="change_language">Canvia idioma</string>
-  <string name="change_password">Clau d\'accés ODK</string>
-  <string name="change_username">nom d\'usuari ODK</string>
+  <string name="change_password">Clau d\'accés KoBoToolbox</string>
+  <string name="change_username">nom d\'usuari KoBoToolbox</string>
   <string name="clearanswer_confirm">Eliminar la resposta a \"%s\"?</string>
   <string name="clear_answer">Eliminar resposta</string>
   <string name="clear_answer_ask">Eliminar aquesta resposta?</string>
@@ -103,7 +103,7 @@
   <string name="general_preferences">Configuració general</string>
   <string name="show_splash_summary">Mostrar quan inicia l\'aplicació</string>
   <string name="splash_path">Imatge de benvinguda seleccionada</string>
-  <string name="default_splash_path">ODK per defecte</string>
+  <string name="default_splash_path">KoBoToolbox per defecte</string>
   <string name="select_another_image">Seleccionar una altre imatge</string>
   <string name="use_odk_default">Usar imatge per defecte</string>
   <string name="change_splash_path">Canviar imatge</string>
@@ -254,7 +254,7 @@
   <string name="enable_gps">Activa GPS</string>
   <string name="geotrace_title">GeoTraça</string>
   <string name="geo_clear_warning">Característica ja creada. Vols netejar-la?</string>
-  <string name="geo_exit_warning">Descartar canvis i tornar a ODK?</string>
+  <string name="geo_exit_warning">Descartar canvis i tornar a KoBoToolbox?</string>
   <string name="polygon_validator">Per crear un polígon calen mínim 3 punts </string>
   <string name="clear">Neteja</string>
   <string name="geopoint_instruction">Prem una estona o toca el botó d\'afegir fita.</string>
@@ -264,7 +264,7 @@
   <string name="geotrace_view_change_location">Visualitza o modifica GeoShape</string>
   <string name="bearing">Rumb: %.3f</string>
   <string name="direction">Direcció: %s</string>
-  <string name="select_odk_shortcut">Selecciona drecera ODK</string>
+  <string name="select_odk_shortcut">Selecciona drecera KoBoToolbox</string>
   <string name="bad_uri">URI dolenta: %s</string>
   <string name="unrecognized_uri">URI no reconeguda: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -281,7 +281,7 @@
   <string name="gps_result">Latitud: %1$s\nLongitud: %2$s\nAltitud: %3$sm\nPrecisió: %4$sm</string>
   <string name="parser_exception">Exceptio XPathParser: \"%s\"</string>
   <string name="version_number">Versió: %s</string>
-  <string name="odk_website">Visita la web d\'ODK</string>
+  <string name="odk_website">Visita la web d\'KoBoToolbox</string>
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in W 18°48'8"-->
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in E 18°48'8"-->
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in S 18°48'8"-->

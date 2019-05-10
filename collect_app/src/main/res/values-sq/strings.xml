@@ -111,7 +111,7 @@
   <string name="client">Fasada e përdoruesit</string>
   <string name="show_splash_summary">Shfaqet me hapjen e aplikacionit</string>
   <string name="splash_path">Zgjidh imazhin për faqen hyrëse</string>
-  <string name="default_splash_path">Alternativa e parapërcaktuar ODK</string>
+  <string name="default_splash_path">Alternativa e parapërcaktuar KoBoToolbox</string>
   <string name="select_another_image">Zgjidh një imazh tjetër</string>
   <string name="use_odk_default">Përdor imazhin e parapërcaktuar</string>
   <string name="change_splash_path">Ndrysho imazhin</string>
@@ -238,8 +238,8 @@
   <string name="google_sheets_access_denied">Ju është mohuar aksesi. Lutemi, sigurohuni që zotëruesi i spreadsheet-it ju ka dhënë të drejtën për të modifikuar.</string>
   <string name="google_play_services_error_occured">E pamundur të aksesohen Google Maps. A është i instaluar Google Play Services?</string>
   <string name="about_preferences">Rreth</string>
-  <string name="tell_your_friends">Ndaj ODK Collect</string>
-  <string name="tell_your_friends_msg">Kolegët tuaj i mbledhin të dhënat me letër akoma? Ndaj ODK Collect me ta.</string>
+  <string name="tell_your_friends">Ndaj KoBoCollect</string>
+  <string name="tell_your_friends_msg">Kolegët tuaj i mbledhin të dhënat me letër akoma? Ndaj KoBoCollect me ta.</string>
   <string name="leave_a_review">Vlerëso në Play Store</string>
   <!--Geo string added in feature-geofeatures branch-->
   <!--TODO(ping): Delete these openmap_* strings when we're ready to move on from OSMDroid.
@@ -260,7 +260,7 @@
   <string name="enable_gps">Aktivizo GPS-in</string>
   <string name="geotrace_title">GeoTrace</string>
   <string name="geo_clear_warning">Tipari është krijuar tanimë. A doni ta pastroni këtë tipar?</string>
-  <string name="geo_exit_warning">Elimino ndryshimet dhe kthehu në ODK?</string>
+  <string name="geo_exit_warning">Elimino ndryshimet dhe kthehu në KoBoToolbox?</string>
   <string name="polygon_validator">Duhen së paku 3 pika për të krijuar Poligonin</string>
   <string name="clear">Pastro</string>
   <string name="geopoint_instruction">Shtyp për pak sekonda për të vendosur një shenjë ose shtuar buton shenjues</string>
@@ -268,7 +268,7 @@
   <string name="geoshape_view_change_location">Shih ose ndrysho GeoShape</string>
   <string name="geotrace_view_change_location">Shih ose ndrysho GeoTrace</string>
   <string name="direction">Drejtim: %s</string>
-  <string name="select_odk_shortcut">Përzgjidh ODK Shortcut</string>
+  <string name="select_odk_shortcut">Përzgjidh KoBoToolbox Shortcut</string>
   <string name="bad_uri">URL e gabuar: %s</string>
   <string name="unrecognized_uri">URL e panjohur: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -285,8 +285,8 @@
   <string name="gps_result">Gjerësi: %1$s\nGjatësi: %2$s\nLartësi: %3$sm\nSaktësi: %4$sm</string>
   <string name="parser_exception">Përjashtim XPathParser \"%s\"</string>
   <string name="version_number">Versioni: %s</string>
-  <string name="odk_website">Vizitoni faqen e ODK në internet</string>
-  <string name="odk_forum">Bëhu pjesë e forumit ODK</string>
+  <string name="odk_website">Vizitoni faqen e KoBoToolbox në internet</string>
+  <string name="odk_forum">Bëhu pjesë e forumit KoBoToolbox</string>
   <string name="odk_forum_summary">Regjistrohu në forum për suport, kërkuar elementë të rinj apo kontribuar me kodim apo përkthim.</string>
   <string name="all_open_source_licenses_msg">Ne qëndrojmë mbi shpatullat e gjigantëve!</string>
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in W 18°48'8"-->
@@ -306,7 +306,7 @@
   <string name="encryption_error_message">Formulari %s nuk është ruajtur si i finalizuar</string>
   <string name="analytics_preferences">Përdorimi i të dhënave</string>
   <string name="analytics">Mblidh të dhëna përdorimi anonime</string>
-  <string name="analytics_summary">Mbledhja e të dhënave anonime ndihmon ekipin e ODK të vendosë prioritet në përmirësimet e aplikacionit</string>
+  <string name="analytics_summary">Mbledhja e të dhënave anonime ndihmon ekipin e KoBoToolbox të vendosë prioritet në përmirësimet e aplikacionit</string>
   <string name="select_all">Zgjidh të gjitha</string>
   <string name="clear_all">Pastro të gjitha</string>
   <string name="reset_settings">Të gjithë parametrat (paramterat e brendshëm, parametrat e ruajtur)</string>

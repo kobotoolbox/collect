@@ -165,8 +165,8 @@
   <string name="google_drive">گوگل درایو</string>
   <string name="go_drive">درایو من</string>
   <string name="go_shared">با من در اشتراک گذاشته شده است</string>
-  <string name="odk_auto_note">نتایج ارسال خودکار ODK</string>
-  <string name="odk_auto_download_notification_title">نتیاج دانلود خودکار ODK</string>
+  <string name="odk_auto_note">نتایج ارسال خودکار KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">نتیاج دانلود خودکار KoBoToolbox</string>
   <string name="delete_after_send">بعد از ارسال حذف کنید</string>
   <string name="delete_after_send_summary">فورم های نهایی و رسانه یی را بعد از ارسال به سرور حذف کنید</string>
   <string name="change_server_url">سرور آدرس وب سایت</string>
@@ -208,7 +208,7 @@
   <string name="go_back">قبلی</string>
   <string name="version_number">نسخه: %s</string>
   <string name="id_number">نمبر شناسایی: %s</string>
-  <string name="odk_forum">با انجمن ODK یکجا شوید</string>
+  <string name="odk_forum">با انجمن KoBoToolbox یکجا شوید</string>
   <string name="all_open_source_licenses">منابع باز کتابخانه ها/مجوز ها</string>
   <string name="all_open_source_licenses_msg">ما روی شانه های غول ها ایستاده ایم!</string>
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in W 18°48'8"-->

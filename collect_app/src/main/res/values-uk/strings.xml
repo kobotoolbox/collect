@@ -20,8 +20,8 @@
   <string name="recapture_osm">Зробити наново OSM тегування</string>
   <string name="capture_video">Записати відео</string>
   <string name="change_language">Змінити мову</string>
-  <string name="change_password">Пароль ODK</string>
-  <string name="change_username">Ім\'я користувача ODK</string>
+  <string name="change_password">Пароль KoBoToolbox</string>
+  <string name="change_username">Ім\'я користувача KoBoToolbox</string>
   <string name="clearanswer_confirm">Видалити відповідь на \"%s\"?</string>
   <string name="clear_answer">Видалити відповідь</string>
   <string name="clear_answer_ask">Видалити цю відповідь?</string>
@@ -117,7 +117,7 @@
   <string name="client">Користувацький інтерфейс</string>
   <string name="show_splash_summary">Відображається при старті програми</string>
   <string name="splash_path">Обрати зображення для заставки</string>
-  <string name="default_splash_path">Стандартне для ODK</string>
+  <string name="default_splash_path">Стандартне для KoBoToolbox</string>
   <string name="select_another_image">Обрати інше зображення</string>
   <string name="use_odk_default">Використати стандартне</string>
   <string name="change_splash_path">Змінити зображення</string>
@@ -249,8 +249,8 @@
   <string name="google_set_account">Ви обрали своїм сервером Google Сторінки, для продовження, будь ласка, вкажіть відповідний обліковий запис Google в Загальних налаштуваннях</string>
   <string name="media_upload_error">Помилка завантаження неіснуючого медіа файлу: %1$s</string>
   <string name="odk_permissions_fail">Помилка автоматичного надсилання, будь ласка, перевірте надання всіх необхідних дозволів</string>
-  <string name="odk_auto_note">Результати автонадсилання ODK</string>
-  <string name="odk_auto_download_notification_title">Результати автозавантаження ODK</string>
+  <string name="odk_auto_note">Результати автонадсилання KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">Результати автозавантаження KoBoToolbox</string>
   <string name="notification_error">Помилка відображення тексту оповіщення</string>
   <string name="delete_after_send">Видалити після надсилання</string>
   <string name="delete_after_send_summary">Видаляє завершені анкети та медіа файли після надсилання на сервер</string>
@@ -266,8 +266,8 @@
   <string name="username_error_whitespace">в імені користувача заборонені початкові та кінцеві пробіли</string>
   <string name="google_play_services_error_occured">Нема доступу до Google Карт. Чи встановлено Google Play Services?</string>
   <string name="about_preferences">Про нас</string>
-  <string name="tell_your_friends">Поширити ODK Collect</string>
-  <string name="tell_your_friends_msg">Ваші колеги досі збирають дані через паперові акети? Поділіться з ними ODK Collect.</string>
+  <string name="tell_your_friends">Поширити KoBoCollect</string>
+  <string name="tell_your_friends_msg">Ваші колеги досі збирають дані через паперові акети? Поділіться з ними KoBoCollect.</string>
   <string name="leave_a_review">Залишити відгук в Play Store</string>
   <string name="leave_a_review_msg">Ваш (сподіваємось позитивний) відгук покращить помітність програми в Play Store.</string>
   <!--Geo string added in feature-geofeatures branch-->
@@ -296,7 +296,7 @@
   <string name="enable_gps">Увімкнути GPS</string>
   <string name="geotrace_title">ГеоМаршрут</string>
   <string name="geo_clear_warning">Ознака вже створена. Бажаєте очистити ознаку?</string>
-  <string name="geo_exit_warning">Скасувати зміни і повернутись до ODK?</string>
+  <string name="geo_exit_warning">Скасувати зміни і повернутись до KoBoToolbox?</string>
   <string name="polygon_validator">Для багатокутника необхідно мінімум 3 точки</string>
   <string name="polyline_validator">Для створення лінії необхідні принаймні дві точки</string>
   <string name="clear">Очистити</string>
@@ -338,7 +338,7 @@
   <string name="geotrace_view_change_location">Переглянути чи змінити ГеоМаршрут</string>
   <string name="bearing">Пеленг: %.3f</string>
   <string name="direction">Напрямок: %s</string>
-  <string name="select_odk_shortcut">Обрати посилання ODK</string>
+  <string name="select_odk_shortcut">Обрати посилання KoBoToolbox</string>
   <string name="bad_uri">Поганий URI: %s</string>
   <string name="unrecognized_uri">Нерозпізнаний URI: %s</string>
   <!--&lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
@@ -357,9 +357,9 @@
   <string name="parser_exception">XPathParser Exception: \"%s\"</string>
   <string name="version_number">Версія: %s</string>
   <string name="id_number">ID: %s</string>
-  <string name="odk_website">Перейти на сайт ODK</string>
-  <string name="odk_website_summary">ODK використовується для збору даних для суспільних потреб.</string>
-  <string name="odk_forum">Долучитись до форуму ODK</string>
+  <string name="odk_website">Перейти на сайт KoBoToolbox</string>
+  <string name="odk_website_summary">KoBoToolbox використовується для збору даних для суспільних потреб.</string>
+  <string name="odk_forum">Долучитись до форуму KoBoToolbox</string>
   <string name="odk_forum_summary">Долучайтесь до форуму аби отримати допомогу, запросити нові функції, допомогти в створенні коду чи перекладу!</string>
   <string name="all_open_source_licenses">Відкриті бібліотеки/ліцензії</string>
   <string name="all_open_source_licenses_msg">Ми стоїмо на плечах гігантів!</string>
@@ -380,7 +380,7 @@
   <string name="encryption_error_message">%s анкета не була збережена як завершена.</string>
   <string name="analytics_preferences">Дані про використання</string>
   <string name="analytics">Анонімно збирати дані про використання</string>
-  <string name="analytics_summary">Анонімний збір даних про використання допомагає команді ODK пріоритетизувати правки та нові функції</string>
+  <string name="analytics_summary">Анонімний збір даних про використання допомагає команді KoBoToolbox пріоритетизувати правки та нові функції</string>
   <string name="select_all">Обрати всі</string>
   <string name="clear_all">Зняти всі позначки</string>
   <string name="reset_settings">Всі налаштування (внутрішні налаштування, збережені налаштування)</string>
@@ -554,7 +554,7 @@
   <string name="get_accounts_runtime_permission_denied_title">Отримати дозволи облікового запису</string>
   <string name="get_accounts_runtime_permission_denied_desc">Без цього дозволу Collect не має доступу до облікових записів. Будь ласка, спробуйте знову коли будете готові надати його.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Сатус телефону</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect не робить телефонних дзвінків але потребує доступу до певних властивостей вашого пристрою як то номер телефну та ID пристрою</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect не робить телефонних дзвінків але потребує доступу до певних властивостей вашого пристрою як то номер телефну та ID пристрою</string>
   <string name="form_update_category">Оновлення анкети</string>
   <string name="periodic_form_updates_check_title">Періодична перерівка оновлень анкет</string>
   <string name="every_fifteen_minutes">Кожних п\'ятнадцять хвилин</string>
