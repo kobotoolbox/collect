@@ -92,6 +92,15 @@ android {
         }
     }
 
+    flavorDimensions "version"
+
+    productFlavors {
+        kobo {
+            applicationId "org.koboc.collect.android"
+            buildConfigField 'String', 'AUTHORITY', '"org.koboc.collect.android"'
+        }
+    }
+
     buildTypes {
         // Release build for all forks
         release {
