@@ -6,7 +6,8 @@ This project is a whitelisted version of ODK Collect. To build a new version, fo
 * Cherry-pick the commits from the previous KoBoCollect update (latest is: v1.23.3-aug2019)
 * Handle merge conflicts, if any
 * copy over the release keystore and secrets
-* run kobo-string-replace.js
+* run string replacements via "node kobo-string-replace.js"
+* manually set versionCode and versionName in build.gradle (if necessary)
 * build and release!
 
 # ODK Collect
