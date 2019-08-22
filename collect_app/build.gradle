@@ -98,6 +98,7 @@ android {
         kobo {
             applicationId "org.koboc.collect.android"
             buildConfigField 'String', 'AUTHORITY', '"org.koboc.collect.android"'
+            resValue("bool", "FIREBASE_ENABLED", "true")
         }
     }
 
