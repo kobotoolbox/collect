@@ -163,6 +163,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -1705,6 +1706,8 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
      * repeat of the current group.
      */
     private void createRepeatDialog() {
+        beenSwiped = true;
+
         // In some cases dialog might be present twice because refreshView() is being called
         // from onResume(). This ensures that we do not preset this modal dialog if it's already
         // visible. Checking for shownAlertDialogIsGroupRepeat because the same field
@@ -1713,12 +1716,12 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
             return;
         }
 
-        beenSwiped = false;
         shownAlertDialogIsGroupRepeat = true;
 
         AddRepeatDialog.show(this, getFormController().getLastGroupText(), new AddRepeatDialog.Listener() {
             @Override
             public void onAddRepeatClicked() {
+                beenSwiped = false;
                 shownAlertDialogIsGroupRepeat = false;
                 formEntryViewModel.addRepeat(true);
                 formIndexAnimationHandler.handle(formEntryViewModel.getCurrentIndex());
@@ -1726,6 +1729,7 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
 
             @Override
             public void onCancelClicked() {
+                beenSwiped = false;
                 shownAlertDialogIsGroupRepeat = false;
 
                 // Make sure the error dialog will not disappear.
@@ -2880,8 +2884,7 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
 
     // If an answer has changed after saving one of previous answers that means it has been recalculated automatically
     private boolean isQuestionRecalculated(FormEntryPrompt mutableQuestionBeforeSave, ImmutableDisplayableQuestion immutableQuestionBeforeSave) {
-        return !(mutableQuestionBeforeSave.getAnswerText() == null && immutableQuestionBeforeSave.getAnswerText() == null
-                || mutableQuestionBeforeSave.getAnswerText().equals(immutableQuestionBeforeSave.getAnswerText()));
+        return !Objects.equals(mutableQuestionBeforeSave.getAnswerText(), immutableQuestionBeforeSave.getAnswerText());
     }
 }
 
