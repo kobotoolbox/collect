@@ -48,3 +48,4 @@ collect_app/src/odkCollectRelease/
 # Kobo-specific tools
 kobocollect*
 collect_app/kobo
+collect_app/*.key
