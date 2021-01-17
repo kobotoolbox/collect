@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "520795394788",
+    "firebase_url": "https://kobocollect-47a4d.firebaseio.com",
+    "project_id": "kobocollect-47a4d",
+    "storage_bucket": "kobocollect-47a4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520795394788:android:3b0a466019a89dac",
+        "android_client_info": {
+          "package_name": "org.koboc.collect.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520795394788-ranpsun2rk6d8osjpe8s5egntulea0no.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzHDJAYmLmUbd_YX908CZVYHM-eU8JyU8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520795394788-lu8u9b6v3tk4f6r4929efvn1q5iapnuh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2009 University of Washington Licensed under the Apache
+License, Version 2.0 (the "License"); you may not use this file except in
+compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+OR CONDITIONS OF ANY KIND, either express or implied. See the License for
+the specific language governing permissions and limitations under the License. -->
+<resources>
+    <!-- strings that should not be translated -->
+    <string name="app_name" translatable="false">KoBoCollect</string>
+    <string name="protocol_odk_default" translatable="false">odk_default</string>
+    <string name="protocol_google_sheets" translatable="false">google_sheets</string>
+    <string name="default_server_url" translatable="false">https://kc.kobotoolbox.org/kobodemouser</string>
+    <string name="default_odk_formlist" translatable="false">/formList</string>
+    <string name="default_odk_submission" translatable="false">/submission</string>
+    <string name="app_url" translatable="false">https://kobotoolbox.org</string>
+    <string name="never_value" translatable="false">never</string>
+    <string name="every_fifteen_minutes_value" translatable="false">every_fifteen_minutes</string>
+    <string name="every_one_hour_value" translatable="false">every_one_hour</string>
+    <string name="every_six_hours_value" translatable="false">every_six_hours</string>
+    <string name="every_24_hours_value" translatable="false">every_24_hours</string>
+    <string name="app_theme_light" translatable="false">light_theme</string>
+    <string name="app_theme_dark" translatable="false">dark_theme</string>
+    <string name="server_platform_odk" translatable="false">KoBoToolbox</string>
+    <string name="form_update_mode_manual" translatable="false">manual</string>
+    <string name="form_update_mode_previously_downloaded" translatable="false">previously_downloaded</string>
+    <string name="form_update_mode_match_exactly" translatable="false">match_exactly</string>
+
+    <!-- For consistency, we don't translate these brand/organization names. -->
+    <string name="basemap_source_google" translatable="false">Google</string>
+    <string name="basemap_source_mapbox" translatable="false">Mapbox</string>
+    <string name="basemap_source_osm" translatable="false">OpenStreetMap</string>
+    <string name="basemap_source_usgs" translatable="false">USGS</string>
+    <string name="basemap_source_stamen" translatable="false">Stamen</string>
+    <string name="basemap_source_carto" translatable="false">Carto</string>
+
+    <string name="google_drive" translatable="false">Google Drive</string>
+</resources>
