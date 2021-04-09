@@ -28,7 +28,7 @@ import android.provider.BaseColumns;
  */
 public final class FormsProviderAPI {
 
-    static final String AUTHORITY = "org.odk.collect.android.provider.odk.forms";
+    static final String AUTHORITY = "org.koboc.collect.android.provider.odk.forms";
 
     private FormsProviderAPI() {
     }

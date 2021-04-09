@@ -74,7 +74,7 @@ android {
     }
 
     defaultConfig {
-        applicationId('org.odk.collect.android')
+        applicationId('org.koboc.collect.android')
         minSdkVersion rootProject.androidMinSdk
         targetSdkVersion rootProject.androidTargetSdk
         versionCode LEGACY_BUILD_NUMBER_OFFSET + getMasterCommitCount()

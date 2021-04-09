@@ -174,11 +174,11 @@ the specific language governing permissions and limitations under the License.
 
         <provider
             android:name=".provider.FormsProvider"
-            android:authorities="org.odk.collect.android.provider.odk.forms"
+            android:authorities="org.koboc.collect.android.provider.odk.forms"
             android:exported="true" />
         <provider
             android:name=".provider.InstanceProvider"
-            android:authorities="org.odk.collect.android.provider.odk.instances"
+            android:authorities="org.koboc.collect.android.provider.odk.instances"
             android:exported="true" />
 
         <activity-alias
