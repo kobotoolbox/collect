@@ -59,12 +59,6 @@ public class MapConfiguratorProvider {
                 )
         ));
 
-        if (isMapboxSupported()) {
-            sourceOptions.add(new SourceOption(BASEMAP_SOURCE_MAPBOX, org.odk.collect.strings.R.string.basemap_source_mapbox,
-                    MapboxClassInstanceCreator.createMapboxMapConfigurator()
-            ));
-        }
-
         sourceOptions.add(new SourceOption(BASEMAP_SOURCE_OSM, org.odk.collect.strings.R.string.basemap_source_osm,
                 new OsmDroidMapConfigurator(
                         new WebMapService(
