@@ -55,3 +55,8 @@ robolectric-deps/
 **/robolectric-deps.properties
 
 .local-m2
+
+# Node
+node_modules
+package-lock.json
+package.json
