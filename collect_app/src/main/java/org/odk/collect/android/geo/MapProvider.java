@@ -75,17 +75,6 @@ public class MapProvider {
                     new GoogleMapTypeOption(GoogleMap.MAP_TYPE_SATELLITE, R.string.satellite)
                 )
             ),
-            new SourceOption(BASEMAP_SOURCE_MAPBOX, R.string.basemap_source_mapbox,
-                new MapboxMapConfigurator(
-                    KEY_MAPBOX_MAP_STYLE, R.string.basemap_source_mapbox,
-                    new MapboxUrlOption(Style.MAPBOX_STREETS, R.string.streets),
-                    new MapboxUrlOption(Style.LIGHT, R.string.light),
-                    new MapboxUrlOption(Style.DARK, R.string.dark),
-                    new MapboxUrlOption(Style.SATELLITE, R.string.satellite),
-                    new MapboxUrlOption(Style.SATELLITE_STREETS, R.string.hybrid),
-                    new MapboxUrlOption(Style.OUTDOORS, R.string.outdoors)
-                )
-            ),
             new SourceOption(BASEMAP_SOURCE_OSM, R.string.basemap_source_osm,
                 new OsmDroidMapConfigurator(
                     new WebMapService(
