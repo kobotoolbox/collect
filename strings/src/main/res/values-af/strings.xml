@@ -263,9 +263,9 @@
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Jammer, ongeldige URL!</string>
   <string name="username">Gebruikersnaam</string>
-  <string name="change_username">ODK Gebruikersnaam</string>
+  <string name="change_username">KoBoToolbox Gebruikersnaam</string>
   <string name="password">Wagwoord</string>
-  <string name="change_password">ODK Wagwoord</string>
+  <string name="change_password">KoBoToolbox Wagwoord</string>
   <string name="change_formlist_url">Vorm lys path (word bygevoeg tot URL)</string>
   <string name="change_submission_url">Indiening path (word bygevoeg tot URL)</string>
   <string name="formlist_url">Vorm lys path</string>
@@ -289,7 +289,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">Vertoon wanneer program begin</string>
   <string name="splash_path">Geselekteerde splash prentjie</string>
-  <string name="default_splash_path">ODK Default</string>
+  <string name="default_splash_path">KoBoToolbox Default</string>
   <string name="select_another_image">Kies \'n ander prentjie</string>
   <string name="use_odk_default">Gebruik default prentjie</string>
   <string name="change_splash_path">Verander Prentjie</string>

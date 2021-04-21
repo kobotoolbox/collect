@@ -366,7 +366,7 @@
   <string name="enable_gps">Omogući GPS</string>
   <string name="geotrace_title">GeoTrace</string>
   <string name="geo_clear_warning">Karakteristika je već kreirana. Da li biste željeli da obrišete karakteristiku?</string>
-  <string name="geo_exit_warning">Odbaci izmjene i vrati se na ODK?</string>
+  <string name="geo_exit_warning">Odbaci izmjene i vrati se na KoBoToolbox?</string>
   <string name="polygon_validator">Moram imati makar 3 tačke kako bih kreirao Polygon</string>
   <string name="polyline_validator">Moraju postojati najmanje 2 tačke kako bi se kreirao Polyline</string>
   <string name="clear">Očisti</string>
@@ -425,9 +425,9 @@
   <string name="show_unsent_forms">Prikaži neposlate formulare</string>
   <string name="media_upload_error">Greška prilikom otpreme medija fajla koji ne postoji: %1$s</string>
   <string name="send_in_progress">Otpremanje u pozadini je u toku, molim pokušajte za koji trenutak</string>
-  <string name="odk_permissions_fail">ODK automatsko otpremanje nije uspjelo, molim da se uvjerite da ste odobrili sve neophodne pristupe</string>
-  <string name="odk_auto_note">Rezultati ODK auto-otpreme</string>
-  <string name="odk_auto_download_notification_title">Rezultati ODK auto-preuzimanja</string>
+  <string name="odk_permissions_fail">KoBoToolbox automatsko otpremanje nije uspjelo, molim da se uvjerite da ste odobrili sve neophodne pristupe</string>
+  <string name="odk_auto_note">Rezultati KoBoToolbox auto-otpreme</string>
+  <string name="odk_auto_download_notification_title">Rezultati KoBoToolbox auto-preuzimanja</string>
   <string name="notification_error">Greška u prikazu teksta obavještenja</string>
   <!--##############################################
     # GET BLANK FORM
@@ -479,9 +479,9 @@
   <string name="change_server_url">Adresa - URL - servera</string>
   <string name="url_error">Nepostojeći URL</string>
   <string name="username">Korisničko ime</string>
-  <string name="change_username">ODK Korisničko ime</string>
+  <string name="change_username">KoBoToolbox Korisničko ime</string>
   <string name="password">Lozinka</string>
-  <string name="change_password">ODK Lozinka</string>
+  <string name="change_password">KoBoToolbox Lozinka</string>
   <string name="password_error_whitespace">Prazan prostor na početku ili kraju nije dozvoljen kod lozinki</string>
   <string name="username_error_whitespace">Prazan prostor na početku ili kraju nije dozvoljen kod korisničkih imena</string>
   <string name="change_formlist_url">Web putanja liste formulara (dodata URL adresi)</string>
@@ -517,7 +517,7 @@
   <string name="show_splash_title">Splash ekran</string>
   <string name="show_splash_summary">Prikazuje se kada se aplikacija pokrene</string>
   <string name="splash_path">Odabrana slika</string>
-  <string name="default_splash_path">ODK fabrička podešavanja</string>
+  <string name="default_splash_path">KoBoToolbox fabrička podešavanja</string>
   <string name="select_another_image">Izaberi drugu sliku</string>
   <string name="use_odk_default">Koristi uobičajenu sliku</string>
   <string name="change_splash_path">Promijeni sliku</string>
@@ -578,7 +578,7 @@
   <string name="instance_sync_summary">Odnosi se na fomrulare direktno dodate folderu instanci.</string>
   <string name="analytics_preferences">Podaci o korišćenju</string>
   <string name="analytics">Prikupi anonimne podatke o korišćenju</string>
-  <string name="analytics_summary">Anonimni podaci o korišćenju pomađu ODK timu da prioritizuje ispravke i doda nove opcije</string>
+  <string name="analytics_summary">Anonimni podaci o korišćenju pomađu KoBoToolbox timu da prioritizuje ispravke i doda nove opcije</string>
   <string name="form_metadata_title">Metapodaci formulara</string>
   <string name="form_metadata">Metapodaci formulara</string>
   <string name="form_metadata_summary">Ove vrijednosti će biti dodate formularima koji imaju korisnično ime, email ili telefon u početnim poljima kako bi se identifikovala osoba koja otprema podatke.</string>
@@ -673,14 +673,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Informacije </string>
-  <string name="tell_your_friends">Podijeli ODK Collect</string>
-  <string name="tell_your_friends_msg">Da li tvoje kolege i dalje prikupljaju podatke na papiru? Podijeli ODK sa njima</string>
+  <string name="tell_your_friends">Podijeli KoBoCollect</string>
+  <string name="tell_your_friends_msg">Da li tvoje kolege i dalje prikupljaju podatke na papiru? Podijeli KoBoToolbox sa njima</string>
   <string name="leave_a_review">Napiši Play Store recenziju</string>
   <string name="leave_a_review_msg">Vaša (nadamo se pozitivna) recenzija povećava vidljivost aplikacije u Play Storu.</string>
-  <string name="odk_website">Posjeti ODK vebsajt</string>
-  <string name="odk_website_summary">ODK se koristi za prikupljanje podataka o društvenim stvarima u izazovnim situacijama.</string>
-  <string name="odk_forum">Pridruži se ODK forumu</string>
-  <string name="odk_forum_summary">Pridruži se forumu za podršku, traži opcije, ili doprinesi kodu/prevodu!</string>
+  <string name="odk_website">Posjeti KoBoToolbox vebsajt</string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Pridruži se KoBoToolbox forumu</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Otvori biblioteke/ licence koda</string>
   <string name="all_open_source_licenses_msg">Stojimo na ramenima velikana!</string>
   <!--##############################################
@@ -726,5 +726,5 @@
   <string name="survey_multiple_forms_error">Preuzeli ste dva drugačija formulara sa istim ID-jem i verzijom. Možda su to isti formulari učitani u različito vrijeme ili sa različitih servera. U svakom slučaju, treba da obrišete jedan.</string>
   <string name="cannot_create_directory">Ne mogu da kreiram direktorij: %s</string>
   <string name="not_a_directory">%s postoji, ali nije direktorij</string>
-  <string name="select_odk_shortcut">Odaberi ODK prečicu</string>
+  <string name="select_odk_shortcut">Odaberi KoBoToolbox prečicu</string>
 </resources>

@@ -56,17 +56,17 @@
   <string name="no_items_display_instances">Nada disponível para exibir.\n\nTente finalizar formulários salvos antes de enviar.</string>
   <string name="not_granted_permission">A atividade que você está tentando iniciar exige uma permissão que você não concedeu.</string>
   <string name="storage_runtime_permission_denied_title">Permissões de armazenamento</string>
-  <string name="storage_runtime_permission_denied_desc">Sem estas permissões, o ODK Collect não pode acessar os seus formulários ou salvar submissões. Abra o aplicativo novamente quando estiver pronto(a) para dar estas permissões.</string>
+  <string name="storage_runtime_permission_denied_desc">Sem estas permissões, o KoBoCollect não pode acessar os seus formulários ou salvar submissões. Abra o aplicativo novamente quando estiver pronto(a) para dar estas permissões.</string>
   <string name="location_runtime_permissions_denied_title">Permissões de localização</string>
-  <string name="location_runtime_permissions_denied_desc">Sem estas permissões, ODK Collect não pode registrar sua localização. Por favor, tente novamente quando estiver pronto(a) para garanti-las.</string>
+  <string name="location_runtime_permissions_denied_desc">Sem estas permissões, KoBoCollect não pode registrar sua localização. Por favor, tente novamente quando estiver pronto(a) para garanti-las.</string>
   <string name="camera_runtime_permission_denied_title">Permissão de acesso à câmera</string>
-  <string name="camera_runtime_permission_denied_desc">Sem esta permissão, o ODK Collect não consegue acessar sua câmera. Por favor, tente novamente quando estiver pronto(a) a garanti-la.</string>
+  <string name="camera_runtime_permission_denied_desc">Sem esta permissão, o KoBoCollect não consegue acessar sua câmera. Por favor, tente novamente quando estiver pronto(a) a garanti-la.</string>
   <string name="record_audio_runtime_permission_denied_title">Permissão de gravar áudio</string>
-  <string name="record_audio_runtime_permission_denied_desc">Sem esta permissão, o ODK Collect não consegue acessar seu microfone. Por favor, tente novamente quando estiver pronto(a) a garanti-la.</string>
+  <string name="record_audio_runtime_permission_denied_desc">Sem esta permissão, o KoBoCollect não consegue acessar seu microfone. Por favor, tente novamente quando estiver pronto(a) a garanti-la.</string>
   <string name="get_accounts_runtime_permission_denied_title">Permissão para acessar contas</string>
-  <string name="get_accounts_runtime_permission_denied_desc">Sem esta permissão, o ODK Collecta não consegue acessar as contas. Por favor, tente novamente quando estiver pronto(a) a garanti-la.</string>
+  <string name="get_accounts_runtime_permission_denied_desc">Sem esta permissão, o KoBoCollecta não consegue acessar as contas. Por favor, tente novamente quando estiver pronto(a) a garanti-la.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Permissão para acessar o estado do telefone</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect não faz chamadas, mas precisa desta permissão para acessar algumas informações do seu dispositivo como o número do telefone e o ID do dispositivo.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect não faz chamadas, mas precisa desta permissão para acessar algumas informações do seu dispositivo como o número do telefone e o ID do dispositivo.</string>
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -421,7 +421,7 @@ Escolher Imagem</string>
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">O GPS está desabilitado no seu dispositivo. Quer habilitá-lo?</string>
   <string name="geo_clear_warning">A feature já foi criada. Gostaria de limpar a feature?</string>
-  <string name="geo_exit_warning">Descartar mudanças e retornar ao ODK?</string>
+  <string name="geo_exit_warning">Descartar mudanças e retornar ao KoBoToolbox?</string>
   <string name="polygon_validator">Precisa ter pelo menos 3 pontos para criar Polígono</string>
   <string name="polyline_validator">Precisa ter pelo menos 2 pontos para criar uma Cadeia de Linhas</string>
   <string name="clear">Limpar</string>
@@ -483,9 +483,9 @@ Escolher Imagem</string>
   <string name="show_unsent_forms">Apenas formulários não enviados</string>
   <string name="media_upload_error">Falhou ao fazer o upload do arquivo de media, que não existe: %1$s</string>
   <string name="send_in_progress">Envio automático em segundo plano sendo executado, por favor, tente novamente em alguns instantes</string>
-  <string name="odk_permissions_fail">Permissão de envio automático do ODK falhou, por favor, certifique-se de que concedeu todas as permissões requisitadas.</string>
-  <string name="odk_auto_note">Resultados de envio automático do ODK</string>
-  <string name="odk_auto_download_notification_title">Resultados de download automático do ODK</string>
+  <string name="odk_permissions_fail">Permissão de envio automático do KoBoToolbox falhou, por favor, certifique-se de que concedeu todas as permissões requisitadas.</string>
+  <string name="odk_auto_note">Resultados de envio automático do KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">Resultados de download automático do KoBoToolbox</string>
   <string name="notification_error">Erro ao exibir texto de notificação.</string>
   <!--##############################################
     # GET BLANK FORM
@@ -546,7 +546,7 @@ Escolher Imagem</string>
   <string name="change_server_url">Servidor URL</string>
   <string name="url_error">Desculpe, URL inválida!</string>
   <string name="username">Nome do usuário</string>
-  <string name="change_username">Usuário ODK</string>
+  <string name="change_username">Usuário KoBoToolbox</string>
   <string name="password">Senha</string>
   <string name="change_password">Senha</string>
   <string name="password_error_whitespace">Espaços em branco antes e depois de senhas não são permitidos</string>
@@ -587,7 +587,7 @@ Escolher Imagem</string>
   <string name="show_splash_title">Tela de abertura</string>
   <string name="show_splash_summary">Mostrar quando a aplicação iniciar</string>
   <string name="splash_path">Tela de abertura selecionada</string>
-  <string name="default_splash_path">ODK Default</string>
+  <string name="default_splash_path">KoBoToolbox Default</string>
   <string name="select_another_image">Selecionar Outra Imagem</string>
   <string name="use_odk_default">Usar Imagem Padrão</string>
   <string name="change_splash_path">Trocar Imagem</string>
@@ -654,7 +654,7 @@ Escolher Imagem</string>
   <string name="instance_sync_summary">Afeta formulários adicionados diretamente na pasta instances.</string>
   <string name="analytics_preferences">Uso de dados</string>
   <string name="analytics">Coletar dados anônimos</string>
-  <string name="analytics_summary">Os dados anônimos ajudam a equipe do ODK a priorizar a correção de erros e funcionalidades</string>
+  <string name="analytics_summary">Os dados anônimos ajudam a equipe do KoBoToolbox a priorizar a correção de erros e funcionalidades</string>
   <string name="form_metadata_title">Metadados do Formulário</string>
   <string name="form_metadata">Metadados do Formulário</string>
   <string name="form_metadata_summary">Estes valores serão adicionados aos formulários que têm os campos usuário, e-mail e/ou telefone pré-determinados para identificar a pessoa que está enviando os dados.</string>
@@ -751,14 +751,14 @@ Escolher Imagem</string>
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Sobre</string>
-  <string name="tell_your_friends">Compartilhar ODK Collect</string>
-  <string name="tell_your_friends_msg">Seus colegas ainda estão coletando dados em papel? Compartilhe o ODK Collect com eles.</string>
+  <string name="tell_your_friends">Compartilhar KoBoCollect</string>
+  <string name="tell_your_friends_msg">Seus colegas ainda estão coletando dados em papel? Compartilhe o KoBoCollect com eles.</string>
   <string name="leave_a_review">Deixe um opinião sua na Play Store</string>
   <string name="leave_a_review_msg">A sua opinião (possivelmente positiva) aumenta a visibilidade da App na Play Store.</string>
-  <string name="odk_website">Visite o site ODK</string>
-  <string name="odk_website_summary">ODK é usado para coleta de dados pelo bem comum em ambientes desafiadores.</string>
-  <string name="odk_forum">Junte-se ao fórum ODK</string>
-  <string name="odk_forum_summary">Junte-se ao fórum para obter suporte, requisitar funcionalidades, contribuir com o código/traduções!</string>
+  <string name="odk_website">Visite o site KoBoToolbox</string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Junte-se ao fórum KoBoToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Bibliotecas/licenças open source</string>
   <string name="all_open_source_licenses_msg">Nós estamos nos ombros dos gigantes!</string>
   <!--##############################################
@@ -832,5 +832,5 @@ Escolher Imagem</string>
   <string name="survey_multiple_forms_error">Dois formulários foram descarregados com a mesma identificação e versão. Talvez eles sejam os mesmos formulários carregados várias vezes ou junto a servidores diferentes. De todo modo, um deles deve ser apagado.</string>
   <string name="cannot_create_directory">Não foi possível criar a pasta: %s</string>
   <string name="not_a_directory">%s existe, mas não é uma pasta</string>
-  <string name="select_odk_shortcut">Selecionar o Atalho ODK</string>
+  <string name="select_odk_shortcut">Selecionar o Atalho KoBoToolbox</string>
 </resources>

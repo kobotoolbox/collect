@@ -239,9 +239,9 @@
   <!--Title of dialog for configuring server URL-->
   <string name="url_error">Uxolo, alilungile URL</string>
   <string name="username">Igamamfihlo </string>
-  <string name="change_username">igamamfihlo le ODK</string>
+  <string name="change_username">igamamfihlo le KoBoToolbox</string>
   <string name="password">Inombolomfihlo</string>
-  <string name="change_password">Inombolomfihlo ye ODK</string>
+  <string name="change_password">Inombolomfihlo ye KoBoToolbox</string>
   <string name="change_formlist_url">Uhla lendlela yefomu (appended to URL)</string>
   <string name="change_submission_url">Indlela yokuhambisa  (appended to URL)</string>
   <string name="formlist_url">Uhla lendlela yefomu</string>
@@ -265,7 +265,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">Ikhombisa uma uhlu luqala</string>
   <string name="splash_path">Cannot translate</string>
-  <string name="default_splash_path">ODK ngokungenhloso</string>
+  <string name="default_splash_path">KoBoToolbox ngokungenhloso</string>
   <string name="select_another_image">Khetha omunye umfanekiso</string>
   <string name="use_odk_default">Sebenzisa isithombe ngokungenhloso</string>
   <string name="change_splash_path">Shintsha umfanekiso</string>

@@ -65,7 +65,7 @@
   <string name="get_accounts_runtime_permission_denied_title">Отримати дозволи облікового запису</string>
   <string name="get_accounts_runtime_permission_denied_desc">Без цього дозволу Collect не має доступу до облікових записів. Будь ласка, спробуйте знову коли будете готові надати його.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Сатус телефону</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect не робить телефонних дзвінків але потребує доступу до певних властивостей вашого пристрою як то номер телефну та ID пристрою</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect не робить телефонних дзвінків але потребує доступу до певних властивостей вашого пристрою як то номер телефну та ID пристрою</string>
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -363,7 +363,7 @@
   <string name="enable_gps">Увімкнути GPS</string>
   <string name="geotrace_title">ГеоМаршрут</string>
   <string name="geo_clear_warning">Ознака вже створена. Бажаєте очистити ознаку?</string>
-  <string name="geo_exit_warning">Скасувати зміни і повернутись до ODK?</string>
+  <string name="geo_exit_warning">Скасувати зміни і повернутись до KoBoToolbox?</string>
   <string name="polygon_validator">Для багатокутника необхідно мінімум 3 точки</string>
   <string name="polyline_validator">Для створення лінії необхідні принаймні дві точки</string>
   <string name="clear">Очистити</string>
@@ -426,8 +426,8 @@
   <string name="media_upload_error">Помилка завантаження неіснуючого медіа файлу: %1$s</string>
   <string name="send_in_progress">Зпущений тіньовий процес відправки, будь ласка, спробуйте знову пізніше</string>
   <string name="odk_permissions_fail">Помилка автоматичного надсилання, будь ласка, перевірте надання всіх необхідних дозволів</string>
-  <string name="odk_auto_note">Результати автонадсилання ODK</string>
-  <string name="odk_auto_download_notification_title">Результати автозавантаження ODK</string>
+  <string name="odk_auto_note">Результати автонадсилання KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">Результати автозавантаження KoBoToolbox</string>
   <string name="notification_error">Помилка відображення тексту оповіщення</string>
   <!--##############################################
     # GET BLANK FORM
@@ -479,9 +479,9 @@
   <string name="change_server_url">Адреса серверу URL</string>
   <string name="url_error">Вибачте, посилання недійсне!</string>
   <string name="username">Ім\'я користувача</string>
-  <string name="change_username">Ім\'я користувача ODK</string>
+  <string name="change_username">Ім\'я користувача KoBoToolbox</string>
   <string name="password">Пароль</string>
-  <string name="change_password">Пароль ODK</string>
+  <string name="change_password">Пароль KoBoToolbox</string>
   <string name="password_error_whitespace">в паролях заборонені початкові та кінцеві пробіли</string>
   <string name="username_error_whitespace">в імені користувача заборонені початкові та кінцеві пробіли</string>
   <string name="change_formlist_url">Шлях до списку анкет (додається до URL)</string>
@@ -517,7 +517,7 @@
   <string name="show_splash_title">Заставка</string>
   <string name="show_splash_summary">Відображається при старті програми</string>
   <string name="splash_path">Обрати зображення для заставки</string>
-  <string name="default_splash_path">Стандартне для ODK</string>
+  <string name="default_splash_path">Стандартне для KoBoToolbox</string>
   <string name="select_another_image">Обрати інше зображення</string>
   <string name="use_odk_default">Використати стандартне</string>
   <string name="change_splash_path">Змінити зображення</string>
@@ -578,7 +578,7 @@
   <string name="instance_sync_summary">Брати до уваги форми додані безпосередньо до директорії екземплярів.</string>
   <string name="analytics_preferences">Дані про використання</string>
   <string name="analytics">Анонімно збирати дані про використання</string>
-  <string name="analytics_summary">Анонімний збір даних про використання допомагає команді ODK пріоритетизувати правки та нові функції</string>
+  <string name="analytics_summary">Анонімний збір даних про використання допомагає команді KoBoToolbox пріоритетизувати правки та нові функції</string>
   <string name="form_metadata_title">Метаданні Анкети</string>
   <string name="form_metadata">Метаданні анкети</string>
   <string name="form_metadata_summary">Ці значення будуть додані до анкет, що мають поля ім\'я користувача, електронна адреса та/або телефон для ідентифікації особи, що надсилає дані.</string>
@@ -671,14 +671,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Про нас</string>
-  <string name="tell_your_friends">Поширити ODK Collect</string>
-  <string name="tell_your_friends_msg">Ваші колеги досі збирають дані через паперові акети? Поділіться з ними ODK Collect.</string>
+  <string name="tell_your_friends">Поширити KoBoCollect</string>
+  <string name="tell_your_friends_msg">Ваші колеги досі збирають дані через паперові акети? Поділіться з ними KoBoCollect.</string>
   <string name="leave_a_review">Залишити відгук в Play Store</string>
   <string name="leave_a_review_msg">Ваш (сподіваємось позитивний) відгук покращить помітність програми в Play Store.</string>
-  <string name="odk_website">Перейти на сайт ODK</string>
-  <string name="odk_website_summary">ODK використовується для збору даних для суспільних потреб.</string>
-  <string name="odk_forum">Долучитись до форуму ODK</string>
-  <string name="odk_forum_summary">Долучайтесь до форуму аби отримати допомогу, запросити нові функції, допомогти в створенні коду чи перекладу!</string>
+  <string name="odk_website">Перейти на сайт KoBoToolbox</string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Долучитись до форуму KoBoToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Відкриті бібліотеки/ліцензії</string>
   <string name="all_open_source_licenses_msg">Ми стоїмо на плечах гігантів!</string>
   <!--##############################################
@@ -723,5 +723,5 @@
   <string name="survey_multiple_forms_error">Ви завантажили дві різні анкети однакової версії з однаковим ID. Можливо це та сама акета опублікована в різний час або на різних серверах. В будь-якому разі одну треба видалити.</string>
   <string name="cannot_create_directory">Неможливо створити директорію: %s</string>
   <string name="not_a_directory">%s існує, але це не директорія</string>
-  <string name="select_odk_shortcut">Обрати посилання ODK</string>
+  <string name="select_odk_shortcut">Обрати посилання KoBoToolbox</string>
 </resources>

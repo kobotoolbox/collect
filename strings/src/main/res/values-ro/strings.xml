@@ -285,9 +285,9 @@
   <string name="change_server_url">URL server</string>
   <string name="url_error">Ne pare rău, URL invalid!</string>
   <string name="username">Nume de utilizator</string>
-  <string name="change_username">Nume utilizator ODK</string>
+  <string name="change_username">Nume utilizator KoBoToolbox</string>
   <string name="password">Parola</string>
-  <string name="change_password">Parola ODK</string>
+  <string name="change_password">Parola KoBoToolbox</string>
   <string name="password_error_whitespace">Nu sunt permise spații în parole</string>
   <string name="username_error_whitespace">Nu sunt permise spații în numele de utilizator</string>
   <string name="change_formlist_url">Calea către lista formularelor (adăugată adresei URL a serverului)</string>
@@ -314,7 +314,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">Afișat la startul aplicației</string>
   <string name="splash_path">Pagină de start selectată</string>
-  <string name="default_splash_path">ODK Implicit</string>
+  <string name="default_splash_path">KoBoToolbox Implicit</string>
   <string name="select_another_image">Selectați altă imagine</string>
   <string name="use_odk_default">Utilizați imaginea implicită</string>
   <string name="change_splash_path">Schimbați imaginea</string>

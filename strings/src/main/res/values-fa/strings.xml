@@ -249,8 +249,8 @@
   <!--Name of option in Send Finalized Form menu to show only unsent forms (default) or show sent and unsent forms-->
   <string name="change_view">تغییر چشم انداز</string>
   <string name="show_sent_and_unsent_forms">نمایش فورم های ارسال شده و ارسال ناشده</string>
-  <string name="odk_auto_note">نتایج ارسال خودکار ODK</string>
-  <string name="odk_auto_download_notification_title">نتیاج دانلود خودکار ODK</string>
+  <string name="odk_auto_note">نتایج ارسال خودکار KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">نتیاج دانلود خودکار KoBoToolbox</string>
   <!--##############################################
     # GET BLANK FORM
     ##############################################-->
@@ -403,7 +403,7 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">در باره</string>
-  <string name="odk_forum">با انجمن ODK یکجا شوید</string>
+  <string name="odk_forum">با انجمن KoBoToolbox یکجا شوید</string>
   <string name="all_open_source_licenses">منابع باز کتابخانه ها/مجوز ها</string>
   <string name="all_open_source_licenses_msg">ما روی شانه های غول ها ایستاده ایم!</string>
   <!--##############################################

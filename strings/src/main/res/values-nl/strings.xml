@@ -273,8 +273,8 @@
   <string name="change_view">Wijzig weergave</string>
   <string name="show_sent_and_unsent_forms">Verzonden en niet-verzonden formulieren</string>
   <string name="show_unsent_forms">Alleen niet-verzonden formulieren</string>
-  <string name="odk_auto_note">ODK automatische verzendresultaten</string>
-  <string name="odk_auto_download_notification_title">ODK automatische downloadresultaten</string>
+  <string name="odk_auto_note">KoBoToolbox automatische verzendresultaten</string>
+  <string name="odk_auto_download_notification_title">KoBoToolbox automatische downloadresultaten</string>
   <string name="notification_error">Fout in de weergave van melding</string>
   <!--##############################################
     # GET BLANK FORM
@@ -320,7 +320,7 @@
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Sorry, ongeldige URL!</string>
   <string name="username">Gebruikersnaam</string>
-  <string name="change_username">ODK Username</string>
+  <string name="change_username">KoBoToolbox Username</string>
   <string name="password">Wachtwoord</string>
   <string name="change_password">Wachtwoord</string>
   <string name="change_formlist_url">Form List Path (toegevoegd aan Server URL)</string>
@@ -352,7 +352,7 @@
   <string name="form_backward">Terug</string>
   <string name="show_splash_summary">Toon welkomstscherm bij opstarten van de applicatie</string>
   <string name="splash_path">Kies afbeelding voor welkomstscherm</string>
-  <string name="default_splash_path">ODK Default</string>
+  <string name="default_splash_path">KoBoToolbox Default</string>
   <string name="select_another_image">Kies andere afbeelding</string>
   <string name="use_odk_default">Gebruik standaard afbeelding</string>
   <string name="change_splash_path">Wijzig afbeelding</string>
@@ -446,11 +446,11 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Over</string>
-  <string name="tell_your_friends">Deel ODK Collect</string>
-  <string name="tell_your_friends_msg">Verzamelen jouw collega\'s nog steeds data op papier? Deel ODK Collect met hen. </string>
+  <string name="tell_your_friends">Deel KoBoCollect</string>
+  <string name="tell_your_friends_msg">Verzamelen jouw collega\'s nog steeds data op papier? Deel KoBoCollect met hen. </string>
   <string name="leave_a_review">Schrijf een review op de Google Play Store.</string>
   <string name="leave_a_review_msg">Jouw (hopelijk positieve) review vergroot de zichtbaarheid van de Applicatie in de Play Store</string>
-  <string name="odk_website">Bezoek de ODK website</string>
+  <string name="odk_website">Bezoek de KoBoToolbox website</string>
   <!--##############################################
      # SETTINGS IMPORT
      ##############################################-->

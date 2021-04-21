@@ -66,7 +66,7 @@
   <string name="get_accounts_runtime_permission_denied_title">Obtenir la permission des comptes</string>
   <string name="get_accounts_runtime_permission_denied_desc">Sans cette autorisation, Collect ne peut pas accéder aux comptes. Veuillez réessayer lorsque vous êtes prêt à l’accorder.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Lire la permission de l\'état du téléphone</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect ne passe pas d\'appels, mais il doit accéder à certaines propriétés de votre périphérique, telles que le numéro de téléphone et l\'ID de périphérique.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect ne passe pas d\'appels, mais il doit accéder à certaines propriétés de votre périphérique, telles que le numéro de téléphone et l\'ID de périphérique.</string>
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -489,9 +489,9 @@
   <string name="show_unsent_forms">Que des formulaires non envoyés</string>
   <string name="media_upload_error">Le téléversement du fichier média inexistant a échoué : %1$s</string>
   <string name="send_in_progress">L\'envoi s\'exécute en tâche de fond, essayer plus tard.</string>
-  <string name="odk_permissions_fail">Échec de l’autorisation d’envoi automatique ODK, veuillez vous assurer que vous avez accordé toutes les autorisations requises.</string>
-  <string name="odk_auto_note">Résultats d\'envoi automatique ODK</string>
-  <string name="odk_auto_download_notification_title">Résultats de téléchargement automatique ODK</string>
+  <string name="odk_permissions_fail">Échec de l’autorisation d’envoi automatique KoBoToolbox, veuillez vous assurer que vous avez accordé toutes les autorisations requises.</string>
+  <string name="odk_auto_note">Résultats d\'envoi automatique KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">Résultats de téléchargement automatique KoBoToolbox</string>
   <string name="notification_error">Erreur d\'affichage du texte de notification</string>
   <!--##############################################
     # GET BLANK FORM
@@ -554,9 +554,9 @@
   <string name="change_server_url">URL du serveur</string>
   <string name="url_error">URL non valable !</string>
   <string name="username">Nom d\'utilisateur</string>
-  <string name="change_username">Nom d\'utilisateur ODK</string>
+  <string name="change_username">Nom d\'utilisateur KoBoToolbox</string>
   <string name="password">Mot de passe</string>
-  <string name="change_password">Mot de passe ODK</string>
+  <string name="change_password">Mot de passe KoBoToolbox</string>
   <string name="password_error_whitespace">Les espaces ne sont pas permis au début ou à la fin du mot de passe</string>
   <string name="username_error_whitespace">Les espaces ne sont pas permis au début ou à la fin du nom d\'utilisateur</string>
   <string name="custom_server_paths">Chemins d\'accès au serveur personnalisés</string>
@@ -595,7 +595,7 @@
   <string name="show_splash_title">Ecran d\'accueil</string>
   <string name="show_splash_summary">Montrer lors du démarrage</string>
   <string name="splash_path">Image sélectionnée</string>
-  <string name="default_splash_path">Défaut d\'ODK</string>
+  <string name="default_splash_path">Défaut d\'KoBoToolbox</string>
   <string name="select_another_image">Sélectionner une autre Image</string>
   <string name="use_odk_default">Utiliser l\'Image par Défaut</string>
   <string name="change_splash_path">Modifier l\'image</string>
@@ -662,7 +662,7 @@
   <string name="instance_sync_summary">Impacte sur les formulaires ajoutés directement au dossier instances.</string>
   <string name="analytics_preferences">Données d\'utilisation</string>
   <string name="analytics">Collecter des données d\'utilisation anonymes</string>
-  <string name="analytics_summary">Les données anonymes d\'utilisation aident l\'équipe ODK à prioriser les correctifs et les fonctionnalités</string>
+  <string name="analytics_summary">Les données anonymes d\'utilisation aident l\'équipe KoBoToolbox à prioriser les correctifs et les fonctionnalités</string>
   <string name="form_metadata_title">Métadonnées du formulaire</string>
   <string name="form_metadata">Métadonnées du formulaire</string>
   <string name="form_metadata_summary">Ces valeurs seront ajoutées aux formulaires qui ont des champs pré-chargés d\'utilisateur, de courrier électronique et / ou de téléphone pour identifier la personne qui soumet des données.</string>
@@ -759,14 +759,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">À propos</string>
-  <string name="tell_your_friends">Partager ODK Collect</string>
-  <string name="tell_your_friends_msg">Vos collègues continuent-ils à collecter des données sur papier ? Partagez ODK Collect avec eux.</string>
+  <string name="tell_your_friends">Partager KoBoCollect</string>
+  <string name="tell_your_friends_msg">Vos collègues continuent-ils à collecter des données sur papier ? Partagez KoBoCollect avec eux.</string>
   <string name="leave_a_review">Laissez un avis sur Play Store</string>
   <string name="leave_a_review_msg">Votre avis (ce qu\'on espère est positif) augmente la visibilité de l\'application dans le Play Store.</string>
   <string name="odk_website">Visiter le site web de Open Data Kit</string>
-  <string name="odk_website_summary">ODK est utilisé pour collecter des données pour le bien commun dans des environnements contraignantes.</string>
-  <string name="odk_forum">Rejoindre le Forum ODK</string>
-  <string name="odk_forum_summary">Rejoignez le forum pour obtenir de l\'aide, demander des fonctionnalités, contribuer au code et aux traductions! </string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Rejoindre le Forum KoBoToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Licences et librairies open source</string>
   <string name="all_open_source_licenses_msg">Nous sommes debout sur les épaules de géants.</string>
   <!--##############################################
@@ -840,5 +840,5 @@
   <string name="survey_multiple_forms_error">Vous avez téléchargé deux formulaires différents avec le même numéro d\'identification et la même version. Peut-être que le même formulaire a été téléchargés deux fois ou à deux serveurs différents. Dans tous les cas, vous devez en supprimer un.</string>
   <string name="cannot_create_directory">Impossible de créer un dossier: %s</string>
   <string name="not_a_directory">%s existe, mais ce n\'est pas un dossier</string>
-  <string name="select_odk_shortcut">Sélectionnez le raccourci ODK</string>
+  <string name="select_odk_shortcut">Sélectionnez le raccourci KoBoToolbox</string>
 </resources>

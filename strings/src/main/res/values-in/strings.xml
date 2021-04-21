@@ -66,7 +66,7 @@
   <string name="get_accounts_runtime_permission_denied_title">Izin untuk mengakses akun</string>
   <string name="get_accounts_runtime_permission_denied_desc">Tanpa perizinan tadi, Collect tidak dapat mengakses akun. Buka ulang aplikasi jika Anda sudah yakin untuk memberikan izin.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Izin untuk membaca status telepon</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect tidak akan melakukan panggilan telepon, tetapi ODK Collect memerlukan akses ke beberapa informasi mengenai perangkat Anda, seperti nomor telepon dan ID perangkat.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect tidak akan melakukan panggilan telepon, tetapi KoBoCollect memerlukan akses ke beberapa informasi mengenai perangkat Anda, seperti nomor telepon dan ID perangkat.</string>
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -420,7 +420,7 @@
   <string name="geotrace_title">Lacak GeoTrace </string>
   <string name="gps_enable_message">GPS dinonaktifkan pada perangkat Anda. Apakah Anda ingin mengaktifkannya?</string>
   <string name="geo_clear_warning">Fitur sudah dibuat. Apakah Anda ingin menghapus fitur ini?</string>
-  <string name="geo_exit_warning">Abaikan perubahan dan kembali ke ODK?</string>
+  <string name="geo_exit_warning">Abaikan perubahan dan kembali ke KoBoToolbox?</string>
   <string name="polygon_validator">Setidaknya dibutuhkan 3 titik untuk membuat Polygon.</string>
   <string name="polyline_validator">Setidaknya dibutuhkan 2 titik untuk membuat Poyline.</string>
   <string name="clear">Hapus</string>
@@ -480,8 +480,8 @@
   <string name="media_upload_error">Tidak berhasil mengunggah berkas media yang tidak ditemukan: %1$s</string>
   <string name="send_in_progress">Pengiriman sedang berlangsung, mohon coba beberapa saat lagi.</string>
   <string name="odk_permissions_fail">Izin pengiriman otomatis tidak berhasil, mohon pastikan semua izin yang dibutuhkan telah diberikan.</string>
-  <string name="odk_auto_note">Hasil pengiriman otomatis ODK</string>
-  <string name="odk_auto_download_notification_title">Hasil unduh otomatis ODK</string>
+  <string name="odk_auto_note">Hasil pengiriman otomatis KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">Hasil unduh otomatis KoBoToolbox</string>
   <string name="notification_error">Kesalahan menampilkan teks notifikasi.</string>
   <!--##############################################
     # GET BLANK FORM
@@ -498,8 +498,8 @@
   <string name="form_update_error">Pembaruan formulir tidak berhasil</string>
   <string name="form_update_succeeded">Pembaruan formulir berhasil</string>
   <string name="report_to_project_lead">Jika anda terus mengalami masalah ini, laporkan ke orang yang meminta anda untuk mengumpulkan data.</string>
-  <string name="unreachable_error">ODK Collect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
-  <string name="security_error">ODK Collect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
+  <string name="unreachable_error">KoBoCollect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
+  <string name="security_error">KoBoCollect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
   <string name="failure">Tidak Berhasil</string>
   <string name="load_remote_form_error">Unduhan daftar formulir tidak berhasil</string>
   <!--##############################################
@@ -542,9 +542,9 @@
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Maaf, URL tidak valid.</string>
   <string name="username">Nama Pengguna</string>
-  <string name="change_username">Nama Pengguna ODK</string>
+  <string name="change_username">Nama Pengguna KoBoToolbox</string>
   <string name="password">Kata sandi</string>
-  <string name="change_password">Kata Sandi ODK</string>
+  <string name="change_password">Kata Sandi KoBoToolbox</string>
   <string name="password_error_whitespace">Tidak diperkenankan menggunakan spasi pada kata sandi</string>
   <string name="username_error_whitespace">Tidak diperkenankan menggunakan spasi pada nama pengguna</string>
   <string name="custom_server_paths">Jalur server khusus</string>
@@ -583,7 +583,7 @@
   <string name="show_splash_title">Tampilan pembuka aplikasi</string>
   <string name="show_splash_summary">Tampilkan pada awal aplikasi berjalan</string>
   <string name="splash_path">Gambar tampilan pembuka yang dipilih</string>
-  <string name="default_splash_path">ODK Bawaan</string>
+  <string name="default_splash_path">KoBoToolbox Bawaan</string>
   <string name="select_another_image">Pilih gambar lainnya</string>
   <string name="use_odk_default">Gunakan gambar bawaan</string>
   <string name="change_splash_path">Ubah gambar</string>
@@ -650,7 +650,7 @@
   <string name="instance_sync_summary">Formulir yang rusak akan langsung ditambahkan ke berkas instance</string>
   <string name="analytics_preferences">Penggunaan data</string>
   <string name="analytics">Kumpulkan data pengguna anonim</string>
-  <string name="analytics_summary">Data pengguna anonim membantu tim ODK untuk memprioritaskan perbaikan dan fitur tambahan.</string>
+  <string name="analytics_summary">Data pengguna anonim membantu tim KoBoToolbox untuk memprioritaskan perbaikan dan fitur tambahan.</string>
   <string name="form_metadata_title">Metadata Formulir</string>
   <string name="form_metadata">Metadata formulir</string>
   <string name="form_metadata_summary">Semua nilai ini akan ditambahkan ke formulir yang menyediakan field nama pengguna, email dan/atau telepon untuk mengidentifikasi orang yang mengirimkan data.</string>
@@ -747,14 +747,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Tentang</string>
-  <string name="tell_your_friends">Bagikan ODK Collect</string>
-  <string name="tell_your_friends_msg">Apakah rekan Anda masih menggunakan kertas untuk pengumpulan data? Kabari mereka untuk menggunakan ODK Collect.</string>
+  <string name="tell_your_friends">Bagikan KoBoCollect</string>
+  <string name="tell_your_friends_msg">Apakah rekan Anda masih menggunakan kertas untuk pengumpulan data? Kabari mereka untuk menggunakan KoBoCollect.</string>
   <string name="leave_a_review">Berikan ulasan di Play Store</string>
-  <string name="leave_a_review_msg">Ulasan Anda (semoga positif) dapat mempromosikan aplikasi ODK di Play Store.</string>
-  <string name="odk_website">Kunjungi situs ODK </string>
-  <string name="odk_website_summary">ODK digunakan sebagai pengumpulan data untuk kepentingan sosial di lingkungan yang menantang.</string>
-  <string name="odk_forum">Gabung forum ODK</string>
-  <string name="odk_forum_summary">Bergabung di Forum untuk mendapatkan bantuan, permintaan fitur, berkontribusi kode program/terjemahan!</string>
+  <string name="leave_a_review_msg">Ulasan Anda (semoga positif) dapat mempromosikan aplikasi KoBoToolbox di Play Store.</string>
+  <string name="odk_website">Kunjungi situs KoBoToolbox </string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Gabung forum KoBoToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Lisensi/pustaka sumber terbuka</string>
   <string name="all_open_source_licenses_msg">Kita menjadi besar karena berkolaborasi bersama!</string>
   <!--##############################################
@@ -821,12 +821,12 @@
   <string name="error_occured">Terjadi Kesalahan</string>
   <string name="please_wait">Mohon tunggu sebentar…</string>
   <string name="please_wait_long">Mohon tunggu. Proses ini membutuhkan waktu beberapa menit.</string>
-  <string name="sdcard_unmounted">ODK Collect tidak dapat mengakses SD card. Mungkin SD card terpasang melalui USB? (Kondisi saat ini: %s)</string>
+  <string name="sdcard_unmounted">KoBoCollect tidak dapat mengakses SD card. Mungkin SD card terpasang melalui USB? (Kondisi saat ini: %s)</string>
   <string name="fs_delete_media_path_if_file_error">Tidak dapat menghapus \'%s\'. Mohon hapus berkas secara manual dan unduh ulang formulirnya.</string>
   <string name="fs_create_media_folder_error">Tidak dapat membuat folder media \'%s\'.</string>
   <string name="fs_file_copy_error">Tidak dapat menyalin \'%1$s\' terhadap \'%2$s\'. Penyebab: %3$s</string>
   <string name="survey_multiple_forms_error">Anda mengunduh dua formulir berbeda, tetapi memiliki ID dan versi formulir yang sama. Kemungkinan keduanya adalah formulir yang sama dan diunggah pada saat yang berbeda atau pada server yang berbeda. Pada kasus ini, hapus salah satu formulir.</string>
   <string name="cannot_create_directory">Tidak dapat membuat direktori: %s</string>
   <string name="not_a_directory">%s sudah ada, tetapi bukan sebuah direktori.</string>
-  <string name="select_odk_shortcut">Pilih pintasan ODK</string>
+  <string name="select_odk_shortcut">Pilih pintasan KoBoToolbox</string>
 </resources>

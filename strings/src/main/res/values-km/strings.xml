@@ -353,7 +353,7 @@
   <string name="enable_gps">ដំណើរ​ការ​ប្រព័ន្ធ​ចាប់​ទីតាំង</string>
   <string name="geotrace_title">GeoTrace</string>
   <string name="geo_clear_warning">លក្ខណះ​ពិសេស​ត្រូវ​បាន​បង្កើត។ តើ​អ្នក​ចង់​លុប​លក្ខណះ​នេះ​ដែរ​ឬ​ទេ?</string>
-  <string name="geo_exit_warning">បោះបង់​ការផ្លាស់​ប្តូរ និងត្រឡប់ទៅកាន់ ODK វិញ?</string>
+  <string name="geo_exit_warning">បោះបង់​ការផ្លាស់​ប្តូរ និងត្រឡប់ទៅកាន់ KoBoToolbox វិញ?</string>
   <string name="polygon_validator">ត្រូវការចំនុចយ៉ាងតិច 3 ដើម្បី​បង្កើតពហុកោណ</string>
   <string name="clear">លុ​បចេញ</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
@@ -439,9 +439,9 @@
   <string name="change_server_url">URL ម៉ាស៊ីន​បម្រើ</string>
   <string name="url_error">សុំទោស, អាសយដ្ឋានមិនត្រឹមត្រូវ!</string>
   <string name="username">អ្នក​ប្រើប្រាស់</string>
-  <string name="change_username">ឈ្មោះ​អ្នកប្រើ ODK</string>
+  <string name="change_username">ឈ្មោះ​អ្នកប្រើ KoBoToolbox</string>
   <string name="password">ពាក្យសម្ងាត់</string>
-  <string name="change_password">ពាក្យ​សម្ងាត់ ODK</string>
+  <string name="change_password">ពាក្យ​សម្ងាត់ KoBoToolbox</string>
   <string name="password_error_whitespace">ការ​ដក​ឃ្លា​មិន​ត្រូវ​បាន​អនុញ្ញាតិ​នៅ​ក្នុង​ពាក្យ​សម្ងាត់​នៅផ្នែក​ខាង​មុខ ឬ​ខាង​ក្រោយ</string>
   <string name="username_error_whitespace">ការ​ដក​ឃ្លា​មិន​ត្រូវ​បាន​អនុញ្ញាតិ​នៅ​ក្នុង​ឈ្មោះ​អ្នក​ប្រើ​ប្រាស់​នៅ​ផ្នែក​​ខាង​​មុខ​ ឬ​​ខាង​​ក្រោយ</string>
   <string name="change_formlist_url">ផ្លូវរបស់បញ្ជីសំណុំ​បែប​បទ​(បានបន្ថែមលើ URL)</string>
@@ -477,7 +477,7 @@
   <string name="show_splash_title">ស្វាគមន៍អេក្រង់</string>
   <string name="show_splash_summary">បង្ហាញពេលកម្មវិធីចាប់ផ្តើម</string>
   <string name="splash_path">ជ្រើសរើសរូបស្វាគមន៍</string>
-  <string name="default_splash_path">ODK លំនាំដើម</string>
+  <string name="default_splash_path">KoBoToolbox លំនាំដើម</string>
   <string name="select_another_image">ជ្រើសរើសរូបផ្សេងទៀត</string>
   <string name="use_odk_default">ប្រើប្រាស់រូបលំនាំដើម</string>
   <string name="change_splash_path">ផ្លាស់ប្តូររូបថត</string>
@@ -536,7 +536,7 @@
   <string name="instance_sync_summary">ទម្រង់ដែលប៉ះពាល់ត្រូវបានបន្ថែមដោយផ្ទាល់ទៅកាន់ថតទម្រង់</string>
   <string name="analytics_preferences">ការប្រើប្រាស់ទិន្នន័យ</string>
   <string name="analytics">ប្រមូលទិន្នន័យប្រើប្រាស់អនាមិក</string>
-  <string name="analytics_summary">ផ្តល់​ទិន្នន័យ​ប្រើប្រាស់​ជា​អនាមិក​ដើម្បី​ជួយ​ឱ្យ​ក្រុម​មួយ​នេះ​បាន​ផ្តល់​អាទិភាព​ដល់​ការ​ជួស​ជុល​ ODK និង​លក្ខណៈ​ពិសេស​របស់​វា</string>
+  <string name="analytics_summary">ផ្តល់​ទិន្នន័យ​ប្រើប្រាស់​ជា​អនាមិក​ដើម្បី​ជួយ​ឱ្យ​ក្រុម​មួយ​នេះ​បាន​ផ្តល់​អាទិភាព​ដល់​ការ​ជួស​ជុល​ KoBoToolbox និង​លក្ខណៈ​ពិសេស​របស់​វា</string>
   <string name="form_metadata_title">ទម្រង់ទិន្នន័យមេតា</string>
   <string name="form_metadata">ទម្រង់ទិន្នន័យមេតា</string>
   <string name="form_metadata_summary">តម្លៃទាំងនេះនឹងត្រូវបានបញ្ចូលបន្ថែមទៅក្នុងទម្រង់ដែលរួមមានឈ្មោះអ្នកប្រើប្រាស់, អ៊ីម៉ែល និង/ឬលេខទូរស័ព្ទដើម្បីកំណត់អ្នកដែលបានបញ្ជូនទិន្នន័យ។</string>
@@ -627,14 +627,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">អំពី</string>
-  <string name="tell_your_friends">ចែក​រំលែក​ ODK Collect</string>
-  <string name="tell_your_friends_msg">តើ​សហការី​របស់​អ្នក​នៅ​តែ​ប្រមូល​ទិន្នន័យ​នៅ​លើ​ក្រដាស​មែន​ទេ? ចែក​រំលែក ODK Collect ជាមួយពួកគេ។</string>
+  <string name="tell_your_friends">ចែក​រំលែក​ KoBoCollect</string>
+  <string name="tell_your_friends_msg">តើ​សហការី​របស់​អ្នក​នៅ​តែ​ប្រមូល​ទិន្នន័យ​នៅ​លើ​ក្រដាស​មែន​ទេ? ចែក​រំលែក KoBoCollect ជាមួយពួកគេ។</string>
   <string name="leave_a_review">ទុកមតិនៅក្នុងហាង Play</string>
   <string name="leave_a_review_msg">ការ​ផ្តល់​មតិ​ (សង្ឃឹមថាជាវិជ្ជមាន) របស់​អ្នក​បង្កើន​ភាព​មើល​ឃើញ​នៃ​កម្មវិធី​នៅ​ក្នុង Play Store ។</string>
-  <string name="odk_website">ចូលទៅកាន់គេហទំព័រ ODK</string>
-  <string name="odk_website_summary">ODK បាន​ប្រើ​ប្រាស់​ដើម្បី​ប្រមូល​ទិន្នន័យសម្រាប់ភាពប្រសើរ​របស់​សង្គមនៅក្នុងបរិយាកាស​ប្រកួត​ប្រជែង​។</string>
-  <string name="odk_forum">ចូល​រួម​ជា​មួយ​វេទិកា ODK</string>
-  <string name="odk_forum_summary">ចូលរួមវេទិកាដើម្បីទទួលបានការគាំទ្រ, លក្ខណៈពិសេសស្នើសុំ, រួមចំណែកកូដ / ការបកប្រែ!</string>
+  <string name="odk_website">ចូលទៅកាន់គេហទំព័រ KoBoToolbox</string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">ចូល​រួម​ជា​មួយ​វេទិកា KoBoToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">ប្រភពបណ្ណាល័យបើកចំហ/អាជ្ញាបណ្ណ</string>
   <string name="all_open_source_licenses_msg">We stand on the shoulders of giants!</string>
   <!--##############################################
@@ -678,5 +678,5 @@
   <string name="survey_multiple_forms_error">អ្នក​បាន​ទាញ​យក​សំណុំ​បែប​បទ​ពីរខុស​គ្នា​ដែល​មាន​លេខ​សម្គាល់​ទម្រង់​ និង​កំណែ។ ពួក​វា​ប្រហែល​ជា​សំណុំ​បែប​បទ​តែ​មួយ​ដែល​បាន​ផ្ទុក​ឡើង​នៅ​ម៉ោង​ ឬ​ម៉ាស៊ីន​មេ​ខុស​គ្នា។ សូម​អ្នក​លុប​វាមួយ​ក្នុង​​ករណី​ណា​មួយ។</string>
   <string name="cannot_create_directory">ពុំអាច​បង្កើត​ថតឯកសារ: %s</string>
   <string name="not_a_directory">%s មានរួច, ប៉ុន្តែ​ពុំមែន​ជាថត​ឯក​សារ</string>
-  <string name="select_odk_shortcut">ជ្រើសរើសផ្លូវកាត់ ODK</string>
+  <string name="select_odk_shortcut">ជ្រើសរើសផ្លូវកាត់ KoBoToolbox</string>
 </resources>

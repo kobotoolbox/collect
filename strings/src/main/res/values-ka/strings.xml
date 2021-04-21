@@ -208,7 +208,7 @@
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in N 18°48'8"-->
   <string name="start">დასაწყისი</string>
   <string name="enable_gps">GPS-ის ჩართვა</string>
-  <string name="geo_exit_warning">გაუქმდეს ცვლილებები და ბრუნდებით ODK-ში?</string>
+  <string name="geo_exit_warning">გაუქმდეს ცვლილებები და ბრუნდებით KoBoToolbox-ში?</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
   <string name="none">არცერთი</string>
@@ -274,7 +274,7 @@
   <string name="change_server_url">სერვერის ვებ-მისამართი</string>
   <string name="url_error">უკავრავად, არასწორი ბმული!</string>
   <string name="username">მომხმარებლის სახელი</string>
-  <string name="change_username">ODK-ის მომხმარებლის სახელი</string>
+  <string name="change_username">KoBoToolbox-ის მომხმარებლის სახელი</string>
   <string name="password">პაროლი</string>
   <string name="change_password">პაროლი</string>
   <string name="change_formlist_url">ბმული ფორმების ჩამონათვალზე (დაემატოს სერვერის ბმულს)</string>
@@ -301,7 +301,7 @@
   <string name="form_backward">უკან</string>
   <string name="show_splash_summary">აჩვენებს, როდესაც ირთვება აპლიკაცია</string>
   <string name="splash_path">არჩეული სპლეშ-სურათი</string>
-  <string name="default_splash_path">ODK დეფოლტი</string>
+  <string name="default_splash_path">KoBoToolbox დეფოლტი</string>
   <string name="select_another_image">სხვა სურათების არჩევა</string>
   <string name="use_odk_default">გამოიყენე დეფოლტ-სურათი</string>
   <string name="change_splash_path">სურათის შეცვლა</string>
@@ -358,7 +358,7 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">შესახებ</string>
-  <string name="tell_your_friends">ODK Collect გაზიარება</string>
+  <string name="tell_your_friends">KoBoCollect გაზიარება</string>
   <!--##############################################
      # SETTINGS IMPORT
      ##############################################-->

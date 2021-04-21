@@ -283,9 +283,9 @@
   <!--Title of dialog for configuring server URL-->
   <string name="url_error">ይቅርታ፣ ልክ ያልሆነ URL!</string>
   <string name="username">የተጠቃሚ ስም</string>
-  <string name="change_username">ODK የተጠቃሚ ስም</string>
+  <string name="change_username">KoBoToolbox የተጠቃሚ ስም</string>
   <string name="password">የይለፍ ቃል</string>
-  <string name="change_password">ODK የይለፍ ቃል</string>
+  <string name="change_password">KoBoToolbox የይለፍ ቃል</string>
   <string name="server_platform_google_sheets">ጉግል Drive, ጉግል ሉሆች</string>
   <string name="selected_google_account_text">የ Google መለያ</string>
   <!--To use Google Drive, forms must set a submission URL. If they don't, this URL will be used.-->
@@ -389,8 +389,8 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">ስለ</string>
-  <string name="odk_website">የODKን ድረ ገፅ ይጎብኙ</string>
-  <string name="odk_forum">የODKን መድረክ ይቀላቀሉ</string>
+  <string name="odk_website">የKoBoToolboxን ድረ ገፅ ይጎብኙ</string>
+  <string name="odk_forum">የKoBoToolboxን መድረክ ይቀላቀሉ</string>
   <!--##############################################
      # SETTINGS IMPORT
      ##############################################-->

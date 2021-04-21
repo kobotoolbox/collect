@@ -80,7 +80,7 @@
     <string name="get_accounts_runtime_permission_denied_title">Get accounts permission</string>
     <string name="get_accounts_runtime_permission_denied_desc">Without this permission Collect can\'t access accounts. Please try again when you are ready to grant it.</string>
     <string name="read_phone_state_runtime_permission_denied_title">Read phone state permission</string>
-    <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect does not make calls but it needs to access certain properties about your device such as the phone number and device ID.</string>
+    <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect does not make calls but it needs to access certain properties about your device such as the phone number and device ID.</string>
 
     <!--
     ##############################################
@@ -516,7 +516,7 @@
     <string name="geotrace_title">GeoTrace</string>
     <string name="gps_enable_message">GPS is disabled on your device. Would you like to enable it?</string>
     <string name="geo_clear_warning">Feature already created. Would you like to clear the feature?</string>
-    <string name="geo_exit_warning">Discard changes and return to ODK?</string>
+    <string name="geo_exit_warning">Discard changes and return to KoBoToolbox?</string>
     <string name="polygon_validator">Must have at least 3 points to create Polygon</string>
     <string name="polyline_validator">Must have at least 2 points to create Polyline</string>
     <string name="clear">Clear</string>
@@ -590,9 +590,9 @@
 
     <string name="send_in_progress">Background send running, please try again shortly</string>
 
-    <string name="odk_permissions_fail">ODK auto send permission failure, please make sure your have granted all required permissions</string>
-    <string name="odk_auto_note">ODK auto-send results</string>
-    <string name="odk_auto_download_notification_title">ODK auto-download results</string>
+    <string name="odk_permissions_fail">KoBoToolbox auto send permission failure, please make sure your have granted all required permissions</string>
+    <string name="odk_auto_note">KoBoToolbox auto-send results</string>
+    <string name="odk_auto_download_notification_title">KoBoToolbox auto-download results</string>
     <string name="notification_error">Error displaying notification text</string>
 
     <!--
@@ -672,9 +672,9 @@
     <string name="change_server_url">Server URL</string>
     <string name="url_error">Sorry, invalid URL!</string>
     <string name="username">Username</string>
-    <string name="change_username">ODK Username</string>
+    <string name="change_username">KoBoToolbox Username</string>
     <string name="password">Password</string>
-    <string name="change_password">ODK Password</string>
+    <string name="change_password">KoBoToolbox Password</string>
     <string name="password_error_whitespace">Leading or trailing whitespace not allowed in passwords</string>
     <string name="username_error_whitespace">Leading or trailing whitespace not allowed in usernames</string>
     <string name="custom_server_paths">Custom server paths</string>
@@ -719,7 +719,7 @@
     <string name="show_splash_title">Splash screen</string>
     <string name="show_splash_summary">Shows when application starts</string>
     <string name="splash_path">Selected splash image</string>
-    <string name="default_splash_path">ODK Default</string>
+    <string name="default_splash_path">KoBoToolbox Default</string>
     <string name="select_another_image">Select another image</string>
     <string name="use_odk_default">Use default image</string>
     <string name="change_splash_path">Change image</string>
@@ -799,7 +799,7 @@
 
     <string name="analytics_preferences">Usage data</string>
     <string name="analytics">Collect anonymous usage data</string>
-    <string name="analytics_summary">Anonymous usage data helps the ODK team prioritize fixes and features</string>
+    <string name="analytics_summary">Anonymous usage data helps the KoBoToolbox team prioritize fixes and features</string>
 
     <string name="form_metadata_title">Form Metadata</string>
     <string name="form_metadata">Form metadata</string>
@@ -910,14 +910,14 @@
      ##############################################
      -->
     <string name="about_preferences">About</string>
-    <string name="tell_your_friends">Share ODK Collect</string>
-    <string name="tell_your_friends_msg">Are your colleagues still collecting data on paper? Share ODK Collect with them.</string>
+    <string name="tell_your_friends">Share KoBoCollect</string>
+    <string name="tell_your_friends_msg">Are your colleagues still collecting data on paper? Share KoBoCollect with them.</string>
     <string name="leave_a_review">Leave a Play Store review</string>
     <string name="leave_a_review_msg">Your (hopefully positive) review increases the visibility of the App in the Play Store.</string>
-    <string name="odk_website">Visit the ODK website</string>
-    <string name="odk_website_summary">ODK is used to collect data for social good in challenging environments.</string>
-    <string name="odk_forum">Join the ODK forum</string>
-    <string name="odk_forum_summary">Join the forum to get support, request features, contribute code/translations! </string>
+    <string name="odk_website">Visit the KoBoToolbox website</string>
+    <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+    <string name="odk_forum">Join the KoBoToolbox forum</string>
+    <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
     <string name="all_open_source_licenses">Open source libraries/licenses</string>
     <string name="all_open_source_licenses_msg">We stand on the shoulders of giants!</string>
 
@@ -1007,5 +1007,5 @@
     <string name="cannot_create_directory">Cannot create directory: %s</string>
     <string name="not_a_directory">%s exists, but is not a directory</string>
 
-    <string name="select_odk_shortcut">Select ODK Shortcut</string>
+    <string name="select_odk_shortcut">Select KoBoToolbox Shortcut</string>
 </resources>

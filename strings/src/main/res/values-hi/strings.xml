@@ -275,7 +275,7 @@
   <string name="enable_gps">जीपीएस सक्षम करें</string>
   <string name="geotrace_title">जिओ ट्रेस</string>
   <string name="geo_clear_warning">फीचर पहले से ही बना है. क्या आप फीचर को क्लियर करना चाहेंगे?</string>
-  <string name="geo_exit_warning">परिवर्तनों को रद्द करें और वापस ODK पर लौटें?</string>
+  <string name="geo_exit_warning">परिवर्तनों को रद्द करें और वापस KoBoToolbox पर लौटें?</string>
   <string name="polygon_validator">बहुभुज बनाने के लिए कम से कम 3 पॉइंट होने चाहिए</string>
   <string name="clear">स्पष्ट</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
@@ -351,7 +351,7 @@
   <string name="change_server_url">सर्वर URL</string>
   <string name="url_error">क्षमा करें,अमान्य URL!</string>
   <string name="username">प्रयोगकर्ता नाम </string>
-  <string name="change_username">ODK उपयोगकर्ता नाम</string>
+  <string name="change_username">KoBoToolbox उपयोगकर्ता नाम</string>
   <string name="password">पासवर्ड</string>
   <string name="change_password">odk पासवर्ड</string>
   <string name="password_error_whitespace">पासवर्ड में अग्रणी या अनुगामी व्हाइटस्पेस की अनुमति नहीं है</string>
@@ -385,7 +385,7 @@
   <string name="show_splash_title">स्प्लैश स्क्रीन</string>
   <string name="show_splash_summary">एप्लिकेशन प्रारंभ होने पर दिखाता है </string>
   <string name="splash_path">चयनित स्प्लेश इमेज</string>
-  <string name="default_splash_path">ODK डिफ़ॉल्ट</string>
+  <string name="default_splash_path">KoBoToolbox डिफ़ॉल्ट</string>
   <string name="select_another_image">दूसरा इमेज चयनित करे</string>
   <string name="use_odk_default">डिफ़ॉल्ट इमेज प्रयोग करें</string>
   <string name="change_splash_path">इमेज बदले</string>
@@ -425,7 +425,7 @@
   <string name="form_import_category">फॉर्म आयात </string>
   <string name="analytics_preferences">डेटा का उपयोग</string>
   <string name="analytics">अनाम उपयोग डेटा एकत्र करें</string>
-  <string name="analytics_summary">अनाम उपयोग डेटा ODK टीम को फिक्स और फीचर्स की प्राथमिकता निर्धारण में मदद करता है</string>
+  <string name="analytics_summary">अनाम उपयोग डेटा KoBoToolbox टीम को फिक्स और फीचर्स की प्राथमिकता निर्धारण में मदद करता है</string>
   <string name="form_metadata_title">फॉर्म मेटाडेटा</string>
   <string name="form_metadata">फॉर्म मेटाडेटा</string>
   <string name="form_metadata_summary">इन मानों को उन फ़ॉर्म में जोड़ा जाएगा जिनमें डेटा जमा करने वाले व्यक्ति की पहचान के लिये प्रयोक्ता नाम, ईमेल और / या टेलीफ़ोन पहले से लोड किए गए फ़ील्ड हैं। </string>
@@ -507,8 +507,8 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">बारे में </string>
-  <string name="odk_website">ODK वेबसाइट विजिट करें</string>
-  <string name="odk_forum">ODK फोरम ज्वाइन करें</string>
+  <string name="odk_website">KoBoToolbox वेबसाइट विजिट करें</string>
+  <string name="odk_forum">KoBoToolbox फोरम ज्वाइन करें</string>
   <!--##############################################
      # SETTINGS IMPORT
      ##############################################-->
@@ -540,10 +540,10 @@
   <string name="error_occured">गलती हुई</string>
   <string name="please_wait">कृपया कुछ क्षण प्रतीक्षा करें</string>
   <string name="please_wait_long">कृपया प्रतीक्षा करें। इसमें कुछ मिनट लग सकते हैं।</string>
-  <string name="sdcard_unmounted">ODK कलेक्ट की SD कार्ड तक पहुंच नहीं हुई. शायद यह USB के माध्यम से लगाया है? (वर्तमान स्थिति:%s)</string>
+  <string name="sdcard_unmounted">KoBoToolbox कलेक्ट की SD कार्ड तक पहुंच नहीं हुई. शायद यह USB के माध्यम से लगाया है? (वर्तमान स्थिति:%s)</string>
   <string name="fs_delete_media_path_if_file_error">%sको नहीं मिटाया जा सका. कृपया फाइल को स्वयं हटा दें और फ़ॉर्म को पुनः डाउनलोड करें.</string>
   <string name="fs_create_media_folder_error">\'%s\' मीडिया फ़ोल्डर नहीं बना सका.</string>
   <string name="fs_file_copy_error">\'%2$s\' पर \'%1$s\' की नकल नहीं कर सकता. कारण: %3$s</string>
   <string name="survey_multiple_forms_error">आपने एक ही फॉर्म आईडी और संस्करण के साथ दो अलग-अलग फॉर्म डाउनलोड किए हैं। हो सकता है कि वे अलग-अलग समय या अलग-अलग सर्वरों पर अपलोड किए गए समान फॉर्म थे. किसी भी मामले में, आपको एक को हटाना होगा.</string>
-  <string name="select_odk_shortcut">ODK शॉर्टकट चयन करें</string>
+  <string name="select_odk_shortcut">KoBoToolbox शॉर्टकट चयन करें</string>
 </resources>

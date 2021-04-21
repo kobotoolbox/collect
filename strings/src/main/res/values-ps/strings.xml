@@ -201,9 +201,9 @@
   <string name="server_url">URL</string>
   <!--Title of dialog for configuring server URL-->
   <string name="username">کار نوم</string>
-  <string name="change_username">ODK کارنوم</string>
+  <string name="change_username">KoBoToolbox کارنوم</string>
   <string name="password">پټنوم</string>
-  <string name="change_password">ODK پټنوم</string>
+  <string name="change_password">KoBoToolbox پټنوم</string>
   <!--To use Google Drive, forms must set a submission URL. If they don't, this URL will be used.-->
   <!--Description for Fallback submission URL setting-->
   <string name="app_theme">مدار</string>

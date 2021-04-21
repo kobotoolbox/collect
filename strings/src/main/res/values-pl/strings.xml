@@ -66,7 +66,7 @@
   <string name="get_accounts_runtime_permission_denied_title">Uzyskaj uprawnienia do kont</string>
   <string name="get_accounts_runtime_permission_denied_desc">Bez tych uprawnieć Collect nie ma dostępu do kont. Spróbuj ponownie, kiedy uprawnienia zostaną nadane.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Sprawdź uprawnienia dostępu do właściwości telefonu</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect nie wykonuje połączeń, ale wymaga dostępu do niektórych właściwości twojego urządzenia, w tym do numeru telefonu i numeru ID</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect nie wykonuje połączeń, ale wymaga dostępu do niektórych właściwości twojego urządzenia, w tym do numeru telefonu i numeru ID</string>
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -402,7 +402,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS jest nieaktywne na twoim urządzeniu. Czy chcesz je włączyc?</string>
   <string name="geo_clear_warning">Właściwość już stworzona. Chcesz usunąć właściwość?</string>
-  <string name="geo_exit_warning">Usunąć zmiany i wrócić do ODK?</string>
+  <string name="geo_exit_warning">Usunąć zmiany i wrócić do KoBoToolbox?</string>
   <string name="polygon_validator">Wymagane są przynajmniej 3 punkty aby utworzyć wielokąt</string>
   <string name="polyline_validator">Wymagane co najmniej 2 punkty, by utworzyć polilinię</string>
   <string name="clear">Wyczyść</string>
@@ -465,9 +465,9 @@
   <string name="show_unsent_forms">Pokaż Nie Wysłane Formularze</string>
   <string name="media_upload_error">Nie można załadować multimediów, plik nie istnieje: %1$s</string>
   <string name="send_in_progress">Trwa wysyłka w tle, spróbuj wkrótce ponownie</string>
-  <string name="odk_permissions_fail">Błąd uprawnień automatycznego wysyłania ODK. Upewnij się, że nadałeś wszystkie wymagane uprawnienia</string>
-  <string name="odk_auto_note">Wyniki automatycznego wysyłania ODK</string>
-  <string name="odk_auto_download_notification_title">Wyniki automatycznego pobierania ODK</string>
+  <string name="odk_permissions_fail">Błąd uprawnień automatycznego wysyłania KoBoToolbox. Upewnij się, że nadałeś wszystkie wymagane uprawnienia</string>
+  <string name="odk_auto_note">Wyniki automatycznego wysyłania KoBoToolbox</string>
+  <string name="odk_auto_download_notification_title">Wyniki automatycznego pobierania KoBoToolbox</string>
   <string name="notification_error">Błąd przy wyświetlaniu tekstu powiadomienia</string>
   <!--##############################################
     # GET BLANK FORM
@@ -520,9 +520,9 @@
   <string name="change_server_url">Serwer URL</string>
   <string name="url_error">Przykro mi, niepoprawny URL!</string>
   <string name="username">Identyfikator użytkownika</string>
-  <string name="change_username">Nazwa użytkownika ODK</string>
+  <string name="change_username">Nazwa użytkownika KoBoToolbox</string>
   <string name="password">Hasło</string>
-  <string name="change_password">Hasło ODK</string>
+  <string name="change_password">Hasło KoBoToolbox</string>
   <string name="password_error_whitespace">Spacje na początku lub na końcu hasła są niedozwolone</string>
   <string name="username_error_whitespace">Spacje na początku lub na końcu nazwy użytkownika są niedozwolone</string>
   <string name="change_formlist_url">Ścieżka do listy formularzy (dołączana do URL)</string>
@@ -558,7 +558,7 @@
   <string name="show_splash_title">Ekran powitalny</string>
   <string name="show_splash_summary">Pokazuje się, gdy aplikacja startuje</string>
   <string name="splash_path">Wybrany obraz ekranu powitalnego</string>
-  <string name="default_splash_path">Domyślne ODK</string>
+  <string name="default_splash_path">Domyślne KoBoToolbox</string>
   <string name="select_another_image">Wybierz inny obraz</string>
   <string name="use_odk_default">Użyj obraz domyślny</string>
   <string name="change_splash_path">Zmień obraz</string>
@@ -619,7 +619,7 @@
   <string name="instance_sync_summary">Wpływa na formularze dodawane bezpośrednio do folderu formularzy.</string>
   <string name="analytics_preferences">Dane użytkowania</string>
   <string name="analytics">Zbieraj anonimowe dane dotyczące użytkowania</string>
-  <string name="analytics_summary">Anonimowe dane dotyczące użytkowania pomagają zespołowi ODK priorytetyzować poprawki i funkcjonalność</string>
+  <string name="analytics_summary">Anonimowe dane dotyczące użytkowania pomagają zespołowi KoBoToolbox priorytetyzować poprawki i funkcjonalność</string>
   <string name="form_metadata_title">Metadane formularza</string>
   <string name="form_metadata">Metadane formularza</string>
   <string name="form_metadata_summary">Wartości te zostaną dodane do formularzy z uprzednio zdefiniowanymi polami z nazwą użytkownika, adresem email i / lub telefonem w celu identyfikacji osoby przesyłającej dane.</string>
@@ -714,14 +714,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">O Aplikacji</string>
-  <string name="tell_your_friends">Udostępnij ODK Collect</string>
-  <string name="tell_your_friends_msg">Czy Twoi koledzy wciąż używają do zbierania danych arkuszy papieru? Podziel się z nimi ODK Collect.</string>
+  <string name="tell_your_friends">Udostępnij KoBoCollect</string>
+  <string name="tell_your_friends_msg">Czy Twoi koledzy wciąż używają do zbierania danych arkuszy papieru? Podziel się z nimi KoBoCollect.</string>
   <string name="leave_a_review">Zostaw swoją opinię na Play Store</string>
   <string name="leave_a_review_msg">Twoja (mamy nadzieję pozytywna) recenzja przyczyni się do zwiększenia widoczności Aplikacji w Play Store.</string>
-  <string name="odk_website">Odwiedź stronę ODK</string>
-  <string name="odk_website_summary">ODK służy do zbierania danych w trudnych warunkach dla społeczego dobra.</string>
-  <string name="odk_forum">Dołącz do forum ODK</string>
-  <string name="odk_forum_summary">Dołącz do forum by uzyskać wsparcie, zgłaszać potrzeby nowych opcji, wnieść swój wkład w tłumaczenie i kodowanie.</string>
+  <string name="odk_website">Odwiedź stronę KoBoToolbox</string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Dołącz do forum KoBoToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Biblioteki/licencje open source</string>
   <string name="all_open_source_licenses_msg">Stoimy na ramionach gigantów!</string>
   <!--##############################################
@@ -768,5 +768,5 @@
   <string name="survey_multiple_forms_error">Pobrałeś dwa różne formularze z tym samym ID formularza oraz wersją. Może był to ten sam formularz wysłany w różnym czasie lub na różne serwery. Powinieneś usunąć jeden z tych formularzy.</string>
   <string name="cannot_create_directory">Nie można utworzyć katalogu: %s</string>
   <string name="not_a_directory">%sistnieje, ale nie jest w folderze</string>
-  <string name="select_odk_shortcut">Wybierz skrót ODK</string>
+  <string name="select_odk_shortcut">Wybierz skrót KoBoToolbox</string>
 </resources>

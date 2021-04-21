@@ -488,8 +488,8 @@
   <string name="media_upload_error">Falla en subida de archivo multimedia. No existe: %1$s</string>
   <string name="send_in_progress">Otro envío funcionando, reintentar en breve</string>
   <string name="odk_permissions_fail">Falla en permiso de auto envío. Asegúrese de haber otorgado todos los permisos requeridos. </string>
-  <string name="odk_auto_note">ODK resultados de auto-envío</string>
-  <string name="odk_auto_download_notification_title">ODK resultados de auto-descarga</string>
+  <string name="odk_auto_note">KoBoToolbox resultados de auto-envío</string>
+  <string name="odk_auto_download_notification_title">KoBoToolbox resultados de auto-descarga</string>
   <string name="notification_error">Error al mostrar texto de la notificación</string>
   <!--##############################################
     # GET BLANK FORM
@@ -757,14 +757,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Acerca de</string>
-  <string name="tell_your_friends">Compartir ODK Collect</string>
+  <string name="tell_your_friends">Compartir KoBoCollect</string>
   <string name="tell_your_friends_msg">Sus colegas aún recogen datos en papel? Comparte con ellos la aplicación</string>
   <string name="leave_a_review">Ir a Play Store - Comentar y/o Actualizar</string>
   <string name="leave_a_review_msg">Su reseña (ojalá positiva) incrementa la visibilidad de la aplicación en Play Store</string>
   <string name="odk_website">Visitar el sitio web</string>
-  <string name="odk_website_summary">ODK se utiliza para recopilar datos para el bien social en entornos desafiantes.</string>
-  <string name="odk_forum">Unirse al foro de ODK</string>
-  <string name="odk_forum_summary">Únase al foro para obtener soporte, solicitar mejoras, contribuir con el código, traducir!</string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Unirse al foro de KoBoToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Licencias/librerias de Código Abierto</string>
   <string name="all_open_source_licenses_msg">Sostenidos a hombros de gigantes!</string>
   <!--##############################################

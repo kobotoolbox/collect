@@ -226,7 +226,7 @@
   <string name="change_server_url">Địa chỉ máy chủ</string>
   <string name="url_error">Xin lỗi URL không đúng!</string>
   <string name="username">Tên truy cập</string>
-  <string name="change_username">Tên truy cập ODK</string>
+  <string name="change_username">Tên truy cập KoBoToolbox</string>
   <string name="password">Mật khẩu</string>
   <string name="change_password">Mật khẩu</string>
   <string name="change_formlist_url">Danh sách đường dẫn biểu mẫu</string>
@@ -252,7 +252,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">Hiển thị khi chương trình khởi động</string>
   <string name="splash_path">Chọn ảnh màn hình chào</string>
-  <string name="default_splash_path">Mặc định ODK</string>
+  <string name="default_splash_path">Mặc định KoBoToolbox</string>
   <string name="select_another_image">Chọn ảnh khác</string>
   <string name="use_odk_default">Chọn ảnh mặc định</string>
   <string name="change_splash_path">Đổi ảnh</string>

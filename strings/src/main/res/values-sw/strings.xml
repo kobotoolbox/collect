@@ -65,7 +65,7 @@
   <string name="get_accounts_runtime_permission_denied_title">Pata ruhusa ya akaunti</string>
   <string name="get_accounts_runtime_permission_denied_desc">Bila hii ruhusa Collect haiwezi kufungua akaunti. Tafadhali jaribu tena ukiwa tayari kutoa ruhusa.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Soma ruhusa ya simu</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect haipigi simu lakini inahitaji kufikia taarifa fulani kuhusu kifaa chako kama namba ya simu na ya utambulisho wa kifaa.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect haipigi simu lakini inahitaji kufikia taarifa fulani kuhusu kifaa chako kama namba ya simu na ya utambulisho wa kifaa.</string>
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -372,7 +372,7 @@
   <string name="geotrace_title">Fatilisha mstari kijografia</string>
   <string name="gps_enable_message">GPS imezimwa kwenye kifaa chako. Ungependa kutumia?</string>
   <string name="geo_clear_warning">Umbo lishatengenezwa. Ungependa kufuta Umbo?</string>
-  <string name="geo_exit_warning">Sitisha mabadiliko na rudi kwenye ODK?</string>
+  <string name="geo_exit_warning">Sitisha mabadiliko na rudi kwenye KoBoToolbox?</string>
   <string name="polygon_validator">Lazima uwe na angalau  nukta 3 ili kutengeneza poligoni</string>
   <string name="polyline_validator">Ni lazima uwe angalau na pointi 2 kutengeneza Mistari </string>
   <string name="clear">Futa</string>
@@ -411,9 +411,9 @@
   <string name="show_unsent_forms">Onyesha fomu zisizotumwa</string>
   <string name="media_upload_error">Imeshindwa kupakia mafaili ya midia ambayo hayapo%1$s</string>
   <string name="send_in_progress">Utumaji unaendelea kwa nyuma, jaribu tena baada ya muda mfupi</string>
-  <string name="odk_permissions_fail">Uwezo wa utumaji wenyewe wa ODK umeshindikana kwa kukosa ruhusa, tafadhali hakikisha umeipa ruhusa zote zinazohitajika</string>
-  <string name="odk_auto_note">Majibu ya ODK yanajituma yenyewe</string>
-  <string name="odk_auto_download_notification_title">Majibu ya ODK yaliyo jipakuwa yenyewe</string>
+  <string name="odk_permissions_fail">Uwezo wa utumaji wenyewe wa KoBoToolbox umeshindikana kwa kukosa ruhusa, tafadhali hakikisha umeipa ruhusa zote zinazohitajika</string>
+  <string name="odk_auto_note">Majibu ya KoBoToolbox yanajituma yenyewe</string>
+  <string name="odk_auto_download_notification_title">Majibu ya KoBoToolbox yaliyo jipakuwa yenyewe</string>
   <string name="notification_error">Kosa linaonesha ujumbe wa maandishi</string>
   <!--##############################################
     # GET BLANK FORM
@@ -466,9 +466,9 @@
   <string name="change_server_url">URL ya seva</string>
   <string name="url_error">Samahani, URL ni batili!</string>
   <string name="username">Jina la mtumiaji </string>
-  <string name="change_username">Jina la mtumiaji wa ODK</string>
+  <string name="change_username">Jina la mtumiaji wa KoBoToolbox</string>
   <string name="password">Nenosiri</string>
-  <string name="change_password">Nenosiri la ODK</string>
+  <string name="change_password">Nenosiri la KoBoToolbox</string>
   <string name="password_error_whitespace">Nafasi za wazi kabla au baada ya nywila \"neno la siri\" hairuhusiwi</string>
   <string name="username_error_whitespace">Nafasi za wazi kabla au baada ya jina la mtumiaji haziruhusiwi</string>
   <string name="change_formlist_url">Orodhesha njia ya Fomu (iliyotumwa kwenye URL)</string>
@@ -504,7 +504,7 @@
   <string name="show_splash_title">Splash skrini</string>
   <string name="show_splash_summary">Huonyesha wakati programu inapoanza</string>
   <string name="splash_path">Picha ya ukurasa wa kuanza iliyochaguliwa</string>
-  <string name="default_splash_path">Chaguo msingi la ODK</string>
+  <string name="default_splash_path">Chaguo msingi la KoBoToolbox</string>
   <string name="select_another_image">Chagua picha nyingine</string>
   <string name="use_odk_default">Tumia picha msingi \"default\"</string>
   <string name="change_splash_path">Badili picha</string>
@@ -565,7 +565,7 @@
   <string name="instance_sync_summary">Inaathiri fomu zilizowekwa moja kwa moja kwenye makabrasha ya mifano.</string>
   <string name="analytics_preferences">Matumizi ya takwimu</string>
   <string name="analytics">Kusanya takwimu za matumizi bila majina</string>
-  <string name="analytics_summary"> Matumizi ya takwimu zisizojulikana husaidia timu ya ODK kutoa kipaumbele cha hitilafu na vifaa</string>
+  <string name="analytics_summary"> Matumizi ya takwimu zisizojulikana husaidia timu ya KoBoToolbox kutoa kipaumbele cha hitilafu na vifaa</string>
   <string name="form_metadata_title">Unda taarifa za data</string>
   <string name="form_metadata">Unda taarifa za data</string>
   <string name="form_metadata_summary">Thamani hizi zitaongezwa katika fomu ambazo zina jina, barua pepe na au namba ya simu kupakuliwa kabla nafasi kumtambulisha mtu aliye wasilisha data.</string>
@@ -640,7 +640,7 @@
   <!--Button for navigating across Google Drive folders-->
   <string name="download_selected">Pakua zilizochaguliwa</string>
   <string name="go_back">Rudi  nyuma</string>
-  <string name="google_auth_io_exception_msg">Haiwezi kutengeneza API za kuita. Kama umejitengenezea ODK, tafadhali pitia mradi upya.</string>
+  <string name="google_auth_io_exception_msg">Haiwezi kutengeneza API za kuita. Kama umejitengenezea KoBoToolbox, tafadhali pitia mradi upya.</string>
   <string name="drive_get_file">Inachukuwa %1$s na mafaili ya midia.</string>
   <string name="no_google_account">Hakuna akaunti ya Google Iliyochaguliwa!</string>
   <string name="google_set_account">Umechagua karatasi za Google kama seva yako, tafadhali chagua akaunti ya Google inayoshabiliana katika mpangilio wa jumla kabla ya kuendelea</string>
@@ -659,14 +659,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Kuhusu</string>
-  <string name="tell_your_friends">Shirikisha wengine programu ya ODK collect</string>
-  <string name="tell_your_friends_msg">Je ndugu na jamaa zako bado wanakusanya taarifa kupitia karatasi? Washirikishe programu ya ODK.</string>
+  <string name="tell_your_friends">Shirikisha wengine programu ya KoBoToolbox collect</string>
+  <string name="tell_your_friends_msg">Je ndugu na jamaa zako bado wanakusanya taarifa kupitia karatasi? Washirikishe programu ya KoBoToolbox.</string>
   <string name="leave_a_review">Acha tathmini katika Play Store</string>
   <string name="leave_a_review_msg">Tathmini yako (tunatumaini itakuwa chanya) inaongeza nafasi ya programu hii kuonekana Pay Store</string>
-  <string name="odk_website">Tembelea tovuti ya ODK</string>
-  <string name="odk_website_summary">ODK inatumika kwenye ukusanyaji wa taarifa za kijamii katika mazingira yenye changamoto.</string>
-  <string name="odk_forum">Jiunge na jukwaa la ODK</string>
-  <string name="odk_forum_summary">Jiunge na jukwaa kupata msaada, kuomba makala,  kuchangia kanuni au kutafsiri!</string>
+  <string name="odk_website">Tembelea tovuti ya KoBoToolbox</string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Jiunge na jukwaa la KoBoToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Maktaba/leseni ya chanzo wazi</string>
   <string name="all_open_source_licenses_msg">Tumesimama kwenye mabega ya mashujaa!</string>
   <!--##############################################
@@ -713,5 +713,5 @@
   <string name="survey_multiple_forms_error">Unepakua fomu mbili tofauti  zenye  fomu ya utambulisho sawa na toleo sawa. Labda ilikuwa ni fomu moja iliyoekwa muda tofauti au seva tofauti. Kama ni hivyo futa mojawapo. </string>
   <string name="cannot_create_directory">Haiwezi tengenenza saraka \"directory\": %s</string>
   <string name="not_a_directory">%s ipo, lakini  si saraka \"directory\"</string>
-  <string name="select_odk_shortcut">Chagua njia fupi ya ODK </string>
+  <string name="select_odk_shortcut">Chagua njia fupi ya KoBoToolbox </string>
 </resources>

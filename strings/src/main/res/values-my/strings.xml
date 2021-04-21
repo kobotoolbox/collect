@@ -231,9 +231,9 @@
   <!--Title of dialog for configuring server URL-->
   <string name="url_error">ရင္းျမစ္ေနရာမွားယြင္းေနပါသည္</string>
   <string name="username">သံုးစြဲသူအမည္</string>
-  <string name="change_username">ODK အသုံးပြုသူအမည်</string>
+  <string name="change_username">KoBoToolbox အသုံးပြုသူအမည်</string>
   <string name="password">လ်ိဳ႔၀ွက္နံပါတ္</string>
-  <string name="change_password">ODK စကားဝှက်</string>
+  <string name="change_password">KoBoToolbox စကားဝှက်</string>
   <string name="change_formlist_url">ပံုစံစာရင္းရိွသည့္ေနရာ (appended to Server URL)</string>
   <string name="change_submission_url">ထည့္သြင္းရမည့္ေနရာ(appended to Server URL)</string>
   <string name="formlist_url">ပံုစံစာရင္းရိွသည့္ေနရာ</string>

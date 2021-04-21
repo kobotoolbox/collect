@@ -116,7 +116,7 @@
   <!--Title of a settings section only available in beta or development builds.-->
   <!--Label for server type setting-->
   <!--Title of dialog for configuring server URL-->
-  <string name="change_password">Teny miafina ODK</string>
+  <string name="change_password">Teny miafina KoBoToolbox</string>
   <!--To use Google Drive, forms must set a submission URL. If they don't, this URL will be used.-->
   <!--Description for Fallback submission URL setting-->
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->

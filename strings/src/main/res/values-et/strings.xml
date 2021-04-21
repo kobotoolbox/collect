@@ -254,7 +254,7 @@
   <string name="enable_gps">Luba GPS</string>
   <string name="geotrace_title">Rada</string>
   <string name="geo_clear_warning">Kujutis on juba loodud. Kas soovite kujutise eemaldada?</string>
-  <string name="geo_exit_warning">Loobu muudatustest ja ava ODK?</string>
+  <string name="geo_exit_warning">Loobu muudatustest ja ava KoBoToolbox?</string>
   <string name="polygon_validator">Polügooni loomiseks on vaja vähemalt 3 punkti</string>
   <string name="clear">Eemalda</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
@@ -324,9 +324,9 @@
   <string name="change_server_url">Serveri veebiaadress</string>
   <string name="url_error">Vabandage, vale veebiaadress!</string>
   <string name="username">Kasutajanimi</string>
-  <string name="change_username">ODK kasutajanimi</string>
+  <string name="change_username">KoBoToolbox kasutajanimi</string>
   <string name="password">Salasõna</string>
-  <string name="change_password">ODK salasõna</string>
+  <string name="change_password">KoBoToolbox salasõna</string>
   <string name="password_error_whitespace">Salasõna alguses või lõpus ei ole lubatud kasutada tühikut</string>
   <string name="username_error_whitespace">Kasutajanime alguses või lõpus ei ole lubatud kasutada tühikut</string>
   <string name="change_formlist_url">Vormi nimekirja asukoht (lisatud veebiaadressile)</string>
@@ -353,7 +353,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">Ilmub rakenduse avamisel</string>
   <string name="splash_path">Valitud käivitusekraani pilt</string>
-  <string name="default_splash_path">ODK vaikmisi</string>
+  <string name="default_splash_path">KoBoToolbox vaikmisi</string>
   <string name="select_another_image">Vali teine pilt</string>
   <string name="use_odk_default">Kasuta vaikimisi pildina</string>
   <string name="change_splash_path">Muuda pilti</string>
@@ -381,7 +381,7 @@
   <!--Title for setting to let the user switch between using Collect or another app (on the device) for recording audio-->
   <string name="analytics_preferences">Kasutusinfo</string>
   <string name="analytics">Anonüümne kasutusinfo kogumine</string>
-  <string name="analytics_summary">Anonüümne kasutusinfo aitab ODK meeskonnal prioritiseerida parandusi ja arendusi</string>
+  <string name="analytics_summary">Anonüümne kasutusinfo aitab KoBoToolbox meeskonnal prioritiseerida parandusi ja arendusi</string>
   <!--Displayed when a device property such as the phone number is not available-->
   <!--##############################################
      # ADMIN SETTINGS
@@ -468,5 +468,5 @@
   <string name="fs_create_media_folder_error">\'%s\' meediakausta loomine ebaõnnestus.</string>
   <string name="fs_file_copy_error">\'%1$s\' kopeerimine \'%2$s\' ebaõnnestus. Põhjuseks: %3$s</string>
   <string name="survey_multiple_forms_error">Olete alla laadinud kaks eri vormi millel on sama ID ja versioon. Võis juhtuda, et sama vorm oli üles laetud erinevatel aegadel või erinevatesse serveritesse. Igatahes peaksite ühe neist eemaldama.</string>
-  <string name="select_odk_shortcut">Vali ODK otsetee</string>
+  <string name="select_odk_shortcut">Vali KoBoToolbox otsetee</string>
 </resources>

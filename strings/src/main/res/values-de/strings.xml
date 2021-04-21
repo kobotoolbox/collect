@@ -66,7 +66,7 @@
   <string name="get_accounts_runtime_permission_denied_title">Kontoberechtigungen abfragen</string>
   <string name="get_accounts_runtime_permission_denied_desc">Ohne diese Berechtigung kann Collect nicht auf die Konten zugreifen. Bitte versuchen Sie es erneut, wenn Sie dazu bereit sind die Berechtigung zu erteilen.</string>
   <string name="read_phone_state_runtime_permission_denied_title">Berechtigung Telefonstatus abrufen</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect macht keine Telefonanrufe aber benötigt Zugriff auf bestimmte Eigenschaften Ihres Geräts, wie die Telefonnummer und Geräte-ID.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoBoCollect macht keine Telefonanrufe aber benötigt Zugriff auf bestimmte Eigenschaften Ihres Geräts, wie die Telefonnummer und Geräte-ID.</string>
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -427,7 +427,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS ist auf Ihrem Gerät deaktiviert. Möchten Sie es aktivieren?</string>
   <string name="geo_clear_warning">Merkmal bereits erzeugt. Möchten Sie das Merkmal löschen?</string>
-  <string name="geo_exit_warning">Änderungen verwerfen und zu ODK zurückkehren?</string>
+  <string name="geo_exit_warning">Änderungen verwerfen und zu KoBoToolbox zurückkehren?</string>
   <string name="polygon_validator">Min. 3 Punkte notwendig um ein Polygon zu erzeugen</string>
   <string name="polyline_validator">Min. 2 Punkte notwendig um eine Polylinie zu erzeugen</string>
   <string name="clear">Löschen</string>
@@ -489,9 +489,9 @@
   <string name="show_unsent_forms">Nur nicht gesendete Formulare</string>
   <string name="media_upload_error">Nicht vorhandene Mediendatei konnte nicht hochgeladen werden: %1$s</string>
   <string name="send_in_progress">Sendevorgang läuft im Hintergrund. Bitte versuchen Sie es später nochmal.</string>
-  <string name="odk_permissions_fail">ODK Auto-Send Berechtigungsfehler, bitte stellen Sie sicher, dass Sie alle benötigten Berechtigungen erteilt haben</string>
-  <string name="odk_auto_note">ODK Auto-Send-Ergebnisse</string>
-  <string name="odk_auto_download_notification_title">ODK Auto-Download-Ergebnisse</string>
+  <string name="odk_permissions_fail">KoBoToolbox Auto-Send Berechtigungsfehler, bitte stellen Sie sicher, dass Sie alle benötigten Berechtigungen erteilt haben</string>
+  <string name="odk_auto_note">KoBoToolbox Auto-Send-Ergebnisse</string>
+  <string name="odk_auto_download_notification_title">KoBoToolbox Auto-Download-Ergebnisse</string>
   <string name="notification_error">Fehler beim Anzeigen des Benachrichtigungstextes</string>
   <!--##############################################
     # GET BLANK FORM
@@ -554,9 +554,9 @@
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Ungültige URL!</string>
   <string name="username">Benutzername</string>
-  <string name="change_username">ODK Benutzername</string>
+  <string name="change_username">KoBoToolbox Benutzername</string>
   <string name="password">Passwort</string>
-  <string name="change_password">ODK Passwort</string>
+  <string name="change_password">KoBoToolbox Passwort</string>
   <string name="password_error_whitespace">Leerzeichen am Anfang und Ende von Passwörtern nicht erlaubt</string>
   <string name="username_error_whitespace">Leerzeichen am Anfang und Ende von Benutzernamen nicht erlaubt</string>
   <string name="custom_server_paths">Benutzerdefinierte Serverpfade</string>
@@ -595,7 +595,7 @@
   <string name="show_splash_title">Startbildschirm</string>
   <string name="show_splash_summary">Wird angezeigt, während die App startet</string>
   <string name="splash_path">Ausgewähltes Startbild</string>
-  <string name="default_splash_path">ODK Standard</string>
+  <string name="default_splash_path">KoBoToolbox Standard</string>
   <string name="select_another_image">Anderes Bild auswählen</string>
   <string name="use_odk_default">Standardbild verwenden</string>
   <string name="change_splash_path">Bild ändern</string>
@@ -662,7 +662,7 @@
   <string name="instance_sync_summary">Betrifft Formulare, die direkt dem instances-Ordner hinzugefügt werden.</string>
   <string name="analytics_preferences">Nutzungsdaten</string>
   <string name="analytics">Anonyme Nutzungsdaten sammeln</string>
-  <string name="analytics_summary">Anonyme Nutzungsdaten helfen dem ODK-Team Fehlerbehebungen und neue Funktionen zu priorisieren.</string>
+  <string name="analytics_summary">Anonyme Nutzungsdaten helfen dem KoBoToolbox-Team Fehlerbehebungen und neue Funktionen zu priorisieren.</string>
   <string name="form_metadata_title">Formular-Metadaten</string>
   <string name="form_metadata">Formular-Metadaten</string>
   <string name="form_metadata_summary">Diese Werte werden Formularen hinzugefügt, die Usernamen, E-Mail und/oder durch das Telefon vorbelegte Felder beinhalten, um die Person zu identifizieren, die die Daten eingibt.</string>
@@ -759,14 +759,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Über</string>
-  <string name="tell_your_friends">ODK Collect teilen</string>
-  <string name="tell_your_friends_msg">Erfassen Ihre Kollegen Daten immer noch auf Papier? Empfehlen Sie Ihnen ODK Collect.</string>
+  <string name="tell_your_friends">KoBoCollect teilen</string>
+  <string name="tell_your_friends_msg">Erfassen Ihre Kollegen Daten immer noch auf Papier? Empfehlen Sie Ihnen KoBoCollect.</string>
   <string name="leave_a_review">Geben Sie eine Play Store Bewertung ab</string>
   <string name="leave_a_review_msg">Ihre (hoffentlich positive) Bewertung steigert die Bekanntheit der App im Play Store.</string>
-  <string name="odk_website">ODK-Webseite öffnen</string>
-  <string name="odk_website_summary">ODK wird benutzt um Daten für soziale Zwecke in herausfordernden Umgebungen zu sammeln.</string>
-  <string name="odk_forum">Dem ODK-Forum beitreten</string>
-  <string name="odk_forum_summary">Treten Sie dem Forum bei, um Hilfe zu bekommen, Funktionen vorzuschlagen, Code/Übersetzungen beizutragen!</string>
+  <string name="odk_website">KoBoToolbox-Webseite öffnen</string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Dem KoBoToolbox-Forum beitreten</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Open Source Libraries/Lizenzen</string>
   <string name="all_open_source_licenses_msg">Wir stehen auf den Schultern von Riesen!</string>
   <!--##############################################
@@ -840,5 +840,5 @@
   <string name="survey_multiple_forms_error">Zwei unterschiedliche Formulare mit derselben Form ID und Version heruntergeladen. Vielleicht wurde das gleiche Formular zu unterschiedlichen Zeiten oder auf unterschiedliche Server hochgeladen. In jedem Fall sollten Sie ein Formular löschen.</string>
   <string name="cannot_create_directory">Kann Verzeichnis %s nicht erstellen</string>
   <string name="not_a_directory">%s existiert, aber ist kein Verzeichnis</string>
-  <string name="select_odk_shortcut">ODK Verknüpfung auswählen</string>
+  <string name="select_odk_shortcut">KoBoToolbox Verknüpfung auswählen</string>
 </resources>

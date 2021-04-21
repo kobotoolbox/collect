@@ -446,9 +446,9 @@
   <string name="change_server_url">سروریو آر ایل</string>
   <string name="url_error">معذرت، URL صحیح نہیں ہے</string>
   <string name="username">استعمال کنندہ کا نام</string>
-  <string name="change_username">ODK استعمال کرنے والے کا نام</string>
+  <string name="change_username">KoBoToolbox استعمال کرنے والے کا نام</string>
   <string name="password">پاس ورڈ</string>
-  <string name="change_password">  ODK  کا پاس ورڈ</string>
+  <string name="change_password">  KoBoToolbox  کا پاس ورڈ</string>
   <string name="password_error_whitespace">پاس ورڈز میں شروع اور بعد میں سپیسس کی اجازت نہیں ہے</string>
   <string name="username_error_whitespace">صارف کےناموں میں شروع اور بعد میں سپیسس کی اجازت نہیں ہے</string>
   <string name="change_formlist_url">فارم لسٹ پاتھ (اپینڈڈ یو آر ایل)</string>
@@ -483,7 +483,7 @@
   <string name="show_splash_title">سپلیش اسکرین</string>
   <string name="show_splash_summary">ایپلیکیشن جب  شروع ہو، دکھاتا ہے</string>
   <string name="splash_path">منتخب شدہ سپلیش تصویر</string>
-  <string name="default_splash_path">ODK طے شدہ</string>
+  <string name="default_splash_path">KoBoToolbox طے شدہ</string>
   <string name="select_another_image">دوسری تصویر کاانتخاب کریں۔</string>
   <string name="use_odk_default">پہلے سے دی گئی  تصویر کو استعمال کریں</string>
   <string name="change_splash_path">تصویر بدل دیں</string>
@@ -643,7 +643,7 @@
   <string name="leave_a_review_msg">آپ ( امید ہے مثبت) کی رائے سے پلے اسٹورمیں اپپ کی نمائش میں اضافہ ہوتا ہے </string>
   <string name="odk_website">او ڈی کے ویب سائٹ وزٹ کریں</string>
   <string name="odk_forum">او ڈی کے فورم میں شمولیت اختیار کریں</string>
-  <string name="odk_forum_summary">تعاون حاصل کرنے کے لئے فورم میں شمولیت اختیار کریں، خصوصیات کی درخواست کریں، کوڈ / ترجمہ کرنے میں اپنا حصہ ڈالیں  !</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">اوپن سورس لائبریری / لائسنسس</string>
   <string name="all_open_source_licenses_msg">ہم پرانےمشاہدات کو استعمال کر کے سچ کا پتا لگا رہے ہیں </string>
   <!--##############################################

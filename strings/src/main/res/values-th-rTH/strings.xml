@@ -241,7 +241,7 @@
   <string name="start">เริ่มต้น</string>
   <string name="enable_gps">เปิด GPS</string>
   <string name="geotrace_title">GeoTrace</string>
-  <string name="geo_exit_warning">ยกเลิกการเปลี่ยนแปลงและกลับไปที่ ODK?</string>
+  <string name="geo_exit_warning">ยกเลิกการเปลี่ยนแปลงและกลับไปที่ KoBoToolbox?</string>
   <string name="polygon_validator">ต้องมีจุดพิกัด 3 จุดขึ้นไปเพื่อสร้าง Polygon</string>
   <string name="clear">ลบ</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
@@ -311,9 +311,9 @@
   <string name="change_server_url">URL ของเซิร์ฟเวอร์</string>
   <string name="url_error">ขออภัย URL ไม่ถูกต้อง</string>
   <string name="username">ชื่อผู้ใช้</string>
-  <string name="change_username">ชื่อผู้ใช้งาน ODK</string>
+  <string name="change_username">ชื่อผู้ใช้งาน KoBoToolbox</string>
   <string name="password">รหัสผ่าน</string>
-  <string name="change_password">รหัสผ่าน ODK</string>
+  <string name="change_password">รหัสผ่าน KoBoToolbox</string>
   <string name="password_error_whitespace">ไม่สามารถใช้ช่องว่างนำหน้าและตามหลังรหัสผ่าน</string>
   <string name="username_error_whitespace">ไม่สามารถใช้ช่องว่างนำหน้าและตามหลังชื่อผู้ใช้</string>
   <string name="change_formlist_url">Form list path (appended to URL)</string>
@@ -342,7 +342,7 @@
   <string name="form_backward">ย้อนกลับ</string>
   <string name="show_splash_summary">แสดงเมื่อเริ่มการทำงาน</string>
   <string name="splash_path">เลือกภาพเริ่มต้น</string>
-  <string name="default_splash_path">ค่าเริ่มต้น ODK</string>
+  <string name="default_splash_path">ค่าเริ่มต้น KoBoToolbox</string>
   <string name="select_another_image">เลือกภาพอื่น</string>
   <string name="use_odk_default">ใช้ภาพที่กำหนดไว้</string>
   <string name="change_splash_path">เปลี่ยนภาพใหม่</string>
@@ -372,7 +372,7 @@
   <!--Title for setting to let the user switch between using Collect or another app (on the device) for recording audio-->
   <string name="analytics_preferences">ข้อมูลการใช้งาน</string>
   <string name="analytics">บันทึกค่าการใช้งานแบบไม่เจาะจงผู้ใช้</string>
-  <string name="analytics_summary">ค่าการใช้งานแบบไม่เจาะจงผู้ใช้จะช่วยทีมODK จัดลำดับการแก้ไขและเพิ่มความสามารถใหม่</string>
+  <string name="analytics_summary">ค่าการใช้งานแบบไม่เจาะจงผู้ใช้จะช่วยทีมKoBoToolbox จัดลำดับการแก้ไขและเพิ่มความสามารถใหม่</string>
   <string name="form_metadata_title">Metadata ของแบบสำรวจ</string>
   <string name="form_metadata">Form metadata</string>
   <string name="form_metadata_summary">ค่านี้จะถูกบันทึกในแบบสำรวจที่มีชื่อผู้ใช้ อีเมล์ และ/หรือ เบอร์โทรศัพท์ ที่โหลดไว้แล้วเพื่อระบุตัวผู้ส่งข้อมูล</string>
@@ -464,5 +464,5 @@
   <string name="fs_create_media_folder_error">ไม่สามารถสร้างแฟ้มมีเดีย \'%s\'</string>
   <string name="fs_file_copy_error">ไม่สามารถคัดลอก \'%1$s\' บน \'%2$s\' เนื่องจาก %3$s</string>
   <string name="survey_multiple_forms_error">คุณดาวน์โหลดแบบสำรวจสองฉบับที่มีชื่อและรุ่นตรงกัน ซึ่งอาจเป็นแบบสำรวจเดียวกันที่ถูกอัพโหลดต่างเวลาหรือต่างเซิร์ฟเวอร์ อย่างไรก็แล้วแต่ ควรลบออกหนึ่งฉบับ</string>
-  <string name="select_odk_shortcut">เลือก ODK Shortcut</string>
+  <string name="select_odk_shortcut">เลือก KoBoToolbox Shortcut</string>
 </resources>

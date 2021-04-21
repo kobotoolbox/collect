@@ -349,7 +349,7 @@
   <string name="start">Начать</string>
   <string name="enable_gps">Включить GPS</string>
   <string name="geotrace_title">Геослед</string>
-  <string name="geo_exit_warning">Отказаться от изменений и вернуться к ODK?</string>
+  <string name="geo_exit_warning">Отказаться от изменений и вернуться к KoBoToolbox?</string>
   <string name="polygon_validator">В многоугольнике должно быть как минимум 3 точки</string>
   <string name="polyline_validator">Должно быть как минимум 2 точки, что бы создать ломаную линию</string>
   <string name="clear">Очистить</string>
@@ -435,9 +435,9 @@
   <string name="change_server_url">Адрес сервера</string>
   <string name="url_error">Неверный адрес!</string>
   <string name="username">Имя пользователя</string>
-  <string name="change_username">Имя пользователя ODK</string>
+  <string name="change_username">Имя пользователя KoBoToolbox</string>
   <string name="password">Пароль</string>
-  <string name="change_password">Пароль ODK</string>
+  <string name="change_password">Пароль KoBoToolbox</string>
   <string name="password_error_whitespace">Не допускается использовать пробелы в начале и конце пароля</string>
   <string name="username_error_whitespace">Не допускается использовать пробелы в начале и конце имени пользователя</string>
   <string name="change_formlist_url">Папка с бланками (добавляется к URL)</string>
@@ -625,14 +625,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">О программе</string>
-  <string name="tell_your_friends">Рекомендовать ODK</string>
+  <string name="tell_your_friends">Рекомендовать KoBoToolbox</string>
   <string name="tell_your_friends_msg">Коллеги ведут сбор данных на бумаге? Поделитесь с ними этим решением</string>
   <string name="leave_a_review">Оставить отзыв в Play Store</string>
   <string name="leave_a_review_msg">Ваш отзыв (надеемся, положительный) делает приложение более заметным в Play Store</string>
-  <string name="odk_website">Вебсайт ODK</string>
-  <string name="odk_website_summary">ODK — приложение для сбора данных работающее без интернета</string>
+  <string name="odk_website">Вебсайт KoBoToolbox</string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
   <string name="odk_forum">Форум</string>
-  <string name="odk_forum_summary">Вопросы и предложения</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Используемые компоненты</string>
   <string name="all_open_source_licenses_msg">Мы стоим на плечах гигантов!</string>
   <!--##############################################
@@ -675,5 +675,5 @@
   <string name="survey_multiple_forms_error">Вы загрузили два разных опросника с одинаковым ID и версией. Возможно, это один и тот же опросник загруженный в разное время или на разные сервера. В любом случае, вам следует удалить один из них.</string>
   <string name="cannot_create_directory">Не получилось создать папку: %s</string>
   <string name="not_a_directory">%s существует, но не является папкой</string>
-  <string name="select_odk_shortcut">Выбрать ярлык ODK</string>
+  <string name="select_odk_shortcut">Выбрать ярлык KoBoToolbox</string>
 </resources>

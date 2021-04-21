@@ -364,7 +364,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS är inte aktiverad på din enhet. Vill du aktivera den?</string>
   <string name="geo_clear_warning">Objekt redan skapat. Vill du rensa objektet?</string>
-  <string name="geo_exit_warning">Ignorera ändringar och återgå till ODK?</string>
+  <string name="geo_exit_warning">Ignorera ändringar och återgå till KoBoToolbox?</string>
   <string name="polygon_validator">Minst tre punkter krävs för att skapa en polygon</string>
   <string name="polyline_validator">Det behövs minst 2 punkter för att skapa en polyline</string>
   <string name="clear">Rensa</string>
@@ -397,7 +397,7 @@
   <string name="show_unsent_forms">Visa oskickade formulär</string>
   <string name="media_upload_error">Fel vid uppladdning av mediafil som inte finns: %1$s</string>
   <string name="send_in_progress">Sändning pågår i bakgrunden, vänligen försök igen senare</string>
-  <string name="odk_permissions_fail">ODK auto inskickningsfel, kontrollera att du har beviljat nödvändiga rättigheter</string>
+  <string name="odk_permissions_fail">KoBoToolbox auto inskickningsfel, kontrollera att du har beviljat nödvändiga rättigheter</string>
   <string name="notification_error">Fel vid visning av notifikationstext</string>
   <!--##############################################
     # GET BLANK FORM
@@ -450,9 +450,9 @@
   <string name="change_server_url">Server-URL</string>
   <string name="url_error">Tyvärr, ogiltig URL!</string>
   <string name="username">Användarnamn</string>
-  <string name="change_username">ODK användarnamn</string>
+  <string name="change_username">KoBoToolbox användarnamn</string>
   <string name="password">Lösenord</string>
-  <string name="change_password">ODK lösenord</string>
+  <string name="change_password">KoBoToolbox lösenord</string>
   <string name="password_error_whitespace">Inledande eller avslutande blanksteg är inte tillåtet i lösenord</string>
   <string name="username_error_whitespace">Inledande eller avslutande blanksteg är inte tillåtet i användarnamn</string>
   <string name="change_formlist_url">Sökväg till formulärlista (tillagd till URL)</string>
@@ -488,7 +488,7 @@
   <string name="show_splash_title">Startskärm</string>
   <string name="show_splash_summary">Visas när programmet startas</string>
   <string name="splash_path">Vald välkomstbild</string>
-  <string name="default_splash_path">ODK standard</string>
+  <string name="default_splash_path">KoBoToolbox standard</string>
   <string name="select_another_image">Välj en annan bild</string>
   <string name="use_odk_default">Använd standardbild</string>
   <string name="change_splash_path">Byt bild</string>
@@ -548,7 +548,7 @@
   <string name="instance_sync_summary">Påverkar formulär som lagts till direkt i mappen \'instances\'.</string>
   <string name="analytics_preferences">Användningsdata</string>
   <string name="analytics">Samla in anonym användningsdata</string>
-  <string name="analytics_summary">Anonym användningsdata hjälper ODKs utvecklare med prioritering av korrigeringar och funktioner </string>
+  <string name="analytics_summary">Anonym användningsdata hjälper KoBoToolboxs utvecklare med prioritering av korrigeringar och funktioner </string>
   <string name="form_metadata_title">Formulärmetadata</string>
   <string name="form_metadata">Formulärmetadata</string>
   <string name="form_metadata_summary">Dessa värden kommer att läggas till i formulär som har förifyllda fält för användarnamn, e-post och/eller telefonnummer för att identifiera användaren.</string>
@@ -640,15 +640,15 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Om</string>
-  <string name="tell_your_friends">Dela ODK Collect</string>
+  <string name="tell_your_friends">Dela KoBoCollect</string>
   <string name="tell_your_friends_msg">Samlar dina kollegor fortfarande data på papper?
-Dela ODK Collect med dem.</string>
+Dela KoBoCollect med dem.</string>
   <string name="leave_a_review">Lämna ett omdöme på Play Store</string>
   <string name="leave_a_review_msg">Din (förhoppningsvis positiva) recension ökar synligheten av Appen i Play Store.</string>
-  <string name="odk_website">Besök ODKs hemsida</string>
-  <string name="odk_website_summary">ODK används för att samla in data för socialt arbete i utmanande miljöer</string>
-  <string name="odk_forum">Gå med i ODK forumet</string>
-  <string name="odk_forum_summary">Gå med i forumet för få hjälp, föreslå nya funktioner eller bidra med kod och översättningar!</string>
+  <string name="odk_website">Besök KoBoToolboxs hemsida</string>
+  <string name="odk_website_summary">KoBoCollect is part of KoBoToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Gå med i KoBoToolbox forumet</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Bibliotek/licenser för öppen källkod</string>
   <string name="all_open_source_licenses_msg">Vi står på jättarnas axlar!</string>
   <!--##############################################
@@ -692,5 +692,5 @@ Dela ODK Collect med dem.</string>
   <string name="fs_file_copy_error">Kan inte kopiera \'%1$s\' över \'%2$s\'. Orsak: %3$s</string>
   <string name="survey_multiple_forms_error">Du har laddat ner två olika formulär med samma ID och version. Kanske har dem laddats upp vid olika tidpunkter eller till olika servrar. I vilket fall som helst bör du radera ett av dem.</string>
   <string name="cannot_create_directory">Kan inte skapa mappen: %s</string>
-  <string name="select_odk_shortcut">Välj ODK genväg</string>
+  <string name="select_odk_shortcut">Välj KoBoToolbox genväg</string>
 </resources>

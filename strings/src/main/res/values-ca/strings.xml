@@ -243,7 +243,7 @@
   <string name="enable_gps">Activa GPS</string>
   <string name="geotrace_title">GeoTraça</string>
   <string name="geo_clear_warning">Característica ja creada. Vols netejar-la?</string>
-  <string name="geo_exit_warning">Descartar canvis i tornar a ODK?</string>
+  <string name="geo_exit_warning">Descartar canvis i tornar a KoBoToolbox?</string>
   <string name="polygon_validator">Per crear un polígon calen mínim 3 punts </string>
   <string name="clear">Neteja</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
@@ -312,9 +312,9 @@
   <string name="change_server_url">URL Servidor</string>
   <string name="url_error">La URL és invàlida!</string>
   <string name="username">Nom d\'usuari</string>
-  <string name="change_username">nom d\'usuari ODK</string>
+  <string name="change_username">nom d\'usuari KoBoToolbox</string>
   <string name="password">Clau d\'accés</string>
-  <string name="change_password">Clau d\'accés ODK</string>
+  <string name="change_password">Clau d\'accés KoBoToolbox</string>
   <string name="password_error_whitespace">No es permeten espais davant o darrera una clau d\'accés</string>
   <string name="username_error_whitespace">No es permeten espais davant o darrera un nom d\'usuari</string>
   <string name="change_formlist_url">Camí a carpeta de formularis (afegit a URL servidor)</string>
@@ -342,7 +342,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">Mostrar quan inicia l\'aplicació</string>
   <string name="splash_path">Imatge de benvinguda seleccionada</string>
-  <string name="default_splash_path">ODK per defecte</string>
+  <string name="default_splash_path">KoBoToolbox per defecte</string>
   <string name="select_another_image">Seleccionar una altre imatge</string>
   <string name="use_odk_default">Usar imatge per defecte</string>
   <string name="change_splash_path">Canviar imatge</string>
@@ -424,7 +424,7 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Sobre</string>
-  <string name="odk_website">Visita la web d\'ODK</string>
+  <string name="odk_website">Visita la web d\'KoBoToolbox</string>
   <!--##############################################
      # SETTINGS IMPORT
      ##############################################-->
@@ -457,5 +457,5 @@
   <string name="fs_create_media_folder_error">No pot crear la carpeta de medis \'%s\'</string>
   <string name="fs_file_copy_error">No pot copiar \'%1$s\' sobre \'%2$s\'. Raó: %3$s</string>
   <string name="survey_multiple_forms_error">Heu descarregat dos formularis diferents amb el mateix ID i versió. Potser son formularis repetits o procedents de dos servidors diferents. Cal esborrar-ne un.</string>
-  <string name="select_odk_shortcut">Selecciona drecera ODK</string>
+  <string name="select_odk_shortcut">Selecciona drecera KoBoToolbox</string>
 </resources>

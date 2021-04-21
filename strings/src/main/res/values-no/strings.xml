@@ -264,7 +264,7 @@
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Beklager, ugyldig URL!</string>
   <string name="username">Brukernavn</string>
-  <string name="change_username">ODK brukernavn</string>
+  <string name="change_username">KoBoToolbox brukernavn</string>
   <string name="password">Passord</string>
   <string name="change_password">Passord</string>
   <string name="password_error_whitespace">Mellomrom er ikke tillatt før eller etter passord</string>
@@ -293,7 +293,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">Vis når programmet starter</string>
   <string name="splash_path">Velg oppstartbilde</string>
-  <string name="default_splash_path">ODK Default</string>
+  <string name="default_splash_path">KoBoToolbox Default</string>
   <string name="select_another_image">Velg annet bilde</string>
   <string name="use_odk_default">Bruk standard bilde</string>
   <string name="change_splash_path">Endre bilde</string>

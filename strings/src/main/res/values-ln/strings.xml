@@ -128,7 +128,7 @@
   <string name="server_url">Ekangele</string>
   <!--Title of dialog for configuring server URL-->
   <string name="username">Kombo ya esalelo</string>
-  <string name="change_username">ODK kombo ya bosaleli</string>
+  <string name="change_username">KoBoToolbox kombo ya bosaleli</string>
   <!--To use Google Drive, forms must set a submission URL. If they don't, this URL will be used.-->
   <!--Description for Fallback submission URL setting-->
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->

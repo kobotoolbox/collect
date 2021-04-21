@@ -272,7 +272,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">当应用开始时显示</string>
   <string name="splash_path">选定的开始图片</string>
-  <string name="default_splash_path">ODK默认图片</string>
+  <string name="default_splash_path">KoBoToolbox默认图片</string>
   <string name="select_another_image">选择其他图片</string>
   <string name="use_odk_default">使用默认图片</string>
   <string name="change_splash_path">修改图片</string>
@@ -329,7 +329,7 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">关于</string>
-  <string name="tell_your_friends">分享ODK Collect</string>
+  <string name="tell_your_friends">分享KoBoCollect</string>
   <!--##############################################
      # SETTINGS IMPORT
      ##############################################-->

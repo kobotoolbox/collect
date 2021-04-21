@@ -198,9 +198,9 @@
   <!--Title of dialog for configuring server URL-->
   <string name="url_error">Geçersiz URL</string>
   <string name="username">Kullanici Adi</string>
-  <string name="change_username">ODK Kullanici Adi</string>
+  <string name="change_username">KoBoToolbox Kullanici Adi</string>
   <string name="password">Şifre</string>
-  <string name="change_password">ODK Şifresi</string>
+  <string name="change_password">KoBoToolbox Şifresi</string>
   <string name="change_formlist_url">Form liste yolu(URL\'ye eklenmiş)</string>
   <string name="change_submission_url">Gönderim yolu( URL ye eklenmiş)</string>
   <string name="formlist_url">Form listesi yolu</string>
@@ -221,7 +221,7 @@
   <string name="form_forward">İleri</string>
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">Uygulama çalıştığında göster</string>
-  <string name="default_splash_path">Geçerli ODK</string>
+  <string name="default_splash_path">Geçerli KoBoToolbox</string>
   <string name="select_another_image">Başka bir görüntü seçin</string>
   <string name="use_odk_default">Geçerli görüntüyü kullan</string>
   <string name="change_splash_path">Görüntüyü Değiştir</string>
