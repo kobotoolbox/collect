@@ -4,4 +4,4 @@
 
 KoboCollect is part of [KoBoToolbox](https://www.kobotoolbox.org/) and based on [ODK Collect](https://github.com/getodk/collect).
 
-For support, please see [the forum](https://community.kobotoolbox.org/).
+For support, please see [the forum](https://community.kobotoolbox.org/). 
