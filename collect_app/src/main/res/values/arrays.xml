@@ -24,7 +24,6 @@ the specific language governing permissions and limitations under the License. -
     </string-array>
     <string-array name="protocol_entries">
         <item>@string/server_platform_odk</item>
-        <item>@string/server_platform_google_sheets</item>
     </string-array>
 
     <!-- DO NOT alter font_size_entry_values - used internally in preferences activity -->
