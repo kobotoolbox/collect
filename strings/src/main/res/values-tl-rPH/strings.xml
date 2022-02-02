@@ -10,7 +10,7 @@
   <string name="capture_video">Mag-tala ng Bidyo</string>
   <string name="change_language">Palitan ang Wika</string>
   <string name="change_password">Hudyat</string>
-  <string name="change_username">ODK Username</string>
+  <string name="change_username">KoBoToolbox Username</string>
   <string name="clearanswer_confirm">Tanggalin ang tugon sa \"%s\"?</string>
   <string name="clear_answer">Tanggalin ang tugon</string>
   <string name="clear_answer_ask">Tanggalin ang tugon na ito?</string>
@@ -94,7 +94,7 @@
   <string name="client">Client</string>
     <string name="show_splash_summary">Pinapakita sa umpisa ng application</string>
   <string name="splash_path">Piniling larawan para sa Panimulang Tabing</string>
-  <string name="default_splash_path">Paunang natukoy ng ODK</string>
+  <string name="default_splash_path">Paunang natukoy ng KoBoToolbox</string>
   <string name="select_another_image">Pumili ng Ibang Imahe</string>
   <string name="use_odk_default">Gamitin ang Paunang natukoy na Imahe</string>
   <string name="change_splash_path">Palitan ang Imahe</string>

@@ -243,7 +243,7 @@
   <string name="start">Začni</string>
   <string name="enable_gps">Omogoči GPS</string>
   <string name="geo_clear_warning">Funkcija je že narejena. Želite izbrisati funkcijo?</string>
-  <string name="geo_exit_warning">Želite zavreči spremembe in se vrniti v ODK?</string>
+  <string name="geo_exit_warning">Želite zavreči spremembe in se vrniti v KoBoToolbox?</string>
   <string name="clear">Počisti</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
@@ -271,8 +271,8 @@
   <string name="show_unsent_forms">Pokaži neposlane obrazce</string>
   <string name="media_upload_error">Medijske datoteke %1$s ni bilo mogoče naložiti, ker ne obstaja.</string>
   <string name="send_in_progress">Pošiljanja se izvaja v ozadju, prosim poskusite znova cez malo časa</string>
-  <string name="odk_auto_note">Rezultati ODK samodejnega pošiljanja</string>
-  <string name="odk_auto_download_notification_title">Rezultati ODK samodejnega prenosa</string>
+  <string name="odk_auto_note">Rezultati KoBoToolbox samodejnega pošiljanja</string>
+  <string name="odk_auto_download_notification_title">Rezultati KoBoToolbox samodejnega prenosa</string>
   <string name="notification_error">Napaka pri prikazu obvestila</string>
   <!--##############################################
     # GET BLANK FORM
@@ -340,7 +340,7 @@
   <!--Title of dialog for configuring server URL-->
   <string name="url_error">Napaka, neveljaven URL!</string>
   <string name="username">Uporabniško ime</string>
-  <string name="change_username">ODK uporabniško ime</string>
+  <string name="change_username">KoBoToolbox uporabniško ime</string>
   <string name="password">Geslo</string>
   <string name="change_password">ODk geslo</string>
   <string name="password_error_whitespace">Presledki na začetku ali na koncu gesla niso dovoljeni</string>
@@ -371,7 +371,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">Vidna ob zagonu aplikacije</string>
   <string name="splash_path">Izbrana zagonska slika</string>
-  <string name="default_splash_path">ODK privzeto</string>
+  <string name="default_splash_path">KoBoToolbox privzeto</string>
   <string name="select_another_image">Izberi drugo sliko</string>
   <string name="use_odk_default">Uporabi privzeto sliko</string>
   <string name="change_splash_path">Zamenjaj sliko</string>
@@ -456,7 +456,7 @@
   <!--##############################################
      # ABOUT
      ##############################################-->
-  <string name="tell_your_friends_msg">Ali vaši kolegi še vedno zbirajo podatke na papirju? Delite ODK Collect z njimi.</string>
+  <string name="tell_your_friends_msg">Ali vaši kolegi še vedno zbirajo podatke na papirju? Delite KoBoCollect z njimi.</string>
   <string name="all_open_source_licenses_msg">Stojimo na ramenih velikanov!</string>
   <!--##############################################
      # SETTINGS IMPORT
