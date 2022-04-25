@@ -66,7 +66,7 @@
   <string name="get_accounts_runtime_permission_denied_title">Autorizzazione uso account</string>
   <string name="get_accounts_runtime_permission_denied_desc">Senza questa autorizzazione Collect non può accedere al tuo account. Prova di nuovo quando hai autorizzato l\'accesso al tuo account</string>
   <string name="read_phone_state_runtime_permission_denied_title">Leggi l\'autorizzazione dello stato del telefono</string>
-  <string name="read_phone_state_runtime_permission_denied_desc">ODK Collect non effettua chiamate ma necessita di accedere ad alcune proprietà del tuo dispositivo quali ad esempio il numero telefonico e l\'Identificativo del dispositivo.</string>
+  <string name="read_phone_state_runtime_permission_denied_desc">KoboCollect non effettua chiamate ma necessita di accedere ad alcune proprietà del tuo dispositivo quali ad esempio il numero telefonico e l\'Identificativo del dispositivo.</string>
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -424,7 +424,7 @@
   <string name="geotrace_title">Geo-tracciatura</string>
   <string name="gps_enable_message">Il GPS è disabilitato sul tuo dispositivo. Vuoi abilitarlo?</string>
   <string name="geo_clear_warning">Caratteristica già creata. Vuoi cancellarla?</string>
-  <string name="geo_exit_warning">Vuoi scartare le modifiche e ritornare ad ODK?</string>
+  <string name="geo_exit_warning">Vuoi scartare le modifiche e ritornare ad KoboToolbox?</string>
   <string name="polygon_validator">Devi avere almeno 3 punti per creare un Poligono</string>
   <string name="polyline_validator">Devi avere almeno 2 punti per creare una Polilinea</string>
   <string name="clear">Cancella</string>
@@ -492,7 +492,7 @@
   <string name="show_unsent_forms">Mostra Moduli Non Inviati</string>
   <string name="media_upload_error">Errore! il file di supporto da caricare non esiste: %1$s</string>
   <string name="send_in_progress">Invio in background in corso, perpiacere riprova più tardi</string>
-  <string name="odk_permissions_fail">Errore auto invio ODK, perpiacere assicurati di avere tutti i permessi necessari</string>
+  <string name="odk_permissions_fail">Errore auto invio KoboToolbox, perpiacere assicurati di avere tutti i permessi necessari</string>
   <!--##############################################
     # GET BLANK FORM
     ##############################################-->
@@ -602,9 +602,9 @@
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Spiacenti, URL non valida!</string>
   <string name="username">Nome Utente</string>
-  <string name="change_username">Nome utente ODK</string>
+  <string name="change_username">Nome utente KoboToolbox</string>
   <string name="password">Password</string>
-  <string name="change_password">Password ODK</string>
+  <string name="change_password">Password KoboToolbox</string>
   <string name="password_error_whitespace">Spazi vuoti all\'inizio e alla fine delle password non sono ammessi</string>
   <string name="username_error_whitespace">Spazi vuoti all\'inizio e alla fine delle username non sono ammessi</string>
   <string name="server_platform_google_sheets">Google Drive, Google Sheets</string>
@@ -637,7 +637,7 @@
   <string name="show_splash_title">Schermata iniziale</string>
   <string name="show_splash_summary">Indica quando l\'applicazione si avvia</string>
   <string name="splash_path">Immagine di avvio selezionata</string>
-  <string name="default_splash_path">ODK Default</string>
+  <string name="default_splash_path">KoboToolbox Default</string>
   <string name="select_another_image">Selezionare un\'altra immagine</string>
   <string name="use_odk_default">Usa immagine di default</string>
   <string name="change_splash_path">Cambiare immagine</string>
@@ -704,7 +704,7 @@
   <string name="instance_sync_summary">Riguarda un modulo aggiunto direttamente alla cartella esempi</string>
   <string name="analytics_preferences">Dati sull\'utilizzo</string>
   <string name="analytics">Raccolta di dati anonimi sull\'utilizzo</string>
-  <string name="analytics_summary">La raccolta di dati anonimi sull\'utilizzo aiuta il team di ODK a dare priorità a certe funzioni e fix</string>
+  <string name="analytics_summary">La raccolta di dati anonimi sull\'utilizzo aiuta il team di KoboToolbox a dare priorità a certe funzioni e fix</string>
   <string name="form_metadata_title">Metadati del Modulo</string>
   <string name="form_metadata">Metadati del modulo</string>
   <string name="form_metadata_summary">Questi valori vengono precompilati nei moduli provvisti di nome utente, email e/o numero di telefono e servono ad identificare la persona che invia i dati.</string>
@@ -801,14 +801,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Informazioni</string>
-  <string name="tell_your_friends">Condividi ODK Collect</string>
-  <string name="tell_your_friends_msg">I tuoi colleghi stanno ancora raccogliendo dati con carta e penna? Condividi ODK Collect con loro!</string>
+  <string name="tell_your_friends">Condividi KoboCollect</string>
+  <string name="tell_your_friends_msg">I tuoi colleghi stanno ancora raccogliendo dati con carta e penna? Condividi KoboCollect con loro!</string>
   <string name="leave_a_review">Lascia un commento su Play Store</string>
   <string name="leave_a_review_msg">Il tuo commento (speriamo positivo) aumenta la visibilità dell\'applicazione su Play Store</string>
-  <string name="odk_website">Visitare il sito web ODK</string>
-  <string name="odk_website_summary">ODK viene utilizzato per raccogliere dati per il bene sociale in ambienti difficili.</string>
-  <string name="odk_forum">Collegati al forum di ODK</string>
-  <string name="odk_forum_summary">Entra nel forum per avere supporto, richiedere caratteristiche, contribuire a codificare/tradurre!</string>
+  <string name="odk_website">Visitare il sito web KoboToolbox</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Collegati al forum di KoboToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Librerie/Licenze open source</string>
   <string name="all_open_source_licenses_msg">Stiamo sulle spalle dei giganti!</string>
   <!--##############################################
@@ -854,7 +854,7 @@
   <string name="fs_create_media_folder_error">Non puoi creare la cartella media \'%s\'.</string>
   <string name="fs_file_copy_error">Non puoi copiare \'%1$s\' in \'%2$s\'. Motivo: %3$s</string>
   <string name="survey_multiple_forms_error">Hai scaricato due diversi Moduli ma con lo stesso nome ID e versione. Potrebbe essere lo stesso Modulo scaricato in momenti diversi o con Server diversi. In ogni caso devi cancellarne uno.</string>
-  <string name="select_odk_shortcut">Seleziona scorciatoia ODK</string>
+  <string name="select_odk_shortcut">Seleziona scorciatoia KoboToolbox</string>
   <string name="background_audio_help">Questo formulario registra l\'audio dal microfono del tuo dispositivo.\n\nPuoi utilizzare l\'indicatore del volume per assicurarti che il microfono sia abbastanza vicino al suono che devi registrare.\n\nPer interrompere la registrazione esci da questo formulario.\n\ nPer maggiori informazioni contatta la persona che ti ha chiesto di raccogliere i dati.</string>
   <!--##############################################
      # Projects
@@ -910,7 +910,7 @@
   <string name="try_demo">Prova una demo</string>
   <string name="scan_configuration_qr_code">Scansiona codice QR</string>
   <!--Error shown when a user tries to open a form that's in a different project-->
-  <string name="wrong_project_selected_for_form">Per aprire questo modulo, devi prima aprire ODK Collect e passare al progetto che lo contiene.</string>
+  <string name="wrong_project_selected_for_form">Per aprire questo modulo, devi prima aprire KoboCollect e passare al progetto che lo contiene.</string>
   <!--##############################################
     # Errors
     ##############################################-->
