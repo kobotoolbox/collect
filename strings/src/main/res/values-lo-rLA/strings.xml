@@ -293,9 +293,9 @@
   <string name="change_server_url">URL ຂອງເສີບເວີ</string>
   <string name="url_error">ທີ່​ຢູ່​ເວັບ​ໄຊ ຫຼື URL ບໍ່ຖືກຕ້ອງ</string>
   <string name="username">ບັນຊີຜູ້ໃຊ້ງານ</string>
-  <string name="change_username">ບັນຊີຜູ້ໃຊ້ ODK</string>
+  <string name="change_username">ບັນຊີຜູ້ໃຊ້ KoboToolbox</string>
   <string name="password">ລະຫັດຜ່ານ</string>
-  <string name="change_password">ລະຫັດຜ່ານ ODK</string>
+  <string name="change_password">ລະຫັດຜ່ານ KoboToolbox</string>
   <string name="selected_google_account_text">ບັນຊີໃຊ້ງານໃນ Google </string>
   <!--To use Google Drive, forms must set a submission URL. If they don't, this URL will be used.-->
   <!--Description for Fallback submission URL setting-->
@@ -315,7 +315,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">ສະແ​ດງເມື່ອໂປແກຼມ ເລີ່ມຕົ້ນໃຊ້ງານ</string>
   <string name="splash_path">ເລືອກພາບເລີ່ມຕົ້ນ</string>
-  <string name="default_splash_path">ຄ່າເລີ່ມຕົ້ນ ODK</string>
+  <string name="default_splash_path">ຄ່າເລີ່ມຕົ້ນ KoboToolbox</string>
   <string name="select_another_image">ເລືອກພາບອື່ນ</string>
   <string name="use_odk_default">ເລືອກພາບທີ່ກຳນົດໄວ້</string>
   <string name="change_splash_path">ປ່ຽນຮູບພາບ</string>

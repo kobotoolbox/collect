@@ -264,9 +264,9 @@
   <string name="change_server_url">یو آر ایل (URL)</string>
   <string name="url_error">معافی، url صحیح نہیں ہے</string>
   <string name="username">استعمال کنندہ کا نام</string>
-  <string name="change_username">ODK استعمال کرنے والے کا نام</string>
+  <string name="change_username">KoboToolbox استعمال کرنے والے کا نام</string>
   <string name="password">شناختی لفظ (Password)</string>
-  <string name="change_password">  ODK  کا شناختی لفظ (Password)</string>
+  <string name="change_password">  KoboToolbox  کا شناختی لفظ (Password)</string>
   <string name="selected_google_account_text">گوگل اکاونٹ</string>
   <!--To use Google Drive, forms must set a submission URL. If they don't, this URL will be used.-->
   <!--Description for Fallback submission URL setting-->
@@ -287,7 +287,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">ایپلیکیشن جب  شروع ہو، کو دکھاتا ہے</string>
   <string name="splash_path">منتخب شدہ سپلیش تصویر</string>
-  <string name="default_splash_path">ODK طے شدہ</string>
+  <string name="default_splash_path">KoboToolbox طے شدہ</string>
   <string name="select_another_image">دوسری تصویر کا ینتخاب کریں۔</string>
   <string name="use_odk_default">Default  تصویر کو استعمال کریں</string>
   <string name="change_splash_path">عکس بدل دیں</string>

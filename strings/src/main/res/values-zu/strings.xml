@@ -271,9 +271,9 @@
   <!--Title of dialog for configuring server URL-->
   <string name="url_error">Uxolo, alilungile URL</string>
   <string name="username">Igamamfihlo </string>
-  <string name="change_username">igamamfihlo le ODK</string>
+  <string name="change_username">igamamfihlo le KoboToolbox</string>
   <string name="password">Inombolomfihlo</string>
-  <string name="change_password">Inombolomfihlo ye ODK</string>
+  <string name="change_password">Inombolomfihlo ye KoboToolbox</string>
   <string name="selected_google_account_text">akhawunti Google</string>
   <!--To use Google Drive, forms must set a submission URL. If they don't, this URL will be used.-->
   <!--Description for Fallback submission URL setting-->
@@ -293,7 +293,7 @@
   <!--Text for navigation button showed at the bottom of a form that's being filled. Try to use a short word common for navigation.-->
   <string name="show_splash_summary">Ikhombisa uma uhlu luqala</string>
   <string name="splash_path">Cannot translate</string>
-  <string name="default_splash_path">ODK ngokungenhloso</string>
+  <string name="default_splash_path">KoboToolbox ngokungenhloso</string>
   <string name="select_another_image">Khetha omunye umfanekiso</string>
   <string name="use_odk_default">Sebenzisa isithombe ngokungenhloso</string>
   <string name="change_splash_path">Shintsha umfanekiso</string>
