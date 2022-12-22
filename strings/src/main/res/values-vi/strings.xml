@@ -259,7 +259,7 @@
   <string name="change_server_url">Địa chỉ máy chủ</string>
   <string name="url_error">Xin lỗi URL không đúng!</string>
   <string name="username">Tên truy cập</string>
-  <string name="change_username">Tên truy cập ODK</string>
+  <string name="change_username">Tên truy cập KoboToolbox</string>
   <string name="password">Mật khẩu</string>
   <string name="change_password">Mật khẩu</string>
   <string name="selected_google_account_text">Tài khoản Google</string>

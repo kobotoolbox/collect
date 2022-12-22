@@ -316,9 +316,9 @@
   <string name="change_server_url">URL server</string>
   <string name="url_error">Ne pare rău, URL invalid!</string>
   <string name="username">Nume de utilizator</string>
-  <string name="change_username">Nume utilizator ODK</string>
+  <string name="change_username">Nume utilizator KoboToolbox</string>
   <string name="password">Parola</string>
-  <string name="change_password">Parola ODK</string>
+  <string name="change_password">Parola KoboToolbox</string>
   <string name="password_error_whitespace">Nu sunt permise spații în parole</string>
   <string name="username_error_whitespace">Nu sunt permise spații în numele de utilizator</string>
   <string name="server_platform_google_sheets">Google Drive, Google Sheets</string>
