@@ -23,7 +23,7 @@
   <!--Displayed in search boxes for form lists or question types that involve search-->
   <string name="no_items_display">প্রদর্শন করার মত কিছু পাওয়া যায়নি।</string>
   <string name="no_items_display_forms">প্রদর্শন করার মত কিছু পাওয়া যায়নি।\n\nTry নতুন ফরম নামিয়ে আবার পুরন করে চেষ্টা করে দেখুন।</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -370,7 +370,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->
