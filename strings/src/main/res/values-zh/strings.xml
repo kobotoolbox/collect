@@ -42,7 +42,7 @@
   <string name="storage_runtime_permission_denied_title">存储权限</string>
   <string name="storage_runtime_permission_denied_desc">没有这些权限，应用无法访问您的表单或保存答案。当您准备好授予他们时，请重新打开应用程序。</string>
   <string name="location_runtime_permissions_denied_title">位置权限</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="location_runtime_permissions_denied_desc">没有 <b>精确位置</b> 权限， 应用无法记录您的位置。请在准备好授予时重试。</string>
   <string name="camera_runtime_permission_denied_title">相机权限</string>
   <string name="camera_runtime_permission_denied_desc">没有此权限，应用无法访问相机。请在准备好授予时重试。</string>
@@ -786,9 +786,9 @@
   <string name="leave_a_review">留下Play Store评论</string>
   <string name="leave_a_review_msg">你的（希望是正面的）评论提高了应用程序在应用商店中的知名度。</string>
   <string name="odk_website">访问网站</string>
-  <string name="odk_website_summary">应用用于在具有挑战性的环境中收集社会数据。</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
   <string name="odk_forum">加入论坛</string>
-  <string name="odk_forum_summary">加入论坛以获得支持、请求功能、贡献代码/翻译！</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">开源库/许可证</string>
   <string name="all_open_source_licenses_msg">我们站在巨人的肩膀上！</string>
   <!--##############################################
@@ -918,7 +918,7 @@
   <string name="dev_tools">开发人员工具</string>
   <!--Option provided in the Developer tools settings to force an application crash-->
   <string name="crash_app">崩溃应用程序</string>
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <string name="crash_app_summary">强制执行导致应用程序崩溃的未捕获异常</string>
   <!--##############################################
     # Form saved Snackbar

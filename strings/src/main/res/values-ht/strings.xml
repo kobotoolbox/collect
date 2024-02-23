@@ -48,7 +48,7 @@
   <string name="storage_runtime_permission_denied_title">Pèmisyon pou stokaj</string>
   <string name="storage_runtime_permission_denied_desc">San pèmisyon sa yo, Collect pa p kapab gen aksè ak fom yo oubyen stoke repons yo. Relouvri aplikasyon an lè w pare pou bay pèmisyon yo.</string>
   <string name="location_runtime_permissions_denied_title">Pèmisyon pou lokalizasyon</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">Pèmisyon pou kamera</string>
   <string name="camera_runtime_permission_denied_desc">San pèmisyon sa Collect pa p ka aksede a Kamera a. Tanpri eseye ankò lè pare pou w bay li.</string>
   <string name="record_audio_runtime_permission_denied_title">Pèmisyon pou anrejistre son</string>
@@ -371,7 +371,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

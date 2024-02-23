@@ -22,7 +22,7 @@
   <string name="modified_on_date_at_time">\'Endret den\' EEE, MMM dd, yyyy \'kl\' HH:mm</string>
   <!--A sort option for blank forms. When this option is selected, the form for which a filled instance was last filled will go first.-->
   <!--Displayed in search boxes for form lists or question types that involve search-->
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -283,7 +283,7 @@
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Beklager, ugyldig URL!</string>
   <string name="username">Brukernavn</string>
-  <string name="change_username">ODK brukernavn</string>
+  <string name="change_username">KoboToolbox brukernavn</string>
   <string name="password">Passord</string>
   <string name="change_password">Passord</string>
   <string name="password_error_whitespace">Mellomrom er ikke tillatt før eller etter passord</string>
@@ -415,7 +415,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

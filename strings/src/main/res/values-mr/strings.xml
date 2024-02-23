@@ -28,7 +28,7 @@
   <!--A sort option for blank forms. When this option is selected, the form for which a filled instance was last filled will go first.-->
   <string name="filter_the_list">सूची फिल्टर करा</string>
   <!--Displayed in search boxes for form lists or question types that involve search-->
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -352,9 +352,9 @@
   <string name="change_server_url">सर्व्हर युरएल</string>
   <string name="url_error">क्षमस्व, अवैध यु र एल </string>
   <string name="username">वापरकर्तानाव</string>
-  <string name="change_username">ODK वापरकर्तानाव</string>
+  <string name="change_username">KoboToolbox वापरकर्तानाव</string>
   <string name="password">संकेतशब्द</string>
-  <string name="change_password">ODK संकेतशब्द</string>
+  <string name="change_password">KoboToolbox संकेतशब्द</string>
   <string name="password_error_whitespace">पासवर्डमध्ये अग्रस्थानी किंवा अनुसरणी व्हायरसपासची परवानगी नाही</string>
   <string name="username_error_whitespace">वापरकर्तानावांमध्ये अग्रगण्य किंवा अनुसरणी व्हायरसपेस अनुमत नाहीत</string>
   <string name="server_platform_google_sheets">गूगल ड्राइव्ह, गूगल पत्रक</string>
@@ -476,7 +476,7 @@
      ##############################################-->
   <string name="about_preferences">विषयी</string>
   <string name="odk_website">ओडीके वेबसाइट ला भेट द्या</string>
-  <string name="odk_website_summary">ओडीकेे चा उपयोग आव्हानात्मक पर्यावरणात सामाजिक चांगल्यासाठी डेटा गोळा करण्यासाठी केला जातो.</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
   <string name="odk_forum">ओडीके मंचात सहभागी व्हा</string>
   <!--##############################################
      # SETTINGS IMPORT
@@ -549,7 +549,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

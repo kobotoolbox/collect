@@ -48,7 +48,7 @@
   <string name="storage_runtime_permission_denied_title">Ruhusa ya kuhifadhi</string>
   <string name="storage_runtime_permission_denied_desc">Bila hizi ruhusa Collect haiwezi kufikia fomu au kuhifadhi majibu. Fungua tena program ukiwa tayari kuziruhusu.</string>
   <string name="location_runtime_permissions_denied_title">Ruhusa ya kuonesha eneo </string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">Ruhusa ya camera</string>
   <string name="camera_runtime_permission_denied_desc">Bila hii ruhusa Collect haiwezi kutumia kamera. Tafadhali jaribu tena ukiwa tayari kutoa ruhusa.</string>
   <string name="record_audio_runtime_permission_denied_title">Ruhusa ya kurekodi sauti</string>
@@ -379,7 +379,7 @@
   <string name="geotrace_title">Fatilisha mstari kijografia</string>
   <string name="gps_enable_message">GPS imezimwa kwenye kifaa chako. Ungependa kutumia?</string>
   <string name="geo_clear_warning">Umbo lishatengenezwa. Ungependa kufuta Umbo?</string>
-  <string name="geo_exit_warning">Sitisha mabadiliko na rudi kwenye ODK?</string>
+  <string name="geo_exit_warning">Sitisha mabadiliko na rudi kwenye KoboToolbox?</string>
   <string name="polygon_validator">Lazima uwe na angalau  nukta 3 ili kutengeneza poligoni</string>
   <string name="polyline_validator">Ni lazima uwe angalau na pointi 2 kutengeneza Mistari </string>
   <string name="clear">Futa</string>
@@ -425,7 +425,7 @@
   <string name="show_unsent_forms">Onyesha fomu zisizotumwa</string>
   <string name="media_upload_error">Imeshindwa kupakia mafaili ya midia ambayo hayapo%1$s</string>
   <string name="send_in_progress">Utumaji unaendelea kwa nyuma, jaribu tena baada ya muda mfupi</string>
-  <string name="odk_permissions_fail">Uwezo wa utumaji wenyewe wa ODK umeshindikana kwa kukosa ruhusa, tafadhali hakikisha umeipa ruhusa zote zinazohitajika</string>
+  <string name="odk_permissions_fail">Uwezo wa utumaji wenyewe wa KoboToolbox umeshindikana kwa kukosa ruhusa, tafadhali hakikisha umeipa ruhusa zote zinazohitajika</string>
   <!--##############################################
     # GET BLANK FORM
     ##############################################-->
@@ -501,9 +501,9 @@
   <string name="change_server_url">URL ya seva</string>
   <string name="url_error">Samahani, URL ni batili!</string>
   <string name="username">Jina la mtumiaji </string>
-  <string name="change_username">Jina la mtumiaji wa ODK</string>
+  <string name="change_username">Jina la mtumiaji wa KoboToolbox</string>
   <string name="password">Nenosiri</string>
-  <string name="change_password">Nenosiri la ODK</string>
+  <string name="change_password">Nenosiri la KoboToolbox</string>
   <string name="password_error_whitespace">Nafasi za wazi kabla au baada ya nywila \"neno la siri\" hairuhusiwi</string>
   <string name="username_error_whitespace">Nafasi za wazi kabla au baada ya jina la mtumiaji haziruhusiwi</string>
   <string name="server_platform_google_sheets">Hifadhi ya Google ,makaratasi ya google</string>
@@ -648,7 +648,7 @@
   <!--Title of the screen that lists forms in user's Google Drive-->
   <!--Title of the screen that lists forms shared with Google Drive user-->
   <!--Button for navigating across Google Drive folders-->
-  <string name="google_auth_io_exception_msg">Haiwezi kutengeneza API za kuita. Kama umejitengenezea ODK, tafadhali pitia mradi upya.</string>
+  <string name="google_auth_io_exception_msg">Haiwezi kutengeneza API za kuita. Kama umejitengenezea KoboToolbox, tafadhali pitia mradi upya.</string>
   <string name="no_google_account">Hakuna akaunti ya Google Iliyochaguliwa!</string>
   <string name="invalid_sheet_id">KItambulisho cha karatasi ni batilii%1$s</string>
   <string name="missing_submission_url">Wasilisho lililokosekana URL</string>
@@ -663,14 +663,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Kuhusu</string>
-  <string name="tell_your_friends">Shirikisha wengine programu ya ODK collect</string>
-  <string name="tell_your_friends_msg">Je ndugu na jamaa zako bado wanakusanya taarifa kupitia karatasi? Washirikishe programu ya ODK.</string>
+  <string name="tell_your_friends">Shirikisha wengine programu ya KoboToolbox collect</string>
+  <string name="tell_your_friends_msg">Je ndugu na jamaa zako bado wanakusanya taarifa kupitia karatasi? Washirikishe programu ya KoboToolbox.</string>
   <string name="leave_a_review">Acha tathmini katika Play Store</string>
   <string name="leave_a_review_msg">Tathmini yako (tunatumaini itakuwa chanya) inaongeza nafasi ya programu hii kuonekana Pay Store</string>
-  <string name="odk_website">Tembelea tovuti ya ODK</string>
-  <string name="odk_website_summary">ODK inatumika kwenye ukusanyaji wa taarifa za kijamii katika mazingira yenye changamoto.</string>
-  <string name="odk_forum">Jiunge na jukwaa la ODK</string>
-  <string name="odk_forum_summary">Jiunge na jukwaa kupata msaada, kuomba makala,  kuchangia kanuni au kutafsiri!</string>
+  <string name="odk_website">Tembelea tovuti ya KoboToolbox</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Jiunge na jukwaa la KoboToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Maktaba/leseni ya chanzo wazi</string>
   <string name="all_open_source_licenses_msg">Tumesimama kwenye mabega ya mashujaa!</string>
   <!--##############################################
@@ -704,7 +704,7 @@
   <string name="fs_create_media_folder_error">Imeshindwa tengeneza kabrasha la midia\'%s\'.</string>
   <string name="fs_file_copy_error">Haiwezi nakili  \'%1$s\' zidi ya \'%2$s\'. Sababu:%3$s</string>
   <string name="survey_multiple_forms_error">Unepakua fomu mbili tofauti  zenye  fomu ya utambulisho sawa na toleo sawa. Labda ilikuwa ni fomu moja iliyoekwa muda tofauti au seva tofauti. Kama ni hivyo futa mojawapo. </string>
-  <string name="select_odk_shortcut">Chagua njia fupi ya ODK </string>
+  <string name="select_odk_shortcut">Chagua njia fupi ya KoboToolbox </string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -753,7 +753,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

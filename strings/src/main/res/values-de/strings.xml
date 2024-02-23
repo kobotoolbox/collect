@@ -49,7 +49,7 @@
   <string name="storage_runtime_permission_denied_title">Speicher-Berechtigungen</string>
   <string name="storage_runtime_permission_denied_desc">Ohne diese Berechtigungen kann Collect nicht auf Formulare zugreifen und Antworten speichern. Starten Sie die App erneut, wenn sie bereit dazu sind die Berechtigung zu erteilen.</string>
   <string name="location_runtime_permissions_denied_title">Standort-Berechtigungen</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="location_runtime_permissions_denied_desc">Ohne die Berechtigung <b>Genauer Standort</b> kann Collect Ihren Standort nicht erfassen. Bitte versuchen Sie es erneut, wenn Sie bereit dazu sind die Berechtigung zu erteilen.</string>
   <string name="camera_runtime_permission_denied_title">Kamera-Berechtigung</string>
   <string name="camera_runtime_permission_denied_desc">Ohne diese Berechtigung kann Collect nicht auf die Kamera zugreifen. Bitte versuchen Sie es erneut, wenn Sie dazu bereit sind die Berechtigung zu erteilen.</string>
@@ -443,7 +443,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS ist auf Ihrem Gerät deaktiviert. Möchten Sie es aktivieren?</string>
   <string name="geo_clear_warning">Merkmal bereits erzeugt. Möchten Sie das Merkmal löschen?</string>
-  <string name="geo_exit_warning">Änderungen verwerfen und zu ODK zurückkehren?</string>
+  <string name="geo_exit_warning">Änderungen verwerfen und zu KoboToolbox zurückkehren?</string>
   <string name="polygon_validator">Min. 3 Punkte notwendig um ein Polygon zu erzeugen</string>
   <string name="polyline_validator">Min. 2 Punkte notwendig um eine Polylinie zu erzeugen</string>
   <string name="clear">Löschen</string>
@@ -522,7 +522,7 @@
   <string name="show_unsent_forms">Nur nicht gesendete Formulare</string>
   <string name="media_upload_error">Nicht vorhandene Mediendatei konnte nicht hochgeladen werden: %1$s</string>
   <string name="send_in_progress">Sendevorgang läuft im Hintergrund. Bitte versuchen Sie es später nochmal.</string>
-  <string name="odk_permissions_fail">ODK Auto-Send Berechtigungsfehler, bitte stellen Sie sicher, dass Sie alle benötigten Berechtigungen erteilt haben</string>
+  <string name="odk_permissions_fail">KoboToolbox Auto-Send Berechtigungsfehler, bitte stellen Sie sicher, dass Sie alle benötigten Berechtigungen erteilt haben</string>
   <string name="forms_upload_succeeded">Formular-Upload erfolgreich</string>
   <string name="forms_upload_failed">Formular-Upload fehlgeschlagen</string>
   <string name="all_uploads_succeeded">Alle Uploads erfolgreich!</string>
@@ -635,9 +635,9 @@
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Ungültige URL!</string>
   <string name="username">Benutzername</string>
-  <string name="change_username">ODK Benutzername</string>
+  <string name="change_username">KoboToolbox Benutzername</string>
   <string name="password">Passwort</string>
-  <string name="change_password">ODK Passwort</string>
+  <string name="change_password">KoboToolbox Passwort</string>
   <string name="password_error_whitespace">Leerzeichen am Anfang und Ende von Passwörtern nicht erlaubt</string>
   <string name="username_error_whitespace">Leerzeichen am Anfang und Ende von Benutzernamen nicht erlaubt</string>
   <string name="server_platform_google_sheets">Google Drive, Google Sheets</string>
@@ -728,7 +728,7 @@
   <string name="instance_sync_summary">Betrifft Formulare, die direkt dem instances-Ordner hinzugefügt werden.</string>
   <string name="analytics_preferences">Nutzungsdaten</string>
   <string name="analytics">Anonyme Nutzungsdaten sammeln</string>
-  <string name="analytics_summary">Anonyme Nutzungsdaten helfen dem ODK-Team Fehlerbehebungen und neue Funktionen zu priorisieren.</string>
+  <string name="analytics_summary">Anonyme Nutzungsdaten helfen dem KoboToolbox-Team Fehlerbehebungen und neue Funktionen zu priorisieren.</string>
   <string name="form_metadata_title">Formular-Metadaten</string>
   <string name="form_metadata">Formular-Metadaten</string>
   <string name="form_metadata_summary">Diese Werte werden Formularen hinzugefügt, die Usernamen, E-Mail und/oder durch das Telefon vorbelegte Felder beinhalten, um die Person zu identifizieren, die Daten eingibt.</string>
@@ -819,14 +819,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Über</string>
-  <string name="tell_your_friends">ODK Collect teilen</string>
-  <string name="tell_your_friends_msg">Erfassen Ihre Kollegen Daten immer noch auf Papier? Empfehlen Sie Ihnen ODK Collect.</string>
+  <string name="tell_your_friends">KoboCollect teilen</string>
+  <string name="tell_your_friends_msg">Erfassen Ihre Kollegen Daten immer noch auf Papier? Empfehlen Sie Ihnen KoboCollect.</string>
   <string name="leave_a_review">Geben Sie eine Play Store Bewertung ab</string>
   <string name="leave_a_review_msg">Ihre (hoffentlich positive) Bewertung steigert die Bekanntheit der App im Play Store.</string>
-  <string name="odk_website">ODK-Webseite öffnen</string>
-  <string name="odk_website_summary">ODK wird benutzt um Daten für soziale Zwecke in herausfordernden Umgebungen zu sammeln.</string>
-  <string name="odk_forum">Dem ODK-Forum beitreten</string>
-  <string name="odk_forum_summary">Treten Sie dem Forum bei, um Hilfe zu bekommen, Funktionen vorzuschlagen, Code/Übersetzungen beizutragen!</string>
+  <string name="odk_website">KoboToolbox-Webseite öffnen</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Dem KoboToolbox-Forum beitreten</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Open Source Libraries/Lizenzen</string>
   <string name="all_open_source_licenses_msg">Wir stehen auf den Schultern von Riesen!</string>
   <!--##############################################
@@ -874,7 +874,7 @@
   <string name="fs_create_media_folder_error">Das Medien-Verzeichnis \'%s\' kann nicht angelegt werden.</string>
   <string name="fs_file_copy_error">Konnte \'%1$s\' nicht über \'%2$s\' kopieren. Grund: %3$s</string>
   <string name="survey_multiple_forms_error">Zwei unterschiedliche Formulare mit derselben Form ID und Version heruntergeladen. Vielleicht wurde das gleiche Formular zu unterschiedlichen Zeiten oder auf unterschiedliche Server hochgeladen. In jedem Fall sollten Sie ein Formular löschen.</string>
-  <string name="select_odk_shortcut">ODK Verknüpfung auswählen</string>
+  <string name="select_odk_shortcut">KoboToolbox Verknüpfung auswählen</string>
   <string name="background_audio_help">Dieses Formular zeichnet Audio über das Mikrofon ihres Gerätes auf.\n\nSie können die Lautstärkeanzeige nutzen, um sicher zu gehen, dass das Mikrofon nah genug am Geräusch ist, das Sie aufzeichnen möchten.\n\nUm die Aufzeichnung zu beenden, verlassen Sie das Formular.\n\nFür weitere Informationen kontaktieren Sie bitte die Person, die Sie gebeten hat die Daten zu sammeln.</string>
   <string name="loading">Lade…</string>
   <!--##############################################
@@ -928,9 +928,9 @@
   <string name="try_demo">Versuchen Sie es mit einer Demo</string>
   <string name="scan_configuration_qr_code">Konfigurations-QR-Code scannen</string>
   <!--Error shown when a user tries to open a form that's in a different project-->
-  <string name="wrong_project_selected_for_form">Um dieses Formular zu öffnen, müssen Sie zuerst ODK Collect öffnen und in das Projekt wechseln, in dem es enthalten ist.</string>
+  <string name="wrong_project_selected_for_form">Um dieses Formular zu öffnen, müssen Sie zuerst KoboCollect öffnen und in das Projekt wechseln, in dem es enthalten ist.</string>
   <!--Error shown when a user tries to open a form when there are no projects-->
-  <string name="app_not_configured">ODK Collect wurde nicht konfiguriert. Versuchen Sie ODK Collect zu öffnen und zu konfigurieren.\n\nWenn Sie auf eine Verknüpfung getippt haben, müssen Sie diese vielleicht nach der Konfiguration neu erstellen.</string>
+  <string name="app_not_configured">KoboCollect wurde nicht konfiguriert. Versuchen Sie KoboCollect zu öffnen und zu konfigurieren.\n\nWenn Sie auf eine Verknüpfung getippt haben, müssen Sie diese vielleicht nach der Konfiguration neu erstellen.</string>
   <!--Error shown when a user tries to start a new form in a Google Drive project-->
   <string name="cannot_start_new_forms_in_google_drive_projects">Neue Formulare können nicht in Google Drive Projekten begonnen werden.</string>
   <!--##############################################
@@ -961,10 +961,10 @@
   <string name="dev_tools">Entwicklerwerkzeuge</string>
   <!--Option provided in the Developer tools settings to force an application crash-->
   <string name="crash_app">App abstürzen lassen</string>
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <string name="crash_app_summary">Unbehandelte Ausnahme erzwingen um die App abstürzen zu lassen</string>
   <string name="permission_dialog_title">Über Berechtigungen</string>
-  <string name="permission_dialog_text">Du wirst aufgefordert, ODK Collect den Zugriff auf die unten aufgeführten Funktionen zu erlauben. Wähle \"Zulassen\", wenn du sie nutzen möchten.</string>
+  <string name="permission_dialog_text">Du wirst aufgefordert, KoboCollect den Zugriff auf die unten aufgeführten Funktionen zu erlauben. Wähle \"Zulassen\", wenn du sie nutzen möchten.</string>
   <string name="notifications">Benachrichtigungen</string>
   <string name="required_for_notifications">Wird benötigt um Aktualisierungen anzuzeigen, wenn Formulare heruntergeladen, aktualisiert und übertragen werden.</string>
   <!--##############################################

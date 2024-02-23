@@ -49,7 +49,7 @@
   <string name="storage_runtime_permission_denied_title">Povolení pro ukládání dat</string>
   <string name="storage_runtime_permission_denied_desc">Bez těchto oprávnění nelze přistupovat k formulářům nebo ukládat odpovědi. Opětovně otevřete aplikaci, až budete připraveni je udělit.</string>
   <string name="location_runtime_permissions_denied_title">Oprávnění umístění</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="location_runtime_permissions_denied_desc">Bez povolení <b>Přesné lokace</b>Collect nemůže zaznamenávat vaši polohu. Zkuste to znovu, až budete připraveni povolení udělit.</string>
   <string name="camera_runtime_permission_denied_title">Oprávnění k fotoaparátu</string>
   <string name="camera_runtime_permission_denied_desc">Bez tohoto povolení nelze přistupovat k fotoaparátu. Zkuste to prosím znovu, když jste připraveni jej udělit.</string>
@@ -443,7 +443,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS je ve vašem zařízení deaktivováno. Chcete ho povolit?</string>
   <string name="geo_clear_warning">Funkce již vytvořena. Chcete tuto funkci vymazat?</string>
-  <string name="geo_exit_warning">Zrušit změny a vrátit se do ODK?</string>
+  <string name="geo_exit_warning">Zrušit změny a vrátit se do KoboToolbox?</string>
   <string name="polygon_validator">Musí mít alespoň 3 body pro vytvoření polygonu</string>
   <string name="polyline_validator">Musí mít alespoň 2 body k vytvoření křivky</string>
   <string name="clear">Vymazat</string>
@@ -528,7 +528,7 @@
   <string name="show_unsent_forms">Zobrazit neodeslané dotazníky</string>
   <string name="media_upload_error">Nepodařilo se nahrát soubor médií, který neexistuje.%1$s </string>
   <string name="send_in_progress">Odesílání na pozadí běží, zkuste to znovu</string>
-  <string name="odk_permissions_fail">automatické odeslání oprávnění ODK selhalo, ujistěte se, že jste udělili všechna požadovaná oprávnění</string>
+  <string name="odk_permissions_fail">automatické odeslání oprávnění KoboToolbox selhalo, ujistěte se, že jste udělili všechna požadovaná oprávnění</string>
   <string name="forms_upload_succeeded">Nahrání formulářů bylo úspěšné</string>
   <string name="forms_upload_failed">Nahrávání formulářů selhalo</string>
   <string name="all_uploads_succeeded">Všechna nahrání se podařila!</string>
@@ -641,9 +641,9 @@
   <string name="change_server_url">URL Serveru</string>
   <string name="url_error">Neplatné URL!</string>
   <string name="username">Uživatelské jméno</string>
-  <string name="change_username">Uživatelské jméno do ODK</string>
+  <string name="change_username">Uživatelské jméno do KoboToolbox</string>
   <string name="password">Heslo</string>
-  <string name="change_password">Heslo do ODK</string>
+  <string name="change_password">Heslo do KoboToolbox</string>
   <string name="password_error_whitespace">Počáteční nebo koncové mezery v heslech nejsou povoleny </string>
   <string name="username_error_whitespace">Počáteční nebo koncové mezery v uživatelských jménech nejsou povoleny</string>
   <string name="server_platform_google_sheets">Disk Google, Tabulky Google</string>
@@ -734,7 +734,7 @@
   <string name="instance_sync_summary">Ovlivňuje formuláře přidávané přímo do složky instance.</string>
   <string name="analytics_preferences">Údaje o použití</string>
   <string name="analytics">Shromažďujte anonymní údaje o použití</string>
-  <string name="analytics_summary">Anonymní údaje o používání pomáhají týmu ODK stanovit priority oprav a funkcí.</string>
+  <string name="analytics_summary">Anonymní údaje o používání pomáhají týmu KoboToolbox stanovit priority oprav a funkcí.</string>
   <string name="form_metadata_title">Metadata formulářů</string>
   <string name="form_metadata">Metadata formulářů</string>
   <string name="form_metadata_summary">Tyto hodnoty budou přidány do formulářů, které obsahují uživatelské jméno, e-mail a / nebo telefonem předem vyplněná pole pro identifikaci odesílající osoby.</string>
@@ -825,14 +825,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Více o….</string>
-  <string name="tell_your_friends">Sdílet ODK Collect</string>
-  <string name="tell_your_friends_msg">Shromažďují vaši kolegové data jen na papíře? Sdílejte s nimi ODK Collect.</string>
+  <string name="tell_your_friends">Sdílet KoboCollect</string>
+  <string name="tell_your_friends_msg">Shromažďují vaši kolegové data jen na papíře? Sdílejte s nimi KoboCollect.</string>
   <string name="leave_a_review">Nechte recenzi v Play Store</string>
   <string name="leave_a_review_msg">Vaše recenze (snad pozitivní) zvyšuje viditelnost aplikace v Play Store.</string>
-  <string name="odk_website">Navštivte web ODK</string>
-  <string name="odk_website_summary">ODK se používá ke sběru dat pro sociální dobro v náročných prostředích.</string>
-  <string name="odk_forum">Připojit se k fóru ODK</string>
-  <string name="odk_forum_summary">Připojte se na fórum, abyste získali podporu, žádali o nové funkce aplikace, přispěli kódem / překlady!</string>
+  <string name="odk_website">Navštivte web KoboToolbox</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Připojit se k fóru KoboToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Open source knihovny / licence</string>
   <string name="all_open_source_licenses_msg">Stojíme na ramenou obrů!</string>
   <!--##############################################
@@ -880,7 +880,7 @@
   <string name="fs_create_media_folder_error">Nemohu vytvořit adresář pro mediální soubory \'%s\'.</string>
   <string name="fs_file_copy_error">Nezdařilo se nakopírovat \'%1$s\' přes \'%2$s\'. Důvod: %3$s </string>
   <string name="survey_multiple_forms_error">Stáhli jste dva různé formuláře se shodným ID a verzí. Možná jste nahráli stejný dotazník dvakrát nebo na jiné servery. Každopádně, jeden byste měli smazat.</string>
-  <string name="select_odk_shortcut">Vybrat ODK zástupce</string>
+  <string name="select_odk_shortcut">Vybrat KoboToolbox zástupce</string>
   <string name="background_audio_help">Tento formulář zaznamenává zvuk z mikrofonu zařízení.\n\nMůžete použít indikátor hlasitosti a ujistit se, že je mikrofon dostatečně blízko zvuku, který potřebujete zaznamenat.\n\nChcete-li zastavit nahrávání, ukončete tento formulář.\n\nDalší informace získáte od osoby, která vás požádala o shromažďování údajů.</string>
   <string name="loading">Načítání…</string>
   <!--##############################################
@@ -934,9 +934,9 @@
   <string name="try_demo">Vyzkoušejte si demo</string>
   <string name="scan_configuration_qr_code">Naskenování konfiguračního kódu QR</string>
   <!--Error shown when a user tries to open a form that's in a different project-->
-  <string name="wrong_project_selected_for_form">Chcete-li otevřít tento formulář, musíte nejprve otevřít ODK Collect a přepnout na projekt, který jej obsahuje.</string>
+  <string name="wrong_project_selected_for_form">Chcete-li otevřít tento formulář, musíte nejprve otevřít KoboCollect a přepnout na projekt, který jej obsahuje.</string>
   <!--Error shown when a user tries to open a form when there are no projects-->
-  <string name="app_not_configured">ODK Collect nebyl nakonfigurován. Zkuste otevřít ODK Collect a nakonfigurovat jej.\n\nPokud jste klepli na zástupce, možná jej budete muset po konfiguraci ODK Collect znovu vytvořit.</string>
+  <string name="app_not_configured">KoboCollect nebyl nakonfigurován. Zkuste otevřít KoboCollect a nakonfigurovat jej.\n\nPokud jste klepli na zástupce, možná jej budete muset po konfiguraci KoboCollect znovu vytvořit.</string>
   <!--Error shown when a user tries to start a new form in a Google Drive project-->
   <string name="cannot_start_new_forms_in_google_drive_projects">Nové formuláře nelze spustit v projektech Google Drive.</string>
   <!--##############################################
@@ -967,10 +967,10 @@
   <string name="dev_tools">Vývojářské nástroje</string>
   <!--Option provided in the Developer tools settings to force an application crash-->
   <string name="crash_app">Aplikace Crash</string>
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <string name="crash_app_summary">Vynucení nezachycené výjimky, která způsobí pád aplikace</string>
   <string name="permission_dialog_title">O oprávněních</string>
-  <string name="permission_dialog_text">Budete požádáni o povolení přístupu ODK Collect k níže uvedeným funkcím, pokud je chcete používat, vyberte možnost \"povolit\".</string>
+  <string name="permission_dialog_text">Budete požádáni o povolení přístupu KoboCollect k níže uvedeným funkcím, pokud je chcete používat, vyberte možnost \"povolit\".</string>
   <string name="notifications">Oznámení</string>
   <string name="required_for_notifications">Vyžaduje se pro zobrazení aktualizací při stahování, aktualizaci a odesílání formulářů.</string>
   <!--##############################################

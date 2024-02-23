@@ -47,7 +47,7 @@
   <string name="search">Zoek</string>
   <string name="storage_runtime_permission_denied_title">Opslagrechten</string>
   <string name="location_runtime_permissions_denied_title">Locatie rechten</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">Camera rechten</string>
   <string name="record_audio_runtime_permission_denied_title">Geluidsopname rechten</string>
   <!--##############################################
@@ -400,7 +400,7 @@
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Sorry, ongeldige URL!</string>
   <string name="username">Gebruikersnaam</string>
-  <string name="change_username">ODK Username</string>
+  <string name="change_username">KoboToolbox Username</string>
   <string name="password">Wachtwoord</string>
   <string name="change_password">Wachtwoord</string>
   <string name="server_platform_google_sheets">Google Drive, Google Sheets</string>
@@ -513,11 +513,11 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Over</string>
-  <string name="tell_your_friends">Deel ODK Collect</string>
-  <string name="tell_your_friends_msg">Verzamelen jouw collega\'s nog steeds data op papier? Deel ODK Collect met hen. </string>
+  <string name="tell_your_friends">Deel KoboCollect</string>
+  <string name="tell_your_friends_msg">Verzamelen jouw collega\'s nog steeds data op papier? Deel KoboCollect met hen. </string>
   <string name="leave_a_review">Schrijf een review op de Google Play Store.</string>
   <string name="leave_a_review_msg">Jouw (hopelijk positieve) review vergroot de zichtbaarheid van de Applicatie in de Play Store</string>
-  <string name="odk_website">Bezoek de ODK website</string>
+  <string name="odk_website">Bezoek de KoboToolbox website</string>
   <!--##############################################
      # SETTINGS IMPORT
      ##############################################-->
@@ -584,7 +584,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

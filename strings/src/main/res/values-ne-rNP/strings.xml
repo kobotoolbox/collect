@@ -26,7 +26,7 @@
   <string name="sort_the_list">सूची क्रमबद्ध गर्नुहोस्।</string>
   <!--A sort option for blank forms. When this option is selected, the form for which a filled instance was last filled will go first.-->
   <!--Displayed in search boxes for form lists or question types that involve search-->
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -334,9 +334,9 @@
   <string name="change_server_url">सर्भर URL</string>
   <string name="url_error">गलत URL</string>
   <string name="username">प्रयोगकर्ताको नाम </string>
-  <string name="change_username">ODK प्रयोगकर्ता नाम </string>
+  <string name="change_username">KoboToolbox प्रयोगकर्ता नाम </string>
   <string name="password">पासवर्ड </string>
-  <string name="change_password">ODK पासवर्ड </string>
+  <string name="change_password">KoboToolbox पासवर्ड </string>
   <string name="password_error_whitespace">पासवर्डमा खाली स्पेस हुनु हुँदैन ।</string>
   <string name="username_error_whitespace">प्रयोगकर्ता नाममा खाली स्पेस हुनु हुँदैन ।</string>
   <string name="server_platform_google_sheets">गुगल ड्राइभ, गुगल सिट्स</string>
@@ -439,10 +439,10 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">जानकारी</string>
-  <string name="tell_your_friends">ODK Collect शेयर गर्नुहोस् ।</string>
-  <string name="tell_your_friends_msg">के तपाईँका सहकर्मीहरू अझै कागजमा डाटा संकलन गर्दै हुनुहुन्छ? तिनीहरुसँग ODK Collect शेयर गर्नुहोस् ।</string>
+  <string name="tell_your_friends">KoboCollect शेयर गर्नुहोस् ।</string>
+  <string name="tell_your_friends_msg">के तपाईँका सहकर्मीहरू अझै कागजमा डाटा संकलन गर्दै हुनुहुन्छ? तिनीहरुसँग KoboCollect शेयर गर्नुहोस् ।</string>
   <string name="leave_a_review">हामीलाई  प्ले स्टोर आफ्नो मा समीक्षा छोड्नुहोस् ।</string>
-  <string name="odk_forum">ODK मंचमा आवद्ध हुनुहोस्</string>
+  <string name="odk_forum">KoboToolbox मंचमा आवद्ध हुनुहोस्</string>
   <!--##############################################
      # SETTINGS IMPORT
      ##############################################-->
@@ -514,7 +514,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->
