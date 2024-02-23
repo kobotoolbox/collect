@@ -13,7 +13,7 @@ object Defaults {
         get() {
             val hashMap = HashMap<String, Any>()
             // odk_server_preferences.xml
-            hashMap[ProjectKeys.KEY_SERVER_URL] = "https://demo.getodk.org"
+            hashMap[ProjectKeys.KEY_SERVER_URL] = "https://kc.kobotoolbox.org/kobodemouser"
             hashMap[ProjectKeys.KEY_USERNAME] = ""
             hashMap[ProjectKeys.KEY_PASSWORD] = ""
             // form_management_preferences.xml

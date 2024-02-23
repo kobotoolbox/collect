@@ -27,7 +27,7 @@
   <!--A sort option for blank forms. When this option is selected, the form for which a filled instance was last filled will go first.-->
   <!--Displayed in search boxes for form lists or question types that involve search-->
   <string name="storage_runtime_permission_denied_desc">Brez teh dovoljenj, Collect ne more dostopati do vaših obrazcev ali shraniti odgovorov. Aplikacijo znova odprite, ko ste jih pripravljeni odobriti.</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">Dovljenje za fotoaparat</string>
   <string name="camera_runtime_permission_denied_desc">Brez tega dovoljenja Collect ne more dostopati do fotoaparata. Prosimo, poskusite znova, ko ste pripravljeni odobriti.</string>
   <string name="record_audio_runtime_permission_denied_desc">Brez tega dovoljenja Collect ne more dostopati do mikrofona. Prosimo, poskusite znova, ko ste pripravljeni odobriti.</string>
@@ -221,7 +221,7 @@
   <string name="start">Začni</string>
   <string name="enable_gps">Omogoči GPS</string>
   <string name="geo_clear_warning">Funkcija je že narejena. Želite izbrisati funkcijo?</string>
-  <string name="geo_exit_warning">Želite zavreči spremembe in se vrniti v ODK?</string>
+  <string name="geo_exit_warning">Želite zavreči spremembe in se vrniti v KoboToolbox?</string>
   <string name="clear">Počisti</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
@@ -318,7 +318,7 @@
   <!--Title of dialog for configuring server URL-->
   <string name="url_error">Napaka, neveljaven URL!</string>
   <string name="username">Uporabniško ime</string>
-  <string name="change_username">ODK uporabniško ime</string>
+  <string name="change_username">KoboToolbox uporabniško ime</string>
   <string name="password">Geslo</string>
   <string name="change_password">ODk geslo</string>
   <string name="password_error_whitespace">Presledki na začetku ali na koncu gesla niso dovoljeni</string>
@@ -419,7 +419,7 @@
   <!--##############################################
      # ABOUT
      ##############################################-->
-  <string name="tell_your_friends_msg">Ali vaši kolegi še vedno zbirajo podatke na papirju? Delite ODK Collect z njimi.</string>
+  <string name="tell_your_friends_msg">Ali vaši kolegi še vedno zbirajo podatke na papirju? Delite KoboCollect z njimi.</string>
   <string name="all_open_source_licenses_msg">Stojimo na ramenih velikanov!</string>
   <!--##############################################
      # SETTINGS IMPORT
@@ -487,7 +487,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

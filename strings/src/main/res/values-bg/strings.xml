@@ -42,7 +42,7 @@
   <string name="storage_runtime_permission_denied_title">Резрешения за хранилището</string>
   <string name="storage_runtime_permission_denied_desc">Без тези разрешения, приложението няма достъп до вашите формуляри и не може да попълва такива. </string>
   <string name="location_runtime_permissions_denied_title">Рарешения за местоположението</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="location_runtime_permissions_denied_desc">Без разрешението за <b>Точно местоположение</b> Collect не може да запише вашето местоположение. Моля, опитайте пак, когато сте готови да го одобрите.</string>
   <string name="camera_runtime_permission_denied_title">Разрешение за камера</string>
   <string name="camera_runtime_permission_denied_desc">Без това разрешение Collect няма достъп до камерата на устройството. Моля, опитайте пак, когато сте готови да го одобрите.</string>
@@ -269,7 +269,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

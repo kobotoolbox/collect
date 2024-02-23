@@ -49,7 +49,7 @@
   <string name="storage_runtime_permission_denied_title">Доступ к накопителю</string>
   <string name="storage_runtime_permission_denied_desc">Без этих разрешений Collect не сможет получить доступ к опросам или сохранять ответы. Откройте приложение заново когда вы будете готовы предоставить доступ.</string>
   <string name="location_runtime_permissions_denied_title">Доступ к геолокации</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="location_runtime_permissions_denied_desc">Без разрешения <b>Точное местоположение</b> Collect не может записать ваше местоположение. Повторите попытку, когда будете готовы предоставить его.</string>
   <string name="camera_runtime_permission_denied_title">Доступ к камере</string>
   <string name="camera_runtime_permission_denied_desc">Без данного разрешения Collect не сможет использовать видео-камеру. Попробуйте снова когда будете готовы предоставить доступ.</string>
@@ -428,7 +428,7 @@
   <string name="geotrace_title">Геослед</string>
   <string name="gps_enable_message">GPS отключен на вашем устройстве. Хотите включить его?</string>
   <string name="geo_clear_warning">Опция уже создана. Вы хотите удалить опцию?</string>
-  <string name="geo_exit_warning">Отказаться от изменений и вернуться к ODK?</string>
+  <string name="geo_exit_warning">Отказаться от изменений и вернуться к KoboToolbox?</string>
   <string name="polygon_validator">В многоугольнике должно быть как минимум 3 точки</string>
   <string name="polyline_validator">Должно быть как минимум 2 точки, что бы создать ломаную линию</string>
   <string name="clear">Очистить</string>
@@ -608,9 +608,9 @@
   <string name="change_server_url">Адрес сервера</string>
   <string name="url_error">Неверный адрес!</string>
   <string name="username">Имя пользователя</string>
-  <string name="change_username">Имя пользователя ODK</string>
+  <string name="change_username">Имя пользователя KoboToolbox</string>
   <string name="password">Пароль</string>
-  <string name="change_password">Пароль ODK</string>
+  <string name="change_password">Пароль KoboToolbox</string>
   <string name="password_error_whitespace">Не допускается использовать пробелы в начале и конце пароля</string>
   <string name="username_error_whitespace">Не допускается использовать пробелы в начале и конце имени пользователя</string>
   <string name="server_platform_google_sheets">Google диск и таблицы</string>
@@ -701,7 +701,7 @@
   <string name="instance_sync_summary">Влияет на формы, добавленные в папку экземпляров.</string>
   <string name="analytics_preferences">Данные по использованию</string>
   <string name="analytics">Сбор анонимной статистики</string>
-  <string name="analytics_summary">Анонимные данные об использовании помогают команде ODK определять приоритеты исправлений и функций.</string>
+  <string name="analytics_summary">Анонимные данные об использовании помогают команде KoboToolbox определять приоритеты исправлений и функций.</string>
   <string name="form_metadata_title">Метаданные</string>
   <string name="form_metadata">Метаданные</string>
   <string name="form_metadata_summary">будут добавлены к ответам для идентификации интервьюера проводящего опросы</string>
@@ -791,14 +791,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">О программе</string>
-  <string name="tell_your_friends">Рекомендовать ODK</string>
+  <string name="tell_your_friends">Рекомендовать KoboToolbox</string>
   <string name="tell_your_friends_msg">Коллеги ведут сбор данных на бумаге? Поделитесь с ними этим решением</string>
   <string name="leave_a_review">Оставить отзыв в Play Store</string>
   <string name="leave_a_review_msg">Ваш отзыв (надеемся, положительный) делает приложение более заметным в Play Store</string>
-  <string name="odk_website">Вебсайт ODK</string>
-  <string name="odk_website_summary">ODK — приложение для сбора данных работающее без интернета</string>
+  <string name="odk_website">Вебсайт KoboToolbox</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
   <string name="odk_forum">Форум</string>
-  <string name="odk_forum_summary">Вопросы и предложения</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Используемые компоненты</string>
   <string name="all_open_source_licenses_msg">Мы стоим на плечах гигантов!</string>
   <!--##############################################
@@ -841,7 +841,7 @@
   <string name="fs_create_media_folder_error">Не удалось создать директорию media \'%s\'.</string>
   <string name="fs_file_copy_error">Не удалось скопировать \'%1$s\' в \'%2$s\'. Причина: %3$s</string>
   <string name="survey_multiple_forms_error">Вы загрузили два разных опросника с одинаковым ID и версией. Возможно, это один и тот же опросник загруженный в разное время или на разные сервера. В любом случае, вам следует удалить один из них.</string>
-  <string name="select_odk_shortcut">Выбрать ярлык ODK</string>
+  <string name="select_odk_shortcut">Выбрать ярлык KoboToolbox</string>
   <string name="background_audio_help">Эта форма записывает звук с микрофона вашего устройства.\n\nВы можете использовать индикатор громкости, чтобы убедиться, что микрофон находится достаточно близко к звуку, который вам нужно записать.\n\nЧтобы остановить запись, закройте эту форму.\n\ nДля получения дополнительной информации обратитесь к человеку, который попросил вас собрать данные.</string>
   <string name="loading">Загрузка…</string>
   <!--##############################################
@@ -910,7 +910,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <string name="notifications">Уведомления</string>
   <string name="required_for_notifications">Требуется для отображения обновлений при загрузке, обновлении и отправке форм.</string>
   <!--##############################################

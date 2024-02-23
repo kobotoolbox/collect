@@ -43,7 +43,7 @@
   <string name="filter_the_list">სიის გაფილტვრა</string>
   <!--Displayed in search boxes for form lists or question types that involve search-->
   <string name="search">ძიება</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -225,7 +225,7 @@
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in N 18°48'8"-->
   <string name="start">დასაწყისი</string>
   <string name="enable_gps">GPS-ის ჩართვა</string>
-  <string name="geo_exit_warning">გაუქმდეს ცვლილებები და ბრუნდებით ODK-ში?</string>
+  <string name="geo_exit_warning">გაუქმდეს ცვლილებები და ბრუნდებით KoboToolbox-ში?</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
   <string name="none">არცერთი</string>
@@ -320,7 +320,7 @@
   <string name="change_server_url">სერვერის ვებ-მისამართი</string>
   <string name="url_error">უკავრავად, არასწორი ბმული!</string>
   <string name="username">მომხმარებლის სახელი</string>
-  <string name="change_username">ODK-ის მომხმარებლის სახელი</string>
+  <string name="change_username">KoboToolbox-ის მომხმარებლის სახელი</string>
   <string name="password">პაროლი</string>
   <string name="change_password">პაროლი</string>
   <string name="selected_google_account_text">Google ექაუნთი</string>
@@ -391,7 +391,7 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">შესახებ</string>
-  <string name="tell_your_friends">ODK Collect გაზიარება</string>
+  <string name="tell_your_friends">KoboCollect გაზიარება</string>
   <!--##############################################
      # SETTINGS IMPORT
      ##############################################-->
@@ -454,7 +454,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

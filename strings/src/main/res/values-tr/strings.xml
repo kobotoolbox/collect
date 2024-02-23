@@ -40,7 +40,7 @@
   <string name="storage_runtime_permission_denied_title">Saklama izinleri</string>
   <string name="storage_runtime_permission_denied_desc">Bu izinler olmadan Collect formlarınıza erişemez ya da cevapları saklayamaz. İzinleri vermek için hazır olduğunuzda uygulamayı tekrar açın.</string>
   <string name="location_runtime_permissions_denied_title">Konum izinleri</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">Kamera izinleri</string>
   <string name="record_audio_runtime_permission_denied_title">Ses kaydetme izni</string>
   <!--##############################################
@@ -291,9 +291,9 @@
   <!--Title of dialog for configuring server URL-->
   <string name="url_error">Geçersiz URL</string>
   <string name="username">Kullanici Adi</string>
-  <string name="change_username">ODK Kullanici Adi</string>
+  <string name="change_username">KoboToolbox Kullanici Adi</string>
   <string name="password">Şifre</string>
-  <string name="change_password">ODK Şifresi</string>
+  <string name="change_password">KoboToolbox Şifresi</string>
   <string name="selected_google_account_text">Google account</string>
   <!--To use Google Drive, forms must set a submission URL. If they don't, this URL will be used.-->
   <!--Description for Fallback submission URL setting-->
@@ -431,7 +431,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

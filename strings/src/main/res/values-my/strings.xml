@@ -36,7 +36,7 @@
   <string name="deleted_form">ဖျက်သိမ်းပြီးဖောင်</string>
   <!--A sort option for blank forms. When this option is selected, the form for which a filled instance was last filled will go first.-->
   <!--Displayed in search boxes for form lists or question types that involve search-->
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -266,9 +266,9 @@
   <!--Title of dialog for configuring server URL-->
   <string name="url_error">ရင္းျမစ္ေနရာမွားယြင္းေနပါသည္</string>
   <string name="username">သံုးစြဲသူအမည္</string>
-  <string name="change_username">ODK အသုံးပြုသူအမည်</string>
+  <string name="change_username">KoboToolbox အသုံးပြုသူအမည်</string>
   <string name="password">လ်ိဳ႔၀ွက္နံပါတ္</string>
-  <string name="change_password">ODK စကားဝှက်</string>
+  <string name="change_password">KoboToolbox စကားဝှက်</string>
   <string name="selected_google_account_text">ဂူးဂယ္ (လ္) အေကာင့္</string>
   <!--To use Google Drive, forms must set a submission URL. If they don't, this URL will be used.-->
   <!--Description for Fallback submission URL setting-->
@@ -384,7 +384,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

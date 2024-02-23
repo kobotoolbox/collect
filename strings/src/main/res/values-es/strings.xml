@@ -49,7 +49,7 @@
   <string name="storage_runtime_permission_denied_title">Permisos de Almacenamiento</string>
   <string name="storage_runtime_permission_denied_desc">Sin estos permisos no se puede accesar los formularios o guardar las respuetas. Abra la aplicación de nuevo cuando esté listo para dar acceso</string>
   <string name="location_runtime_permissions_denied_title">Permisos de Ubicación</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="location_runtime_permissions_denied_desc">Sin el permiso de <b>Localización precisa</b> no puede registrar su ubicación. Intente de nuevo cuando esté el permiso.</string>
   <string name="camera_runtime_permission_denied_title">Permiso de Cámara</string>
   <string name="camera_runtime_permission_denied_desc">Sin este permiso la aplicación no puede acceder a la cámara. Intente de nuevo cuando esté el permiso.</string>
@@ -731,7 +731,7 @@
   <string name="instance_sync_summary">Afecta los formularios agregados directamente a la carpeta de instances</string>
   <string name="analytics_preferences">Datos de uso</string>
   <string name="analytics">Recolectar datos de uso anónimos</string>
-  <string name="analytics_summary">Los datos de uso anónimos ayudan al equipo de ODK a priorizar las correcciones y las funciones.</string>
+  <string name="analytics_summary">Los datos de uso anónimos ayudan al equipo de KoboToolbox a priorizar las correcciones y las funciones.</string>
   <string name="form_metadata_title">Metadatos del formulario</string>
   <string name="form_metadata">Metadatos del formulario</string>
   <string name="form_metadata_summary">Estos valores se incluyen en los formularios que tienen precargados los campos de nombre de usuario, email y/o teléfono para identificar a la persona que envía los datos.</string>
@@ -822,14 +822,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Acerca de</string>
-  <string name="tell_your_friends">Compartir ODK Collect</string>
+  <string name="tell_your_friends">Compartir KoboCollect</string>
   <string name="tell_your_friends_msg">¿Sus colegas aún recogen datos en papel? Comparte con ellos la aplicación</string>
   <string name="leave_a_review">Ir a Play Store - Comentar y/o Actualizar</string>
   <string name="leave_a_review_msg">Su reseña (ojalá positiva) incrementa la visibilidad de la aplicación en Play Store</string>
   <string name="odk_website">Visitar el sitio web</string>
-  <string name="odk_website_summary">ODK se utiliza para recopilar datos para el bien social en entornos desafiantes.</string>
-  <string name="odk_forum">Unirse al foro de ODK</string>
-  <string name="odk_forum_summary">Únase al foro para obtener soporte, solicitar mejoras, contribuir con el código, traducir!</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Unirse al foro de KoboToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Licencias/librerias de Código Abierto</string>
   <string name="all_open_source_licenses_msg">Sostenidos a hombros de gigantes!</string>
   <!--##############################################
@@ -965,10 +965,10 @@
   <string name="dev_tools">Herramientas de desarrollo</string>
   <!--Option provided in the Developer tools settings to force an application crash-->
   <string name="crash_app">Aplicación bloqueada</string>
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <string name="crash_app_summary">Se forzó una excepción no detectada que hace que la aplicación se bloquee</string>
   <string name="permission_dialog_title">Acerca de los permisos</string>
-  <string name="permission_dialog_text">Se le pedirá que permita el acceso de ODK Collect a las siguientes funciones, seleccione \"permitir\" si desea usarlas.</string>
+  <string name="permission_dialog_text">Se le pedirá que permita el acceso de KoboCollect a las siguientes funciones, seleccione \"permitir\" si desea usarlas.</string>
   <string name="notifications">Notificaciones</string>
   <string name="required_for_notifications">Requerido para mostrar actualizaciones cuando los formularios se descargan, actualizan y envían.</string>
   <!--##############################################

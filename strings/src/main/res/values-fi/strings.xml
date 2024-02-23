@@ -49,7 +49,7 @@
   <string name="storage_runtime_permission_denied_title">Talletusluvat</string>
   <string name="storage_runtime_permission_denied_desc">Ilman näitä lupia Collect ei pysty lukemaan lomakemäärittelyitä tai tallentamaan vastauksia. Avaa sovellus uudestaan kun olet valmis antamaan luvat.</string>
   <string name="location_runtime_permissions_denied_title">Sijaintitiedon käyttöluvat</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="location_runtime_permissions_denied_desc">Ilman lupaa <b>Tarkka sijainti</b> Collect ei pysty tallentamaan sijaintiasi. Yritä uudestaan kun olet valmis sallimaan sen.</string>
   <string name="camera_runtime_permission_denied_title">Kameran käyttölupa</string>
   <string name="camera_runtime_permission_denied_desc">Ilman tätä käyttölupaa Collect ei pysty käyttämään kameraa. Ole hyvä ja yritä uudestaa kun olet valmis myöntämään sen.</string>
@@ -443,7 +443,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS ei ole päällä laitteessasi. Haluaisitko kytkeä sen päälle?</string>
   <string name="geo_clear_warning">Ominaisuus on jo luotu. Haluatko tyhjentää ominaisuuden?</string>
-  <string name="geo_exit_warning">Hylätäänkö muutokset ja palataan ODK:hon?</string>
+  <string name="geo_exit_warning">Hylätäänkö muutokset ja palataan KoboToolbox:hon?</string>
   <string name="polygon_validator">Monikulmion luomiseen tarvitaan vähintään 3 pistettä</string>
   <string name="polyline_validator">Polyline-kuvion luomiseen tarvitaan vähintään 2 pistettä</string>
   <string name="clear">Tyhjennä</string>
@@ -522,7 +522,7 @@
   <string name="show_unsent_forms">Näytä lähettämättömät lomakkeet</string>
   <string name="media_upload_error">Palvelimelle ei voida siirtää tiedostoa, jota ei ole olemassa: %1$s</string>
   <string name="send_in_progress">Taustalähetys käynnissä, yritä hetken kuluttua uudestaan</string>
-  <string name="odk_permissions_fail">Automaattisella ODK-lähetyksellä käyttölupavirhe, varmista että olet antanut sovellukselle kaikki tarvittavat käyttöluvat</string>
+  <string name="odk_permissions_fail">Automaattisella KoboToolbox-lähetyksellä käyttölupavirhe, varmista että olet antanut sovellukselle kaikki tarvittavat käyttöluvat</string>
   <string name="forms_upload_succeeded">Lomakkeiden lähetys onnistui</string>
   <string name="forms_upload_failed">Lomakkeiden lähetys epäonnistui</string>
   <string name="all_uploads_succeeded">Kaikki lähetykset onnistuivat!</string>
@@ -635,9 +635,9 @@
   <string name="change_server_url">Palvelimen URL</string>
   <string name="url_error">Pahoittelut, URL ei kelpaa! </string>
   <string name="username">Käyttäjätunnus</string>
-  <string name="change_username">ODK käyttäjätunnus</string>
+  <string name="change_username">KoboToolbox käyttäjätunnus</string>
   <string name="password">Salasana</string>
-  <string name="change_password">ODK salasana</string>
+  <string name="change_password">KoboToolbox salasana</string>
   <string name="password_error_whitespace">Salasanan alussa tai lopussa ei saa olla välilyöntimerkkejä</string>
   <string name="username_error_whitespace">Käyttäjänimen alussa tai lopussa ei saa olla välilyöntimerkkejä</string>
   <string name="server_platform_google_sheets">Google Drive, Google Sheets</string>
@@ -728,7 +728,7 @@
   <string name="instance_sync_summary">Vaikuttaa lomakkeisiin jotka lisätään suoraan Instances -kansioon.</string>
   <string name="analytics_preferences">Käyttötiedot</string>
   <string name="analytics">Kerää anonyymejä käyttötietoja</string>
-  <string name="analytics_summary">Anonyymi käyttäjädata auttaa ODK-tiimiä priosrisoimaan korjauksia ja toiminnallisuuksia.</string>
+  <string name="analytics_summary">Anonyymi käyttäjädata auttaa KoboToolbox-tiimiä priosrisoimaan korjauksia ja toiminnallisuuksia.</string>
   <string name="form_metadata_title">Lomakkeen metadata</string>
   <string name="form_metadata">Lomakkeen metadata</string>
   <string name="form_metadata_summary">Nämä arvot lisätään lomakkeisiin joissa on käyttäjätunnus, sähköpostiosoite ja/tai puhelinnumero valmiiksi täytettynä lähettäjän tunnistamiseksi.</string>
@@ -819,14 +819,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Lisätietoja</string>
-  <string name="tell_your_friends">Jaa ODK Collect</string>
-  <string name="tell_your_friends_msg">Keräävätkö kollegasi vielä dataa paperilla? Jaa ODK Collect heidän kanssaan.</string>
+  <string name="tell_your_friends">Jaa KoboCollect</string>
+  <string name="tell_your_friends_msg">Keräävätkö kollegasi vielä dataa paperilla? Jaa KoboCollect heidän kanssaan.</string>
   <string name="leave_a_review">Kirjoita Play Store -arvio</string>
   <string name="leave_a_review_msg">Sinun (toivottavasti myönteinen) arviosi lisää sovelluksen näkyvyyttä Play Store -kaupassa.</string>
-  <string name="odk_website">Käy ODK:n verkkosivulla</string>
-  <string name="odk_website_summary">ODK:ta käytetään vaativien olosuhteiden tiedonkeruuseen sosiaalisen hyvän tarkoituksissa.</string>
-  <string name="odk_forum">Liity ODK-foorumiin</string>
-  <string name="odk_forum_summary">Liity foorumiin saadaksesi tukea, pyytääksesi toimintoja, ja auttaaksesi koodaamisessa tai kääntämisessä!</string>
+  <string name="odk_website">Käy KoboToolbox:n verkkosivulla</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Liity KoboToolbox-foorumiin</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Avoimen lähdekoodin kirjastot/lisenssit</string>
   <string name="all_open_source_licenses_msg">Seisomme jättiläisten harteilla!</string>
   <!--##############################################
@@ -874,7 +874,7 @@
   <string name="fs_create_media_folder_error">Ei voitu luoda mediakansiota \'%s\'.</string>
   <string name="fs_file_copy_error">Ei voitu kopioida \'%1$s\' yli \'%2$s\'. Syy: %3$s</string>
   <string name="survey_multiple_forms_error">Olet ladannut kaksi eri lomaketta, joilla on sama lomake tunnus ja versio. Ehkä ne olivat samat lomake ladattuna eri aikoina tai eri palvelimille. Joka tapauksessa, sinun pitäisi poistaa toinen.</string>
-  <string name="select_odk_shortcut">Valitse ODK-oikotie</string>
+  <string name="select_odk_shortcut">Valitse KoboToolbox-oikotie</string>
   <string name="background_audio_help">Tämä lomake tallentaa ääntä laitteesi mikrofonin avulla.\n\nVoit käyttää äänitason ilmaisinta varmistaaksesi, että mikrofoni on riittävän lähellä ääntä, jota haluat äänittää.\n\nSulje tämä lomake lopettaaksesi äänityksen.\n\nOle yhteydessä henkilöön joka pyysi sinua keräämään tietoja saadaksesi lisätietoja.</string>
   <string name="loading">Ladataan…</string>
   <!--##############################################
@@ -928,9 +928,9 @@
   <string name="try_demo">Kokeile demoa</string>
   <string name="scan_configuration_qr_code">Skannaa asetukset QR-koodista</string>
   <!--Error shown when a user tries to open a form that's in a different project-->
-  <string name="wrong_project_selected_for_form">Avataksesi tämän lomakkeen, avaa ensin ODK Collect ja vaihda projektiin johon se sisältyy.</string>
+  <string name="wrong_project_selected_for_form">Avataksesi tämän lomakkeen, avaa ensin KoboCollect ja vaihda projektiin johon se sisältyy.</string>
   <!--Error shown when a user tries to open a form when there are no projects-->
-  <string name="app_not_configured">ODK Collect ei ole konfiguroitu. Yritä avata ODK Collect ja konfiguroida sitä.\n\nJos käytit pikakuvaketta, saatat joutua luomaan sen uudelleen kun ODK Collect on konfiguroitu.</string>
+  <string name="app_not_configured">KoboCollect ei ole konfiguroitu. Yritä avata KoboCollect ja konfiguroida sitä.\n\nJos käytit pikakuvaketta, saatat joutua luomaan sen uudelleen kun KoboCollect on konfiguroitu.</string>
   <!--Error shown when a user tries to start a new form in a Google Drive project-->
   <string name="cannot_start_new_forms_in_google_drive_projects">Uutta lomaketta ei voida aloittaa Google Drive -projektina.</string>
   <!--##############################################
@@ -961,10 +961,10 @@
   <string name="dev_tools">Kehitystyökalut</string>
   <!--Option provided in the Developer tools settings to force an application crash-->
   <string name="crash_app">Kaada sovellus</string>
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <string name="crash_app_summary">Pakota havaitsematon poikkeus, joka aiheuttaa sovelluksen kaatumisen</string>
   <string name="permission_dialog_title">Tietoa luvista</string>
-  <string name="permission_dialog_text">Sinulta tullaan pyytämään lupaa ODK Collectille pääsy toimintoihin alla, valitse \"Salli\" jos haluat käyttää niitä.</string>
+  <string name="permission_dialog_text">Sinulta tullaan pyytämään lupaa KoboCollectille pääsy toimintoihin alla, valitse \"Salli\" jos haluat käyttää niitä.</string>
   <string name="notifications">Ilmoitukset</string>
   <string name="required_for_notifications">Tarvitaan päivitysten näyttämiseen kun lomakkeita ladataan, päivitetään tai lähetetään.</string>
   <!--##############################################

@@ -24,7 +24,7 @@
   <!--A sort option for blank forms. When this option is selected, the form for which a filled instance was last filled will go first.-->
   <!--Displayed in search boxes for form lists or question types that involve search-->
   <string name="search">Căutare</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -303,9 +303,9 @@
   <string name="change_server_url">URL server</string>
   <string name="url_error">Ne pare rău, URL invalid!</string>
   <string name="username">Nume de utilizator</string>
-  <string name="change_username">Nume utilizator ODK</string>
+  <string name="change_username">Nume utilizator KoboToolbox</string>
   <string name="password">Parola</string>
-  <string name="change_password">Parola ODK</string>
+  <string name="change_password">Parola KoboToolbox</string>
   <string name="password_error_whitespace">Nu sunt permise spații în parole</string>
   <string name="username_error_whitespace">Nu sunt permise spații în numele de utilizator</string>
   <string name="server_platform_google_sheets">Google Drive, Google Sheets</string>
@@ -443,7 +443,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

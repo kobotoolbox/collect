@@ -40,7 +40,7 @@
   <string name="storage_runtime_permission_denied_title">Uburenganzira ku bubiko</string>
   <string name="storage_runtime_permission_denied_desc">Udafite ubwo burenganzira Collect ntabwo ishobora kwemera form cg ibike amakuru. Ongera ufungure iyo application mugihe ufite ubwo burenganzira</string>
   <string name="location_runtime_permissions_denied_title">Uburenganzira bwokwerekana location </string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">Ha uruhushya Camera</string>
   <string name="camera_runtime_permission_denied_desc">Utatanze uruhushya porogaramu ntibasha gukoresha Camera bityo ongera kugerageza nyuma yuko uhaye uruhushya porogaramu</string>
   <string name="record_audio_runtime_permission_denied_title">Rikodinga uburenganzira bwa odiyo </string>
@@ -399,7 +399,7 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
   <string name="geotrace_title">Ibimenyetso biranga ahantu.</string>
   <string name="gps_enable_message">GPS irafunze kuri tabuleti yawe. urifuza kuyifungura?</string>
   <string name="geo_clear_warning">Byamaze gutungana. Murifuza kubisiba? </string>
-  <string name="geo_exit_warning">Siba ibyari byamaze guhindurwa ubundi usubire kuri porogaramu ya ODK</string>
+  <string name="geo_exit_warning">Siba ibyari byamaze guhindurwa ubundi usubire kuri porogaramu ya KoboToolbox</string>
   <string name="polygon_validator">Bigomba kuba bifite byibuze ibintu 3 kugirango bikore Polygon </string>
   <string name="polyline_validator">Bigomba kugira ibintu byibuze 2 kugirango bikore Polyline </string>
   <string name="clear">Siba </string>
@@ -468,7 +468,7 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
   <string name="show_unsent_forms">Erekana form zitagiye</string>
   <string name="media_upload_error">Mugukurura amajwi ntaboneke mu bubiko, ntabwo abarimo ku: %1$s</string>
   <string name="send_in_progress">Ohereza ibyagaragajwe bitaremezwa, hita wongera ugerageze.</string>
-  <string name="odk_permissions_fail">ODK ihita yohereza ibitemejwe, izere neza niba wemeje ibisabwa byose.</string>
+  <string name="odk_permissions_fail">KoboToolbox ihita yohereza ibitemejwe, izere neza niba wemeje ibisabwa byose.</string>
   <!--##############################################
     # GET BLANK FORM
     ##############################################-->
@@ -557,9 +557,9 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Mwihangane URL ntabwo ariyo</string>
   <string name="username">Izina ry\'uyikoresha.</string>
-  <string name="change_username">Izina ry\'ukoresha ODK</string>
+  <string name="change_username">Izina ry\'ukoresha KoboToolbox</string>
   <string name="password">Umubarebanga cyangwa se Ijambobanga</string>
-  <string name="change_password">Ijambo banga rya ODK</string>
+  <string name="change_password">Ijambo banga rya KoboToolbox</string>
   <string name="password_error_whitespace">Mu ijambobanga ahantu hariho ubusa ntibyemewe </string>
   <string name="username_error_whitespace">Kuzuza ahantu hariho ubusa ntabwo byemewe mu izina ugomba gukoresha </string>
   <string name="server_platform_google_sheets">Google Drive, Google Sheets</string>
@@ -649,7 +649,7 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
   <string name="instance_sync_summary">Shyiraho akamenyetso bwangu kunyandiko shingiro kuri urwo rukurikirane mbumbe rw\'amakuru.</string>
   <string name="analytics_preferences">Ingano ya interineti yakoreshejwe</string>
   <string name="analytics">Kusanya amakuru yo gukoresha atazwi</string>
-  <string name="analytics_summary">Amakuru yo gukoresha atazwi afasha itsinda rya ODK gushyira imbere gukosora </string>
+  <string name="analytics_summary">Amakuru yo gukoresha atazwi afasha itsinda rya KoboToolbox gushyira imbere gukosora </string>
   <string name="form_metadata_title">Inyandiko shingiro mbumbe y\'urukurikirane rw\'amakuru yatanzwe.</string>
   <string name="form_metadata">Inyandiko shingiro mbumbe y\'urukurikirane rw\'amakuru yatanzwe.</string>
   <string name="form_metadata_summary">Ako gaciro kose kongerwa ku nyandiko shingiro gafite izina rikoresha, email na/ cg telefone yinjijwe kare igaragaza umuntu wohereje amakuru.</string>
@@ -727,14 +727,14 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Kuri</string>
-  <string name="tell_your_friends">Gusangiza ODK Collect</string>
-  <string name="tell_your_friends_msg">Abo mukorana baracyakusanyiriza amakuru mu mpapuro? Bahe ODK collect</string>
+  <string name="tell_your_friends">Gusangiza KoboCollect</string>
+  <string name="tell_your_friends_msg">Abo mukorana baracyakusanyiriza amakuru mu mpapuro? Bahe KoboToolbox collect</string>
   <string name="leave_a_review">Tanga igitekerezo cyawe muri play store</string>
   <string name="leave_a_review_msg">Igitekerezo cyawe(twizera cyiza) kiratuma application irushaho kugaragara cyane muri Play Store</string>
-  <string name="odk_website">Sura urubuga rwa ODK</string>
-  <string name="odk_website_summary">ODK ikoreshwa mugukusanya amakuru kubwimibereho myiza mubidukikije bifite ibibazo.</string>
-  <string name="odk_forum">Itabire ihuriro ry\'abakoresha ODK</string>
-  <string name="odk_forum_summary">Injira ihuriro kugirango ubone ubufasha, gusaba ibiranga, gutanga umusanzu / ibisobanuro!</string>
+  <string name="odk_website">Sura urubuga rwa KoboToolbox</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Itabire ihuriro ry\'abakoresha KoboToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Gufungura amasomero yisoko / impushya</string>
   <string name="all_open_source_licenses_msg">Duhagaze ku bitugu by\'ibihangange!</string>
   <!--##############################################
@@ -780,7 +780,7 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
 Impamvu: %3$s</string>
   <string name="survey_multiple_forms_error">Wa downloadinze form 2 zitandukanye ariko zihuje amakuru.
 Birashoboka ko ari zimwe zashyizwemo mubihe bitandukanye cgw ziturutse ahatandukanye. Nimba ariko bimeze, siba imwe.</string>
-  <string name="select_odk_shortcut">Hitamo inzira z\'ubusamo za ODK</string>
+  <string name="select_odk_shortcut">Hitamo inzira z\'ubusamo za KoboToolbox</string>
   <string name="background_audio_help">Iyi fomu yandika amajwi ya mikoro yigikoresho cyawe. \ n\n Ushobora gukoresha igipimo cyerekana amajwi kugirango umenye neza ko mikoro yegeranye bihagije nijwi ukeneye gufata amajwi. n\n\ Guhagarika gufata amajwi nyamuneka sohoka muri iyi fomu.n\n\ Kubindi bisobanuro nyamuneka hamagara umuntu wagusabye gukusanya amakuru.</string>
   <!--##############################################
      # Projects
@@ -845,7 +845,7 @@ Birashoboka ko ari zimwe zashyizwemo mubihe bitandukanye cgw ziturutse ahatanduk
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->
