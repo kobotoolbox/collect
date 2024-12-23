@@ -17,7 +17,6 @@ import org.odk.collect.android.R;
 import org.odk.collect.android.support.StorageUtils;
 import org.odk.collect.android.support.TestScheduler;
 import org.odk.collect.testshared.WaitFor;
-import org.odk.collect.strings.R.string;
 
 import java.io.IOException;
 import java.util.List;
@@ -55,9 +54,9 @@ public class MainMenuPage extends Page<MainMenuPage> {
         return new AddNewRepeatDialog(repeatName).assertOnPage();
     }
 
-    public ErrorDialog startBlankFormWithError(String formName) {
+    public ErrorDialog startBlankFormWithError(String formName, boolean isFatal) {
         goToBlankForm(formName);
-        return new ErrorDialog().assertOnPage();
+        return new ErrorDialog().assertOnPage(isFatal);
     }
 
     public OkDialog startBlankFormWithDialog(String formName) {
@@ -288,32 +287,14 @@ public class MainMenuPage extends Page<MainMenuPage> {
         return new EntitiesPage().assertOnPage();
     }
 
-    public MainMenuPage addEntityListInBrowser(String entityList) {
-        return openEntityBrowser()
-                .clickOptionsIcon(string.add_entity_list)
-                .clickOnTextInPopup(string.add_entity_list)
-                .inputText(entityList)
-                .clickOnTextInDialog(string.add)
-                .assertText(entityList)
-                .pressBack(new ExperimentalPage())
-                .pressBack(new ProjectSettingsPage())
-                .pressBack(new MainMenuPage());
-    }
-
     public MainMenuPage refreshForms() {
         return clickFillBlankForm()
                 .clickRefresh()
                 .pressBack(new MainMenuPage());
     }
 
-    public MainMenuPage setupEntities(String entityList) {
-        return enableLocalEntitiesInForms()
-                .addEntityListInBrowser(entityList)
-                .refreshForms();
-    }
-
     @NotNull
-    public MainMenuPage enableLocalEntitiesInForms() {
+    public MainMenuPage disableLocalEntitiesInForms() {
         return openProjectSettingsDialog()
                 .clickSettings()
                 .clickExperimental()

@@ -23,6 +23,7 @@ import org.odk.collect.android.instancemanagement.InstancesDataService
 import org.odk.collect.android.instancemanagement.autosend.AutoSendSettingsProvider
 import org.odk.collect.android.projects.ProjectsDataService
 import org.odk.collect.android.utilities.ApplicationConstants
+import org.odk.collect.android.utilities.ChangeLockProvider
 import org.odk.collect.android.utilities.FormsRepositoryProvider
 import org.odk.collect.android.utilities.InstancesRepositoryProvider
 import org.odk.collect.android.utilities.MediaUtils
@@ -57,7 +58,8 @@ class FormEntryViewModelFactory(
     private val savepointsRepositoryProvider: SavepointsRepositoryProvider,
     private val qrCodeCreator: QRCodeCreator,
     private val htmlPrinter: HtmlPrinter,
-    private val instancesDataService: InstancesDataService
+    private val instancesDataService: InstancesDataService,
+    private val changeLockProvider: ChangeLockProvider
 ) : AbstractSavedStateViewModelFactory(owner, null) {
 
     override fun <T : ViewModel> create(
@@ -73,7 +75,8 @@ class FormEntryViewModelFactory(
                 scheduler,
                 formSessionRepository,
                 sessionId,
-                formsRepositoryProvider.get(projectId)
+                formsRepositoryProvider.create(projectId),
+                changeLockProvider.create(projectId)
             )
 
             FormSaveViewModel::class.java -> {
@@ -86,9 +89,9 @@ class FormEntryViewModelFactory(
                     audioRecorder,
                     projectsDataService,
                     formSessionRepository.get(sessionId),
-                    entitiesRepositoryProvider.get(projectId),
-                    instancesRepositoryProvider.get(projectId),
-                    savepointsRepositoryProvider.get(projectId),
+                    entitiesRepositoryProvider.create(projectId),
+                    instancesRepositoryProvider.create(projectId),
+                    savepointsRepositoryProvider.create(projectId),
                     instancesDataService
                 )
             }

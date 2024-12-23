@@ -319,13 +319,13 @@ abstract class Page<T : Page<T>> {
         return this as T
     }
 
-    fun inputText(text: String?): T {
+    fun inputText(text: String): T {
         onView(withClassName(endsWith("EditText"))).perform(replaceText(text))
         closeSoftKeyboard()
         return this as T
     }
 
-    fun inputText(hint: Int, text: String?): T {
+    fun inputText(hint: Int, text: String): T {
         onView(withHint(getTranslatedString(hint))).perform(replaceText(text))
         closeSoftKeyboard()
         return this as T
@@ -372,12 +372,8 @@ abstract class Page<T : Page<T>> {
         return this as T
     }
 
-    fun checkIsSnackbarErrorVisible(): T {
-        onView(allOf(withId(com.google.android.material.R.id.snackbar_text))).check(
-            matches(
-                isDisplayed()
-            )
-        )
+    fun checkIsSnackbarErrorVisible(text: String): T {
+        onView(withId(com.google.android.material.R.id.snackbar_text)).check(matches(withText(containsString(text))))
         return this as T
     }
 
@@ -495,8 +491,8 @@ abstract class Page<T : Page<T>> {
         return this as T
     }
 
-    fun assertTextInDialog(text: Int): T {
-        return assertTextInDialog(getTranslatedString(text))
+    fun assertTextInDialog(text: Int, vararg formatArgs: Any): T {
+        return assertTextInDialog(getTranslatedString(text, *formatArgs))
     }
 
     fun closeSnackbar(): T {

@@ -40,7 +40,7 @@
   <string name="storage_runtime_permission_denied_title">Uprawnienia do przechowywania</string>
   <string name="storage_runtime_permission_denied_desc">Bez tych uprawnieć Collect nie ma dostępu do formularzy i nie może zapisywać odpowiedzi. Spróbuj ponownie, kiedy uprawnienia zostaną nadane.</string>
   <string name="location_runtime_permissions_denied_title">Uprawnienia dostępu do lokalizacji</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">Uprawnienia dostępu do kamery</string>
   <string name="camera_runtime_permission_denied_desc">Bez tych uprawnieć Collect nie ma dostępu do kamery. Spróbuj ponownie, kiedy uprawnienia zostaną nadane.</string>
   <string name="record_audio_runtime_permission_denied_title">Uprawnienia do nagrywania dźwięku</string>
@@ -120,15 +120,11 @@
   <string name="phone_does_not_support_rsa">Telefon nie wspiera szyfrowania RSA.</string>
   <string name="invalid_rsa_public_key">Niepoprawny klucz publiczny RSA.</string>
   <string name="encryption_error_message">Formularz %s nie został zapisany jako zakończony.</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
-  <string name="bad_uri">Zły URI: %s</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
-  <string name="unrecognized_uri">Nierozpoznany URI: %s</string>
+  <!--Displayed when an attempt is made to start form filling, but the form is broken-->
   <!--Text displayed when audio recording fails to start-->
   <!--Text displayed when user tries to start recording while the mic is already in use-->
   <!--Error message displayed when copying media from a temporary directory fails-->
   <!--Text displayed in the audio bar when background audio recording is explicitly disabled from the options menu. Should be as short as possible. The inserted string is ⋮ which indicates the options menu.-->
-  <!--Error displayed when opened filled form has been deleted on disk-->
   <!--Error displayed when something bad happens during updating widgets in a field-list group-->
   <!--##############################################
     # FORM FEATURES
@@ -139,8 +135,6 @@
   <string name="no_app">Brakuje żądanej aplikacji. Proszę, wprowadź ręcznie odczytane wartości.</string>
   <string name="null_intent_value">Zewnętrzna aplikacja nie dostarczyła oczekiwanych informacji.</string>
   <!--Text on button that is part of print questions. Tapping the button prints the value of the question.-->
-  <string name="launch_printer">Inicjalizuj Drukowanie</string>
-  <string name="no_printer">Żądana drukarka nie jest zainstalowana. Proszę, zainstaluj drukarkę.</string>
   <string name="open_url">Otwórz URL</string>
   <string name="capture_osm">Uruchom OpenMapKit</string>
   <string name="recapture_osm">Ponów oznaczanie OSM </string>
@@ -282,6 +276,18 @@
   <string name="persian_month_10">Dey</string>
   <string name="persian_month_11">Bahman</string>
   <string name="persian_month_12">Esfand</string>
+  <!--1st month in the Buddhist calendar-->
+  <!--2nd month in the Buddhist calendar-->
+  <!--3rd month in the Buddhist calendar-->
+  <!--4th month in the Buddhist calendar-->
+  <!--5th month in the Buddhist calendar-->
+  <!--6th month in the Buddhist calendar-->
+  <!--7th month in the Buddhist calendar-->
+  <!--8th month in the Buddhist calendar-->
+  <!--9th month in the Buddhist calendar-->
+  <!--10th month in the Buddhist calendar-->
+  <!--11th month in the Buddhist calendar-->
+  <!--12th month in the Buddhist calendar-->
   <!--Displays dates in specialized calendars with the Gregorian dates in parentheses. This is translated so right-to-left languages can specify the correct order-->
   <string name="custom_date">%1$s (%2$s)</string>
   <!--Displayed when a form media file such as an image for a question label or an audio file for a choice is invalid-->
@@ -376,7 +382,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS jest nieaktywne na twoim urządzeniu. Czy chcesz je włączyc?</string>
   <string name="geo_clear_warning">Właściwość już stworzona. Chcesz usunąć właściwość?</string>
-  <string name="geo_exit_warning">Usunąć zmiany i wrócić do KoboToolbox?</string>
+  <string name="geo_exit_warning">Usunąć zmiany i wrócić do ODK?</string>
   <string name="polygon_validator">Wymagane są przynajmniej 3 punkty aby utworzyć wielokąt</string>
   <string name="polyline_validator">Wymagane co najmniej 2 punkty, by utworzyć polilinię</string>
   <string name="clear">Wyczyść</string>
@@ -511,9 +517,9 @@
   <string name="change_server_url">Serwer URL</string>
   <string name="url_error">Przykro mi, niepoprawny URL!</string>
   <string name="username">Identyfikator użytkownika</string>
-  <string name="change_username">Nazwa użytkownika KoboToolbox</string>
+  <string name="change_username">Nazwa użytkownika ODK</string>
   <string name="password">Hasło</string>
-  <string name="change_password">Hasło KoboToolbox</string>
+  <string name="change_password">Hasło ODK</string>
   <string name="password_error_whitespace">Spacje na początku lub na końcu hasła są niedozwolone</string>
   <string name="username_error_whitespace">Spacje na początku lub na końcu nazwy użytkownika są niedozwolone</string>
   <string name="app_theme">Motyw</string>
@@ -603,6 +609,7 @@
   <!--Displayed when a device property such as the phone number is not available-->
   <!--Label for an item displayed in the project settings menu to unlock settings-->
   <!--Label for an item displayed in the project settings menu to indicate that settings are unlocked-->
+  <!--Summary on setting that's currently not available because the user has entered settings from form entry-->
   <!--##############################################
      # PROTECTED SETTINGS
      ##############################################-->
@@ -648,14 +655,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">O Aplikacji</string>
-  <string name="tell_your_friends">Udostępnij KoboCollect</string>
-  <string name="tell_your_friends_msg">Czy Twoi koledzy wciąż używają do zbierania danych arkuszy papieru? Podziel się z nimi KoboCollect.</string>
+  <string name="tell_your_friends">Udostępnij ODK Collect</string>
+  <string name="tell_your_friends_msg">Czy Twoi koledzy wciąż używają do zbierania danych arkuszy papieru? Podziel się z nimi ODK Collect.</string>
   <string name="leave_a_review">Zostaw swoją opinię na Play Store</string>
   <string name="leave_a_review_msg">Twoja (mamy nadzieję pozytywna) recenzja przyczyni się do zwiększenia widoczności Aplikacji w Play Store.</string>
-  <string name="odk_website">Odwiedź stronę KoboToolbox</string>
-  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
-  <string name="odk_forum">Dołącz do forum KoboToolbox</string>
-  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
+  <string name="odk_website">Odwiedź stronę ODK</string>
+  <string name="odk_website_summary">ODK służy do zbierania danych w trudnych warunkach dla społeczego dobra.</string>
+  <string name="odk_forum">Dołącz do forum ODK</string>
+  <string name="odk_forum_summary">Dołącz do forum by uzyskać wsparcie, zgłaszać potrzeby nowych opcji, wnieść swój wkład w tłumaczenie i kodowanie.</string>
   <string name="all_open_source_licenses">Biblioteki/licencje open source</string>
   <string name="all_open_source_licenses_msg">Stoimy na ramionach gigantów!</string>
   <!--##############################################
@@ -690,8 +697,7 @@
   <string name="fs_delete_media_path_if_file_error">Nie mogę skasować \'%s\'. Skasuj, proszę, plik manualnie i ponownie pobierz formularz.</string>
   <string name="fs_create_media_folder_error">Nie mogę utworzyć folderu mediów \'%s\'.</string>
   <string name="fs_file_copy_error">Nie mogę skopiować \'%1$s\' na \'%2$s\'. Powód: %3$s</string>
-  <string name="survey_multiple_forms_error">Pobrałeś dwa różne formularze z tym samym ID formularza oraz wersją. Może był to ten sam formularz wysłany w różnym czasie lub na różne serwery. Powinieneś usunąć jeden z tych formularzy.</string>
-  <string name="select_odk_shortcut">Wybierz skrót KoboToolbox</string>
+  <string name="select_odk_shortcut">Wybierz skrót ODK</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -714,20 +720,31 @@
   <!--Text for the button that allows for manually entering project details. Should be short-->
   <!--Immediately followed by "Try Collect" which is a link to create a demo project-->
   <!--Preceded by "Don't have a project yet?" question-->
-  <!--Error shown when a user tries to open a form that's in a different project-->
-  <!--Error shown when a user tries to open a form when there are no projects-->
   <!--##############################################
     # Errors
     ##############################################-->
+  <!--##############################################
+    # Form opening errors
+    ##############################################-->
+  <!--Error shown when a user tries to open a form that's in a different project-->
+  <!--Error shown when a user tries to open a form when there are no projects-->
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
+  <string name="unrecognized_uri">Nierozpoznany URI: %s</string>
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
+  <string name="bad_uri">Zły URI: %s</string>
+  <!--Error displayed when opened filled form has been deleted on disk-->
+  <!--Error shown when a user tries to edit a form but there is no corresponding blank form-->
+  <!--Error shown when a user tries to open a form but there is more than one form with the same form ID-->
+  <string name="survey_multiple_forms_error">Pobrałeś dwa różne formularze z tym samym ID formularza oraz wersją. Może był to ten sam formularz wysłany w różnym czasie lub na różne serwery. Powinieneś usunąć jeden z tych formularzy.</string>
+  <!--Error shown when a user tries to open a form when forms update is being applied in the background-->
   <!--##############################################
     # Permissions
     ##############################################-->
   <!--An entity is any person, place or thing that a form can be about. This title appears on an experimental settings screen to view entities managed in the current project.-->
   <!--Title for setting that controls whether local entity features are enabled or not-->
   <!--Text for button that leads to browser for the user to view and manage entity lists-->
-  <!--Text for button that deletes all entities for the project-->
-  <!--Text for button that adds a new entity list-->
   <!--Label for entity that has been created offline and is not on the server yet-->
+  <!--Error message displayed when a user opens a form with an unrecognized entity version-->
   <!--##############################################
     # Crash handling
     ##############################################-->
@@ -739,7 +756,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

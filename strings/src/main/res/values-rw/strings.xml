@@ -40,7 +40,7 @@
   <string name="storage_runtime_permission_denied_title">Uburenganzira ku bubiko</string>
   <string name="storage_runtime_permission_denied_desc">Udafite ubwo burenganzira Collect ntabwo ishobora kwemera form cg ibike amakuru. Ongera ufungure iyo application mugihe ufite ubwo burenganzira</string>
   <string name="location_runtime_permissions_denied_title">Uburenganzira bwokwerekana location </string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">Ha uruhushya Camera</string>
   <string name="camera_runtime_permission_denied_desc">Utatanze uruhushya porogaramu ntibasha gukoresha Camera bityo ongera kugerageza nyuma yuko uhaye uruhushya porogaramu</string>
   <string name="record_audio_runtime_permission_denied_title">Rikodinga uburenganzira bwa odiyo </string>
@@ -120,10 +120,7 @@
   <string name="phone_does_not_support_rsa">Tabuleti ntishoboye kurangiza iki gikorwa</string>
   <string name="invalid_rsa_public_key">Imibare yatanzwe siyo</string>
   <string name="encryption_error_message">Ifishi ntiyigeze yemezwa yuko yarangiye 1%s</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
-  <string name="bad_uri">Link uriho siyo: %s</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
-  <string name="unrecognized_uri">Link uriho ntibashije kuboneka %s</string>
+  <!--Displayed when an attempt is made to start form filling, but the form is broken-->
   <!--Text displayed when audio recording fails to start-->
   <string name="start_recording_failed">Kurikodinga byanze</string>
   <!--Text displayed when user tries to start recording while the mic is already in use-->
@@ -132,8 +129,6 @@
   <string name="answer_file_copy_failed_message">Aya makuru ntashoboye gushyirwa mu ifishi ariko ushobora kuyasanga 1%1$s </string>
   <!--Text displayed in the audio bar when background audio recording is explicitly disabled from the options menu. Should be as short as possible. The inserted string is ⋮ which indicates the options menu.-->
   <string name="recording_disabled">Gufata amajwi byahagaritse. biraza gukunda muri 1%s</string>
-  <!--Error displayed when opened filled form has been deleted on disk-->
-  <string name="instance_deleted_message">Inyandiko shingiro yujujwe yarasibwe.</string>
   <!--Error displayed when something bad happens during updating widgets in a field-list group-->
   <string name="update_widgets_error">Habaye ikosa mw\'ivugurura ry\'indangagaciro. Ibi ubusanzwe biterwa no kuba habayeimibarire idakwiye mu kubaka i fishi.\n\n
 N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</string>
@@ -146,8 +141,6 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
   <string name="no_app">Ibyo mwasabye ntibiboneka. Nimubyandikemo bisanzwe</string>
   <string name="null_intent_value">Ntabwo habashije kuboneka amakuru mwifuzaga </string>
   <!--Text on button that is part of print questions. Tapping the button prints the value of the question.-->
-  <string name="launch_printer">Tangira Gucapa</string>
-  <string name="no_printer">Imashini icapa wahisemo ntiwemerewe kuyikoresha aka kanya. yinsitare ubone kuyikoresha</string>
   <string name="open_url">Fungura Url</string>
   <string name="capture_osm">Tangiza OpenMapKit </string>
   <string name="recapture_osm">Subiramo ibyagaragajwe kuri OSM.</string>
@@ -305,6 +298,18 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
   <string name="persian_month_10">Dey</string>
   <string name="persian_month_11">Bahman</string>
   <string name="persian_month_12">Esfand</string>
+  <!--1st month in the Buddhist calendar-->
+  <!--2nd month in the Buddhist calendar-->
+  <!--3rd month in the Buddhist calendar-->
+  <!--4th month in the Buddhist calendar-->
+  <!--5th month in the Buddhist calendar-->
+  <!--6th month in the Buddhist calendar-->
+  <!--7th month in the Buddhist calendar-->
+  <!--8th month in the Buddhist calendar-->
+  <!--9th month in the Buddhist calendar-->
+  <!--10th month in the Buddhist calendar-->
+  <!--11th month in the Buddhist calendar-->
+  <!--12th month in the Buddhist calendar-->
   <!--Displays dates in specialized calendars with the Gregorian dates in parentheses. This is translated so right-to-left languages can specify the correct order-->
   <string name="custom_date">\"1%1$s\" (\"2%2$s\")</string>
   <!--Displayed when a form media file such as an image for a question label or an audio file for a choice is invalid-->
@@ -401,7 +406,7 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
   <string name="geotrace_title">Ibimenyetso biranga ahantu.</string>
   <string name="gps_enable_message">GPS irafunze kuri tabuleti yawe. urifuza kuyifungura?</string>
   <string name="geo_clear_warning">Byamaze gutungana. Murifuza kubisiba? </string>
-  <string name="geo_exit_warning">Siba ibyari byamaze guhindurwa ubundi usubire kuri porogaramu ya KoboToolbox</string>
+  <string name="geo_exit_warning">Siba ibyari byamaze guhindurwa ubundi usubire kuri porogaramu ya ODK</string>
   <string name="polygon_validator">Bigomba kuba bifite byibuze ibintu 3 kugirango bikore Polygon </string>
   <string name="polyline_validator">Bigomba kugira ibintu byibuze 2 kugirango bikore Polyline </string>
   <string name="clear">Siba </string>
@@ -550,9 +555,9 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Mwihangane URL ntabwo ariyo</string>
   <string name="username">Izina ry\'uyikoresha.</string>
-  <string name="change_username">Izina ry\'ukoresha KoboToolbox</string>
+  <string name="change_username">Izina ry\'ukoresha ODK</string>
   <string name="password">Umubarebanga cyangwa se Ijambobanga</string>
-  <string name="change_password">Ijambo banga rya KoboToolbox</string>
+  <string name="change_password">Ijambo banga rya ODK</string>
   <string name="password_error_whitespace">Mu ijambobanga ahantu hariho ubusa ntibyemewe </string>
   <string name="username_error_whitespace">Kuzuza ahantu hariho ubusa ntabwo byemewe mu izina ugomba gukoresha </string>
   <string name="app_theme">Isanganyamatsiko</string>
@@ -636,7 +641,7 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
   <string name="instance_sync_summary">Shyiraho akamenyetso bwangu kunyandiko shingiro kuri urwo rukurikirane mbumbe rw\'amakuru.</string>
   <string name="analytics_preferences">Ingano ya interineti yakoreshejwe</string>
   <string name="analytics">Kusanya amakuru yo gukoresha atazwi</string>
-  <string name="analytics_summary">Amakuru yo gukoresha atazwi afasha itsinda rya KoboToolbox gushyira imbere gukosora </string>
+  <string name="analytics_summary">Amakuru yo gukoresha atazwi afasha itsinda rya ODK gushyira imbere gukosora </string>
   <string name="form_metadata_title">Inyandiko shingiro mbumbe y\'urukurikirane rw\'amakuru yatanzwe.</string>
   <string name="form_metadata">Inyandiko shingiro mbumbe y\'urukurikirane rw\'amakuru yatanzwe.</string>
   <string name="form_metadata_summary">Ako gaciro kose kongerwa ku nyandiko shingiro gafite izina rikoresha, email na/ cg telefone yinjijwe kare igaragaza umuntu wohereje amakuru.</string>
@@ -650,6 +655,7 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
   <string name="preference_not_available">Ntabwo bihari </string>
   <!--Label for an item displayed in the project settings menu to unlock settings-->
   <!--Label for an item displayed in the project settings menu to indicate that settings are unlocked-->
+  <!--Summary on setting that's currently not available because the user has entered settings from form entry-->
   <!--##############################################
      # PROTECTED SETTINGS
      ##############################################-->
@@ -696,14 +702,14 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Kuri</string>
-  <string name="tell_your_friends">Gusangiza KoboCollect</string>
-  <string name="tell_your_friends_msg">Abo mukorana baracyakusanyiriza amakuru mu mpapuro? Bahe KoboToolbox collect</string>
+  <string name="tell_your_friends">Gusangiza ODK Collect</string>
+  <string name="tell_your_friends_msg">Abo mukorana baracyakusanyiriza amakuru mu mpapuro? Bahe ODK collect</string>
   <string name="leave_a_review">Tanga igitekerezo cyawe muri play store</string>
   <string name="leave_a_review_msg">Igitekerezo cyawe(twizera cyiza) kiratuma application irushaho kugaragara cyane muri Play Store</string>
-  <string name="odk_website">Sura urubuga rwa KoboToolbox</string>
-  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
-  <string name="odk_forum">Itabire ihuriro ry\'abakoresha KoboToolbox</string>
-  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
+  <string name="odk_website">Sura urubuga rwa ODK</string>
+  <string name="odk_website_summary">ODK ikoreshwa mugukusanya amakuru kubwimibereho myiza mubidukikije bifite ibibazo.</string>
+  <string name="odk_forum">Itabire ihuriro ry\'abakoresha ODK</string>
+  <string name="odk_forum_summary">Injira ihuriro kugirango ubone ubufasha, gusaba ibiranga, gutanga umusanzu / ibisobanuro!</string>
   <string name="all_open_source_licenses">Gufungura amasomero yisoko / impushya</string>
   <string name="all_open_source_licenses_msg">Duhagaze ku bitugu by\'ibihangange!</string>
   <!--##############################################
@@ -747,9 +753,7 @@ N\'ukomea guhura n\'iki kibazo, wakigeza kuwa gusabye gukusanya  amakuru.</strin
   <string name="fs_create_media_folder_error">Ntabubiko mbumbe bubasha gukorwa \' %s \'.</string>
   <string name="fs_file_copy_error">Wikora copy ya %1$s kuri %2$s .
 Impamvu: %3$s</string>
-  <string name="survey_multiple_forms_error">Wa downloadinze form 2 zitandukanye ariko zihuje amakuru.
-Birashoboka ko ari zimwe zashyizwemo mubihe bitandukanye cgw ziturutse ahatandukanye. Nimba ariko bimeze, siba imwe.</string>
-  <string name="select_odk_shortcut">Hitamo inzira z\'ubusamo za KoboToolbox</string>
+  <string name="select_odk_shortcut">Hitamo inzira z\'ubusamo za ODK</string>
   <string name="background_audio_help">Iyi fomu yandika amajwi ya mikoro yigikoresho cyawe. \ n\n Ushobora gukoresha igipimo cyerekana amajwi kugirango umenye neza ko mikoro yegeranye bihagije nijwi ukeneye gufata amajwi. n\n\ Guhagarika gufata amajwi nyamuneka sohoka muri iyi fomu.n\n\ Kubindi bisobanuro nyamuneka hamagara umuntu wagusabye gukusanya amakuru.</string>
   <!--##############################################
      # Projects
@@ -793,20 +797,33 @@ Birashoboka ko ari zimwe zashyizwemo mubihe bitandukanye cgw ziturutse ahatanduk
   <!--Preceded by "Don't have a project yet?" question-->
   <string name="try_demo">Gerageza kubyerekana</string>
   <string name="scan_configuration_qr_code">Umubarendangabanga wemejwe kuri QR</string>
-  <!--Error shown when a user tries to open a form that's in a different project-->
-  <!--Error shown when a user tries to open a form when there are no projects-->
   <!--##############################################
     # Errors
     ##############################################-->
+  <!--##############################################
+    # Form opening errors
+    ##############################################-->
+  <!--Error shown when a user tries to open a form that's in a different project-->
+  <!--Error shown when a user tries to open a form when there are no projects-->
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
+  <string name="unrecognized_uri">Link uriho ntibashije kuboneka %s</string>
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
+  <string name="bad_uri">Link uriho siyo: %s</string>
+  <!--Error displayed when opened filled form has been deleted on disk-->
+  <string name="instance_deleted_message">Inyandiko shingiro yujujwe yarasibwe.</string>
+  <!--Error shown when a user tries to edit a form but there is no corresponding blank form-->
+  <!--Error shown when a user tries to open a form but there is more than one form with the same form ID-->
+  <string name="survey_multiple_forms_error">Wa downloadinze form 2 zitandukanye ariko zihuje amakuru.
+Birashoboka ko ari zimwe zashyizwemo mubihe bitandukanye cgw ziturutse ahatandukanye. Nimba ariko bimeze, siba imwe.</string>
+  <!--Error shown when a user tries to open a form when forms update is being applied in the background-->
   <!--##############################################
     # Permissions
     ##############################################-->
   <!--An entity is any person, place or thing that a form can be about. This title appears on an experimental settings screen to view entities managed in the current project.-->
   <!--Title for setting that controls whether local entity features are enabled or not-->
   <!--Text for button that leads to browser for the user to view and manage entity lists-->
-  <!--Text for button that deletes all entities for the project-->
-  <!--Text for button that adds a new entity list-->
   <!--Label for entity that has been created offline and is not on the server yet-->
+  <!--Error message displayed when a user opens a form with an unrecognized entity version-->
   <!--##############################################
     # Crash handling
     ##############################################-->
@@ -818,7 +835,7 @@ Birashoboka ko ari zimwe zashyizwemo mubihe bitandukanye cgw ziturutse ahatanduk
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

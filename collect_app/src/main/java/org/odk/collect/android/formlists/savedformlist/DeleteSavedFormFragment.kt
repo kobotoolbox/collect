@@ -36,12 +36,13 @@ class DeleteSavedFormFragment(
     private val multiSelectViewModel: MultiSelectViewModel<Instance> by viewModels {
         MultiSelectViewModel.Factory(
             savedFormListViewModel.formsToDisplay.map {
-                it.map { instance ->
-                    SelectItem(
-                        instance.dbId.toString(),
-                        instance
-                    )
-                }
+                it.filter { instance -> instance.canDelete() }
+                    .map { instance ->
+                        SelectItem(
+                            instance.dbId.toString(),
+                            instance
+                        )
+                    }
             }
         )
     }

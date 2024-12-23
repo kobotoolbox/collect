@@ -49,7 +49,7 @@
   <string name="storage_runtime_permission_denied_title">Dovoljenja za shranjevanje</string>
   <string name="storage_runtime_permission_denied_desc">Brez teh dovoljenj, Collect ne more dostopati do vaših obrazcev ali shraniti odgovorov. Aplikacijo znova odprite, ko ste jih pripravljeni odobriti.</string>
   <string name="location_runtime_permissions_denied_title">Dovoljenja za dostop do lokacije</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
   <string name="location_runtime_permissions_denied_desc">Brez dovoljenja za <b> lokacijo</b> Collect ne more zabeležiti vaše lokacije. Prosimo, poskusite znova, ko boste pripravljeni, da ga odobrite.</string>
   <string name="camera_runtime_permission_denied_title">Dovoljenje za fotoaparat</string>
   <string name="camera_runtime_permission_denied_desc">Brez tega dovoljenja Collect ne more dostopati do fotoaparata. Prosimo, poskusite znova, ko ste pripravljeni odobriti.</string>
@@ -69,7 +69,6 @@
   <string name="survey_loading_reading_csv_message">Berem CSV datoteke…</string>
   <string name="parse_error">Napaka, ne morem opredeliti obrazca.</string>
   <string name="loading_form_failed">Pri nalaganju obrazca je prišlo do napake. Prosimo, poizkusite ponovno.</string>
-  <string name="parent_form_not_present">Osnutek ni na voljo za urejanje, saj ni prisotnega osnovnega praznega obrazca ali pa je bil izbrisan.\n\nForm ID: %1$s</string>
   <string name="cannot_edit_completed_form">Obrazca ni moč popravljati ko je bil zaključen. Lahko pa ga šifrirate.</string>
   <!--Displayed when loading a form if that form was previously filled but closed because of a crash or system failure-->
   <string name="savepoint_used">Neshranjene spremembe vrnjene na shranjeno točko.</string>
@@ -150,10 +149,7 @@
   <string name="phone_does_not_support_rsa">Telefon ne podpira RSA šifriranja.</string>
   <string name="invalid_rsa_public_key">Neveljaven RSA javni ključ.</string>
   <string name="encryption_error_message">Obrazec %s ni bil shranjen kot dokončan.</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
-  <string name="bad_uri">Nedelujoč URI: %s</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
-  <string name="unrecognized_uri">Neprepoznan URI: %s</string>
+  <!--Displayed when an attempt is made to start form filling, but the form is broken-->
   <!--Text displayed when audio recording fails to start-->
   <string name="start_recording_failed">Začetek snemanja zvoka neuspešen.</string>
   <!--Text displayed when user tries to start recording while the mic is already in use-->
@@ -162,8 +158,6 @@
   <string name="answer_file_copy_failed_message">Medijske datoteke ni mogoče priložiti obrazcu, vendar je na voljo na %1$s.</string>
   <!--Text displayed in the audio bar when background audio recording is explicitly disabled from the options menu. Should be as short as possible. The inserted string is ⋮ which indicates the options menu.-->
   <string name="recording_disabled">Snemanje zvoka onemogočeno. Omogoči v %s</string>
-  <!--Error displayed when opened filled form has been deleted on disk-->
-  <string name="instance_deleted_message">Izpolnjen obrazec je bil izbrisan!</string>
   <!--Error displayed when something bad happens during updating widgets in a field-list group-->
   <string name="update_widgets_error">Napaka pri posodabljanju vrednosti. To je običajno posledica napačne uporabe izračunov v oblikovanju obrazca.\n\nČe se ta težava še naprej pojavlja, jo sporočite osebi, ki vas je prosila, da zbirate podatke.</string>
   <!--##############################################
@@ -176,8 +170,6 @@
   <string name="null_intent_value">Zunanja aplikacija ni zagotovila pričakovanih informacij.</string>
   <!--Text on button that is part of print questions. Tapping the button prints the value of the question.-->
   <string name="print">Tisk</string>
-  <string name="launch_printer">Zaženi tiskanje</string>
-  <string name="no_printer">Želen tiskalnik ni nameščen. Namesti tiskalnik.</string>
   <string name="open_url">Odpri URL</string>
   <string name="capture_osm">Zaženi OpenMapKit</string>
   <string name="recapture_osm">Ponovi OSM označevanje</string>
@@ -340,6 +332,18 @@
   <string name="persian_month_10">Dey</string>
   <string name="persian_month_11">Bahman</string>
   <string name="persian_month_12">Esfand</string>
+  <!--1st month in the Buddhist calendar-->
+  <!--2nd month in the Buddhist calendar-->
+  <!--3rd month in the Buddhist calendar-->
+  <!--4th month in the Buddhist calendar-->
+  <!--5th month in the Buddhist calendar-->
+  <!--6th month in the Buddhist calendar-->
+  <!--7th month in the Buddhist calendar-->
+  <!--8th month in the Buddhist calendar-->
+  <!--9th month in the Buddhist calendar-->
+  <!--10th month in the Buddhist calendar-->
+  <!--11th month in the Buddhist calendar-->
+  <!--12th month in the Buddhist calendar-->
   <!--Displays dates in specialized calendars with the Gregorian dates in parentheses. This is translated so right-to-left languages can specify the correct order-->
   <string name="custom_date">%1$s (%2$s)</string>
   <!--Displayed when a form media file such as an image for a question label or an audio file for a choice is invalid-->
@@ -451,7 +455,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS v napravi je onemogočen. Želite omogočiti?</string>
   <string name="geo_clear_warning">Funkcija je že narejena. Želite izbrisati funkcijo?</string>
-  <string name="geo_exit_warning">Želite zavreči spremembe in se vrniti v KoboToolbox?</string>
+  <string name="geo_exit_warning">Želite zavreči spremembe in se vrniti v ODK?</string>
   <string name="polygon_validator">Potrebne so vsaj 3 točke za ustvarjenje poligona</string>
   <string name="polyline_validator">Potrebne so vsaj 2 točki za polilinijo</string>
   <string name="clear">Počisti</string>
@@ -639,7 +643,7 @@
   <string name="change_server_url">Strežnik URL</string>
   <string name="url_error">Napaka, neveljaven URL!</string>
   <string name="username">Uporabniško ime</string>
-  <string name="change_username">KoboToolbox uporabniško ime</string>
+  <string name="change_username">ODK uporabniško ime</string>
   <string name="password">Geslo</string>
   <string name="change_password">ODk geslo</string>
   <string name="password_error_whitespace">Presledki na začetku ali na koncu gesla niso dovoljeni</string>
@@ -726,7 +730,7 @@
   <string name="instance_sync_summary">Vpliva na obrazce, dodane neposredno v mapo.</string>
   <string name="analytics_preferences">Podatki o uporabi</string>
   <string name="analytics">Zberi anonimne podatke o uporabi</string>
-  <string name="analytics_summary">Anonimni podatki o uporabi pomagajo KoboToolbox ekipi določiti prednost popravkov in funkcij.</string>
+  <string name="analytics_summary">Anonimni podatki o uporabi pomagajo ODK ekipi določiti prednost popravkov in funkcij.</string>
   <string name="form_metadata_title">Metapodatki obrazca</string>
   <string name="form_metadata">Metapodatki obrazca</string>
   <string name="form_metadata_summary">Vrednosti bodo dodane obrazcem, ki imajo uporabnisko ime, email ali telefonsko stevilko …</string>
@@ -742,6 +746,7 @@
   <string name="unlock_settings">Odkleni nastavitve</string>
   <!--Label for an item displayed in the project settings menu to indicate that settings are unlocked-->
   <string name="settings_unlocked">Nastavitve odklenjene</string>
+  <!--Summary on setting that's currently not available because the user has entered settings from form entry-->
   <!--##############################################
      # PROTECTED SETTINGS
      ##############################################-->
@@ -798,14 +803,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">O nas</string>
-  <string name="tell_your_friends">Delite KoboCollect.</string>
-  <string name="tell_your_friends_msg">Ali vaši kolegi še vedno zbirajo podatke na papirju? Delite KoboCollect z njimi.</string>
+  <string name="tell_your_friends">Delite ODK Collect.</string>
+  <string name="tell_your_friends_msg">Ali vaši kolegi še vedno zbirajo podatke na papirju? Delite ODK Collect z njimi.</string>
   <string name="leave_a_review">Oceni aplikacijo v Play Store.</string>
   <string name="leave_a_review_msg">Vaša (upajmo pozitivna) ocena poveča vidnost aplikacije v Play Store.</string>
-  <string name="odk_website">Obiščite spletno stran KoboToolbox.</string>
-  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
-  <string name="odk_forum">Pridružite se KoboToolbox forumu</string>
-  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
+  <string name="odk_website">Obiščite spletno stran ODK.</string>
+  <string name="odk_website_summary">ODK se uporablja za zbiranje podatkov za družbeno dobro v zahtevnih okoljih.</string>
+  <string name="odk_forum">Pridružite se ODK forumu</string>
+  <string name="odk_forum_summary">Pridružite se forumu, da dobite podporo, izrazite podporo novim funkcijam in sodelujete pri programiranju ali prevodih!</string>
   <string name="all_open_source_licenses">Odprtokodne knjižnice/licence</string>
   <string name="all_open_source_licenses_msg">Stojimo na ramenih velikanov!</string>
   <!--##############################################
@@ -852,8 +857,7 @@
   <string name="fs_delete_media_path_if_file_error">Ne morem izbrisati\'%s\'. Izbriši datoteko ročno in ponovno naloži obrazec.</string>
   <string name="fs_create_media_folder_error">Ne morem ustvariti medijsko mapo \'%s\'.</string>
   <string name="fs_file_copy_error">Ne morem kopirat \'%1$s\' preko \'%2$s\'. Razlog: %3$s.</string>
-  <string name="survey_multiple_forms_error">Naložili ste dva različna obrazca z istim ID obrazca in verzijo. Izbrišite enega od obeh.</string>
-  <string name="select_odk_shortcut">Izberite bližnjico za dostop do KoboToolbox</string>
+  <string name="select_odk_shortcut">Izberite bližnjico za dostop do ODK</string>
   <string name="background_audio_help">Ta obrazec snema zvok preko mikrofona vaše naprave.\n\nZa zagotovitev, da je mikrofon dovolj blizu zvoku, ki ga želite posneti, lahko uporabite kazalnik glasnosti.\n\nZa ustavitev snemanja zapustite ta obrazec.\n\nZa več informacij se obrnite na osebo, ki vas je prosila za zbiranje podatkov.</string>
   <string name="loading">Nalaganje …</string>
   <!--##############################################
@@ -905,26 +909,38 @@
   <!--Preceded by "Don't have a project yet?" question-->
   <string name="try_demo">Poskusite demo.</string>
   <string name="scan_configuration_qr_code">Skenirajte konfiguracijsko QR kodo</string>
-  <!--Error shown when a user tries to open a form that's in a different project-->
-  <string name="wrong_project_selected_for_form">Za odprtje tega obrazca morate najprej odpreti KoboCollect in preklopiti na projekt, ki ga vsebuje.</string>
-  <!--Error shown when a user tries to open a form when there are no projects-->
-  <string name="app_not_configured">KoboCollect ni bil pravilno konfiguriran. Poskusite odpreti KoboCollect in ga konfigurirati.\n\nČe ste tapnili na bližnjico, jo boste morda morali ponovno ustvariti po konfiguriranju KoboCollect.</string>
   <!--##############################################
     # Errors
     ##############################################-->
   <string name="show_details">Pokaži podrobnosti</string>
   <string name="errors">Napake</string>
   <!--##############################################
+    # Form opening errors
+    ##############################################-->
+  <!--Error shown when a user tries to open a form that's in a different project-->
+  <string name="wrong_project_selected_for_form">Za odprtje tega obrazca morate najprej odpreti ODK Collect in preklopiti na projekt, ki ga vsebuje.</string>
+  <!--Error shown when a user tries to open a form when there are no projects-->
+  <string name="app_not_configured">ODK Collect ni bil pravilno konfiguriran. Poskusite odpreti ODK Collect in ga konfigurirati.\n\nČe ste tapnili na bližnjico, jo boste morda morali ponovno ustvariti po konfiguriranju ODK Collect.</string>
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
+  <string name="unrecognized_uri">Neprepoznan URI: %s</string>
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
+  <string name="bad_uri">Nedelujoč URI: %s</string>
+  <!--Error displayed when opened filled form has been deleted on disk-->
+  <string name="instance_deleted_message">Izpolnjen obrazec je bil izbrisan!</string>
+  <!--Error shown when a user tries to edit a form but there is no corresponding blank form-->
+  <string name="parent_form_not_present">Osnutek ni na voljo za urejanje, saj ni prisotnega osnovnega praznega obrazca ali pa je bil izbrisan.\n\nForm ID: %1$s</string>
+  <!--Error shown when a user tries to open a form but there is more than one form with the same form ID-->
+  <string name="survey_multiple_forms_error">Naložili ste dva različna obrazca z istim ID obrazca in verzijo. Izbrišite enega od obeh.</string>
+  <!--Error shown when a user tries to open a form when forms update is being applied in the background-->
+  <!--##############################################
     # Permissions
     ##############################################-->
   <string name="open_settings">Odpri nastavitve</string>
   <!--An entity is any person, place or thing that a form can be about. This title appears on an experimental settings screen to view entities managed in the current project.-->
-  <string name="entities_title">Entitete</string>
   <!--Title for setting that controls whether local entity features are enabled or not-->
   <!--Text for button that leads to browser for the user to view and manage entity lists-->
-  <!--Text for button that deletes all entities for the project-->
-  <!--Text for button that adds a new entity list-->
   <!--Label for entity that has been created offline and is not on the server yet-->
+  <!--Error message displayed when a user opens a form with an unrecognized entity version-->
   <!--##############################################
     # Crash handling
     ##############################################-->
@@ -942,10 +958,10 @@
   <string name="dev_tools">Razvijalska orodja</string>
   <!--Option provided in the Developer tools settings to force an application crash-->
   <string name="crash_app">Prisilno zaustavi aplikacijo</string>
-  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
   <string name="crash_app_summary">Neujeta napaka zaustavila aplikacijo</string>
   <string name="permission_dialog_title">O dovoljenjih</string>
-  <string name="permission_dialog_text">Če želite dovoliti dostop KoboCollect do spodaj navedenih funkcij, izberite \"dovoli\", če jih želite uporabljati.</string>
+  <string name="permission_dialog_text">Če želite dovoliti dostop ODK Collect do spodaj navedenih funkcij, izberite \"dovoli\", če jih želite uporabljati.</string>
   <string name="notifications">Obvestila</string>
   <string name="required_for_notifications">Potrebno za prikaz posodobitev, ko se obrazci prenesejo, posodobijo in pošljejo.</string>
   <!--##############################################

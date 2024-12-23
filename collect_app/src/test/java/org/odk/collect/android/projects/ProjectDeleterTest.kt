@@ -24,7 +24,7 @@ import org.odk.collect.settings.keys.MetaKeys
 import org.odk.collect.settings.keys.ProjectKeys
 import org.odk.collect.settings.keys.ProtectedProjectKeys
 import org.odk.collect.shared.TempFiles
-import org.odk.collect.testshared.BooleanChangeLock
+import org.odk.collect.shared.locks.BooleanChangeLock
 import java.io.File
 
 class ProjectDeleterTest {
@@ -34,7 +34,7 @@ class ProjectDeleterTest {
     }
     private val instancesRepository = InMemInstancesRepository()
     private val instancesRepositoryProvider = mock<InstancesRepositoryProvider>().apply {
-        whenever(get(project1.uuid)).thenReturn(instancesRepository)
+        whenever(create(project1.uuid)).thenReturn(instancesRepository)
     }
     private val settingsProvider = InMemSettingsProvider()
     private val projectsDataService = ProjectsDataService(settingsProvider, projectsRepository, mock(), mock())
@@ -257,7 +257,7 @@ class ProjectDeleterTest {
         val project2 = Project.Saved("2", "2", "2", "#cccccc")
         projectsRepository.save(project2)
         projectsDataService.setCurrentProject(project2.uuid)
-        whenever(instancesRepositoryProvider.get(project2.uuid)).thenReturn(instancesRepository)
+        whenever(instancesRepositoryProvider.create(project2.uuid)).thenReturn(instancesRepository)
         whenever(storagePathProvider.getProjectRootDirPath(project2.uuid)).thenReturn("")
 
         val result = deleter.deleteProject()

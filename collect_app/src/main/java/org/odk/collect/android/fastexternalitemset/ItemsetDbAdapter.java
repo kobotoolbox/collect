@@ -1,6 +1,6 @@
 package org.odk.collect.android.fastexternalitemset;
 
-import static org.odk.collect.androidshared.utils.PathUtils.getAbsoluteFilePath;
+import static org.odk.collect.shared.PathUtils.getAbsoluteFilePath;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import org.odk.collect.android.application.Collect;
-import org.odk.collect.android.database.AltDatabasePathContext;
+import org.odk.collect.db.sqlite.AltDatabasePathContext;
 import org.odk.collect.android.storage.StoragePathProvider;
 import org.odk.collect.android.storage.StorageSubdirectory;
 import org.odk.collect.shared.PathUtils;

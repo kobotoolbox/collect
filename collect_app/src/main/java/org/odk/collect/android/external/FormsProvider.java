@@ -202,7 +202,7 @@ public class FormsProvider extends ContentProvider {
         logServerEvent(projectId, AnalyticsEvents.FORMS_PROVIDER_DELETE);
 
         FormsRepository formsRepository = getFormsRepository(projectId);
-        InstancesRepository instancesRepository = instancesRepositoryProvider.get(projectId);
+        InstancesRepository instancesRepository = instancesRepositoryProvider.create(projectId);
 
         switch (URI_MATCHER.match(uri)) {
             case FORMS:
@@ -235,7 +235,7 @@ public class FormsProvider extends ContentProvider {
 
     @NotNull
     private FormsRepository getFormsRepository(String projectId) {
-        return formsRepositoryProvider.get(projectId);
+        return formsRepositoryProvider.create(projectId);
     }
 
     private String getProjectId(@NonNull Uri uri) {

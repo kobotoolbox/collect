@@ -152,7 +152,7 @@ public class FormsProviderTest {
         Uri uri = addFormsToDirAndDb(firstProjectId, "external_app_form", "External app form", "1");
 
         try (Cursor cursor = contentResolver.query(uri, null, null, null, null)) {
-            assertThat(cursor.getColumnCount(), is(18));
+            assertThat(cursor.getColumnCount(), is(19));
         }
     }
 
@@ -238,7 +238,7 @@ public class FormsProviderTest {
         File formFile = addFormToFormsDir(projectId, id, version, name);
 
         FormsRepositoryProvider formsRepositoryProvider = component.formsRepositoryProvider();
-        FormsRepository formsRepository = formsRepositoryProvider.get(projectId);
+        FormsRepository formsRepository = formsRepositoryProvider.create(projectId);
         Form form = formsRepository.save(
                 new Form.Builder()
                         .formId(id)

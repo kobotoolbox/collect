@@ -35,6 +35,9 @@ import org.odk.collect.android.listeners.AdvanceToNextListener;
 import org.odk.collect.android.storage.StoragePathProvider;
 import org.odk.collect.android.utilities.Appearances;
 import org.odk.collect.android.utilities.QuestionMediaManager;
+import org.odk.collect.android.widgets.datetime.DateTimeWidget;
+import org.odk.collect.android.widgets.datetime.DateWidget;
+import org.odk.collect.android.widgets.datetime.TimeWidget;
 import org.odk.collect.android.widgets.items.LabelWidget;
 import org.odk.collect.android.widgets.items.LikertWidget;
 import org.odk.collect.android.widgets.items.ListMultiWidget;
@@ -153,7 +156,9 @@ public class WidgetFactory {
                         }
                         break;
                     case Constants.DATATYPE_INTEGER:
-                        if (appearance.contains(Appearances.EX)) {
+                        if (appearance.equals(Appearances.COUNTER)) {
+                            questionWidget = new CounterWidget(activity, questionDetails);
+                        } else if (appearance.contains(Appearances.EX)) {
                             questionWidget = new ExIntegerWidget(activity, questionDetails, waitingForDataRegistry, stringRequester);
                         } else {
                             questionWidget = new IntegerWidget(activity, questionDetails);
@@ -185,8 +190,6 @@ public class WidgetFactory {
                             questionWidget = getSelectOneWidget(appearance, questionDetails);
                         } else if (appearance.equals(Appearances.PRINTER)) {
                             questionWidget = new PrinterWidget(activity, questionDetails, printerWidgetViewModel, questionMediaManager);
-                        } else if (appearance.startsWith(Appearances.PRINTER)) {
-                            questionWidget = new ExPrinterWidget(activity, questionDetails, waitingForDataRegistry);
                         } else if (appearance.contains(Appearances.EX)) {
                             questionWidget = new ExStringWidget(activity, questionDetails, waitingForDataRegistry, stringRequester);
                         } else if (appearance.contains(Appearances.NUMBERS)) {

@@ -56,10 +56,11 @@ import org.odk.collect.android.utilities.EncryptionUtils.EncryptedFormInformatio
 import org.odk.collect.android.utilities.FileUtils;
 import org.odk.collect.android.utilities.FormsRepositoryProvider;
 import org.odk.collect.android.utilities.MediaUtils;
-import org.odk.collect.entities.EntitiesRepository;
+import org.odk.collect.entities.storage.EntitiesRepository;
 import org.odk.collect.forms.Form;
 import org.odk.collect.forms.instances.Instance;
 import org.odk.collect.forms.instances.InstancesRepository;
+import org.odk.collect.shared.files.FileExt;
 
 import java.io.File;
 import java.io.IOException;
@@ -127,7 +128,8 @@ public class SaveFormToDisk {
         }
 
         if (shouldFinalize) {
-            FormEntryUseCases.finalizeFormController(formController, entitiesRepository);
+            Instance instance = updateInstanceDatabase(true, true, validationResult);
+            FormEntryUseCases.finalizeFormController(instance, formController, instancesRepository, entitiesRepository);
         }
 
         // close all open databases of external data.
@@ -217,7 +219,7 @@ public class SaveFormToDisk {
             uri = InstancesContract.getUri(currentProjectId, newInstance.getDbId());
         } else {
             Timber.i("No instance found, creating");
-            Form form = new FormsRepositoryProvider(Collect.getInstance()).get().get(ContentUriHelper.getIdFromUri(uri));
+            Form form = new FormsRepositoryProvider(Collect.getInstance()).create().get(ContentUriHelper.getIdFromUri(uri));
 
             // add missing fields into values
             instanceBuilder.instanceFilePath(instancePath);
@@ -332,19 +334,17 @@ public class SaveFormToDisk {
 
         ByteArrayPayload payload = formController.getFilledInFormXml();
         // write out xml
-        String instancePath = formController.getInstanceFile().getAbsolutePath();
-
         for (String fileName : tempFiles) {
             mediaUtils.deleteMediaFile(fileName);
         }
 
         progressListener.onProgressUpdate(getLocalizedString(Collect.getInstance(), org.odk.collect.strings.R.string.survey_saving_saving_message));
 
-        writeFile(payload, instancePath);
+        writeFile(payload, formController.getInstanceFile());
 
         // Write last-saved instance
         String lastSavedPath = formController.getLastSavedPath();
-        writeFile(payload, lastSavedPath);
+        writeFile(payload, new File(lastSavedPath));
 
         // update the uri. We have exported the reloadable instance, so update status...
         // Since we saved a reloadable instance, it is flagged as re-openable so that if any error
@@ -372,7 +372,7 @@ public class SaveFormToDisk {
             progressListener.onProgressUpdate(
                     getLocalizedString(Collect.getInstance(), org.odk.collect.strings.R.string.survey_saving_finalizing_message));
 
-            writeFile(payload, submissionXml.getAbsolutePath());
+            writeFile(payload, submissionXml);
 
             // see if the form is encrypted and we can encrypt it...
             EncryptedFormInformation formInfo = EncryptionUtils.getEncryptedFormInformation(uri, formController.getSubmissionMetadata());
@@ -447,7 +447,7 @@ public class SaveFormToDisk {
      * that the instance with the given uri is an instance of.
      */
     private static String getGeometryXpathForInstance(Instance instance) {
-        Form form = new FormsRepositoryProvider(Collect.getInstance()).get().getLatestByFormIdAndVersion(instance.getFormId(), instance.getFormVersion());
+        Form form = new FormsRepositoryProvider(Collect.getInstance()).create().getLatestByFormIdAndVersion(instance.getFormId(), instance.getFormVersion());
         if (form != null) {
             return form.getGeometryXpath();
         } else {
@@ -485,7 +485,7 @@ public class SaveFormToDisk {
     /**
      * Writes payload contents to the disk.
      */
-    public static void writeFile(ByteArrayPayload payload, String path) throws IOException {
-        org.odk.collect.shared.files.FileUtils.saveToFile(payload.getPayloadStream(), path);
+    public static void writeFile(ByteArrayPayload payload, File file) throws IOException {
+        FileExt.saveToFile(file, payload.getPayloadStream());
     }
 }

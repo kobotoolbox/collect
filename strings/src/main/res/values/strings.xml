@@ -63,7 +63,7 @@
     <string name="storage_runtime_permission_denied_title">Storage permissions</string>
     <string name="storage_runtime_permission_denied_desc">Without these permissions Collect can\'t access your forms or save answers. Reopen the app when you are ready to grant them.</string>
     <string name="location_runtime_permissions_denied_title">Location permissions</string>
-    <!-- Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted. -->
+    <!-- Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted. -->
     <string name="location_runtime_permissions_denied_desc">Without the <b>Precise Location</b> permission Collect can\'t record your location. Please try again when you are ready to grant it.</string>
     <string name="camera_runtime_permission_denied_title">Camera permission</string>
     <string name="camera_runtime_permission_denied_desc">Without this permission Collect can\'t access the camera. Please try again when you are ready to grant it.</string>
@@ -87,7 +87,6 @@
     <string name="survey_loading_reading_csv_message">Reading CSV files…</string>
     <string name="parse_error">Sorry, unable to parse form.</string>
     <string name="loading_form_failed">An error occurred while loading the form. Please try again.</string>
-    <string name="parent_form_not_present">Unable to edit this draft because the corresponding blank form is not present or was deleted.\n\nForm ID: %1$s</string>
     <string name="cannot_edit_completed_form">This form cannot be edited once it has been marked as finalized. It may be encrypted.</string>
 
     <!-- Displayed when loading a form if that form was previously filled but closed because of a crash or system failure -->
@@ -184,10 +183,8 @@
     <string name="invalid_rsa_public_key">Invalid RSA public key.</string>
     <string name="encryption_error_message">%s Form has not been saved as finalized.</string>
 
-    <!-- Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect -->
-    <string name="bad_uri">Bad URI: %s</string>
-    <!-- Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown -->
-    <string name="unrecognized_uri">Unrecognized URI: %s</string>
+    <!-- Displayed when an attempt is made to start form filling, but the form is broken -->
+    <string name="form_cannot_be_used">Form can\'t be used</string>
 
     <!-- Text displayed when audio recording fails to start -->
     <string name="start_recording_failed">Could not start recording.</string>
@@ -200,9 +197,6 @@
 
     <!-- Text displayed in the audio bar when background audio recording is explicitly disabled from the options menu. Should be as short as possible. The inserted string is ⋮ which indicates the options menu. -->
     <string name="recording_disabled">Recording disabled. Enable in %s</string>
-
-    <!-- Error displayed when opened filled form has been deleted on disk -->
-    <string name="instance_deleted_message">Filled form has been deleted!</string>
 
     <!-- Error displayed when something bad happens during updating widgets in a field-list group -->
     <string name="update_widgets_error">Failure trying to update values. This is generally because of incorrect usage of calculations in the form design.\n\nIf you keep having this problem, report it to the person who asked you to collect data.</string>
@@ -219,8 +213,6 @@
     <string name="null_intent_value">The external application did not provide expected information.</string>
     <!-- Text on button that is part of print questions. Tapping the button prints the value of the question. -->
     <string name="print">Print</string>
-    <string name="launch_printer">Initiate Printing</string>
-    <string name="no_printer">The requested printer is not installed. Please install the printer.</string>
 
     <string name="open_url">Open Url</string>
 
@@ -415,6 +407,32 @@
     <string name="persian_month_10">Dey</string>
     <string name="persian_month_11">Bahman</string>
     <string name="persian_month_12">Esfand</string>
+
+    <!-- 1st month in the Buddhist calendar -->
+    <string name="buddhist_month_1">มกราคม</string>
+    <!-- 2nd month in the Buddhist calendar -->
+    <string name="buddhist_month_2">กุมภาพันธ์</string>
+    <!-- 3rd month in the Buddhist calendar -->
+    <string name="buddhist_month_3">มีนาคม</string>
+    <!-- 4th month in the Buddhist calendar -->
+    <string name="buddhist_month_4">เมษายน</string>
+    <!-- 5th month in the Buddhist calendar -->
+    <string name="buddhist_month_5">พฤษภาคม</string>
+    <!-- 6th month in the Buddhist calendar -->
+    <string name="buddhist_month_6">มิถุนายน</string>
+    <!-- 7th month in the Buddhist calendar -->
+    <string name="buddhist_month_7">กรกฎาคม</string>
+    <!-- 8th month in the Buddhist calendar -->
+    <string name="buddhist_month_8">สิงหาคม</string>
+    <!-- 9th month in the Buddhist calendar -->
+    <string name="buddhist_month_9">กันยายน</string>
+    <!-- 10th month in the Buddhist calendar -->
+    <string name="buddhist_month_10">ตุลาคม</string>
+    <!-- 11th month in the Buddhist calendar -->
+    <string name="buddhist_month_11">พฤศจิกายน</string>
+    <!-- 12th month in the Buddhist calendar -->
+    <string name="buddhist_month_12">ธันวาคม</string>
+
     <!-- Displays dates in specialized calendars with the Gregorian dates in parentheses. This is translated so right-to-left languages can specify the correct order -->
     <string name="custom_date">%1$s (%2$s)</string>
 
@@ -581,7 +599,7 @@
     <string name="geotrace_title">GeoTrace</string>
     <string name="gps_enable_message">GPS is disabled on your device. Would you like to enable it?</string>
     <string name="geo_clear_warning">Feature already created. Would you like to clear the feature?</string>
-    <string name="geo_exit_warning">Discard changes and return to KoboToolbox?</string>
+    <string name="geo_exit_warning">Discard changes and return to ODK?</string>
     <string name="polygon_validator">Must have at least 3 points to create Polygon</string>
     <string name="polyline_validator">Must have at least 2 points to create Polyline</string>
     <string name="clear">Clear</string>
@@ -810,9 +828,9 @@
     <string name="change_server_url">Server URL</string>
     <string name="url_error">Sorry, invalid URL!</string>
     <string name="username">Username</string>
-    <string name="change_username">KoboToolbox Username</string>
+    <string name="change_username">ODK Username</string>
     <string name="password">Password</string>
-    <string name="change_password">KoboToolbox Password</string>
+    <string name="change_password">ODK Password</string>
     <string name="password_error_whitespace">Leading or trailing whitespace not allowed in passwords</string>
     <string name="username_error_whitespace">Leading or trailing whitespace not allowed in usernames</string>
 
@@ -912,7 +930,7 @@
 
     <string name="analytics_preferences">Usage data</string>
     <string name="analytics">Collect anonymous usage data</string>
-    <string name="analytics_summary">Anonymous usage data helps the KoboToolbox team prioritize fixes and features.</string>
+    <string name="analytics_summary">Anonymous usage data helps the ODK team prioritize fixes and features.</string>
 
     <string name="form_metadata_title">Form Metadata</string>
     <string name="form_metadata">Form metadata</string>
@@ -930,6 +948,9 @@
     <string name="unlock_settings">Unlock settings</string>
     <!-- Label for an item displayed in the project settings menu to indicate that settings are unlocked -->
     <string name="settings_unlocked">Settings unlocked</string>
+
+    <!-- Summary on setting that's currently not available because the user has entered settings from form entry -->
+    <string name="setting_not_available_during_form_entry">Setting not available during form entry</string>
 
     <!--
      ##############################################
@@ -995,14 +1016,14 @@
      ##############################################
      -->
     <string name="about_preferences">About</string>
-    <string name="tell_your_friends">Share KoboCollect</string>
-    <string name="tell_your_friends_msg">Are your colleagues still collecting data on paper? Share KoboCollect with them.</string>
+    <string name="tell_your_friends">Share ODK Collect</string>
+    <string name="tell_your_friends_msg">Are your colleagues still collecting data on paper? Share ODK Collect with them.</string>
     <string name="leave_a_review">Leave a Play Store review</string>
     <string name="leave_a_review_msg">Your (hopefully positive) review increases the visibility of the App in the Play Store.</string>
-    <string name="odk_website">Visit the KoboToolbox website</string>
-    <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
-    <string name="odk_forum">Join the KoboToolbox forum</string>
-    <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
+    <string name="odk_website">Visit the ODK website</string>
+    <string name="odk_website_summary">ODK is used to collect data for social good in challenging environments.</string>
+    <string name="odk_forum">Join the ODK forum</string>
+    <string name="odk_forum_summary">Join the forum to get support, request features, contribute code/translations! </string>
     <string name="all_open_source_licenses">Open source libraries/licenses</string>
     <string name="all_open_source_licenses_msg">We stand on the shoulders of giants!</string>
 
@@ -1060,9 +1081,8 @@
     <string name="fs_delete_media_path_if_file_error">Could not delete \'%s\'. Please delete the file manually and re-download the form.</string>
     <string name="fs_create_media_folder_error">Could not create media folder \'%s\'.</string>
     <string name="fs_file_copy_error">Could not copy \'%1$s\' over \'%2$s\'. Reason: %3$s</string>
-    <string name="survey_multiple_forms_error">You have downloaded two different forms with the same form ID and version. Maybe they were the same form uploaded at different times or to different servers. In any case, you should delete one.</string>
 
-    <string name="select_odk_shortcut">Select KoboToolbox Shortcut</string>
+    <string name="select_odk_shortcut">Select ODK Shortcut</string>
     <string name="background_audio_help">This form records the audio from your device\'s microphone.\n\nYou can use the volume indicator to make sure the microphone is close enough to the sound you need to record.\n\nTo stop the recording please exit this form.\n\nFor more information please contact the person who asked you to collect data.</string>
 
     <string name="loading">Loading…</string>
@@ -1123,11 +1143,6 @@
     <string name="try_demo">Try a demo</string>
     <string name="scan_configuration_qr_code">Scan configuration QR code</string>
 
-    <!-- Error shown when a user tries to open a form that's in a different project -->
-    <string name="wrong_project_selected_for_form">To open this form, you must first open KoboCollect and switch to the project that contains it.</string>
-    <!-- Error shown when a user tries to open a form when there are no projects -->
-    <string name="app_not_configured">KoboCollect has not been configured. Try to open KoboCollect and configure it.\n\nIf you tapped on a shortcut, you might need to recreate it after configuring KoboCollect.</string>
-
     <!--
     ##############################################
     # Errors
@@ -1135,6 +1150,28 @@
     -->
     <string name="show_details">Show details</string>
     <string name="errors">Errors</string>
+
+    <!--
+    ##############################################
+    # Form opening errors
+    ##############################################
+    -->
+    <!-- Error shown when a user tries to open a form that's in a different project -->
+    <string name="wrong_project_selected_for_form">To open this form, you must first open ODK Collect and switch to the project that contains it.</string>
+    <!-- Error shown when a user tries to open a form when there are no projects -->
+    <string name="app_not_configured">ODK Collect has not been configured. Try to open ODK Collect and configure it.\n\nIf you tapped on a shortcut, you might need to recreate it after configuring ODK Collect.</string>
+    <!-- Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown -->
+    <string name="unrecognized_uri">Unrecognized URI: %s</string>
+    <!-- Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect -->
+    <string name="bad_uri">Bad URI: %s</string>
+    <!-- Error displayed when opened filled form has been deleted on disk -->
+    <string name="instance_deleted_message">Filled form has been deleted!</string>
+    <!-- Error shown when a user tries to edit a form but there is no corresponding blank form -->
+    <string name="parent_form_not_present">Unable to edit this draft because the corresponding blank form is not present or was deleted.\n\nForm ID: %1$s</string>
+    <!-- Error shown when a user tries to open a form but there is more than one form with the same form ID -->
+    <string name="survey_multiple_forms_error">You have downloaded two different forms with the same form ID and version. Maybe they were the same form uploaded at different times or to different servers. In any case, you should delete one.</string>
+    <!-- Error shown when a user tries to open a form when forms update is being applied in the background -->
+    <string name="cannot_open_form_because_of_forms_update">This form cannot be opened right now because forms are being updated. Please try again shortly.</string>
 
     <!--
     ##############################################
@@ -1148,7 +1185,7 @@
     ##############################################
 
     <!-- An entity is any person, place or thing that a form can be about. This title appears on an experimental settings screen to view entities managed in the current project. -->
-    <string name="entities_title">Entities</string>
+    <string name="entities_title">Entity lists</string>
 
     <!-- Title for setting that controls whether local entity features are enabled or not -->
     <string name="include_local_entities_setting">Enable local entities</string>
@@ -1158,14 +1195,11 @@
     <!-- Text for button that leads to browser for the user to view and manage entity lists -->
     <string name="entity_browser_button">View entity lists</string>
 
-    <!-- Text for button that deletes all entities for the project -->
-    <string name="clear_entities">Clear all</string>
-
-    <!-- Text for button that adds a new entity list -->
-    <string name="add_entity_list">Add entity list</string>
-
     <!-- Label for entity that has been created offline and is not on the server yet -->
     <string name="offline">Offline</string>
+
+    <!-- Error message displayed when a user opens a form with an unrecognized entity version -->
+    <string name="unrecognized_entity_version">This form is not supported by this version of ODK Collect. Please upgrade Collect. If you keep having this problem, report it to the person who asked you to collect data.\n\nForm Entities spec version: %s</string>
 
     <!--
     ##############################################
@@ -1193,11 +1227,11 @@
     <string name="dev_tools">Developer tools</string>
     <!-- Option provided in the Developer tools settings to force an application crash -->
     <string name="crash_app">Crash app</string>
-    <!-- An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close -->
+    <!-- An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close -->
     <string name="crash_app_summary">Force an uncaught exception causing the app to crash</string>
 
     <string name="permission_dialog_title">About permissions</string>
-    <string name="permission_dialog_text">You will be asked to allow KoboCollect access to the features below, select “allow” if you want to use them.</string>
+    <string name="permission_dialog_text">You will be asked to allow ODK Collect access to the features below, select “allow” if you want to use them.</string>
     <string name="notifications">Notifications</string>
     <string name="required_for_notifications">Required for showing updates when forms are downloaded, updated and sent.</string>
 
@@ -1329,7 +1363,7 @@
     -->
     <!-- Title displayed in a dialog before starting a form if there is a work to recover -->
     <string name="savepoint_recovery_dialog_title">Recover your work?</string>
-    <!-- Message displayed in a dialog before starting a form if there is a work to recover -->
+    <!-- Message displayed in a dialog before starting a form if there is a work to recover. Please format date appropriately for your language: http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html-->
     <string name="savepoint_recovery_dialog_message">\'Collect closed unexpectedly on \'EEE, MMM dd, yyyy \'at\' HH:mm\' and saved your work.\n\nWould you like to recover or discard it?\'</string>
     <!-- Text for the button that accepts the recovery of the work -->
     <string name="recover">Recover</string>

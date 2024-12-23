@@ -40,7 +40,7 @@
   <string name="storage_runtime_permission_denied_title">నిల్వ ఉంచటానికి అనుమతులు</string>
   <string name="storage_runtime_permission_denied_desc">ఈ అనుమతులు లేకుండా మీ ఫారమ్‌లను యాక్సెస్ చేయలేరు లేదా సమాధానాలను సేవ్ చేయలేరు. మీరు వాటిని మంజూరు చేయడానికి సిద్ధంగా ఉన్నప్పుడు ఆప్ ని తిరిగి తెరవండి.</string>
   <string name="location_runtime_permissions_denied_title">ప్రదేశ అనుమతులు</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">కెమెరా అనుమతి</string>
   <string name="camera_runtime_permission_denied_desc">ఈ అనుమతి లేకుండా కెమెరాను యాక్సెస్ చేయలేరు. మీరు మంజూరు చేయడానికి సిద్ధంగా ఉన్నప్పుడు దయచేసి మళ్ళీ ప్రయత్నించండి.</string>
   <string name="record_audio_runtime_permission_denied_title">ఆడియో అనుమతి రికార్డ్ చేయండి</string>
@@ -120,15 +120,11 @@
   <string name="phone_does_not_support_rsa">మీ ఫోన్ ఎటువంటి RSA గుప్తీకరణకు మద్దతు ఇవ్వదు.</string>
   <string name="invalid_rsa_public_key">RSA పబ్లిక్ కీ చెల్లదు.</string>
   <string name="encryption_error_message">%sఫారం ఖరారైనట్లు సేవ్ చేయబడలేదు.</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
-  <string name="bad_uri">తప్పు URI: %s</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
-  <string name="unrecognized_uri">గుర్తించని URI: %s</string>
+  <!--Displayed when an attempt is made to start form filling, but the form is broken-->
   <!--Text displayed when audio recording fails to start-->
   <!--Text displayed when user tries to start recording while the mic is already in use-->
   <!--Error message displayed when copying media from a temporary directory fails-->
   <!--Text displayed in the audio bar when background audio recording is explicitly disabled from the options menu. Should be as short as possible. The inserted string is ⋮ which indicates the options menu.-->
-  <!--Error displayed when opened filled form has been deleted on disk-->
   <!--Error displayed when something bad happens during updating widgets in a field-list group-->
   <!--##############################################
     # FORM FEATURES
@@ -139,8 +135,6 @@
   <string name="no_app">అభ్యర్థించిన అప్లికేషన్ లేదు. దయచేసి రీడింగ్ మాన్యువల్‌గా నమోదు చేయండి.</string>
   <string name="null_intent_value">ఎక్స్టర్నల్ అప్లికేషన్ ఆశించిన సమాచారాన్ని అందించలేదు.</string>
   <!--Text on button that is part of print questions. Tapping the button prints the value of the question.-->
-  <string name="launch_printer">ప్రింటింగ్ ప్రారంభించండి</string>
-  <string name="no_printer">అభ్యర్థించిన ప్రింటర్ ఇన్‌స్టాల్ చేయబడలేదు. దయచేసి ప్రింటర్‌ను ఇన్‌స్టాల్ చేయండి.</string>
   <string name="open_url">Url  ఓపెన్ చెయ్యి  </string>
   <string name="capture_osm">ఓపెన్‌మ్యాప్‌కిట్‌ను ప్రారంభించండి</string>
   <string name="recapture_osm">ఓఎస్ఎం టాగింగ్‌ను మరలా  చేయండి</string>
@@ -282,6 +276,18 @@
   <string name="persian_month_10">డే</string>
   <string name="persian_month_11">బహమన్</string>
   <string name="persian_month_12">ఇస్ఫాన్డ్ </string>
+  <!--1st month in the Buddhist calendar-->
+  <!--2nd month in the Buddhist calendar-->
+  <!--3rd month in the Buddhist calendar-->
+  <!--4th month in the Buddhist calendar-->
+  <!--5th month in the Buddhist calendar-->
+  <!--6th month in the Buddhist calendar-->
+  <!--7th month in the Buddhist calendar-->
+  <!--8th month in the Buddhist calendar-->
+  <!--9th month in the Buddhist calendar-->
+  <!--10th month in the Buddhist calendar-->
+  <!--11th month in the Buddhist calendar-->
+  <!--12th month in the Buddhist calendar-->
   <!--Displays dates in specialized calendars with the Gregorian dates in parentheses. This is translated so right-to-left languages can specify the correct order-->
   <string name="custom_date">%1$s (%2$s)</string>
   <!--Displayed when a form media file such as an image for a question label or an audio file for a choice is invalid-->
@@ -378,7 +384,7 @@
   <string name="geotrace_title">జియోట్రేస్</string>
   <string name="gps_enable_message">మీ పరికరంలో GPS డిజేబుల్ చేయబడి ఉంది. మీరు ఎనేబుల్ చేయదలుచుకుంటున్నారా?</string>
   <string name="geo_clear_warning">ఫీచర్ ఇప్పటికే క్రియేట్ చేయబడింది. మీరు ఫీచర్ తీసెయ్యాలనుకుంటున్నారా?</string>
-  <string name="geo_exit_warning">మార్పులను విస్మరించి, KoboToolbox కి తిరిగి వెళ్లాలా?</string>
+  <string name="geo_exit_warning">మార్పులను విస్మరించి, ODK కి తిరిగి వెళ్లాలా?</string>
   <string name="polygon_validator">బహుభుజిని సృష్టించడానికి కనీసం 3 పాయింట్లు ఉండాలి</string>
   <string name="polyline_validator">పాలిలైన్ సృష్టించడానికి కనీసం 2 పాయింట్లు ఉండాలి</string>
   <string name="clear">తొలగించు</string>
@@ -512,9 +518,9 @@
   <string name="change_server_url">సర్వర్ URL</string>
   <string name="url_error">క్షమించండి, URL తప్పు!</string>
   <string name="username">యూజర్ పేరు</string>
-  <string name="change_username">KoboToolbox యూజర్ నేమ్ </string>
+  <string name="change_username">ODK యూజర్ నేమ్ </string>
   <string name="password">పాస్ వర్డ్ </string>
-  <string name="change_password">KoboToolbox పాస్ వర్డ్ </string>
+  <string name="change_password">ODK పాస్ వర్డ్ </string>
   <string name="password_error_whitespace">పాస్ వర్డ్ ముందు లేదా తరువాత స్పేస్ ఉండకూడదు </string>
   <string name="username_error_whitespace">యూసర్ నేమ్ లో ముందు లేదా తరువాత స్పేస్ ఉండకూడదు </string>
   <string name="app_theme">థీము</string>
@@ -608,6 +614,7 @@
   <string name="preference_not_available">అందుబాటులో లేదు</string>
   <!--Label for an item displayed in the project settings menu to unlock settings-->
   <!--Label for an item displayed in the project settings menu to indicate that settings are unlocked-->
+  <!--Summary on setting that's currently not available because the user has entered settings from form entry-->
   <!--##############################################
      # PROTECTED SETTINGS
      ##############################################-->
@@ -652,15 +659,15 @@
   <!--##############################################
      # ABOUT
      ##############################################-->
-  <string name="about_preferences">KoboToolbox గురించి</string>
-  <string name="tell_your_friends">KoboToolbox కలెక్ట్ ని షేర్ చెయ్యండి</string>
-  <string name="tell_your_friends_msg">మీ సహచరులు ఇప్పటికీ కాగితంపై డేటాను సేకరిస్తున్నారా? వారితో KoboCollect పంచుకోండి </string>
+  <string name="about_preferences">ODK గురించి</string>
+  <string name="tell_your_friends">ODK కలెక్ట్ ని షేర్ చెయ్యండి</string>
+  <string name="tell_your_friends_msg">మీ సహచరులు ఇప్పటికీ కాగితంపై డేటాను సేకరిస్తున్నారా? వారితో ODK Collect పంచుకోండి </string>
   <string name="leave_a_review">ప్లే స్టోర్ విమర్షని ఇక్కడ రాయండి</string>
   <string name="leave_a_review_msg">మీ ( సానుకూల) సమీక్ష Play Store లో ఈ App గురించి ఎక్కువ మందికి తెలిసేలా చేస్తుంది </string>
-  <string name="odk_website">KoboToolbox వెబ్‌సైట్‌ను సందర్శించండి</string>
-  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
-  <string name="odk_forum">KoboToolbox ఫోరమ్‌లో చేరండి</string>
-  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
+  <string name="odk_website">ODK వెబ్‌సైట్‌ను సందర్శించండి</string>
+  <string name="odk_website_summary">సవాలు చేసే వాతావరణాలలో సామాజిక మంచి కోసం డేటాను సేకరించడానికి ODK ఉపయోగించబడుతుంది.</string>
+  <string name="odk_forum">ODK ఫోరమ్‌లో చేరండి</string>
+  <string name="odk_forum_summary">మద్దతు పొందడానికి ఫోరమ్‌లో చేరండి, లక్షణాలను అభ్యర్థించండి, కోడ్ / అనువాదాలను అందించండి!</string>
   <string name="all_open_source_licenses">ఓపెన్ సోర్స్ లైబ్రరీలు/లైసెన్సులు</string>
   <string name="all_open_source_licenses_msg">మేము రాక్షసుల భుజాలపై నిలబడతాం!</string>
   <!--##############################################
@@ -698,8 +705,7 @@
   <string name="fs_delete_media_path_if_file_error">\'%s\' తొలగించడం సాధ్యం కాలేదు. దయచేసి ఫైల్‌ను మాన్యువల్‌గా తొలగించి, ఫారమ్‌ను తిరిగి డౌన్‌లోడ్ చేయండి.</string>
   <string name="fs_create_media_folder_error">మీడియా ఫోల్డర్‌%sను తయారు చేయడం సాధ్యం కాలేదు.</string>
   <string name="fs_file_copy_error">%2$sమీద %1$sను కాపీ చేయలేకపోయింది . కారణం :%3$s</string>
-  <string name="survey_multiple_forms_error">మీరు ఒకే ఫారమ్ ఐడి, వెర్షన్‌తో రెండు వేర్వేరు ఫారమ్‌లను డౌన్‌లోడ్ చేసారు. అది వేర్వేరు సమయాల్లో లేదా వేర్వేరు సర్వర్‌లకు అప్‌లోడ్ చేసిన ఒకే ఫారం కావచ్చు. మీరు ఒకదాన్ని తొలగించవలసిందే. </string>
-  <string name="select_odk_shortcut">KoboToolbox సత్వరమార్గాన్ని ఎంచుకోండి</string>
+  <string name="select_odk_shortcut">ODK సత్వరమార్గాన్ని ఎంచుకోండి</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -722,20 +728,31 @@
   <!--Text for the button that allows for manually entering project details. Should be short-->
   <!--Immediately followed by "Try Collect" which is a link to create a demo project-->
   <!--Preceded by "Don't have a project yet?" question-->
-  <!--Error shown when a user tries to open a form that's in a different project-->
-  <!--Error shown when a user tries to open a form when there are no projects-->
   <!--##############################################
     # Errors
     ##############################################-->
+  <!--##############################################
+    # Form opening errors
+    ##############################################-->
+  <!--Error shown when a user tries to open a form that's in a different project-->
+  <!--Error shown when a user tries to open a form when there are no projects-->
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
+  <string name="unrecognized_uri">గుర్తించని URI: %s</string>
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
+  <string name="bad_uri">తప్పు URI: %s</string>
+  <!--Error displayed when opened filled form has been deleted on disk-->
+  <!--Error shown when a user tries to edit a form but there is no corresponding blank form-->
+  <!--Error shown when a user tries to open a form but there is more than one form with the same form ID-->
+  <string name="survey_multiple_forms_error">మీరు ఒకే ఫారమ్ ఐడి, వెర్షన్‌తో రెండు వేర్వేరు ఫారమ్‌లను డౌన్‌లోడ్ చేసారు. అది వేర్వేరు సమయాల్లో లేదా వేర్వేరు సర్వర్‌లకు అప్‌లోడ్ చేసిన ఒకే ఫారం కావచ్చు. మీరు ఒకదాన్ని తొలగించవలసిందే. </string>
+  <!--Error shown when a user tries to open a form when forms update is being applied in the background-->
   <!--##############################################
     # Permissions
     ##############################################-->
   <!--An entity is any person, place or thing that a form can be about. This title appears on an experimental settings screen to view entities managed in the current project.-->
   <!--Title for setting that controls whether local entity features are enabled or not-->
   <!--Text for button that leads to browser for the user to view and manage entity lists-->
-  <!--Text for button that deletes all entities for the project-->
-  <!--Text for button that adds a new entity list-->
   <!--Label for entity that has been created offline and is not on the server yet-->
+  <!--Error message displayed when a user opens a form with an unrecognized entity version-->
   <!--##############################################
     # Crash handling
     ##############################################-->
@@ -747,7 +764,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

@@ -56,6 +56,7 @@ import org.odk.collect.android.utilities.InstancesRepositoryProvider;
 import org.odk.collect.android.utilities.ZipUtils;
 import org.odk.collect.async.Scheduler;
 import org.odk.collect.async.SchedulerAsyncTaskMimic;
+import org.odk.collect.entities.javarosa.spec.UnrecognizedEntityVersionException;
 import org.odk.collect.forms.Form;
 import org.odk.collect.forms.instances.Instance;
 import org.odk.collect.forms.savepoints.Savepoint;
@@ -160,18 +161,18 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
         errorMsg = null;
 
         if (uriMimeType != null && uriMimeType.equals(InstancesContract.CONTENT_ITEM_TYPE)) {
-            instance = new InstancesRepositoryProvider(Collect.getInstance()).get().get(ContentUriHelper.getIdFromUri(uri));
+            instance = new InstancesRepositoryProvider(Collect.getInstance()).create().get(ContentUriHelper.getIdFromUri(uri));
             instancePath = instance.getInstanceFilePath();
 
-            List<Form> candidateForms = new FormsRepositoryProvider(Collect.getInstance()).get().getAllByFormIdAndVersion(instance.getFormId(), instance.getFormVersion());
+            List<Form> candidateForms = new FormsRepositoryProvider(Collect.getInstance()).create().getAllByFormIdAndVersion(instance.getFormId(), instance.getFormVersion());
 
             form = candidateForms.get(0);
             savepoint = savepointsRepository.get(form.getDbId(), instance.getDbId());
         } else if (uriMimeType != null && uriMimeType.equals(FormsContract.CONTENT_ITEM_TYPE)) {
-            form = new FormsRepositoryProvider(Collect.getInstance()).get().get(ContentUriHelper.getIdFromUri(uri));
+            form = new FormsRepositoryProvider(Collect.getInstance()).create().get(ContentUriHelper.getIdFromUri(uri));
             if (form == null) {
                 Timber.e(new Error("form is null"));
-                errorMsg = "This form no longer exists, please email support@kobotoolbox.org with a description of what you were doing when this happened.";
+                errorMsg = "This form no longer exists, please email support@getodk.org with a description of what you were doing when this happened.";
                 return null;
             }
 
@@ -181,7 +182,7 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
 
         if (form.getFormFilePath() == null) {
             Timber.e(new Error("formPath is null"));
-            errorMsg = "formPath is null, please email support@kobotoolbox.org with a description of what you were doing when this happened.";
+            errorMsg = "formPath is null, please email support@getodk.org with a description of what you were doing when this happened.";
             return null;
         }
 
@@ -197,9 +198,11 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
         } catch (StackOverflowError e) {
             Timber.e(e);
             errorMsg = getLocalizedString(Collect.getInstance(), org.odk.collect.strings.R.string.too_complex_form);
+        } catch (UnrecognizedEntityVersionException e) {
+            errorMsg = getLocalizedString(Collect.getInstance(), org.odk.collect.strings.R.string.unrecognized_entity_version, e.getEntityVersion());
         } catch (Exception e) {
             Timber.w(e);
-            errorMsg = "An unknown error has occurred. Please ask your project leadership to email support@kobotoolbox.org with information about this form.";
+            errorMsg = "An unknown error has occurred. Please ask your project leadership to email support@getodk.org with information about this form.";
             errorMsg += "\n\n" + e.getMessage();
         }
 
@@ -396,7 +399,7 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
                     } else {
                         // The saved instance is corrupted.
                         Timber.e(e, "Corrupt saved instance");
-                        throw new RuntimeException("An unknown error has occurred. Please ask your project leadership to email support@kobotoolbox.org with information about this form."
+                        throw new RuntimeException("An unknown error has occurred. Please ask your project leadership to email support@getodk.org with information about this form."
                             + "\n\n" + e.getMessage());
                     }
                 }

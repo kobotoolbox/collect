@@ -104,7 +104,7 @@ public class InstanceProvider extends ContentProvider {
     }
 
     private Cursor dbQuery(String projectId, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        return ((DatabaseInstancesRepository) instancesRepositoryProvider.get(projectId)).rawQuery(projection, selection, selectionArgs, sortOrder, null);
+        return ((DatabaseInstancesRepository) instancesRepositoryProvider.create(projectId)).rawQuery(projection, selection, selectionArgs, sortOrder, null);
     }
 
     @Override
@@ -137,7 +137,7 @@ public class InstanceProvider extends ContentProvider {
             throw new SecurityException();
         }
 
-        Instance newInstance = instancesRepositoryProvider.get(projectId).save(getInstanceFromValues(initialValues));
+        Instance newInstance = instancesRepositoryProvider.create(projectId).save(getInstanceFromValues(initialValues));
         return getUri(projectId, newInstance.getDbId());
     }
 
@@ -160,7 +160,7 @@ public class InstanceProvider extends ContentProvider {
                 try (Cursor cursor = dbQuery(projectId, new String[]{_ID}, where, whereArgs, null)) {
                     while (cursor.moveToNext()) {
                         long id = cursor.getLong(cursor.getColumnIndex(_ID));
-                        new InstanceDeleter(instancesRepositoryProvider.get(projectId), formsRepositoryProvider.get(projectId)).delete(id);
+                        new InstanceDeleter(instancesRepositoryProvider.create(projectId), formsRepositoryProvider.create(projectId)).delete(id);
                     }
 
                     count = cursor.getCount();
@@ -172,12 +172,12 @@ public class InstanceProvider extends ContentProvider {
                 long id = ContentUriHelper.getIdFromUri(uri);
 
                 if (where == null) {
-                    new InstanceDeleter(instancesRepositoryProvider.get(projectId), formsRepositoryProvider.get(projectId)).delete(id);
+                    new InstanceDeleter(instancesRepositoryProvider.create(projectId), formsRepositoryProvider.create(projectId)).delete(id);
                 } else {
                     try (Cursor cursor = dbQuery(projectId, new String[]{_ID}, where, whereArgs, null)) {
                         while (cursor.moveToNext()) {
                             if (cursor.getLong(cursor.getColumnIndex(_ID)) == id) {
-                                new InstanceDeleter(instancesRepositoryProvider.get(), formsRepositoryProvider.get()).delete(id);
+                                new InstanceDeleter(instancesRepositoryProvider.create(), formsRepositoryProvider.create()).delete(id);
                                 break;
                             }
                         }

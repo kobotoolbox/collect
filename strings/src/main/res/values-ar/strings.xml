@@ -47,13 +47,13 @@
   <string name="search">بحث</string>
   <string name="not_granted_permission">النشاط الذي تحاول بدء القيام به يحتاج إلى إذن لم تحصل عليه بعد.</string>
   <string name="storage_runtime_permission_denied_title">أذونات التخزين</string>
-  <string name="storage_runtime_permission_denied_desc">بدون هذه الأذونات لا يمكن لبرنامج KoboCollect الوصول إلى الاستمارات أو حفظ الإجابات. أعد فتح التطبيق عندما تكون مستعدًا لمنحهم.</string>
+  <string name="storage_runtime_permission_denied_desc">بدون هذه الأذونات لا يمكن لبرنامج ODK Collect الوصول إلى الاستمارات أو حفظ الإجابات. أعد فتح التطبيق عندما تكون مستعدًا لمنحهم.</string>
   <string name="location_runtime_permissions_denied_title">الأذونات الخاصة بالموقع</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">إذن الكاميرا</string>
-  <string name="camera_runtime_permission_denied_desc">بدون هذا الإذن لا يمكن لبرنامج KoboCollect الوصول إلى الكاميرا. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
+  <string name="camera_runtime_permission_denied_desc">بدون هذا الإذن لا يمكن لبرنامج ODK Collect الوصول إلى الكاميرا. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
   <string name="record_audio_runtime_permission_denied_title">إذن تسجيل الصوت</string>
-  <string name="record_audio_runtime_permission_denied_desc">بدون هذا الإذن لا يمكن لبرنامج KoboCollect الوصول إلى الميكروفون. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
+  <string name="record_audio_runtime_permission_denied_desc">بدون هذا الإذن لا يمكن لبرنامج ODK Collect الوصول إلى الميكروفون. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -142,10 +142,7 @@
   <string name="phone_does_not_support_rsa">الهاتف لايدعم تشفير RSA</string>
   <string name="invalid_rsa_public_key">مفتاح RSA العام غير صالح</string>
   <string name="encryption_error_message">الاستمارة لم يتم حفظها كنهائية %s </string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
-  <string name="bad_uri">عنوان غير صحيح: %s</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
-  <string name="unrecognized_uri">عنوان غير معروف: %s</string>
+  <!--Displayed when an attempt is made to start form filling, but the form is broken-->
   <!--Text displayed when audio recording fails to start-->
   <string name="start_recording_failed">تعذر بدء التسجيل</string>
   <!--Text displayed when user tries to start recording while the mic is already in use-->
@@ -154,8 +151,6 @@
   <string name="answer_file_copy_failed_message">لا يمكن إرفاق الوسائط بالنموذج ولكنها متوفرة على %1$s</string>
   <!--Text displayed in the audio bar when background audio recording is explicitly disabled from the options menu. Should be as short as possible. The inserted string is ⋮ which indicates the options menu.-->
   <string name="recording_disabled">التسجيل معطل. تمكين في %s</string>
-  <!--Error displayed when opened filled form has been deleted on disk-->
-  <string name="instance_deleted_message">لقد تم حذف نموذج معبأ!</string>
   <!--Error displayed when something bad happens during updating widgets in a field-list group-->
   <!--##############################################
     # FORM FEATURES
@@ -166,8 +161,6 @@
   <string name="no_app">التطبيق المطلوب مفقود. يرجى ادخال القراءة يدويا.</string>
   <string name="null_intent_value">التطبيق الخارجي لم يرسل البيانات المتوقعة.</string>
   <!--Text on button that is part of print questions. Tapping the button prints the value of the question.-->
-  <string name="launch_printer">البدء بالطباعة</string>
-  <string name="no_printer">لم يتم تثبيت الطابعة المختارة. يرجى تثبيتها اولا.</string>
   <string name="open_url">فتح الرابط</string>
   <string name="capture_osm">شغل ال OpenMapKit</string>
   <string name="recapture_osm">أعادة تعليم ال OSM</string>
@@ -330,6 +323,18 @@
   <string name="persian_month_10">دى</string>
   <string name="persian_month_11">بهمن</string>
   <string name="persian_month_12">اسفند</string>
+  <!--1st month in the Buddhist calendar-->
+  <!--2nd month in the Buddhist calendar-->
+  <!--3rd month in the Buddhist calendar-->
+  <!--4th month in the Buddhist calendar-->
+  <!--5th month in the Buddhist calendar-->
+  <!--6th month in the Buddhist calendar-->
+  <!--7th month in the Buddhist calendar-->
+  <!--8th month in the Buddhist calendar-->
+  <!--9th month in the Buddhist calendar-->
+  <!--10th month in the Buddhist calendar-->
+  <!--11th month in the Buddhist calendar-->
+  <!--12th month in the Buddhist calendar-->
   <!--Displays dates in specialized calendars with the Gregorian dates in parentheses. This is translated so right-to-left languages can specify the correct order-->
   <string name="custom_date">%1$s (%2$s)</string>
   <!--Displayed when a form media file such as an image for a question label or an audio file for a choice is invalid-->
@@ -434,7 +439,7 @@
   <string name="geotrace_title">تتبع المسار</string>
   <string name="gps_enable_message">GPS غير مفعلة على جهازك. هل تريد تفعيلها؟</string>
   <string name="geo_clear_warning">الميزة تم إنشاؤها مسبقاً. هل ترغب في إزالتها؟</string>
-  <string name="geo_exit_warning">تجاهل التعديلات والعودة إلى KoboToolbox؟</string>
+  <string name="geo_exit_warning">تجاهل التعديلات والعودة إلى ODK؟</string>
   <string name="polygon_validator">يجب توفر 3 نقاط لإنشاء مضلع</string>
   <string name="polyline_validator">يجب توفر نقطتين لإنشاء خط</string>
   <string name="clear">إلغاء</string>
@@ -592,7 +597,7 @@
   <string name="username">إسم المستخدم</string>
   <string name="change_username">إسم المستخدم</string>
   <string name="password">كلمة المرور</string>
-  <string name="change_password">KoboToolbox كلمة المرور</string>
+  <string name="change_password">ODK كلمة المرور</string>
   <string name="password_error_whitespace">الفراغات في البداية أو النهاية غير مسموح بها في كلمات المرور</string>
   <string name="username_error_whitespace">الفراغات في البداية أو النهاية غير مسموح بها في اسم المستخدم</string>
   <string name="app_theme">المظهر</string>
@@ -689,6 +694,7 @@
   <string name="preference_not_available">غير متوفر</string>
   <!--Label for an item displayed in the project settings menu to unlock settings-->
   <!--Label for an item displayed in the project settings menu to indicate that settings are unlocked-->
+  <!--Summary on setting that's currently not available because the user has entered settings from form entry-->
   <!--##############################################
      # PROTECTED SETTINGS
      ##############################################-->
@@ -736,14 +742,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">حول التطبيق</string>
-  <string name="tell_your_friends">مشاركة رابط KoboCollect</string>
-  <string name="tell_your_friends_msg">هل ما زال زملائك يجمعون البيانات على الورق؟ شارك KoboCollect معهم.</string>
+  <string name="tell_your_friends">مشاركة رابط ODK Collect</string>
+  <string name="tell_your_friends_msg">هل ما زال زملائك يجمعون البيانات على الورق؟ شارك ODK Collect معهم.</string>
   <string name="leave_a_review">اترك تقييم في Play Store</string>
   <string name="leave_a_review_msg">تقييمك (الذي نأمل أن يكون إيجابيا) يزيد من رؤية التطبيق في Play Store.</string>
-  <string name="odk_website">زيارة موقع KoboToolbox</string>
-  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
-  <string name="odk_forum">انضم إلى منتدى KoboToolbox</string>
-  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
+  <string name="odk_website">زيارة موقع ODK</string>
+  <string name="odk_website_summary">يستخدم ODK لجمع البيانات من أجل الصالح الاجتماعي في البيئات الصعبة.</string>
+  <string name="odk_forum">انضم إلى منتدى ODK</string>
+  <string name="odk_forum_summary">انضم إلى المنتدى للحصول على الدعم وطلب الميزات والمساهمة بالكود / الترجمات!</string>
   <string name="all_open_source_licenses">مكتبات و تراخيص مفتوحة المصدر</string>
   <string name="all_open_source_licenses_msg">نقف على أكتاف العمالقة!</string>
   <!--##############################################
@@ -786,8 +792,7 @@
   <string name="fs_delete_media_path_if_file_error">لا يمكن حذف  \'%s\'.  يرجى حذف الملف يدويا وقم باعادة تحميل الاستمارة.</string>
   <string name="fs_create_media_folder_error">لا يمكن انشاء ملف وسائط متعددة \'%s\'.</string>
   <string name="fs_file_copy_error">لا يمكن النسخ  \'%1$s\' فوق  \'%2$s\'. السبب: \'%3$s\'</string>
-  <string name="survey_multiple_forms_error">قمت بتحميل استمارتين مختلفتين بنفس رقم النموذج والاصدار. ربما قد يكون نفس النموذج تم تحميله في اوقات مختلفة او في خودام مختلفة. بأي حال يجب عليك حذف واحدة.</string>
-  <string name="select_odk_shortcut">اختيار اختصار KoboToolbox</string>
+  <string name="select_odk_shortcut">اختيار اختصار ODK</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -810,20 +815,32 @@
   <!--Text for the button that allows for manually entering project details. Should be short-->
   <!--Immediately followed by "Try Collect" which is a link to create a demo project-->
   <!--Preceded by "Don't have a project yet?" question-->
-  <!--Error shown when a user tries to open a form that's in a different project-->
-  <!--Error shown when a user tries to open a form when there are no projects-->
   <!--##############################################
     # Errors
     ##############################################-->
+  <!--##############################################
+    # Form opening errors
+    ##############################################-->
+  <!--Error shown when a user tries to open a form that's in a different project-->
+  <!--Error shown when a user tries to open a form when there are no projects-->
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
+  <string name="unrecognized_uri">عنوان غير معروف: %s</string>
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
+  <string name="bad_uri">عنوان غير صحيح: %s</string>
+  <!--Error displayed when opened filled form has been deleted on disk-->
+  <string name="instance_deleted_message">لقد تم حذف نموذج معبأ!</string>
+  <!--Error shown when a user tries to edit a form but there is no corresponding blank form-->
+  <!--Error shown when a user tries to open a form but there is more than one form with the same form ID-->
+  <string name="survey_multiple_forms_error">قمت بتحميل استمارتين مختلفتين بنفس رقم النموذج والاصدار. ربما قد يكون نفس النموذج تم تحميله في اوقات مختلفة او في خودام مختلفة. بأي حال يجب عليك حذف واحدة.</string>
+  <!--Error shown when a user tries to open a form when forms update is being applied in the background-->
   <!--##############################################
     # Permissions
     ##############################################-->
   <!--An entity is any person, place or thing that a form can be about. This title appears on an experimental settings screen to view entities managed in the current project.-->
   <!--Title for setting that controls whether local entity features are enabled or not-->
   <!--Text for button that leads to browser for the user to view and manage entity lists-->
-  <!--Text for button that deletes all entities for the project-->
-  <!--Text for button that adds a new entity list-->
   <!--Label for entity that has been created offline and is not on the server yet-->
+  <!--Error message displayed when a user opens a form with an unrecognized entity version-->
   <!--##############################################
     # Crash handling
     ##############################################-->
@@ -835,7 +852,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

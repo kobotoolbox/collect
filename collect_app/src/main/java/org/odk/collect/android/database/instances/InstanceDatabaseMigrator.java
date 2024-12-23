@@ -1,18 +1,8 @@
 package org.odk.collect.android.database.instances;
 
-import android.database.sqlite.SQLiteDatabase;
-
-import org.odk.collect.android.database.DatabaseMigrator;
-import org.odk.collect.forms.instances.Instance;
-import org.odk.collect.android.utilities.SQLiteUtils;
-
-import java.util.Arrays;
-import java.util.List;
-
-import timber.log.Timber;
-
 import static android.provider.BaseColumns._ID;
 import static org.odk.collect.android.database.DatabaseConstants.INSTANCES_TABLE_NAME;
+import static org.odk.collect.android.database.instances.DatabaseInstanceColumns.CAN_DELETE_BEFORE_SEND;
 import static org.odk.collect.android.database.instances.DatabaseInstanceColumns.CAN_EDIT_WHEN_COMPLETE;
 import static org.odk.collect.android.database.instances.DatabaseInstanceColumns.DELETED_DATE;
 import static org.odk.collect.android.database.instances.DatabaseInstanceColumns.DISPLAY_NAME;
@@ -24,6 +14,19 @@ import static org.odk.collect.android.database.instances.DatabaseInstanceColumns
 import static org.odk.collect.android.database.instances.DatabaseInstanceColumns.LAST_STATUS_CHANGE_DATE;
 import static org.odk.collect.android.database.instances.DatabaseInstanceColumns.STATUS;
 import static org.odk.collect.android.database.instances.DatabaseInstanceColumns.SUBMISSION_URI;
+import static org.odk.collect.db.sqlite.SQLiteDatabaseExt.doesColumnExist;
+
+import android.database.sqlite.SQLiteDatabase;
+
+import org.odk.collect.db.sqlite.DatabaseMigrator;
+import org.odk.collect.db.sqlite.SQLiteDatabaseExt;
+import org.odk.collect.db.sqlite.SQLiteUtils;
+import org.odk.collect.forms.instances.Instance;
+
+import java.util.Arrays;
+import java.util.List;
+
+import timber.log.Timber;
 
 public class InstanceDatabaseMigrator implements DatabaseMigrator {
     private static final String[] COLUMN_NAMES_V5 = {_ID, DISPLAY_NAME, SUBMISSION_URI, CAN_EDIT_WHEN_COMPLETE,
@@ -33,10 +36,8 @@ public class InstanceDatabaseMigrator implements DatabaseMigrator {
             CAN_EDIT_WHEN_COMPLETE, INSTANCE_FILE_PATH, JR_FORM_ID, JR_VERSION, STATUS,
             LAST_STATUS_CHANGE_DATE, DELETED_DATE, GEOMETRY, GEOMETRY_TYPE};
 
-    public static final String[] CURRENT_VERSION_COLUMN_NAMES = COLUMN_NAMES_V6;
-
     public void onCreate(SQLiteDatabase db) {
-        createInstancesTableV7(db);
+        createInstancesTableV8(db);
     }
 
     @SuppressWarnings({"checkstyle:FallThrough"})
@@ -53,25 +54,18 @@ public class InstanceDatabaseMigrator implements DatabaseMigrator {
                 upgradeToVersion5(db);
             case 5:
                 upgradeToVersion6(db, INSTANCES_TABLE_NAME);
-                break;
             case 6:
                 upgradeToVersion7(db);
-                break;
             case 7:
+                upgradeToVersion8(db);
+            case 8:
                 // Remember to bump the database version number in {@link org.odk.collect.android.database.DatabaseConstants}
-                // upgradeToVersion8(db);
-            default:
-                Timber.i("Unknown version %d", oldVersion);
+                // upgradeToVersion9(db);
         }
     }
 
-    public void onDowngrade(SQLiteDatabase db) {
-        SQLiteUtils.dropTable(db, INSTANCES_TABLE_NAME);
-        createInstancesTableV7(db);
-    }
-
     private void upgradeToVersion2(SQLiteDatabase db) {
-        if (!SQLiteUtils.doesColumnExist(db, INSTANCES_TABLE_NAME, CAN_EDIT_WHEN_COMPLETE)) {
+        if (!doesColumnExist(db, INSTANCES_TABLE_NAME, CAN_EDIT_WHEN_COMPLETE)) {
             SQLiteUtils.addColumn(db, INSTANCES_TABLE_NAME, CAN_EDIT_WHEN_COMPLETE, "text");
 
             db.execSQL("UPDATE " + INSTANCES_TABLE_NAME + " SET "
@@ -122,7 +116,7 @@ public class InstanceDatabaseMigrator implements DatabaseMigrator {
      * @param temporaryTableName    the name of the temporary table to use and then drop
      */
     private void dropObsoleteColumns(SQLiteDatabase db, String[] relevantColumns, String temporaryTableName) {
-        List<String> columns = SQLiteUtils.getColumnNames(db, INSTANCES_TABLE_NAME);
+        List<String> columns = SQLiteDatabaseExt.getColumnNames(db, INSTANCES_TABLE_NAME);
         columns.retainAll(Arrays.asList(relevantColumns));
         String[] columnsToKeep = columns.toArray(new String[0]);
 
@@ -140,8 +134,13 @@ public class InstanceDatabaseMigrator implements DatabaseMigrator {
         String temporaryTable = INSTANCES_TABLE_NAME + "_tmp";
         SQLiteUtils.renameTable(db, INSTANCES_TABLE_NAME, temporaryTable);
         createInstancesTableV7(db);
-        SQLiteUtils.copyRows(db, temporaryTable, CURRENT_VERSION_COLUMN_NAMES, INSTANCES_TABLE_NAME);
+        SQLiteUtils.copyRows(db, temporaryTable, COLUMN_NAMES_V6, INSTANCES_TABLE_NAME);
         SQLiteUtils.dropTable(db, temporaryTable);
+    }
+
+    private void upgradeToVersion8(SQLiteDatabase db) {
+        SQLiteUtils.addColumn(db, INSTANCES_TABLE_NAME, CAN_DELETE_BEFORE_SEND, "text");
+        db.execSQL("UPDATE " + INSTANCES_TABLE_NAME + " SET " + CAN_DELETE_BEFORE_SEND + " = 'true';");
     }
 
     private void createInstancesTableV5(SQLiteDatabase db, String name) {
@@ -174,12 +173,29 @@ public class InstanceDatabaseMigrator implements DatabaseMigrator {
                 + GEOMETRY_TYPE + " text);");
     }
 
-    private void createInstancesTableV7(SQLiteDatabase db) {
+    public void createInstancesTableV7(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + INSTANCES_TABLE_NAME + " ("
                 + _ID + " integer primary key autoincrement, "
                 + DISPLAY_NAME + " text not null, "
                 + SUBMISSION_URI + " text, "
                 + CAN_EDIT_WHEN_COMPLETE + " text, "
+                + INSTANCE_FILE_PATH + " text not null, "
+                + JR_FORM_ID + " text not null, "
+                + JR_VERSION + " text, "
+                + STATUS + " text not null, "
+                + LAST_STATUS_CHANGE_DATE + " date not null, "
+                + DELETED_DATE + " date, "
+                + GEOMETRY + " text, "
+                + GEOMETRY_TYPE + " text);");
+    }
+
+    public void createInstancesTableV8(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + INSTANCES_TABLE_NAME + " ("
+                + _ID + " integer primary key autoincrement, "
+                + DISPLAY_NAME + " text not null, "
+                + SUBMISSION_URI + " text, "
+                + CAN_EDIT_WHEN_COMPLETE + " text, "
+                + CAN_DELETE_BEFORE_SEND + " text, "
                 + INSTANCE_FILE_PATH + " text not null, "
                 + JR_FORM_ID + " text not null, "
                 + JR_VERSION + " text, "

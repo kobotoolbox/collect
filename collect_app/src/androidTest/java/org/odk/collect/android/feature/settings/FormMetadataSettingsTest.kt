@@ -5,7 +5,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.RuleChain
 import org.junit.runner.RunWith
-import org.odk.collect.android.R
 import org.odk.collect.android.injection.config.AppDependencyModule
 import org.odk.collect.android.support.pages.MainMenuPage
 import org.odk.collect.android.support.pages.ProjectSettingsPage
@@ -86,7 +85,7 @@ class FormMetadataSettingsTest {
             .assertTexts("Chino", "664615", "chino@whitepony.com", installIDProvider.installID)
     }
 
-    @Test // Issue number NODK-238 TestCase4 TestCase5
+    @Test
     fun settingServerUsername_usedAsFallbackForMetadataUsername() {
         rule.startAtMainMenu()
             .copyForm("metadata.xml")
@@ -169,6 +168,24 @@ class FormMetadataSettingsTest {
             .assertTexts("demo@getodk.com", "123456789", "Demo user")
             .swipeToEndScreen()
             .clickFinalize()
+    }
+
+    @Test
+    fun setEmail_validatesEmail() {
+        rule.startAtMainMenu()
+            .copyForm("metadata.xml")
+            .openProjectSettingsDialog()
+            .clickSettings()
+            .clickUserAndDeviceIdentity()
+            .clickFormMetadata()
+            .clickEmail()
+            .inputText("aabb")
+            .clickOKOnDialog()
+            .checkIsToastWithMessageDisplayed(org.odk.collect.strings.R.string.invalid_email_address)
+            .clickEmail()
+            .inputText("aa@bb")
+            .clickOKOnDialog()
+            .assertText("aa@bb")
     }
 
     private class FakeInstallIDProvider : InstallIDProvider {
