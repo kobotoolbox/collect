@@ -40,7 +40,7 @@
   <string name="storage_runtime_permission_denied_title">ストレージのアクセス許可</string>
   <string name="storage_runtime_permission_denied_desc">これらのアクセス許可がないと、Collect はフォームにアクセスしたり、回答を保存することができません。 アクセス許可を付与する準備ができたら、アプリをもう一度開いてください。</string>
   <string name="location_runtime_permissions_denied_title">位置情報アクセス許可</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">カメラアクセス許可</string>
   <string name="camera_runtime_permission_denied_desc">このアクセス許可がないと、Collect はカメラにアクセスできません。 付与する準備ができたら、もう一度お試しください。</string>
   <string name="record_audio_runtime_permission_denied_title">オーディオ録音アクセス許可</string>
@@ -404,7 +404,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">お使いのデバイスで GPS は無効になっています。有効にしますか?</string>
   <string name="geo_clear_warning">機能は既に作成済です。機能をクリアしますか?</string>
-  <string name="geo_exit_warning">変更を破棄して ODK の戻りますか?</string>
+  <string name="geo_exit_warning">変更を破棄して KoboToolbox の戻りますか?</string>
   <string name="polygon_validator">ポリゴンを作成するには、少なくとも 3 点指定する必要があります</string>
   <string name="polyline_validator">ポリラインを作成するには、少なくとも2点指定する必要があります</string>
   <string name="clear">クリア</string>
@@ -545,9 +545,9 @@
   <string name="change_server_url">サーバー URL</string>
   <string name="url_error">申し訳ありません、URL が正しくありません!</string>
   <string name="username">ユーザー名</string>
-  <string name="change_username">ODK ユーザー名</string>
+  <string name="change_username">KoboToolbox ユーザー名</string>
   <string name="password">パスワード</string>
-  <string name="change_password">ODK パスワード</string>
+  <string name="change_password">KoboToolbox パスワード</string>
   <string name="password_error_whitespace">パスワードの先頭または末尾に空白は使用できません</string>
   <string name="username_error_whitespace">ユーザー名の先頭または末尾に空白は使用できません</string>
   <string name="app_theme">テーマ</string>
@@ -691,14 +691,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">アプリについて</string>
-  <string name="tell_your_friends">ODK Collect を共有</string>
-  <string name="tell_your_friends_msg">あなたの同僚はまだ紙でデータを収集しているのですか? ODK Collect を彼らと共有しましょう。</string>
+  <string name="tell_your_friends">KoboCollect を共有</string>
+  <string name="tell_your_friends_msg">あなたの同僚はまだ紙でデータを収集しているのですか? KoboCollect を彼らと共有しましょう。</string>
   <string name="leave_a_review">Play ストアにレビューを残す</string>
   <string name="leave_a_review_msg">あなたの (肯定的な) レビューが Play ストアでアプリの認知度を向上させてくれます</string>
-  <string name="odk_website">ODK ウェブサイトを訪問</string>
-  <string name="odk_website_summary">オープンデータキット (ODK) は、課題のある環境での社会的利益のためのデータを収集するために使用されます。</string>
-  <string name="odk_forum">ODK フォーラムに参加</string>
-  <string name="odk_forum_summary">フォーラムに参加して、サポートを受けたり、機能をリクエストしたり、コード/翻訳に貢献してください!</string>
+  <string name="odk_website">KoboToolbox ウェブサイトを訪問</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">KoboToolbox フォーラムに参加</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">オープンソースライブラリー/ライセンス</string>
   <string name="all_open_source_licenses_msg">私たちは巨人の肩の上に立っています!</string>
   <!--##############################################
@@ -741,7 +741,7 @@
   <string name="fs_delete_media_path_if_file_error">\'%s\' を削除できませんでした。ファイルを手動で削除して、フォームを再ダウンロードしてください。</string>
   <string name="fs_create_media_folder_error">メディアフォルダー \'%s\' を作成できませんでした。</string>
   <string name="fs_file_copy_error">\'%1$s\' を \'%2$s\' に上書きコピーできませんでした。理由: %3$s</string>
-  <string name="select_odk_shortcut">ODK ショートカットを選択</string>
+  <string name="select_odk_shortcut">KoboToolbox ショートカットを選択</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -800,7 +800,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

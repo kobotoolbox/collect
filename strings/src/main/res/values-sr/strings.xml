@@ -40,7 +40,7 @@
   <string name="storage_runtime_permission_denied_title">Dozvola za pristup memoriji</string>
   <string name="storage_runtime_permission_denied_desc">Bez ovih dozvola Collent ne može pristupiti formularima ili sačuvati odgovore. Ponovo otvorite aplikaciju kada budete spremni da dozvolite pristup.</string>
   <string name="location_runtime_permissions_denied_title">Pristup lokaciji</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">Pristup kameri</string>
   <string name="camera_runtime_permission_denied_desc">Bez ovih dozvola Collect ne može pristupiti kameri. Molim ponovo pokušajte kada budete spremni da dozvolite pristup.</string>
   <string name="record_audio_runtime_permission_denied_title">Dozvola za snimanje audija</string>
@@ -351,7 +351,7 @@
   <string name="enable_gps">Omogući GPS</string>
   <string name="geotrace_title">GeoTrace</string>
   <string name="geo_clear_warning">Karakteristika je već kreirana. Da li biste željeli da obrišete karakteristiku?</string>
-  <string name="geo_exit_warning">Odbaci izmjene i vrati se na ODK?</string>
+  <string name="geo_exit_warning">Odbaci izmjene i vrati se na KoboToolbox?</string>
   <string name="polygon_validator">Moram imati makar 3 tačke kako bih kreirao Polygon</string>
   <string name="polyline_validator">Moraju postojati najmanje 2 tačke kako bi se kreirao Polyline</string>
   <string name="clear">Očisti</string>
@@ -482,9 +482,9 @@
   <string name="change_server_url">Adresa - URL - servera</string>
   <string name="url_error">Nepostojeći URL</string>
   <string name="username">Korisničko ime</string>
-  <string name="change_username">ODK Korisničko ime</string>
+  <string name="change_username">KoboToolbox Korisničko ime</string>
   <string name="password">Lozinka</string>
-  <string name="change_password">ODK Lozinka</string>
+  <string name="change_password">KoboToolbox Lozinka</string>
   <string name="password_error_whitespace">Prazan prostor na početku ili kraju nije dozvoljen kod lozinki</string>
   <string name="username_error_whitespace">Prazan prostor na početku ili kraju nije dozvoljen kod korisničkih imena</string>
   <string name="app_theme">Tema</string>
@@ -620,14 +620,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Informacije </string>
-  <string name="tell_your_friends">Podijeli ODK Collect</string>
-  <string name="tell_your_friends_msg">Da li tvoje kolege i dalje prikupljaju podatke na papiru? Podijeli ODK sa njima</string>
+  <string name="tell_your_friends">Podijeli KoboCollect</string>
+  <string name="tell_your_friends_msg">Da li tvoje kolege i dalje prikupljaju podatke na papiru? Podijeli KoboToolbox sa njima</string>
   <string name="leave_a_review">Napiši Play Store recenziju</string>
   <string name="leave_a_review_msg">Vaša (nadamo se pozitivna) recenzija povećava vidljivost aplikacije u Play Storu.</string>
-  <string name="odk_website">Posjeti ODK vebsajt</string>
-  <string name="odk_website_summary">ODK se koristi za prikupljanje podataka o društvenim stvarima u izazovnim situacijama.</string>
-  <string name="odk_forum">Pridruži se ODK forumu</string>
-  <string name="odk_forum_summary">Pridruži se forumu za podršku, traži opcije, ili doprinesi kodu/prevodu!</string>
+  <string name="odk_website">Posjeti KoboToolbox vebsajt</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Pridruži se KoboToolbox forumu</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Otvori biblioteke/ licence koda</string>
   <string name="all_open_source_licenses_msg">Stojimo na ramenima velikana!</string>
   <!--##############################################
@@ -662,7 +662,7 @@
   <string name="fs_delete_media_path_if_file_error">Nisam mogao da obrišem \'%s\'. Molim obrišite fajl ručno ili ponovo preuzmite formular.</string>
   <string name="fs_create_media_folder_error">Ne mogu da kreiram medija folder \'%s\'.</string>
   <string name="fs_file_copy_error">Nisam mogao da prekopiram \'%1$s\' preko \'%2$s\'. Razlog: %3$s</string>
-  <string name="select_odk_shortcut">Odaberi ODK prečicu</string>
+  <string name="select_odk_shortcut">Odaberi KoboToolbox prečicu</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -720,7 +720,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

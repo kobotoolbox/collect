@@ -33,7 +33,7 @@
   <string name="filter_the_list">सूची को फ़िल्टर करें</string>
   <!--Displayed in search boxes for form lists or question types that involve search-->
   <string name="search">खोज</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -270,7 +270,7 @@
   <string name="enable_gps">जीपीएस सक्षम करें</string>
   <string name="geotrace_title">जिओ ट्रेस</string>
   <string name="geo_clear_warning">फीचर पहले से ही बना है. क्या आप फीचर को क्लियर करना चाहेंगे?</string>
-  <string name="geo_exit_warning">परिवर्तनों को रद्द करें और वापस ODK पर लौटें?</string>
+  <string name="geo_exit_warning">परिवर्तनों को रद्द करें और वापस KoboToolbox पर लौटें?</string>
   <string name="polygon_validator">बहुभुज बनाने के लिए कम से कम 3 पॉइंट होने चाहिए</string>
   <string name="clear">स्पष्ट</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
@@ -369,7 +369,7 @@
   <string name="change_server_url">सर्वर URL</string>
   <string name="url_error">क्षमा करें,अमान्य URL!</string>
   <string name="username">प्रयोगकर्ता नाम </string>
-  <string name="change_username">ODK उपयोगकर्ता नाम</string>
+  <string name="change_username">KoboToolbox उपयोगकर्ता नाम</string>
   <string name="password">पासवर्ड</string>
   <string name="change_password">odk पासवर्ड</string>
   <string name="password_error_whitespace">पासवर्ड में अग्रणी या अनुगामी व्हाइटस्पेस की अनुमति नहीं है</string>
@@ -479,8 +479,8 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">बारे में </string>
-  <string name="odk_website">ODK वेबसाइट विजिट करें</string>
-  <string name="odk_forum">ODK फोरम ज्वाइन करें</string>
+  <string name="odk_website">KoboToolbox वेबसाइट विजिट करें</string>
+  <string name="odk_forum">KoboToolbox फोरम ज्वाइन करें</string>
   <!--##############################################
      # SETTINGS IMPORT
      ##############################################-->
@@ -510,7 +510,7 @@
   <string name="fs_delete_media_path_if_file_error">%sको नहीं मिटाया जा सका. कृपया फाइल को स्वयं हटा दें और फ़ॉर्म को पुनः डाउनलोड करें.</string>
   <string name="fs_create_media_folder_error">\'%s\' मीडिया फ़ोल्डर नहीं बना सका.</string>
   <string name="fs_file_copy_error">\'%2$s\' पर \'%1$s\' की नकल नहीं कर सकता. कारण: %3$s</string>
-  <string name="select_odk_shortcut">ODK शॉर्टकट चयन करें</string>
+  <string name="select_odk_shortcut">KoboToolbox शॉर्टकट चयन करें</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -568,7 +568,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

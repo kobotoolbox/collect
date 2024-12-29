@@ -36,7 +36,7 @@
   <string name="search">Kërko</string>
   <string name="storage_runtime_permission_denied_desc">Pa këto leje Collect nuk mund të aksesojë format tuaja apo të ruajë përgjigjet. Rihapeni applikacionin kur të të jeni gati të lejoni ato.</string>
   <string name="location_runtime_permissions_denied_title">Lejo aksesin në vendndodhje</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">Lejo aksesin në kamera</string>
   <string name="record_audio_runtime_permission_denied_title">Lejo aksesin në regjistrimin audio</string>
   <!--##############################################
@@ -279,7 +279,7 @@
   <string name="enable_gps">Aktivizo GPS-in</string>
   <string name="geotrace_title">GeoTrace</string>
   <string name="geo_clear_warning">Tipari është krijuar tanimë. A doni ta pastroni këtë tipar?</string>
-  <string name="geo_exit_warning">Elimino ndryshimet dhe kthehu në ODK?</string>
+  <string name="geo_exit_warning">Elimino ndryshimet dhe kthehu në KoboToolbox?</string>
   <string name="polygon_validator">Duhen së paku 3 pika për të krijuar Poligonin</string>
   <string name="clear">Pastro</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
@@ -508,12 +508,12 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Rreth</string>
-  <string name="tell_your_friends">Ndaj ODK Collect</string>
-  <string name="tell_your_friends_msg">Kolegët tuaj i mbledhin të dhënat me letër akoma? Ndaj ODK Collect me ta.</string>
+  <string name="tell_your_friends">Ndaj KoboCollect</string>
+  <string name="tell_your_friends_msg">Kolegët tuaj i mbledhin të dhënat me letër akoma? Ndaj KoboCollect me ta.</string>
   <string name="leave_a_review">Vlerëso në Play Store</string>
-  <string name="odk_website">Vizitoni faqen e ODK në internet</string>
-  <string name="odk_forum">Bëhu pjesë e forumit ODK</string>
-  <string name="odk_forum_summary">Regjistrohu në forum për suport, kërkuar elementë të rinj apo kontribuar me kodim apo përkthim.</string>
+  <string name="odk_website">Vizitoni faqen e KoboToolbox në internet</string>
+  <string name="odk_forum">Bëhu pjesë e forumit KoboToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses_msg">Ne qëndrojmë mbi shpatullat e gjigantëve!</string>
   <!--##############################################
      # SETTINGS IMPORT
@@ -545,7 +545,7 @@
   <string name="fs_delete_media_path_if_file_error">\'%s\' nuk mund të fshihet. Lutemi, fshini fil manualisht dhe shkarkoni formularin sërish.</string>
   <string name="fs_create_media_folder_error">Dosja media \'%s\' nuk mund të krijohet.</string>
   <string name="fs_file_copy_error">\'%1$s\' nuk mund të kopjohet mbi \'%2$s\'. Arsyeja: %3$s</string>
-  <string name="select_odk_shortcut">Përzgjidh ODK Shortcut</string>
+  <string name="select_odk_shortcut">Përzgjidh KoboToolbox Shortcut</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -603,7 +603,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

@@ -978,7 +978,7 @@
   <!--Label for entity that has been created offline and is not on the server yet-->
   <string name="offline">Desconectado</string>
   <!--Error message displayed when a user opens a form with an unrecognized entity version-->
-  <string name="unrecognized_entity_version">Este formulario no es compatible con esta versión de ODK Collect. Por favor, actualice Collect. Si sigues teniendo este problema, informa a la persona que te pidió que recopilaras los datos.\n\nForm Entities spec version: %s</string>
+  <string name="unrecognized_entity_version">Este formulario no es compatible con esta versión de KoboCollect. Por favor, actualice Collect. Si sigues teniendo este problema, informa a la persona que te pidió que recopilaras los datos.\n\nForm Entities spec version: %s</string>
   <!--##############################################
     # Crash handling
     ##############################################-->

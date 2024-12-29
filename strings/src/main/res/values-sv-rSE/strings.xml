@@ -39,7 +39,7 @@
   <string name="search">Sök</string>
   <string name="storage_runtime_permission_denied_title">Lagringsbehörigheter</string>
   <string name="location_runtime_permissions_denied_title">Platsbehörigheter</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">Kamerabehörigheter</string>
   <string name="record_audio_runtime_permission_denied_title">Behörigheter för att spela in ljud</string>
   <!--##############################################
@@ -355,7 +355,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS är inte aktiverad på din enhet. Vill du aktivera den?</string>
   <string name="geo_clear_warning">Objekt redan skapat. Vill du rensa objektet?</string>
-  <string name="geo_exit_warning">Ignorera ändringar och återgå till ODK?</string>
+  <string name="geo_exit_warning">Ignorera ändringar och återgå till KoboToolbox?</string>
   <string name="polygon_validator">Minst tre punkter krävs för att skapa en polygon</string>
   <string name="polyline_validator">Det behövs minst 2 punkter för att skapa en polyline</string>
   <string name="clear">Rensa</string>
@@ -461,9 +461,9 @@
   <string name="change_server_url">Server-URL</string>
   <string name="url_error">Tyvärr, ogiltig URL!</string>
   <string name="username">Användarnamn</string>
-  <string name="change_username">ODK användarnamn</string>
+  <string name="change_username">KoboToolbox användarnamn</string>
   <string name="password">Lösenord</string>
-  <string name="change_password">ODK lösenord</string>
+  <string name="change_password">KoboToolbox lösenord</string>
   <string name="password_error_whitespace">Inledande eller avslutande blanksteg är inte tillåtet i lösenord</string>
   <string name="username_error_whitespace">Inledande eller avslutande blanksteg är inte tillåtet i användarnamn</string>
   <string name="app_theme">Tema</string>
@@ -598,15 +598,15 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Om</string>
-  <string name="tell_your_friends">Dela ODK Collect</string>
+  <string name="tell_your_friends">Dela KoboCollect</string>
   <string name="tell_your_friends_msg">Samlar dina kollegor fortfarande data på papper?
-Dela ODK Collect med dem.</string>
+Dela KoboCollect med dem.</string>
   <string name="leave_a_review">Lämna ett omdöme på Play Store</string>
   <string name="leave_a_review_msg">Din (förhoppningsvis positiva) recension ökar synligheten av Appen i Play Store.</string>
-  <string name="odk_website">Besök ODKs hemsida</string>
-  <string name="odk_website_summary">ODK används för att samla in data för socialt arbete i utmanande miljöer</string>
-  <string name="odk_forum">Gå med i ODK forumet</string>
-  <string name="odk_forum_summary">Gå med i forumet för få hjälp, föreslå nya funktioner eller bidra med kod och översättningar!</string>
+  <string name="odk_website">Besök KoboToolboxs hemsida</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Gå med i KoboToolbox forumet</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Bibliotek/licenser för öppen källkod</string>
   <string name="all_open_source_licenses_msg">Vi står på jättarnas axlar!</string>
   <!--##############################################
@@ -641,7 +641,7 @@ Dela ODK Collect med dem.</string>
   <string name="fs_delete_media_path_if_file_error">Kan inte radera \'%s\'. Vänligen radera filen manuellt och ladda hem formuläret igen.</string>
   <string name="fs_create_media_folder_error">Kan inte skapa mediamappen \'%s\'.</string>
   <string name="fs_file_copy_error">Kan inte kopiera \'%1$s\' över \'%2$s\'. Orsak: %3$s</string>
-  <string name="select_odk_shortcut">Välj ODK genväg</string>
+  <string name="select_odk_shortcut">Välj KoboToolbox genväg</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -700,7 +700,7 @@ Dela ODK Collect med dem.</string>
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

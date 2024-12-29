@@ -49,7 +49,7 @@
   <string name="storage_runtime_permission_denied_title">Dovoljenja za shranjevanje</string>
   <string name="storage_runtime_permission_denied_desc">Brez teh dovoljenj, Collect ne more dostopati do vaših obrazcev ali shraniti odgovorov. Aplikacijo znova odprite, ko ste jih pripravljeni odobriti.</string>
   <string name="location_runtime_permissions_denied_title">Dovoljenja za dostop do lokacije</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="location_runtime_permissions_denied_desc">Brez dovoljenja za <b> lokacijo</b> Collect ne more zabeležiti vaše lokacije. Prosimo, poskusite znova, ko boste pripravljeni, da ga odobrite.</string>
   <string name="camera_runtime_permission_denied_title">Dovoljenje za fotoaparat</string>
   <string name="camera_runtime_permission_denied_desc">Brez tega dovoljenja Collect ne more dostopati do fotoaparata. Prosimo, poskusite znova, ko ste pripravljeni odobriti.</string>
@@ -455,7 +455,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">GPS v napravi je onemogočen. Želite omogočiti?</string>
   <string name="geo_clear_warning">Funkcija je že narejena. Želite izbrisati funkcijo?</string>
-  <string name="geo_exit_warning">Želite zavreči spremembe in se vrniti v ODK?</string>
+  <string name="geo_exit_warning">Želite zavreči spremembe in se vrniti v KoboToolbox?</string>
   <string name="polygon_validator">Potrebne so vsaj 3 točke za ustvarjenje poligona</string>
   <string name="polyline_validator">Potrebne so vsaj 2 točki za polilinijo</string>
   <string name="clear">Počisti</string>
@@ -643,7 +643,7 @@
   <string name="change_server_url">Strežnik URL</string>
   <string name="url_error">Napaka, neveljaven URL!</string>
   <string name="username">Uporabniško ime</string>
-  <string name="change_username">ODK uporabniško ime</string>
+  <string name="change_username">KoboToolbox uporabniško ime</string>
   <string name="password">Geslo</string>
   <string name="change_password">ODk geslo</string>
   <string name="password_error_whitespace">Presledki na začetku ali na koncu gesla niso dovoljeni</string>
@@ -730,7 +730,7 @@
   <string name="instance_sync_summary">Vpliva na obrazce, dodane neposredno v mapo.</string>
   <string name="analytics_preferences">Podatki o uporabi</string>
   <string name="analytics">Zberi anonimne podatke o uporabi</string>
-  <string name="analytics_summary">Anonimni podatki o uporabi pomagajo ODK ekipi določiti prednost popravkov in funkcij.</string>
+  <string name="analytics_summary">Anonimni podatki o uporabi pomagajo KoboToolbox ekipi določiti prednost popravkov in funkcij.</string>
   <string name="form_metadata_title">Metapodatki obrazca</string>
   <string name="form_metadata">Metapodatki obrazca</string>
   <string name="form_metadata_summary">Vrednosti bodo dodane obrazcem, ki imajo uporabnisko ime, email ali telefonsko stevilko …</string>
@@ -803,14 +803,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">O nas</string>
-  <string name="tell_your_friends">Delite ODK Collect.</string>
-  <string name="tell_your_friends_msg">Ali vaši kolegi še vedno zbirajo podatke na papirju? Delite ODK Collect z njimi.</string>
+  <string name="tell_your_friends">Delite KoboCollect.</string>
+  <string name="tell_your_friends_msg">Ali vaši kolegi še vedno zbirajo podatke na papirju? Delite KoboCollect z njimi.</string>
   <string name="leave_a_review">Oceni aplikacijo v Play Store.</string>
   <string name="leave_a_review_msg">Vaša (upajmo pozitivna) ocena poveča vidnost aplikacije v Play Store.</string>
-  <string name="odk_website">Obiščite spletno stran ODK.</string>
-  <string name="odk_website_summary">ODK se uporablja za zbiranje podatkov za družbeno dobro v zahtevnih okoljih.</string>
-  <string name="odk_forum">Pridružite se ODK forumu</string>
-  <string name="odk_forum_summary">Pridružite se forumu, da dobite podporo, izrazite podporo novim funkcijam in sodelujete pri programiranju ali prevodih!</string>
+  <string name="odk_website">Obiščite spletno stran KoboToolbox.</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Pridružite se KoboToolbox forumu</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Odprtokodne knjižnice/licence</string>
   <string name="all_open_source_licenses_msg">Stojimo na ramenih velikanov!</string>
   <!--##############################################
@@ -857,7 +857,7 @@
   <string name="fs_delete_media_path_if_file_error">Ne morem izbrisati\'%s\'. Izbriši datoteko ročno in ponovno naloži obrazec.</string>
   <string name="fs_create_media_folder_error">Ne morem ustvariti medijsko mapo \'%s\'.</string>
   <string name="fs_file_copy_error">Ne morem kopirat \'%1$s\' preko \'%2$s\'. Razlog: %3$s.</string>
-  <string name="select_odk_shortcut">Izberite bližnjico za dostop do ODK</string>
+  <string name="select_odk_shortcut">Izberite bližnjico za dostop do KoboToolbox</string>
   <string name="background_audio_help">Ta obrazec snema zvok preko mikrofona vaše naprave.\n\nZa zagotovitev, da je mikrofon dovolj blizu zvoku, ki ga želite posneti, lahko uporabite kazalnik glasnosti.\n\nZa ustavitev snemanja zapustite ta obrazec.\n\nZa več informacij se obrnite na osebo, ki vas je prosila za zbiranje podatkov.</string>
   <string name="loading">Nalaganje …</string>
   <!--##############################################
@@ -918,9 +918,9 @@
     # Form opening errors
     ##############################################-->
   <!--Error shown when a user tries to open a form that's in a different project-->
-  <string name="wrong_project_selected_for_form">Za odprtje tega obrazca morate najprej odpreti ODK Collect in preklopiti na projekt, ki ga vsebuje.</string>
+  <string name="wrong_project_selected_for_form">Za odprtje tega obrazca morate najprej odpreti KoboCollect in preklopiti na projekt, ki ga vsebuje.</string>
   <!--Error shown when a user tries to open a form when there are no projects-->
-  <string name="app_not_configured">ODK Collect ni bil pravilno konfiguriran. Poskusite odpreti ODK Collect in ga konfigurirati.\n\nČe ste tapnili na bližnjico, jo boste morda morali ponovno ustvariti po konfiguriranju ODK Collect.</string>
+  <string name="app_not_configured">KoboCollect ni bil pravilno konfiguriran. Poskusite odpreti KoboCollect in ga konfigurirati.\n\nČe ste tapnili na bližnjico, jo boste morda morali ponovno ustvariti po konfiguriranju KoboCollect.</string>
   <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
   <string name="unrecognized_uri">Neprepoznan URI: %s</string>
   <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
@@ -958,10 +958,10 @@
   <string name="dev_tools">Razvijalska orodja</string>
   <!--Option provided in the Developer tools settings to force an application crash-->
   <string name="crash_app">Prisilno zaustavi aplikacijo</string>
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <string name="crash_app_summary">Neujeta napaka zaustavila aplikacijo</string>
   <string name="permission_dialog_title">O dovoljenjih</string>
-  <string name="permission_dialog_text">Če želite dovoliti dostop ODK Collect do spodaj navedenih funkcij, izberite \"dovoli\", če jih želite uporabljati.</string>
+  <string name="permission_dialog_text">Če želite dovoliti dostop KoboCollect do spodaj navedenih funkcij, izberite \"dovoli\", če jih želite uporabljati.</string>
   <string name="notifications">Obvestila</string>
   <string name="required_for_notifications">Potrebno za prikaz posodobitev, ko se obrazci prenesejo, posodobijo in pošljejo.</string>
   <!--##############################################

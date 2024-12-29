@@ -63,7 +63,7 @@
     <string name="storage_runtime_permission_denied_title">Storage permissions</string>
     <string name="storage_runtime_permission_denied_desc">Without these permissions Collect can\'t access your forms or save answers. Reopen the app when you are ready to grant them.</string>
     <string name="location_runtime_permissions_denied_title">Location permissions</string>
-    <!-- Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted. -->
+    <!-- Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted. -->
     <string name="location_runtime_permissions_denied_desc">Without the <b>Precise Location</b> permission Collect can\'t record your location. Please try again when you are ready to grant it.</string>
     <string name="camera_runtime_permission_denied_title">Camera permission</string>
     <string name="camera_runtime_permission_denied_desc">Without this permission Collect can\'t access the camera. Please try again when you are ready to grant it.</string>
@@ -599,7 +599,7 @@
     <string name="geotrace_title">GeoTrace</string>
     <string name="gps_enable_message">GPS is disabled on your device. Would you like to enable it?</string>
     <string name="geo_clear_warning">Feature already created. Would you like to clear the feature?</string>
-    <string name="geo_exit_warning">Discard changes and return to ODK?</string>
+    <string name="geo_exit_warning">Discard changes and return to KoboToolbox?</string>
     <string name="polygon_validator">Must have at least 3 points to create Polygon</string>
     <string name="polyline_validator">Must have at least 2 points to create Polyline</string>
     <string name="clear">Clear</string>
@@ -828,9 +828,9 @@
     <string name="change_server_url">Server URL</string>
     <string name="url_error">Sorry, invalid URL!</string>
     <string name="username">Username</string>
-    <string name="change_username">ODK Username</string>
+    <string name="change_username">KoboToolbox Username</string>
     <string name="password">Password</string>
-    <string name="change_password">ODK Password</string>
+    <string name="change_password">KoboToolbox Password</string>
     <string name="password_error_whitespace">Leading or trailing whitespace not allowed in passwords</string>
     <string name="username_error_whitespace">Leading or trailing whitespace not allowed in usernames</string>
 
@@ -930,7 +930,7 @@
 
     <string name="analytics_preferences">Usage data</string>
     <string name="analytics">Collect anonymous usage data</string>
-    <string name="analytics_summary">Anonymous usage data helps the ODK team prioritize fixes and features.</string>
+    <string name="analytics_summary">Anonymous usage data helps the KoboToolbox team prioritize fixes and features.</string>
 
     <string name="form_metadata_title">Form Metadata</string>
     <string name="form_metadata">Form metadata</string>
@@ -1016,14 +1016,14 @@
      ##############################################
      -->
     <string name="about_preferences">About</string>
-    <string name="tell_your_friends">Share ODK Collect</string>
-    <string name="tell_your_friends_msg">Are your colleagues still collecting data on paper? Share ODK Collect with them.</string>
+    <string name="tell_your_friends">Share KoboCollect</string>
+    <string name="tell_your_friends_msg">Are your colleagues still collecting data on paper? Share KoboCollect with them.</string>
     <string name="leave_a_review">Leave a Play Store review</string>
     <string name="leave_a_review_msg">Your (hopefully positive) review increases the visibility of the App in the Play Store.</string>
-    <string name="odk_website">Visit the ODK website</string>
-    <string name="odk_website_summary">ODK is used to collect data for social good in challenging environments.</string>
-    <string name="odk_forum">Join the ODK forum</string>
-    <string name="odk_forum_summary">Join the forum to get support, request features, contribute code/translations! </string>
+    <string name="odk_website">Visit the KoboToolbox website</string>
+    <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+    <string name="odk_forum">Join the KoboToolbox forum</string>
+    <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
     <string name="all_open_source_licenses">Open source libraries/licenses</string>
     <string name="all_open_source_licenses_msg">We stand on the shoulders of giants!</string>
 
@@ -1082,7 +1082,7 @@
     <string name="fs_create_media_folder_error">Could not create media folder \'%s\'.</string>
     <string name="fs_file_copy_error">Could not copy \'%1$s\' over \'%2$s\'. Reason: %3$s</string>
 
-    <string name="select_odk_shortcut">Select ODK Shortcut</string>
+    <string name="select_odk_shortcut">Select KoboToolbox Shortcut</string>
     <string name="background_audio_help">This form records the audio from your device\'s microphone.\n\nYou can use the volume indicator to make sure the microphone is close enough to the sound you need to record.\n\nTo stop the recording please exit this form.\n\nFor more information please contact the person who asked you to collect data.</string>
 
     <string name="loading">Loading…</string>
@@ -1157,9 +1157,9 @@
     ##############################################
     -->
     <!-- Error shown when a user tries to open a form that's in a different project -->
-    <string name="wrong_project_selected_for_form">To open this form, you must first open ODK Collect and switch to the project that contains it.</string>
+    <string name="wrong_project_selected_for_form">To open this form, you must first open KoboCollect and switch to the project that contains it.</string>
     <!-- Error shown when a user tries to open a form when there are no projects -->
-    <string name="app_not_configured">ODK Collect has not been configured. Try to open ODK Collect and configure it.\n\nIf you tapped on a shortcut, you might need to recreate it after configuring ODK Collect.</string>
+    <string name="app_not_configured">KoboCollect has not been configured. Try to open KoboCollect and configure it.\n\nIf you tapped on a shortcut, you might need to recreate it after configuring KoboCollect.</string>
     <!-- Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown -->
     <string name="unrecognized_uri">Unrecognized URI: %s</string>
     <!-- Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect -->
@@ -1199,7 +1199,7 @@
     <string name="offline">Offline</string>
 
     <!-- Error message displayed when a user opens a form with an unrecognized entity version -->
-    <string name="unrecognized_entity_version">This form is not supported by this version of ODK Collect. Please upgrade Collect. If you keep having this problem, report it to the person who asked you to collect data.\n\nForm Entities spec version: %s</string>
+    <string name="unrecognized_entity_version">This form is not supported by this version of KoboCollect. Please upgrade Collect. If you keep having this problem, report it to the person who asked you to collect data.\n\nForm Entities spec version: %s</string>
 
     <!--
     ##############################################
@@ -1227,11 +1227,11 @@
     <string name="dev_tools">Developer tools</string>
     <!-- Option provided in the Developer tools settings to force an application crash -->
     <string name="crash_app">Crash app</string>
-    <!-- An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close -->
+    <!-- An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close -->
     <string name="crash_app_summary">Force an uncaught exception causing the app to crash</string>
 
     <string name="permission_dialog_title">About permissions</string>
-    <string name="permission_dialog_text">You will be asked to allow ODK Collect access to the features below, select “allow” if you want to use them.</string>
+    <string name="permission_dialog_text">You will be asked to allow KoboCollect access to the features below, select “allow” if you want to use them.</string>
     <string name="notifications">Notifications</string>
     <string name="required_for_notifications">Required for showing updates when forms are downloaded, updated and sent.</string>
 

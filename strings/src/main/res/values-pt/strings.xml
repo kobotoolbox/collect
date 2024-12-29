@@ -47,14 +47,14 @@
   <string name="search">Procurar</string>
   <string name="not_granted_permission">A atividade que você está tentando iniciar exige uma permissão que você não concedeu.</string>
   <string name="storage_runtime_permission_denied_title">Permissões de armazenamento</string>
-  <string name="storage_runtime_permission_denied_desc">Sem estas permissões, o ODK Collect não pode acessar os seus formulários ou salvar formulários enviados. Abra o aplicativo novamente quando estiver pronto para conceder estas permissões.</string>
+  <string name="storage_runtime_permission_denied_desc">Sem estas permissões, o KoboCollect não pode acessar os seus formulários ou salvar formulários enviados. Abra o aplicativo novamente quando estiver pronto para conceder estas permissões.</string>
   <string name="location_runtime_permissions_denied_title">Permissões de localização</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
-  <string name="location_runtime_permissions_denied_desc">Sem a permissão de <b> Precise Location </b>, o ODK Collect não consegue registrar a sua localização. Por favor, tente novamente quando estiver pronto para conceder a permissão.</string>
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
+  <string name="location_runtime_permissions_denied_desc">Sem a permissão de <b> Precise Location </b>, o KoboCollect não consegue registrar a sua localização. Por favor, tente novamente quando estiver pronto para conceder a permissão.</string>
   <string name="camera_runtime_permission_denied_title">Permissão de acesso à câmera</string>
-  <string name="camera_runtime_permission_denied_desc">Sem esta permissão, o ODK Collect não consegue acessar sua câmera. Por favor, tente novamente quando estiver pronto a concedê-la.</string>
+  <string name="camera_runtime_permission_denied_desc">Sem esta permissão, o KoboCollect não consegue acessar sua câmera. Por favor, tente novamente quando estiver pronto a concedê-la.</string>
   <string name="record_audio_runtime_permission_denied_title">Permissão de gravar áudio</string>
-  <string name="record_audio_runtime_permission_denied_desc">Sem esta permissão, o ODK Collect não consegue acessar seu microfone. Por favor, tente novamente quando estiver pronto a concedê-la.</string>
+  <string name="record_audio_runtime_permission_denied_desc">Sem esta permissão, o KoboCollect não consegue acessar seu microfone. Por favor, tente novamente quando estiver pronto a concedê-la.</string>
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -221,7 +221,7 @@
   <string name="record_audio_on">Gravação de áudio: ligado</string>
   <!--Displayed in the form filling menu when a form has background audio recording disabled-->
   <string name="record_audio_off">Gravação de áudio: desligado</string>
-  <string name="background_audio_permission_explanation">Esse formulário grava áudio em segundo plano. Você precisa dar permissão de acesso ao microfone para o ODK Collect. Se não permitir isso, você não poderá abrir esse formulário.</string>
+  <string name="background_audio_permission_explanation">Esse formulário grava áudio em segundo plano. Você precisa dar permissão de acesso ao microfone para o KoboCollect. Se não permitir isso, você não poderá abrir esse formulário.</string>
   <!--Text asking the user to confirm whether they want to stop recording or not (which deletes the recording file)-->
   <string name="stop_recording_confirmation">Esse formulário solicita gravação de áudio em segundo plano. Desabilitar isso irá interromper a gravação e descartar o áudio já gravado. Você tem certeza que deseja continuar?</string>
   <!--Button text for the dialog confirming whether the user wants to disable background recording-->
@@ -461,7 +461,7 @@
   <string name="geotrace_title">GeoTrace</string>
   <string name="gps_enable_message">O GPS está desabilitado no seu dispositivo. Quer habilitá-lo?</string>
   <string name="geo_clear_warning">A feature já foi criada. Gostaria de limpar a feature?</string>
-  <string name="geo_exit_warning">Descartar mudanças e retornar ao ODK?</string>
+  <string name="geo_exit_warning">Descartar mudanças e retornar ao KoboToolbox?</string>
   <string name="polygon_validator">Precisa ter pelo menos 3 pontos para criar Polígono</string>
   <string name="polyline_validator">Precisa ter pelo menos 2 pontos para criar uma Cadeia de Linhas</string>
   <string name="clear">Limpar</string>
@@ -646,7 +646,7 @@
   <string name="change_server_url">Servidor URL</string>
   <string name="url_error">Desculpe, URL inválida!</string>
   <string name="username">Nome do usuário</string>
-  <string name="change_username">Usuário ODK</string>
+  <string name="change_username">Usuário KoboToolbox</string>
   <string name="password">Senha</string>
   <string name="change_password">Senha</string>
   <string name="password_error_whitespace">Espaços em branco antes e depois de senhas não são permitidos</string>
@@ -733,7 +733,7 @@
   <string name="instance_sync_summary">Afeta formulários adicionados diretamente na pasta instances.</string>
   <string name="analytics_preferences">Uso de dados</string>
   <string name="analytics">Coletar dados anonimamente</string>
-  <string name="analytics_summary">Dados anônimos de uso ajudam a equipe do ODK na priorização de correções de erros e funcionalidades.</string>
+  <string name="analytics_summary">Dados anônimos de uso ajudam a equipe do KoboToolbox na priorização de correções de erros e funcionalidades.</string>
   <string name="form_metadata_title">Metadados do Formulário</string>
   <string name="form_metadata">Metadados do Formulário</string>
   <string name="form_metadata_summary">Estes valores serão adicionados aos formulários que têm os campos usuário, e-mail e/ou telefone pré-determinados para identificar a pessoa que está enviando os dados.</string>
@@ -806,14 +806,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Sobre</string>
-  <string name="tell_your_friends">Compartilhar ODK Collect</string>
-  <string name="tell_your_friends_msg">Seus colegas ainda estão coletando dados em papel? Compartilhe o ODK Collect com eles.</string>
+  <string name="tell_your_friends">Compartilhar KoboCollect</string>
+  <string name="tell_your_friends_msg">Seus colegas ainda estão coletando dados em papel? Compartilhe o KoboCollect com eles.</string>
   <string name="leave_a_review">Deixe um opinião sua na Play Store</string>
   <string name="leave_a_review_msg">A sua opinião (possivelmente positiva) aumenta a visibilidade da App na Play Store.</string>
-  <string name="odk_website">Visite o site ODK</string>
-  <string name="odk_website_summary">ODK é usado para coleta de dados pelo bem comum em ambientes desafiadores.</string>
-  <string name="odk_forum">Junte-se ao fórum ODK</string>
-  <string name="odk_forum_summary">Junte-se ao fórum para obter suporte, requisitar funcionalidades, contribuir com o código/traduções!</string>
+  <string name="odk_website">Visite o site KoboToolbox</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Junte-se ao fórum KoboToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Bibliotecas/licenças open source</string>
   <string name="all_open_source_licenses_msg">Nós estamos nos ombros dos gigantes!</string>
   <!--##############################################
@@ -860,7 +860,7 @@
   <string name="fs_delete_media_path_if_file_error">Não foi possível apagar \'%s\'. Por favor apague o arquivo manualmente e descarregue o formulário novamente.</string>
   <string name="fs_create_media_folder_error">Não foi possível criar a pasta de mídia \'%s\'.</string>
   <string name="fs_file_copy_error">Não foi possível copiar os dados de \'%1$s\' para \'%2$s\'.. Motivo: %3$s</string>
-  <string name="select_odk_shortcut">Selecionar o Atalho ODK</string>
+  <string name="select_odk_shortcut">Selecionar o Atalho KoboToolbox</string>
   <string name="background_audio_help">Esse formulário grava áudio do microfone do seu dispositivo.\n\nVocê pode usar o indicador de volume para garantir que o microfone esteja próximo o suficiente do som que você precisa gravar.\n\nPara parar a gravação, por favor, saia desse formulário.\n\nPara mais informações, por favor entre em contato com a pessoa que solicitou que você coletasse dados.</string>
   <string name="loading">Carregando…</string>
   <!--##############################################
@@ -921,9 +921,9 @@
     # Form opening errors
     ##############################################-->
   <!--Error shown when a user tries to open a form that's in a different project-->
-  <string name="wrong_project_selected_for_form">Para abrir esse formulário, você deve primeiro abrir o ODK Collect e alternar para o projeto que o contém.</string>
+  <string name="wrong_project_selected_for_form">Para abrir esse formulário, você deve primeiro abrir o KoboCollect e alternar para o projeto que o contém.</string>
   <!--Error shown when a user tries to open a form when there are no projects-->
-  <string name="app_not_configured">O ODK Collect não foi configurado. Tente abrir o ODK Collect e configurá-lo;\n\nSe você clicou em um atalho, você pode precisar recriá-lo depois de configurar o ODK Collect.</string>
+  <string name="app_not_configured">O KoboCollect não foi configurado. Tente abrir o KoboCollect e configurá-lo;\n\nSe você clicou em um atalho, você pode precisar recriá-lo depois de configurar o KoboCollect.</string>
   <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
   <string name="unrecognized_uri">URL não reconhecida: %s</string>
   <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
@@ -962,10 +962,10 @@
   <string name="dev_tools">Ferramentas de desenvolvedor</string>
   <!--Option provided in the Developer tools settings to force an application crash-->
   <string name="crash_app">Forçar a quebra do aplicativo</string>
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <string name="crash_app_summary">Forçar uma exceção não tratada causando a quebra do aplicativo</string>
   <string name="permission_dialog_title">Sobre permissões</string>
-  <string name="permission_dialog_text">Você deverá permitir que o ODK Collect tenha acesso às configurações abaixo, selecione \"permitir\" se você deseja usá-las.</string>
+  <string name="permission_dialog_text">Você deverá permitir que o KoboCollect tenha acesso às configurações abaixo, selecione \"permitir\" se você deseja usá-las.</string>
   <string name="notifications">Notificações</string>
   <string name="required_for_notifications">Requerido para mostrar atualizações quando o formulário é baixado, atualizado e enviado.</string>
   <!--##############################################

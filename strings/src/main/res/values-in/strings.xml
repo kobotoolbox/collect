@@ -49,7 +49,7 @@
   <string name="storage_runtime_permission_denied_title">Perizinan penyimpanan</string>
   <string name="storage_runtime_permission_denied_desc">Tanpa perizinan tadi, Collect tidak dapat mengakses formulir Anda atau pun menyimpan jawabannya. Buka ulang aplikasi jika Anda sudah yakin untuk memberikan izin.</string>
   <string name="location_runtime_permissions_denied_title">Izin untuk mengakses lokasi</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="location_runtime_permissions_denied_desc">Tanpa izin <b> Lokasi Akurat </b>, Collect tidak dapat merekam lokasi anda. Silakan coba lagi ketika anda siap untuk memberikan izin.</string>
   <string name="camera_runtime_permission_denied_title">Izin untuk mengakses Kamera</string>
   <string name="camera_runtime_permission_denied_desc">Tanpa perizinan tadi, Collect tidak dapat mengakses kamera. Buka ulang aplikasi jika Anda sudah yakin untuk memberikan izin.</string>
@@ -446,7 +446,7 @@
   <string name="geotrace_title">Lacak GeoTrace </string>
   <string name="gps_enable_message">GPS dinonaktifkan pada perangkat Anda. Apakah Anda ingin mengaktifkannya?</string>
   <string name="geo_clear_warning">Fitur sudah dibuat. Apakah Anda ingin menghapus fitur ini?</string>
-  <string name="geo_exit_warning">Buang perubahan dan kembali ke ODK?</string>
+  <string name="geo_exit_warning">Buang perubahan dan kembali ke KoboToolbox?</string>
   <string name="polygon_validator">Setidaknya dibutuhkan 3 titik untuk membuat Polygon.</string>
   <string name="polyline_validator">Setidaknya dibutuhkan 2 titik untuk membuat Poyline.</string>
   <string name="clear">Hapus</string>
@@ -546,9 +546,9 @@
     ##############################################-->
   <string name="report_to_project_lead">Jika anda terus mengalami masalah ini, laporkan ke orang yang meminta anda untuk mengumpulkan data.</string>
   <!--Displayed in error dialog for form downloads. Followed by instructions to talk to person who asked to collect data-->
-  <string name="unreachable_error">ODK Collect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
+  <string name="unreachable_error">KoboCollect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
   <!--Displayed in error dialog for form downloads. Followed by instructions to talk to person who asked to collect data-->
-  <string name="security_error">ODK Collect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
+  <string name="security_error">KoboCollect tidak dapat menghubung server di %s. Apakah anda sudah memasukkan URL dengan benar?</string>
   <!--Displayed in error dialog for form downloads. Followed by instructions to talk to person who asked to collect data-->
   <string name="server_error">Peladen %1$s rmengembalikan kode status %2$s.</string>
   <!--Displayed in error dialog for form downloads. Followed by instructions to talk to person who asked to collect data-->
@@ -625,9 +625,9 @@
   <string name="change_server_url">Server URL</string>
   <string name="url_error">Maaf, URL tidak valid.</string>
   <string name="username">Nama Pengguna</string>
-  <string name="change_username">Nama Pengguna ODK</string>
+  <string name="change_username">Nama Pengguna KoboToolbox</string>
   <string name="password">Kata sandi</string>
-  <string name="change_password">Kata Sandi ODK</string>
+  <string name="change_password">Kata Sandi KoboToolbox</string>
   <string name="password_error_whitespace">Tidak diperkenankan menggunakan spasi pada kata sandi</string>
   <string name="username_error_whitespace">Tidak diperkenankan menggunakan spasi pada nama pengguna</string>
   <string name="app_theme">Tema</string>
@@ -712,7 +712,7 @@
   <string name="instance_sync_summary">Formulir yang rusak akan langsung ditambahkan ke berkas instance</string>
   <string name="analytics_preferences">Penggunaan data</string>
   <string name="analytics">Kumpulkan data pengguna anonim</string>
-  <string name="analytics_summary">Data penggunaan anonim membantu tim ODK untuk memprioritaskan perbaikan dan fitur.</string>
+  <string name="analytics_summary">Data penggunaan anonim membantu tim KoboToolbox untuk memprioritaskan perbaikan dan fitur.</string>
   <string name="form_metadata_title">Metadata Formulir</string>
   <string name="form_metadata">Metadata formulir</string>
   <string name="form_metadata_summary">Semua nilai ini akan ditambahkan ke formulir yang menyediakan field nama pengguna, email dan/atau telepon untuk mengidentifikasi orang yang mengirimkan data.</string>
@@ -785,14 +785,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">Tentang</string>
-  <string name="tell_your_friends">Bagikan ODK Collect</string>
-  <string name="tell_your_friends_msg">Apakah rekan Anda masih menggunakan kertas untuk pengumpulan data? Kabari mereka untuk menggunakan ODK Collect.</string>
+  <string name="tell_your_friends">Bagikan KoboCollect</string>
+  <string name="tell_your_friends_msg">Apakah rekan Anda masih menggunakan kertas untuk pengumpulan data? Kabari mereka untuk menggunakan KoboCollect.</string>
   <string name="leave_a_review">Berikan ulasan di Play Store</string>
-  <string name="leave_a_review_msg">Ulasan Anda (semoga positif) dapat mempromosikan aplikasi ODK di Play Store.</string>
-  <string name="odk_website">Kunjungi situs ODK </string>
-  <string name="odk_website_summary">ODK digunakan sebagai pengumpulan data untuk kepentingan sosial di lingkungan yang menantang.</string>
-  <string name="odk_forum">Gabung forum ODK</string>
-  <string name="odk_forum_summary">Bergabung di Forum untuk mendapatkan bantuan, permintaan fitur, berkontribusi kode program/terjemahan!</string>
+  <string name="leave_a_review_msg">Ulasan Anda (semoga positif) dapat mempromosikan aplikasi KoboToolbox di Play Store.</string>
+  <string name="odk_website">Kunjungi situs KoboToolbox </string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">Gabung forum KoboToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">Lisensi/pustaka sumber terbuka</string>
   <string name="all_open_source_licenses_msg">Kita menjadi besar karena berkolaborasi bersama!</string>
   <!--##############################################
@@ -839,7 +839,7 @@
   <string name="fs_delete_media_path_if_file_error">Tidak dapat menghapus \'%s\'. Mohon hapus berkas secara manual dan unduh ulang formulirnya.</string>
   <string name="fs_create_media_folder_error">Tidak dapat membuat folder media \'%s\'.</string>
   <string name="fs_file_copy_error">Tidak dapat menyalin \'%1$s\' terhadap \'%2$s\'. Penyebab: %3$s</string>
-  <string name="select_odk_shortcut">Pilih pintasan ODK</string>
+  <string name="select_odk_shortcut">Pilih pintasan KoboToolbox</string>
   <string name="background_audio_help">Formulir ini merekam suara dari perangkat mikrofon Anda. Anda dapat menggunakan indikator volume untuk memastikan bahwa mikrofon sudah cukup dekat dengan suara yang ingin Anda rekam. Untuk menghentikan perekaman mohon keluar dari formulir ini. Untuk informasi lebih lanjut mohon hubungi orang yang meminta anda untuk mengumpulkan data.</string>
   <string name="loading">Memuat…</string>
   <!--##############################################
@@ -900,9 +900,9 @@
     # Form opening errors
     ##############################################-->
   <!--Error shown when a user tries to open a form that's in a different project-->
-  <string name="wrong_project_selected_for_form">Untuk membuka formulir ini, Anda harus membuka ODK Collect dan beralih ke proyek yang memuatnya.</string>
+  <string name="wrong_project_selected_for_form">Untuk membuka formulir ini, Anda harus membuka KoboCollect dan beralih ke proyek yang memuatnya.</string>
   <!--Error shown when a user tries to open a form when there are no projects-->
-  <string name="app_not_configured">ODK Collect belum dikonfigurasi. Cobalah membuka ODK Collect dan mengatur konfigurasinya.\n\nJika anda mengetuk pintasan, anda mungkin perlu membuatnya kembali setelah mengkonfigurasi ODK Collect.</string>
+  <string name="app_not_configured">KoboCollect belum dikonfigurasi. Cobalah membuka KoboCollect dan mengatur konfigurasinya.\n\nJika anda mengetuk pintasan, anda mungkin perlu membuatnya kembali setelah mengkonfigurasi KoboCollect.</string>
   <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
   <string name="unrecognized_uri">URI tidak dikenal: %s</string>
   <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
@@ -939,10 +939,10 @@
   <string name="dev_tools">Alat pengembang</string>
   <!--Option provided in the Developer tools settings to force an application crash-->
   <string name="crash_app">Paksa aplikasi untuk crash</string>
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <string name="crash_app_summary">Memaksa terjadinya pengecualian yang tidak ditangani sehingga aplikasi berhenti secara tiba-tiba</string>
   <string name="permission_dialog_title">Tentang izin</string>
-  <string name="permission_dialog_text">Anda akan diminta untuk mengizinkan ODK Collect mengakses fitur-fitur di bawah ini, pilih “izinkan” jika anda ingin menggunakannya.</string>
+  <string name="permission_dialog_text">Anda akan diminta untuk mengizinkan KoboCollect mengakses fitur-fitur di bawah ini, pilih “izinkan” jika anda ingin menggunakannya.</string>
   <string name="notifications">Notifikasi</string>
   <string name="required_for_notifications">Diperlukan untuk menampilkan pembaruan saat formulir diunduh, diperbarui, dan dikirimkan.</string>
   <!--##############################################

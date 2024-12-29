@@ -49,7 +49,7 @@
   <string name="storage_runtime_permission_denied_title">سٹوریج پرمیشن</string>
   <string name="storage_runtime_permission_denied_desc">اس اجازت کے بغیر کولیکٹ آپ کے فارم تک رسائی حاصل نہیں کرسکتایا جواب محفوظ نہیں کر سکتا جب آپ پرمیشن دینے کے لئے تیار ہو تو ایپلکیشن دوبارہ کھولیں.</string>
   <string name="location_runtime_permissions_denied_title">لوکیشن کی اجازت</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="location_runtime_permissions_denied_desc">اس <b>مخصوص</b> اجازت کے بغیر کولیکٹ آپ کی لوکیشن ریکارڈ نہیں کرسکتا۔ برائےمہربانی دوبارہ کوشش کریں جب آپ پرمیشن دینے کے لئے تیار ہو </string>
   <string name="camera_runtime_permission_denied_title">کمیرہ کی اجازت</string>
   <string name="camera_runtime_permission_denied_desc">اس اجازت کے بغیر کولیکٹ کو کیمرے تک رسائی نہیں مل سکتی. برائےمہربانی دوبارہ کوشش کریں جب آپ  پرمیشن دینے کے لئے تیار ہو</string>
@@ -633,9 +633,9 @@
   <string name="change_server_url">سروریو آر ایل</string>
   <string name="url_error">معذرت، URL صحیح نہیں ہے</string>
   <string name="username">استعمال کنندہ کا نام</string>
-  <string name="change_username">ODK استعمال کرنے والے کا نام</string>
+  <string name="change_username">KoboToolbox استعمال کرنے والے کا نام</string>
   <string name="password">پاس ورڈ</string>
-  <string name="change_password">  ODK  کا پاس ورڈ</string>
+  <string name="change_password">  KoboToolbox  کا پاس ورڈ</string>
   <string name="password_error_whitespace">پاس ورڈز میں شروع اور بعد میں سپیسس کی اجازت نہیں ہے</string>
   <string name="username_error_whitespace">صارف کےناموں میں شروع اور بعد میں سپیسس کی اجازت نہیں ہے</string>
   <string name="app_theme">تھیم </string>
@@ -720,7 +720,7 @@
   <string name="instance_sync_summary">افیکٹس فارمز براہ راست انسٹنسز فولڈر میں شامل کیا گئے.</string>
   <string name="analytics_preferences">استعمال کا ڈیٹا</string>
   <string name="analytics">انانمس ڈیٹا جمع کریں</string>
-  <string name="analytics_summary">بغیر شناخت کے ڈیٹا سے ODK کی ٹیم کو ایپ کے مسائل حل کرنے اور نئی سہولیات بنانے میں مدد ملتی ہے</string>
+  <string name="analytics_summary">بغیر شناخت کے ڈیٹا سے KoboToolbox کی ٹیم کو ایپ کے مسائل حل کرنے اور نئی سہولیات بنانے میں مدد ملتی ہے</string>
   <string name="form_metadata_title">فارم میٹا ڈیٹا</string>
   <string name="form_metadata">فارم میٹا ڈیٹا</string>
   <string name="form_metadata_summary">ان ویلیوزکو فارمز میں شامل کیا جائے گا جس میں ڈیٹا جمع کرنے والے شخص کو شناخت کرنے کے لئے صارف کا نام، ای میل اور / یاٹیلی فون پہلے سے لوڈ شدہ فیلڈ موجود ہیں.</string>
@@ -807,9 +807,9 @@ Constraint processing</string>
   <string name="leave_a_review">پلے اسٹور پر رائے دیجیے</string>
   <string name="leave_a_review_msg">آپ ( امید ہے مثبت) کی رائے سے پلے اسٹورمیں اپپ کی نمائش میں اضافہ ہوتا ہے </string>
   <string name="odk_website">او ڈی کے ویب سائٹ وزٹ کریں</string>
-  <string name="odk_website_summary">ODK مشکل حالات میں معاشرتی بہتری کے لئے ڈیٹا اکٹھا کرنے میں استعمال ہوتا ہے۔</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
   <string name="odk_forum">او ڈی کے فورم میں شمولیت اختیار کریں</string>
-  <string name="odk_forum_summary">تعاون حاصل کرنے کے لئے فورم میں شمولیت اختیار کریں، خصوصیات کی درخواست کریں، کوڈ / ترجمہ کرنے میں اپنا حصہ ڈالیں  !</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">اوپن سورس لائبریری / لائسنسس</string>
   <string name="all_open_source_licenses_msg">ہم پرانےمشاہدات کو استعمال کر کے سچ کا پتا لگا رہے ہیں </string>
   <!--##############################################
@@ -923,11 +923,11 @@ Constraint processing</string>
     # Form opening errors
     ##############################################-->
   <!--Error shown when a user tries to open a form that's in a different project-->
-  <string name="wrong_project_selected_for_form">اس فارم کو کھولنے کے لئے پہلے ODK Collect کھولیں اور اس پراجیکٹ کا انتخاب کریں جس میں یہ موجود ہے۔</string>
+  <string name="wrong_project_selected_for_form">اس فارم کو کھولنے کے لئے پہلے KoboCollect کھولیں اور اس پراجیکٹ کا انتخاب کریں جس میں یہ موجود ہے۔</string>
   <!--Error shown when a user tries to open a form when there are no projects-->
-  <string name="app_not_configured">ODK Collect ابھی تک Configure نہیں کیا گیا۔ براہ مہربانی ODK Collect کو کھولیں اور سیٹنگ کریں۔
+  <string name="app_not_configured">KoboCollect ابھی تک Configure نہیں کیا گیا۔ براہ مہربانی KoboCollect کو کھولیں اور سیٹنگ کریں۔
 
-اگر آپ نے کسی Shortcut پہ کلک کیا ہے، تو آپ کوODK Collect سیٹ کرنے کی بعد اس کو دوبارہ بنانا پڑے گا۔</string>
+اگر آپ نے کسی Shortcut پہ کلک کیا ہے، تو آپ کوKoboCollect سیٹ کرنے کی بعد اس کو دوبارہ بنانا پڑے گا۔</string>
   <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
   <string name="unrecognized_uri">ناقابل شناخت URI:%s</string>
   <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
@@ -964,10 +964,10 @@ Constraint processing</string>
   <string name="dev_tools">ڈویلیپرز کے ٹولز</string>
   <!--Option provided in the Developer tools settings to force an application crash-->
   <string name="crash_app">Crash app</string>
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <string name="crash_app_summary">Force an uncaught exception causing the app to crash</string>
   <string name="permission_dialog_title">اجازت کی تفصیل</string>
-  <string name="permission_dialog_text">آپ سے پوچھا جائے گا کہ ODK Collect نیچے دی گئی چیزوں کو استعمال کر سکتا ہے۔ اگر آپ مطمئن ہیں تو Allow کا بٹن دبایئں۔</string>
+  <string name="permission_dialog_text">آپ سے پوچھا جائے گا کہ KoboCollect نیچے دی گئی چیزوں کو استعمال کر سکتا ہے۔ اگر آپ مطمئن ہیں تو Allow کا بٹن دبایئں۔</string>
   <string name="notifications">نوٹس</string>
   <string name="required_for_notifications">Required for showing updates when forms are downloaded, updated and sent.</string>
   <!--##############################################

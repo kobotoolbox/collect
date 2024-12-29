@@ -40,7 +40,7 @@
   <string name="storage_runtime_permission_denied_title">నిల్వ ఉంచటానికి అనుమతులు</string>
   <string name="storage_runtime_permission_denied_desc">ఈ అనుమతులు లేకుండా మీ ఫారమ్‌లను యాక్సెస్ చేయలేరు లేదా సమాధానాలను సేవ్ చేయలేరు. మీరు వాటిని మంజూరు చేయడానికి సిద్ధంగా ఉన్నప్పుడు ఆప్ ని తిరిగి తెరవండి.</string>
   <string name="location_runtime_permissions_denied_title">ప్రదేశ అనుమతులు</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">కెమెరా అనుమతి</string>
   <string name="camera_runtime_permission_denied_desc">ఈ అనుమతి లేకుండా కెమెరాను యాక్సెస్ చేయలేరు. మీరు మంజూరు చేయడానికి సిద్ధంగా ఉన్నప్పుడు దయచేసి మళ్ళీ ప్రయత్నించండి.</string>
   <string name="record_audio_runtime_permission_denied_title">ఆడియో అనుమతి రికార్డ్ చేయండి</string>
@@ -384,7 +384,7 @@
   <string name="geotrace_title">జియోట్రేస్</string>
   <string name="gps_enable_message">మీ పరికరంలో GPS డిజేబుల్ చేయబడి ఉంది. మీరు ఎనేబుల్ చేయదలుచుకుంటున్నారా?</string>
   <string name="geo_clear_warning">ఫీచర్ ఇప్పటికే క్రియేట్ చేయబడింది. మీరు ఫీచర్ తీసెయ్యాలనుకుంటున్నారా?</string>
-  <string name="geo_exit_warning">మార్పులను విస్మరించి, ODK కి తిరిగి వెళ్లాలా?</string>
+  <string name="geo_exit_warning">మార్పులను విస్మరించి, KoboToolbox కి తిరిగి వెళ్లాలా?</string>
   <string name="polygon_validator">బహుభుజిని సృష్టించడానికి కనీసం 3 పాయింట్లు ఉండాలి</string>
   <string name="polyline_validator">పాలిలైన్ సృష్టించడానికి కనీసం 2 పాయింట్లు ఉండాలి</string>
   <string name="clear">తొలగించు</string>
@@ -518,9 +518,9 @@
   <string name="change_server_url">సర్వర్ URL</string>
   <string name="url_error">క్షమించండి, URL తప్పు!</string>
   <string name="username">యూజర్ పేరు</string>
-  <string name="change_username">ODK యూజర్ నేమ్ </string>
+  <string name="change_username">KoboToolbox యూజర్ నేమ్ </string>
   <string name="password">పాస్ వర్డ్ </string>
-  <string name="change_password">ODK పాస్ వర్డ్ </string>
+  <string name="change_password">KoboToolbox పాస్ వర్డ్ </string>
   <string name="password_error_whitespace">పాస్ వర్డ్ ముందు లేదా తరువాత స్పేస్ ఉండకూడదు </string>
   <string name="username_error_whitespace">యూసర్ నేమ్ లో ముందు లేదా తరువాత స్పేస్ ఉండకూడదు </string>
   <string name="app_theme">థీము</string>
@@ -659,15 +659,15 @@
   <!--##############################################
      # ABOUT
      ##############################################-->
-  <string name="about_preferences">ODK గురించి</string>
-  <string name="tell_your_friends">ODK కలెక్ట్ ని షేర్ చెయ్యండి</string>
-  <string name="tell_your_friends_msg">మీ సహచరులు ఇప్పటికీ కాగితంపై డేటాను సేకరిస్తున్నారా? వారితో ODK Collect పంచుకోండి </string>
+  <string name="about_preferences">KoboToolbox గురించి</string>
+  <string name="tell_your_friends">KoboToolbox కలెక్ట్ ని షేర్ చెయ్యండి</string>
+  <string name="tell_your_friends_msg">మీ సహచరులు ఇప్పటికీ కాగితంపై డేటాను సేకరిస్తున్నారా? వారితో KoboCollect పంచుకోండి </string>
   <string name="leave_a_review">ప్లే స్టోర్ విమర్షని ఇక్కడ రాయండి</string>
   <string name="leave_a_review_msg">మీ ( సానుకూల) సమీక్ష Play Store లో ఈ App గురించి ఎక్కువ మందికి తెలిసేలా చేస్తుంది </string>
-  <string name="odk_website">ODK వెబ్‌సైట్‌ను సందర్శించండి</string>
-  <string name="odk_website_summary">సవాలు చేసే వాతావరణాలలో సామాజిక మంచి కోసం డేటాను సేకరించడానికి ODK ఉపయోగించబడుతుంది.</string>
-  <string name="odk_forum">ODK ఫోరమ్‌లో చేరండి</string>
-  <string name="odk_forum_summary">మద్దతు పొందడానికి ఫోరమ్‌లో చేరండి, లక్షణాలను అభ్యర్థించండి, కోడ్ / అనువాదాలను అందించండి!</string>
+  <string name="odk_website">KoboToolbox వెబ్‌సైట్‌ను సందర్శించండి</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">KoboToolbox ఫోరమ్‌లో చేరండి</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">ఓపెన్ సోర్స్ లైబ్రరీలు/లైసెన్సులు</string>
   <string name="all_open_source_licenses_msg">మేము రాక్షసుల భుజాలపై నిలబడతాం!</string>
   <!--##############################################
@@ -705,7 +705,7 @@
   <string name="fs_delete_media_path_if_file_error">\'%s\' తొలగించడం సాధ్యం కాలేదు. దయచేసి ఫైల్‌ను మాన్యువల్‌గా తొలగించి, ఫారమ్‌ను తిరిగి డౌన్‌లోడ్ చేయండి.</string>
   <string name="fs_create_media_folder_error">మీడియా ఫోల్డర్‌%sను తయారు చేయడం సాధ్యం కాలేదు.</string>
   <string name="fs_file_copy_error">%2$sమీద %1$sను కాపీ చేయలేకపోయింది . కారణం :%3$s</string>
-  <string name="select_odk_shortcut">ODK సత్వరమార్గాన్ని ఎంచుకోండి</string>
+  <string name="select_odk_shortcut">KoboToolbox సత్వరమార్గాన్ని ఎంచుకోండి</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -764,7 +764,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->

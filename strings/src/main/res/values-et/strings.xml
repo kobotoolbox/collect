@@ -26,7 +26,7 @@
   <string name="deleted_form">Kustutatud vorm</string>
   <!--A sort option for blank forms. When this option is selected, the form for which a filled instance was last filled will go first.-->
   <!--Displayed in search boxes for form lists or question types that involve search-->
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -254,7 +254,7 @@
   <string name="enable_gps">Luba GPS</string>
   <string name="geotrace_title">Rada</string>
   <string name="geo_clear_warning">Kujutis on juba loodud. Kas soovite kujutise eemaldada?</string>
-  <string name="geo_exit_warning">Loobu muudatustest ja ava ODK?</string>
+  <string name="geo_exit_warning">Loobu muudatustest ja ava KoboToolbox?</string>
   <string name="polygon_validator">Polügooni loomiseks on vaja vähemalt 3 punkti</string>
   <string name="clear">Eemalda</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
@@ -348,9 +348,9 @@
   <string name="change_server_url">Serveri veebiaadress</string>
   <string name="url_error">Vabandage, vale veebiaadress!</string>
   <string name="username">Kasutajanimi</string>
-  <string name="change_username">ODK kasutajanimi</string>
+  <string name="change_username">KoboToolbox kasutajanimi</string>
   <string name="password">Salasõna</string>
-  <string name="change_password">ODK salasõna</string>
+  <string name="change_password">KoboToolbox salasõna</string>
   <string name="password_error_whitespace">Salasõna alguses või lõpus ei ole lubatud kasutada tühikut</string>
   <string name="username_error_whitespace">Kasutajanime alguses või lõpus ei ole lubatud kasutada tühikut</string>
   <string name="font_size">Teksti suurus</string>
@@ -448,7 +448,7 @@
   <string name="fs_delete_media_path_if_file_error">\'%s\' kustutamine ebaõnnestus. Palun kusutage fail käsitsi ja laadige vorm uuesti alla.</string>
   <string name="fs_create_media_folder_error">\'%s\' meediakausta loomine ebaõnnestus.</string>
   <string name="fs_file_copy_error">\'%1$s\' kopeerimine \'%2$s\' ebaõnnestus. Põhjuseks: %3$s</string>
-  <string name="select_odk_shortcut">Vali ODK otsetee</string>
+  <string name="select_odk_shortcut">Vali KoboToolbox otsetee</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -504,7 +504,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->
