@@ -1,31 +1,55 @@
 package org.odk.collect.entities
 
-import org.javarosa.core.model.instance.CsvExternalInstance
-import org.javarosa.core.model.instance.TreeElement
-import org.javarosa.entities.EntityAction
-import org.javarosa.entities.internal.Entities
+import org.apache.commons.csv.CSVRecord
+import org.javarosa.core.model.instance.SecondaryInstanceCSVParserBuilder
+import org.odk.collect.entities.javarosa.finalization.EntitiesExtra
+import org.odk.collect.entities.javarosa.parse.EntityItemElement
+import org.odk.collect.entities.javarosa.spec.EntityAction
+import org.odk.collect.entities.storage.EntitiesRepository
+import org.odk.collect.entities.storage.Entity
+import org.odk.collect.shared.strings.Md5.getMd5Hash
 import java.io.File
+import java.util.UUID
 
 object LocalEntityUseCases {
 
     @JvmStatic
     fun updateLocalEntitiesFromForm(
-        formEntities: Entities?,
+        formEntities: EntitiesExtra?,
         entitiesRepository: EntitiesRepository
     ) {
         formEntities?.entities?.forEach { formEntity ->
             val id = formEntity.id
-            if (id != null && entitiesRepository.getLists().contains(formEntity.dataset)) {
-                if (formEntity.action != EntityAction.UPDATE || entitiesRepository.getEntities(formEntity.dataset).any { it.id == id }) {
-                    val entity = Entity(
-                        formEntity.dataset,
-                        id,
-                        formEntity.label,
-                        formEntity.version,
-                        formEntity.properties
-                    )
+            val label = formEntity.label
+            if (id != null) {
+                when (formEntity.action) {
+                    EntityAction.CREATE -> {
+                        if (!label.isNullOrBlank()) {
+                            val entity = Entity.New(
+                                id,
+                                label,
+                                1,
+                                formEntity.properties,
+                                branchId = UUID.randomUUID().toString()
+                            )
 
-                    entitiesRepository.save(entity)
+                            entitiesRepository.save(formEntity.dataset, entity)
+                        }
+                    }
+
+                    EntityAction.UPDATE -> {
+                        val existing = entitiesRepository.getById(formEntity.dataset, formEntity.id)
+                        if (existing != null) {
+                            entitiesRepository.save(
+                                formEntity.dataset,
+                                existing.copy(
+                                    label = if (label.isNullOrBlank()) existing.label else label,
+                                    properties = formEntity.properties,
+                                    version = existing.version + 1
+                                )
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -36,27 +60,51 @@ object LocalEntityUseCases {
         serverList: File,
         entitiesRepository: EntitiesRepository
     ) {
-        val root = try {
-            CsvExternalInstance().parse(list, serverList.absolutePath)
-        } catch (e: Exception) {
+        val listHash = getListHash(serverList)
+        val existingListVersion = entitiesRepository.getListHash(list)
+        if (listHash == existingListVersion) {
+            return
+        }
+
+        val csvParser = try {
+            SecondaryInstanceCSVParserBuilder()
+                .path(serverList.absolutePath)
+                .build()
+        } catch (_: Exception) {
             return
         }
 
         val localEntities = entitiesRepository.getEntities(list)
-        val serverEntities = root.getChildrenWithName("item")
 
-        val accumulator =
-            Pair(arrayOf<Entity>(), localEntities.associateBy { it.id }.toMutableMap())
-        val (newAndUpdated, missingFromServer) = serverEntities.fold(accumulator) { (new, missing), item ->
-            val entity = parseEntityFromItem(item, list) ?: return
-            val existing = missing.remove(entity.id)
+        val missingFromServer = localEntities.associateBy { it.id }.toMutableMap()
+        val newAndUpdated = ArrayList<Entity>()
+        csvParser.use {
+            it.forEach { record ->
+                val serverEntity = parseEntityFromRecord(record) ?: return
+                val existing = missingFromServer.remove(serverEntity.id)
 
-            if (existing == null || existing.version < entity.version) {
-                Pair(new + entity, missing)
-            } else if (existing.state == Entity.State.OFFLINE) {
-                Pair(new + existing.copy(state = Entity.State.ONLINE), missing)
-            } else {
-                Pair(new, missing)
+                if (existing == null) {
+                    newAndUpdated.add(
+                        Entity.New(
+                            serverEntity.id,
+                            serverEntity.label,
+                            serverEntity.version,
+                            serverEntity.properties.toList(),
+                            state = Entity.State.ONLINE,
+                            trunkVersion = serverEntity.version,
+                            branchId = UUID.randomUUID().toString()
+                        )
+                    )
+                } else if (existing.version < serverEntity.version) {
+                    newAndUpdated.add(serverEntity.updateLocal(existing))
+                } else if (existing.version == serverEntity.version) {
+                    if (existing.isDirty()) {
+                        newAndUpdated.add(serverEntity.updateLocal(existing))
+                    }
+                } else if (existing.state == Entity.State.OFFLINE) {
+                    val update = existing.copy(state = Entity.State.ONLINE)
+                    newAndUpdated.add(update)
+                }
             }
         }
 
@@ -66,38 +114,47 @@ object LocalEntityUseCases {
             }
         }
 
-        entitiesRepository.save(*newAndUpdated)
+        entitiesRepository.save(list, *newAndUpdated.toTypedArray())
+        entitiesRepository.updateListHash(list, listHash)
     }
 
-    private fun parseEntityFromItem(
-        item: TreeElement,
-        list: String
-    ): Entity? {
-        val id = item.getFirstChild(EntityItemElement.ID)?.value?.value as? String
-        val label = item.getFirstChild(EntityItemElement.LABEL)?.value?.value as? String
-        val version =
-            (item.getFirstChild(EntityItemElement.VERSION)?.value?.value as? String)?.toInt()
+    private fun getListHash(serverList: File): String {
+        return "md5:${serverList.getMd5Hash()!!}"
+    }
+
+    private fun parseEntityFromRecord(record: CSVRecord): ServerEntity? {
+        val map = record.toMap()
+
+        val id = map.remove(EntityItemElement.ID)
+        val label = map.remove(EntityItemElement.LABEL)
+        val version = map.remove(EntityItemElement.VERSION)?.toInt()
         if (id == null || label == null || version == null) {
             return null
         }
 
-        val properties = 0.until(item.numChildren)
-            .fold(emptyList<Pair<String, String>>()) { properties, index ->
-                val child = item.getChildAt(index)
+        return ServerEntity(
+            id,
+            label,
+            version,
+            map
+        )
+    }
+}
 
-                if (!listOf(
-                        EntityItemElement.ID,
-                        EntityItemElement.LABEL,
-                        EntityItemElement.VERSION
-                    ).contains(child.name)
-                ) {
-                    properties + Pair(child.name, child.value!!.value as String)
-                } else {
-                    properties
-                }
-            }
+private data class ServerEntity(
+    val id: String,
+    val label: String,
+    val version: Int,
+    val properties: Map<String, String>) {
 
-        val entity = Entity(list, id, label, version, properties, state = Entity.State.ONLINE)
-        return entity
+    fun updateLocal(local: Entity.Saved): Entity.Saved {
+        return local.copy(
+            label = this.label,
+            version = this.version,
+            properties = this.properties.toList(),
+            state = Entity.State.ONLINE,
+            branchId = UUID.randomUUID().toString(),
+            trunkVersion = this.version
+        )
     }
 }

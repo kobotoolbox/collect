@@ -41,9 +41,11 @@ import org.odk.collect.metadata.PropertyManager;
 import org.odk.collect.settings.SettingsProvider;
 import org.odk.collect.settings.keys.ProjectKeys;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javax.inject.Inject;
@@ -72,6 +74,7 @@ public class InstanceUploaderTask extends AsyncTask<Long, Integer, InstanceUploa
     // Custom submission URL, username and password that can be sent via intent extras by external
     // applications
     private String completeDestinationUrl;
+    private String referrer;
     private String customUsername;
     private String customPassword;
     private InstancesRepository instancesRepository;
@@ -89,7 +92,11 @@ public class InstanceUploaderTask extends AsyncTask<Long, Integer, InstanceUploa
         Outcome outcome = new Outcome();
 
         InstanceServerUploader uploader = new InstanceServerUploader(httpInterface, webCredentialsUtils, settingsProvider.getUnprotectedSettings(), instancesRepository);
-        List<Instance> instancesToUpload = uploader.getInstancesFromIds(instanceIdsToUpload);
+        List<Instance> instancesToUpload = uploader
+                .getInstancesFromIds(instanceIdsToUpload)
+                .stream()
+                .sorted(Comparator.comparing(Instance::getLastStatusChangeDate))
+                .collect(Collectors.toList());
 
         String deviceId = propertyManager.getSingularProperty(PropertyManager.PROPMGR_DEVICE_ID);
 
@@ -102,7 +109,7 @@ public class InstanceUploaderTask extends AsyncTask<Long, Integer, InstanceUploa
             publishProgress(i + 1, instancesToUpload.size());
 
             if (completeDestinationUrl != null) {
-                Analytics.log(AnalyticsEvents.INSTANCE_UPLOAD_CUSTOM_SERVER);
+                Analytics.log(AnalyticsEvents.INSTANCE_UPLOAD_CUSTOM_SERVER, "label", referrer != null ? referrer : "");
             }
 
             try {
@@ -139,7 +146,7 @@ public class InstanceUploaderTask extends AsyncTask<Long, Integer, InstanceUploa
         }
 
         Stream<Instance> instancesToDelete = instanceIds.stream()
-                .map(id -> new InstancesRepositoryProvider(Collect.getInstance()).get().get(Long.parseLong(id)))
+                .map(id -> new InstancesRepositoryProvider(Collect.getInstance()).create().get(Long.parseLong(id)))
                 .filter(instance -> instance.getStatus().equals(Instance.STATUS_SUBMITTED))
                 .filter(instance -> InstanceAutoDeleteChecker.shouldInstanceBeDeleted(formsRepository, isFormAutoDeleteOptionEnabled, instance));
 
@@ -196,12 +203,9 @@ public class InstanceUploaderTask extends AsyncTask<Long, Integer, InstanceUploa
         this.settingsProvider = settingsProvider;
     }
 
-    public void setCompleteDestinationUrl(String completeDestinationUrl) {
-        setCompleteDestinationUrl(completeDestinationUrl, true);
-    }
-
-    public void setCompleteDestinationUrl(String completeDestinationUrl, boolean clearPreviousConfig) {
+    public void setCompleteDestinationUrl(String completeDestinationUrl, String referrer, boolean clearPreviousConfig) {
         this.completeDestinationUrl = completeDestinationUrl;
+        this.referrer = referrer;
         if (clearPreviousConfig) {
             setTemporaryCredentials();
         }

@@ -26,17 +26,17 @@ class SavepointsImporterTest {
     private val component = DaggerUtils.getComponent(ApplicationProvider.getApplicationContext<Context>() as Application)
 
     private val projectsRepository = component.projectsRepository()
-    private val projectDependencyProviderFactory = component.projectDependencyProviderFactory()
+    private val projectDependencyModuleFactory = component.projectDependencyModuleFactory()
 
     private val savepointsImporter =
-        SavepointsImporter(projectsRepository, projectDependencyProviderFactory)
+        SavepointsImporter(projectsRepository, projectDependencyModuleFactory)
 
     private val project = projectsRepository.save(Project.DEMO_PROJECT)
-    private val projectDependencyProvider = projectDependencyProviderFactory.create(project.uuid)
-    private val savepointsRepository = projectDependencyProvider.savepointsRepository
-    private val storagePathProvider = projectDependencyProvider.storagePathProvider
-    private val formsRepository = projectDependencyProvider.formsRepository
-    private val instancesRepository = projectDependencyProvider.instancesRepository
+    private val projectDependencyModule = projectDependencyModuleFactory.create(project.uuid)
+    private val savepointsRepository = projectDependencyModule.savepointsRepository
+    private val storagePathProvider = component.storagePathProvider()
+    private val formsRepository = projectDependencyModule.formsRepository
+    private val instancesRepository = projectDependencyModule.instancesRepository
 
     @Test
     fun ifABlankFormHasNoSavepoint_nothingShouldBeImported() {
@@ -124,6 +124,27 @@ class SavepointsImporterTest {
         val expectedSavepoint2 =
             Savepoint(blankForm2.dbId, null, savepointFile2.absolutePath, "${storagePathProvider.getOdkDirPath(StorageSubdirectory.INSTANCES, project.uuid)}/${form2Name}_2024-04-10_01-35-42/${form2Name}_2024-04-10_01-35-42.xml")
         assertThat(savepoints, contains(expectedSavepoint1, expectedSavepoint2))
+    }
+
+    @Test
+    fun formFileNameShouldBeEscapedAndTreatedAsLiteralTextToAvoidPatternSyntaxException() {
+        val form1Name = "sampleForm("
+
+        // create blank forms
+        val blankForm1 = createBlankForm(project, form1Name, "1")
+
+        // create savepoints
+        val savepointFile1 = createFileInCache(project, "${form1Name}_2024-04-10_01-35-41.xml.save")
+
+        // trigger importing
+        savepointsImporter.run()
+
+        // verify import
+        val savepoints = savepointsRepository.getAll()
+        val expectedSavepoint1 =
+            Savepoint(blankForm1.dbId, null, savepointFile1.absolutePath, "${storagePathProvider.getOdkDirPath(StorageSubdirectory.INSTANCES, project.uuid)}/${form1Name}_2024-04-10_01-35-41/${form1Name}_2024-04-10_01-35-41.xml")
+
+        assertThat(savepoints, contains(expectedSavepoint1))
     }
 
     @Test

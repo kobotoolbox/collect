@@ -3,17 +3,19 @@ package org.odk.collect.android.database.savepoints
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
-import android.database.sqlite.SQLiteQueryBuilder
-import org.odk.collect.android.database.DatabaseConnection
-import org.odk.collect.android.database.DatabaseConstants
 import org.odk.collect.android.database.DatabaseConstants.SAVEPOINTS_DATABASE_NAME
 import org.odk.collect.android.database.DatabaseConstants.SAVEPOINTS_DATABASE_VERSION
+import org.odk.collect.android.database.DatabaseConstants.SAVEPOINTS_TABLE_NAME
 import org.odk.collect.android.database.savepoints.DatabaseSavepointsColumns.FORM_DB_ID
 import org.odk.collect.android.database.savepoints.DatabaseSavepointsColumns.INSTANCE_DB_ID
-import org.odk.collect.androidshared.utils.PathUtils.getAbsoluteFilePath
+import org.odk.collect.db.sqlite.CursorExt.foldAndClose
+import org.odk.collect.db.sqlite.DatabaseConnection
+import org.odk.collect.db.sqlite.SQLiteDatabaseExt.delete
+import org.odk.collect.db.sqlite.SQLiteDatabaseExt.query
 import org.odk.collect.forms.savepoints.Savepoint
 import org.odk.collect.forms.savepoints.SavepointsRepository
 import org.odk.collect.shared.PathUtils
+import org.odk.collect.shared.PathUtils.getAbsoluteFilePath
 import java.io.File
 
 class DatabaseSavepointsRepository(
@@ -33,12 +35,14 @@ class DatabaseSavepointsRepository(
 
     override fun get(formDbId: Long, instanceDbId: Long?): Savepoint? {
         val cursor = if (instanceDbId == null) {
-            queryAndReturnCursor(
+            databaseConnection.readableDatabase.query(
+                SAVEPOINTS_TABLE_NAME,
                 "$FORM_DB_ID=? AND $INSTANCE_DB_ID IS NULL",
                 arrayOf(formDbId.toString())
             )
         } else {
-            queryAndReturnCursor(
+            databaseConnection.readableDatabase.query(
+                SAVEPOINTS_TABLE_NAME,
                 "$FORM_DB_ID=? AND $INSTANCE_DB_ID=?",
                 arrayOf(formDbId.toString(), instanceDbId.toString())
             )
@@ -49,8 +53,9 @@ class DatabaseSavepointsRepository(
     }
 
     override fun getAll(): List<Savepoint> {
-        val cursor = queryAndReturnCursor()
-        return getSavepointsFromCursor(cursor)
+        return getSavepointsFromCursor(
+            databaseConnection.readableDatabase.query(SAVEPOINTS_TABLE_NAME)
+        )
     }
 
     override fun save(savepoint: Savepoint) {
@@ -61,8 +66,8 @@ class DatabaseSavepointsRepository(
         val values = getValuesFromSavepoint(savepoint, cachePath, instancesPath)
 
         databaseConnection
-            .writeableDatabase
-            .insertOrThrow(DatabaseConstants.SAVEPOINTS_TABLE_NAME, null, values)
+            .writableDatabase
+            .insertOrThrow(SAVEPOINTS_TABLE_NAME, null, values)
     }
 
     override fun delete(formDbId: Long, instanceDbId: Long?) {
@@ -81,8 +86,8 @@ class DatabaseSavepointsRepository(
         }
 
         databaseConnection
-            .writeableDatabase
-            .delete(DatabaseConstants.SAVEPOINTS_TABLE_NAME, selection, selectionArgs)
+            .writableDatabase
+            .delete(SAVEPOINTS_TABLE_NAME, selection, selectionArgs)
 
         File(savepoint.savepointFilePath).delete()
     }
@@ -93,28 +98,14 @@ class DatabaseSavepointsRepository(
         }
 
         databaseConnection
-            .writeableDatabase
-            .delete(DatabaseConstants.SAVEPOINTS_TABLE_NAME, null, null)
-    }
-
-    private fun queryAndReturnCursor(selection: String? = null, selectionArgs: Array<String?>? = null): Cursor {
-        val readableDatabase = databaseConnection.readableDatabase
-        val qb = SQLiteQueryBuilder().apply {
-            tables = DatabaseConstants.SAVEPOINTS_TABLE_NAME
-        }
-        return qb.query(readableDatabase, null, selection, selectionArgs, null, null, null)
+            .writableDatabase
+            .delete(SAVEPOINTS_TABLE_NAME)
     }
 
     private fun getSavepointsFromCursor(cursor: Cursor?): List<Savepoint> {
-        val savepoints: MutableList<Savepoint> = ArrayList()
-        if (cursor != null) {
-            cursor.moveToPosition(-1)
-            while (cursor.moveToNext()) {
-                val savepoint = getSavepointFromCurrentCursorPosition(cursor, cachePath, instancesPath)
-                savepoints.add(savepoint)
-            }
-        }
-        return savepoints
+        return cursor?.foldAndClose(emptyList()) { list, cursor ->
+            list + getSavepointFromCurrentCursorPosition(cursor, cachePath, instancesPath)
+        } ?: emptyList()
     }
 
     private fun getSavepointFromCurrentCursorPosition(

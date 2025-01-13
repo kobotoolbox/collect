@@ -155,6 +155,8 @@ class OpenRosaResponseParserImpl : OpenRosaResponseParser {
                 continue
             }
 
+            val type = mediaFileElement.getAttributeValue(null, "type")
+
             val name = mediaFileElement.name
             if (name.equals("mediaFile", ignoreCase = true)) {
                 var filename: String? = null
@@ -205,7 +207,7 @@ class OpenRosaResponseParserImpl : OpenRosaResponseParser {
                     return null
                 }
 
-                files.add(MediaFile(filename, hash, downloadUrl))
+                files.add(MediaFile(filename, hash, downloadUrl, type == "entityList"))
             }
         }
         return files

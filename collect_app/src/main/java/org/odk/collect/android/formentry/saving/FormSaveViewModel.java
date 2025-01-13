@@ -2,6 +2,7 @@ package org.odk.collect.android.formentry.saving;
 
 import static org.odk.collect.android.tasks.SaveFormToDisk.SAVED;
 import static org.odk.collect.android.tasks.SaveFormToDisk.SAVED_AND_EXIT;
+import static org.odk.collect.android.tasks.SaveFormToDisk.SAVE_ERROR;
 import static org.odk.collect.shared.strings.StringUtils.isBlank;
 
 import android.net.Uri;
@@ -34,7 +35,7 @@ import org.odk.collect.androidshared.livedata.LiveDataUtils;
 import org.odk.collect.async.Cancellable;
 import org.odk.collect.async.Scheduler;
 import org.odk.collect.audiorecorder.recording.AudioRecorder;
-import org.odk.collect.entities.EntitiesRepository;
+import org.odk.collect.entities.storage.EntitiesRepository;
 import org.odk.collect.forms.Form;
 import org.odk.collect.forms.instances.Instance;
 import org.odk.collect.forms.instances.InstancesRepository;
@@ -256,7 +257,7 @@ public class FormSaveViewModel extends ViewModel implements MaterialProgressDial
             return;
         }
 
-        if (taskResult.getSaveResult() == SAVED || taskResult.getSaveResult() == SAVED_AND_EXIT) {
+        if (taskResult.getSaveResult() != SAVE_ERROR) {
             removeSavepoint(form.getDbId(), instance != null ? instance.getDbId() : null);
         }
 
@@ -284,7 +285,7 @@ public class FormSaveViewModel extends ViewModel implements MaterialProgressDial
                 break;
             }
 
-            case SaveFormToDisk.SAVE_ERROR: {
+            case SAVE_ERROR: {
                 formController.getAuditEventLogger().logEvent(AuditEvent.AuditEventType.SAVE_ERROR, true, clock.get());
                 saveResult.setValue(new SaveResult(SaveResult.State.SAVE_ERROR, saveRequest, taskResult.getSaveErrorMessage()));
                 break;

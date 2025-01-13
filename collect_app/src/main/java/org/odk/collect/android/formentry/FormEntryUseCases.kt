@@ -15,8 +15,8 @@ import org.odk.collect.android.javarosawrapper.FormController
 import org.odk.collect.android.javarosawrapper.JavaRosaFormController
 import org.odk.collect.android.utilities.FileUtils
 import org.odk.collect.android.utilities.FormUtils
-import org.odk.collect.entities.EntitiesRepository
 import org.odk.collect.entities.LocalEntityUseCases
+import org.odk.collect.entities.storage.EntitiesRepository
 import org.odk.collect.forms.Form
 import org.odk.collect.forms.FormsRepository
 import org.odk.collect.forms.instances.Instance
@@ -133,17 +133,9 @@ object FormEntryUseCases {
         val valid = validationResult !is FailedValidationResult
 
         return if (valid) {
-            finalizeFormController(formController, entitiesRepository)
+            val newInstance = finalizeFormController(instance, formController, instancesRepository, entitiesRepository)
             saveInstanceToDisk(formController)
-            val instanceName = formController.getSubmissionMetadata()?.instanceName
-
-            instancesRepository.save(
-                Instance.Builder(instance)
-                    .status(Instance.STATUS_COMPLETE)
-                    .canEditWhenComplete(formController.isSubmissionEntireForm())
-                    .displayName(instanceName ?: instance.displayName)
-                    .build()
-            )
+            newInstance
         } else {
             instancesRepository.save(
                 Instance.Builder(instance)
@@ -157,13 +149,26 @@ object FormEntryUseCases {
 
     @JvmStatic
     fun finalizeFormController(
+        instance: Instance,
         formController: FormController,
-        entitiesRepository: EntitiesRepository
-    ) {
+        instancesRepository: InstancesRepository,
+        entitiesRepository: EntitiesRepository,
+    ): Instance? {
         formController.finalizeForm()
+        val formEntities = formController.getEntities()
         LocalEntityUseCases.updateLocalEntitiesFromForm(
-            formController.getEntities(),
+            formEntities,
             entitiesRepository
+        )
+
+        val instanceName = formController.getSubmissionMetadata()?.instanceName
+        return instancesRepository.save(
+            Instance.Builder(instance)
+                .status(Instance.STATUS_COMPLETE)
+                .canEditWhenComplete(formController.isSubmissionEntireForm())
+                .displayName(instanceName ?: instance.displayName)
+                .canDeleteBeforeSend(formEntities == null)
+                .build()
         )
     }
 
