@@ -25,7 +25,7 @@ class UpdateProjectTest {
         rule.startAtMainMenu()
             .assertProjectIcon("D")
             .openProjectSettingsDialog()
-            .assertCurrentProject("Demo project", "demo.getodk.org")
+            .assertCurrentProject("Demo project", "kc.kobotoolbox.org")
             .clickSettings()
             .clickProjectDisplay()
             .setProjectName("Project X")
@@ -45,7 +45,7 @@ class UpdateProjectTest {
 
             .assertProjectIcon("X")
             .openProjectSettingsDialog()
-            .assertCurrentProject("Project X", "Anna / demo.getodk.org")
+            .assertCurrentProject("Project X", "Anna / kc.kobotoolbox.org")
     }
 
     @Test
@@ -66,13 +66,13 @@ class UpdateProjectTest {
             .openProjectSettingsDialog()
             .clickAddProject()
 
-        testDependencies.stubBarcodeViewDecoder.scan("{\"general\":{\"server_url\":\"https:\\/\\/my-server.com\",\"username\":\"adam\",\"password\":\"1234\"},\"admin\":{}}")
+        testDependencies.fakeBarcodeScannerViewFactory.scan("{\"general\":{\"server_url\":\"https:\\/\\/my-server.com\",\"username\":\"adam\",\"password\":\"1234\"},\"admin\":{}}")
 
         MainMenuPage()
             // assert there are two projects displayed
             .openProjectSettingsDialog()
             .assertCurrentProject("my-server.com", "adam / my-server.com")
-            .assertInactiveProject("Demo project", "demo.getodk.org")
+            .assertInactiveProject("Demo project", "kc.kobotoolbox.org")
 
             // Update project icon
             .clickSettings()
@@ -84,6 +84,6 @@ class UpdateProjectTest {
             // assert there are two projects displayed
             .openProjectSettingsDialog()
             .assertCurrentProject("my-server.com", "adam / my-server.com")
-            .assertInactiveProject("Demo project", "demo.getodk.org")
+            .assertInactiveProject("Demo project", "kc.kobotoolbox.org")
     }
 }

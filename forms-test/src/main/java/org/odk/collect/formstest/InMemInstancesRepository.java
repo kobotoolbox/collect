@@ -2,7 +2,7 @@ package org.odk.collect.formstest;
 
 import org.odk.collect.forms.instances.Instance;
 import org.odk.collect.forms.instances.InstancesRepository;
-import org.odk.collect.shared.files.DirectoryUtils;
+import org.odk.collect.shared.files.FileExt;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -120,6 +120,13 @@ public final class InMemInstancesRepository implements InstancesRepository {
     @Override
     public void delete(Long id) {
         Instance instance = get(id);
+
+        boolean hasEdits = instances.stream()
+                .anyMatch(it -> instance.getDbId().equals(it.getEditOf()));
+        if (hasEdits) {
+            throw new IntegrityException();
+        }
+
         deleteInstanceFiles(instance);
 
         instances.remove(instance);
@@ -142,28 +149,37 @@ public final class InMemInstancesRepository implements InstancesRepository {
                     .build();
         }
 
+        Long currentTime = clock.get();
+
+        if (instance.getStatus().equals(Instance.STATUS_COMPLETE) && instance.getFinalizationDate() == null) {
+            instance = new Instance.Builder(instance)
+                    .finalizationDate(currentTime)
+                    .build();
+        }
+
         Long id = instance.getDbId();
         if (id == null) {
             if (instance.getLastStatusChangeDate() == null) {
                 instance = new Instance.Builder(instance)
-                        .lastStatusChangeDate(clock.get())
+                        .lastStatusChangeDate(currentTime)
                         .build();
             }
 
             Instance newInstance = new Instance.Builder(instance)
                     .dbId(idCounter++)
                     .build();
-            instances.add(newInstance);
+
+            saveInstance(newInstance);
             return newInstance;
         } else {
             if (instance.getDeletedDate() == null) {
                 instance = new Instance.Builder(instance)
-                        .lastStatusChangeDate(clock.get())
+                        .lastStatusChangeDate(currentTime)
                         .build();
             }
 
             instances.removeIf(i -> i.getDbId().equals(id));
-            instances.add(instance);
+            saveInstance(instance);
             return instance;
         }
     }
@@ -177,7 +193,7 @@ public final class InMemInstancesRepository implements InstancesRepository {
                 .build();
 
         instances.removeIf(i -> i.getDbId().equals(id));
-        instances.add(instance);
+        saveInstance(instance);
         deleteInstanceFiles(instance);
     }
 
@@ -192,7 +208,25 @@ public final class InMemInstancesRepository implements InstancesRepository {
 
     private void deleteInstanceFiles(Instance instance) {
         if (instance.getInstanceFilePath() != null) {
-            DirectoryUtils.deleteDirectory(new File(instance.getInstanceFilePath()).getParentFile());
+            FileExt.deleteDirectory(new File(instance.getInstanceFilePath()).getParentFile());
         }
+    }
+
+    private void saveInstance(Instance instance) {
+        if (instance.getEditOf() == null ^ instance.getEditNumber() == null) {
+            throw new IntegrityException();
+        }
+        if (instance.getDbId().equals(instance.getEditOf())) {
+            throw new IntegrityException();
+        }
+        if (instance.getEditOf() != null) {
+            boolean referenceInstance = instances.stream()
+                    .anyMatch(it -> it.getDbId().equals(instance.getEditOf()));
+
+            if (!referenceInstance) {
+                throw new IntegrityException();
+            }
+        }
+        instances.add(instance);
     }
 }

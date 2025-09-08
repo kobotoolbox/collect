@@ -60,6 +60,7 @@
   <string name="jump_to_end">अंत पर जाएं</string>
   <!--Text of button from the form's table of contents to navigate out of a group or a repeat-->
   <string name="jump_to_previous">ऊपर जाएं</string>
+  <!--Text of button from the form's table of contents to edit a finalized form-->
   <!--Displayed below group names in a form's table of contents-->
   <!--Displayed below repeat names in a form's table of contents-->
   <string name="exit">बाहर आयें</string>
@@ -99,15 +100,11 @@
   <string name="phone_does_not_support_rsa">फोन RSA एन्क्रिप्शन का समर्थन नहीं करता है</string>
   <string name="invalid_rsa_public_key">अमान्य RSA पब्लिक कुंजी</string>
   <string name="encryption_error_message">%s फॉर्म फाइनल के जैसे संरक्षित नहीं गया है.</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
-  <string name="bad_uri">खराब URl: %s</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
-  <string name="unrecognized_uri">अपरिचित URl: %s</string>
+  <!--Displayed when an attempt is made to start form filling, but the form is broken-->
   <!--Text displayed when audio recording fails to start-->
   <!--Text displayed when user tries to start recording while the mic is already in use-->
   <!--Error message displayed when copying media from a temporary directory fails-->
   <!--Text displayed in the audio bar when background audio recording is explicitly disabled from the options menu. Should be as short as possible. The inserted string is ⋮ which indicates the options menu.-->
-  <!--Error displayed when opened filled form has been deleted on disk-->
   <!--Error displayed when something bad happens during updating widgets in a field-list group-->
   <!--##############################################
     # FORM FEATURES
@@ -117,8 +114,6 @@
   <string name="activity_not_found">%s:के नियंत्रण के लिए कोई गतिविधि नहीं  मिली</string>
   <string name="no_app">अनुरोधित एप्लिकेशन लापता है कृपया रीडिंग स्वयं दर्ज करें।</string>
   <!--Text on button that is part of print questions. Tapping the button prints the value of the question.-->
-  <string name="launch_printer">प्रिंटिंग शुरू करें</string>
-  <string name="no_printer">अनुरोधित प्रिंटर इंस्टॉल नहीं है कृपया प्रिंटर इंस्टॉल करें</string>
   <string name="open_url">Url खोलें</string>
   <string name="capture_osm">OpenMapKit लॉन्च करें </string>
   <string name="recapture_osm">OSM टैगिंग दुबारा करें</string>
@@ -197,6 +192,18 @@
   <string name="select_time">समय चुनें</string>
   <string name="no_date_selected">कोई दिनांक चयनित नहीं</string>
   <string name="no_time_selected">कोई समय चयनित नहीं</string>
+  <!--1st month in the Buddhist calendar-->
+  <!--2nd month in the Buddhist calendar-->
+  <!--3rd month in the Buddhist calendar-->
+  <!--4th month in the Buddhist calendar-->
+  <!--5th month in the Buddhist calendar-->
+  <!--6th month in the Buddhist calendar-->
+  <!--7th month in the Buddhist calendar-->
+  <!--8th month in the Buddhist calendar-->
+  <!--9th month in the Buddhist calendar-->
+  <!--10th month in the Buddhist calendar-->
+  <!--11th month in the Buddhist calendar-->
+  <!--12th month in the Buddhist calendar-->
   <!--Displays dates in specialized calendars with the Gregorian dates in parentheses. This is translated so right-to-left languages can specify the correct order-->
   <!--Displayed when a form media file such as an image for a question label or an audio file for a choice is invalid-->
   <string name="file_invalid">फाइल: %s अमान्य है</string>
@@ -242,7 +249,6 @@
   <!--Text for option where layer should be available to the current project only-->
   <!--Text for message displayed in a dialog to confirm that the layer should be deleted. The placeholder is the name of the layer as displayed in the list-->
   <string name="provider_disabled_error">क्षमा करें, लोकेशन प्रदाता सक्षम नही हैं!</string>
-  <string name="gps_result">अक्षांश: %1$s \n देशांतर: %2$s \n ऊंचाई: %3$sm \n शुद्धता: %4$sm</string>
   <!--Action to go to Android settings. Displayed when location providers are disabled.-->
   <!--Displayed in the form filling menu when a form has background location enabled-->
   <!--Displayed in the form filling menu when a form has background location disabled-->
@@ -270,7 +276,6 @@
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
   <!--Used to display choices for accuracy requirements in geotrace and geoshape questions-->
-  <string name="geopoint_instruction">प्लेस मार्क के लिए लंबे समय तक दबाएं या मार्कर बटन जोड़ने के लिए टैप करें।</string>
   <string name="geopoint_no_draggable_instruction">मार्कर बटन जोड़ें पर टैप करें</string>
   <string name="discard">छोड़ दें </string>
   <!--Name of an action button-->
@@ -429,6 +434,7 @@
   <!--Displayed when a device property such as the phone number is not available-->
   <!--Label for an item displayed in the project settings menu to unlock settings-->
   <!--Label for an item displayed in the project settings menu to indicate that settings are unlocked-->
+  <!--Summary on setting that's currently not available because the user has entered settings from form entry-->
   <!--##############################################
      # PROTECTED SETTINGS
      ##############################################-->
@@ -503,7 +509,6 @@
   <string name="fs_delete_media_path_if_file_error">%sको नहीं मिटाया जा सका. कृपया फाइल को स्वयं हटा दें और फ़ॉर्म को पुनः डाउनलोड करें.</string>
   <string name="fs_create_media_folder_error">\'%s\' मीडिया फ़ोल्डर नहीं बना सका.</string>
   <string name="fs_file_copy_error">\'%2$s\' पर \'%1$s\' की नकल नहीं कर सकता. कारण: %3$s</string>
-  <string name="survey_multiple_forms_error">आपने एक ही फॉर्म आईडी और संस्करण के साथ दो अलग-अलग फॉर्म डाउनलोड किए हैं। हो सकता है कि वे अलग-अलग समय या अलग-अलग सर्वरों पर अपलोड किए गए समान फॉर्म थे. किसी भी मामले में, आपको एक को हटाना होगा.</string>
   <string name="select_odk_shortcut">KoboToolbox शॉर्टकट चयन करें</string>
   <!--##############################################
      # Projects
@@ -526,20 +531,31 @@
   <!--Text for the button that allows for manually entering project details. Should be short-->
   <!--Immediately followed by "Try Collect" which is a link to create a demo project-->
   <!--Preceded by "Don't have a project yet?" question-->
-  <!--Error shown when a user tries to open a form that's in a different project-->
-  <!--Error shown when a user tries to open a form when there are no projects-->
   <!--##############################################
     # Errors
     ##############################################-->
+  <!--##############################################
+    # Form opening errors
+    ##############################################-->
+  <!--Error shown when a user tries to open a form that's in a different project-->
+  <!--Error shown when a user tries to open a form when there are no projects-->
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
+  <string name="unrecognized_uri">अपरिचित URl: %s</string>
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
+  <string name="bad_uri">खराब URl: %s</string>
+  <!--Error displayed when opened filled form has been deleted on disk-->
+  <!--Error shown when a user tries to edit a form but there is no corresponding blank form-->
+  <!--Error shown when a user tries to open a form but there is more than one form with the same form ID-->
+  <string name="survey_multiple_forms_error">आपने एक ही फॉर्म आईडी और संस्करण के साथ दो अलग-अलग फॉर्म डाउनलोड किए हैं। हो सकता है कि वे अलग-अलग समय या अलग-अलग सर्वरों पर अपलोड किए गए समान फॉर्म थे. किसी भी मामले में, आपको एक को हटाना होगा.</string>
+  <!--Error shown when a user tries to open a form when forms update is being applied in the background-->
   <!--##############################################
     # Permissions
     ##############################################-->
   <!--An entity is any person, place or thing that a form can be about. This title appears on an experimental settings screen to view entities managed in the current project.-->
   <!--Title for setting that controls whether local entity features are enabled or not-->
   <!--Text for button that leads to browser for the user to view and manage entity lists-->
-  <!--Text for button that deletes all entities for the project-->
-  <!--Text for button that adds a new entity list-->
   <!--Label for entity that has been created offline and is not on the server yet-->
+  <!--Error message displayed when a user opens a form with an unrecognized entity version-->
   <!--##############################################
     # Crash handling
     ##############################################-->
@@ -552,6 +568,7 @@
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
   <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
+  <!--Option provided in the Developer tools settings to allow debugging filters during form entry-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->
@@ -569,8 +586,6 @@
   <!--Displayed above a draft that has constraints that aren't met or required questions that aren't answered or both. Should match the wording for the 'Check for errors' feature.-->
   <!--Displayed above a draft that has no constraint violations and in which all required questions have been answered. Should match the wording for the 'Check for errors' feature.-->
   <!--Title of section of features that the user can uncheck to hide from the Drafts screen-->
-  <!--Title for dialog explaining the drafts marked with "Error" shown to the user the first time they view the Drafts screen-->
-  <!--Message for dialog explaining the drafts marked with "Error" shown to the user the first time they view the Drafts screen-->
   <!--Message displayed when the list of questions is empty-->
   <!--Message displayed when the list of blank forms is empty-->
   <!--Subtext displayed when the list of blank forms is empty-->
@@ -588,7 +603,7 @@
     # Savepoint recovery dialog
     ##############################################-->
   <!--Title displayed in a dialog before starting a form if there is a work to recover-->
-  <!--Message displayed in a dialog before starting a form if there is a work to recover-->
+  <!--Message displayed in a dialog before starting a form if there is a work to recover. Please format date appropriately for your language: http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html-->
   <!--Text for the button that accepts the recovery of the work-->
   <!--Text for the button that declines the recovery of the work-->
   <string name="do_not_recover">छोड़ दें </string>
@@ -602,4 +617,14 @@
   <!--Text for the button that displays a map for getting a new polygon-->
   <!--Text for the button that displays a map for viewing or changing an already existing polygon-->
   <!--Text for the button that displays a map for viewing an already existing polygon-->
+  <!--Text to describe a field for setting settings JSON in a mobile device management platform (MDM)-->
+  <!--Text for the dialog that is displayed while the form is being prepared for editing-->
+  <!--Instance name with a suffix indicating the edit number, if this is an edited instance-->
+  <!--Text for the dialog title displayed when a user attempts to edit a finalized form and a newer draft version exists-->
+  <!--Text for the dialog message displayed when a user attempts to edit a finalized form and a newer draft version exists-->
+  <!--Text for the dialog positive button displayed when a user attempts to edit a finalized form and a newer draft version exists-->
+  <!--Text for the dialog title displayed when a user attempts to edit a finalized form and a newer finalized version exists-->
+  <!--Text for the dialog message displayed when a user attempts to edit a finalized form and a newer finalized version exists-->
+  <!--Text for the dialog positive button displayed when a user attempts to edit a finalized form and a newer finalized version exists-->
+  <!--Text for the snackbar shown when editing of a finalized form begins-->
 </resources>

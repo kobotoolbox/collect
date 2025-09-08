@@ -26,6 +26,7 @@ import org.odk.collect.android.utilities.FileUtils;
 import org.odk.collect.android.utilities.FormUtils;
 import org.odk.collect.android.utilities.FormsRepositoryProvider;
 import org.odk.collect.forms.Form;
+import org.odk.collect.forms.instances.Instance;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,7 +37,7 @@ public class FormUtilsTest {
 
     private final FormLoaderTask.FormEntryControllerFactory formEntryControllerFactory = new FormLoaderTask.FormEntryControllerFactory() {
         @Override
-        public FormEntryController create(FormDef formDef, File formMediaDir) {
+        public FormEntryController create(FormDef formDef, File formMediaDir, Instance instance) {
             return new FormEntryController(new FormEntryModel(formDef));
         }
     };
@@ -56,7 +57,7 @@ public class FormUtilsTest {
     @Test
     public void sessionRootTranslatorOrderDoesNotMatter() throws Exception {
         final String formPath = new StoragePathProvider().getOdkDirPath(StorageSubdirectory.FORMS) + File.separator + BASIC_FORM;
-        final Form form = new FormsRepositoryProvider(ApplicationProvider.getApplicationContext()).get().getOneByPath(formPath);
+        final Form form = new FormsRepositoryProvider(ApplicationProvider.getApplicationContext()).create().getOneByPath(formPath);
         final Uri formUri = FormsContract.getUri("DEMO", form.getDbId());
 
         // Load the form in order to populate the ReferenceManager

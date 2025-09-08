@@ -42,8 +42,17 @@ interface Analytics {
             params[key] = value
         }
 
+        @JvmStatic
+        fun getParamValue(key: String): String? {
+            return params[key]
+        }
+
         fun setUserProperty(name: String, value: String) {
             instance.setUserProperty(name, value)
+        }
+
+        fun logNonFatal(throwable: Throwable) {
+            instance.logNonFatal(throwable)
         }
     }
 }

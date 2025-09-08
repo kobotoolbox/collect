@@ -40,10 +40,8 @@ public class RangeIntegerWidget extends QuestionWidget implements Slider.OnChang
     TrackingTouchSlider slider;
     TextView currentValue;
 
-    private int visibleThumbRadius;
-
-    public RangeIntegerWidget(Context context, QuestionDetails prompt) {
-        super(context, prompt);
+    public RangeIntegerWidget(Context context, QuestionDetails prompt, Dependencies dependencies) {
+        super(context, dependencies, prompt);
         render();
     }
 
@@ -53,11 +51,10 @@ public class RangeIntegerWidget extends QuestionWidget implements Slider.OnChang
         slider = layoutElements.getSlider();
         currentValue = layoutElements.getCurrentValue();
 
-        visibleThumbRadius = slider.getThumbRadius();
         setUpActualValueLabel(RangeWidgetUtils.setUpSlider(prompt, slider, true));
 
         if (slider.isEnabled()) {
-            slider.addOnChangeListener(this);
+            slider.setListener(this);
         }
         return layoutElements.getAnswerView();
     }
@@ -87,7 +84,7 @@ public class RangeIntegerWidget extends QuestionWidget implements Slider.OnChang
     @Override
     public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
         if (fromUser) {
-            BigDecimal actualValue = RangeWidgetUtils.getActualValue(getFormEntryPrompt(), slider, value);
+            BigDecimal actualValue = RangeWidgetUtils.getActualValue(getFormEntryPrompt(), value);
             setUpActualValueLabel(actualValue);
             widgetValueChanged();
         }
@@ -96,11 +93,9 @@ public class RangeIntegerWidget extends QuestionWidget implements Slider.OnChang
     private void setUpActualValueLabel(BigDecimal actualValue) {
         if (actualValue != null) {
             currentValue.setText(String.valueOf(actualValue.intValue()));
-            slider.setThumbRadius(visibleThumbRadius);
         } else {
-            slider.setValue(slider.getValueFrom());
-            slider.setThumbRadius(0);
             currentValue.setText("");
+            slider.reset();
         }
     }
 }

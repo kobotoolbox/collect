@@ -30,7 +30,7 @@ import org.odk.collect.maps.MapFragment
 import org.odk.collect.maps.MapFragmentFactory
 import org.odk.collect.maps.MapPoint
 import org.odk.collect.maps.PolygonDescription
-import org.odk.collect.maps.layers.OfflineMapLayersPicker
+import org.odk.collect.maps.layers.OfflineMapLayersPickerBottomSheetDialogFragment
 import org.odk.collect.maps.layers.ReferenceLayerRepository
 import org.odk.collect.maps.markers.MarkerDescription
 import org.odk.collect.maps.markers.MarkerIconDescription
@@ -96,8 +96,8 @@ class SelectionMapFragment(
             .forClass(MapFragment::class.java) {
                 mapFragmentFactory.createMapFragment() as Fragment
             }
-            .forClass(OfflineMapLayersPicker::class) {
-                OfflineMapLayersPicker(requireActivity().activityResultRegistry, referenceLayerRepository, scheduler, settingsProvider, externalWebPageHelper)
+            .forClass(OfflineMapLayersPickerBottomSheetDialogFragment::class) {
+                OfflineMapLayersPickerBottomSheetDialogFragment(requireActivity().activityResultRegistry, referenceLayerRepository, scheduler, settingsProvider, externalWebPageHelper)
             }
             .build()
 
@@ -117,7 +117,7 @@ class SelectionMapFragment(
                 Manifest.permission.ACCESS_COARSE_LOCATION
             )
         ) {
-            ToastUtils.showLongToast(requireContext(), org.odk.collect.strings.R.string.not_granted_permission)
+            ToastUtils.showLongToast(org.odk.collect.strings.R.string.not_granted_permission)
             requireActivity().finish()
         }
 
@@ -189,7 +189,7 @@ class SelectionMapFragment(
         map = newMapFragment
 
         binding.zoomToLocation.setMultiClickSafeOnClickListener {
-            map.zoomToPoint(map.gpsLocation, true)
+            map.zoomToCurrentLocation(map.getGpsLocation())
         }
 
         binding.zoomToBounds.setMultiClickSafeOnClickListener {
@@ -198,7 +198,7 @@ class SelectionMapFragment(
 
         binding.layerMenu.setMultiClickSafeOnClickListener {
             DialogFragmentUtils.showIfNotShowing(
-                OfflineMapLayersPicker::class.java,
+                OfflineMapLayersPickerBottomSheetDialogFragment::class.java,
                 childFragmentManager
             )
         }
@@ -312,7 +312,7 @@ class SelectionMapFragment(
                         val point = item.point
 
                         if (maintainZoom) {
-                            map.zoomToPoint(MapPoint(point.latitude, point.longitude), map.zoom, true)
+                            map.zoomToPoint(MapPoint(point.latitude, point.longitude), map.getZoom(), true)
                         } else {
                             map.zoomToPoint(MapPoint(point.latitude, point.longitude), true)
                         }
@@ -368,7 +368,7 @@ class SelectionMapFragment(
                 map.zoomToBoundingBox(points, 0.8, false)
             } else {
                 map.setGpsLocationListener { point ->
-                    map.zoomToPoint(point, true)
+                    map.zoomToCurrentLocation(point)
                     map.setGpsLocationListener(null)
                 }
             }

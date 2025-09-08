@@ -15,7 +15,7 @@
  */
 package org.odk.collect.android.formmanagement
 
-import org.odk.collect.android.openrosa.OpenRosaFormSource
+import org.odk.collect.android.application.FeatureFlags
 import org.odk.collect.android.utilities.FormUtils
 import org.odk.collect.android.utilities.WebCredentialsUtils
 import org.odk.collect.forms.Form
@@ -24,9 +24,9 @@ import org.odk.collect.forms.FormSourceException
 import org.odk.collect.forms.FormsRepository
 import org.odk.collect.forms.ManifestFile
 import org.odk.collect.forms.MediaFile
+import org.odk.collect.openrosa.forms.OpenRosaClient
 import org.odk.collect.shared.strings.Md5.getMd5Hash
 import timber.log.Timber
-import java.io.File
 
 /**
  * Open to allow mocking (used in existing Java tests)
@@ -36,11 +36,11 @@ open class ServerFormsDetailsFetcher(
     private val formSource: FormSource
 ) {
     open fun updateUrl(url: String) {
-        (formSource as OpenRosaFormSource).updateUrl(url)
+        (formSource as OpenRosaClient).updateUrl(url)
     }
 
     open fun updateCredentials(webCredentialsUtils: WebCredentialsUtils) {
-        (formSource as OpenRosaFormSource).updateWebCredentialsUtils(webCredentialsUtils)
+        (formSource as OpenRosaClient).updateWebCredentialsUtils(webCredentialsUtils)
     }
 
     @Throws(FormSourceException::class)
@@ -53,21 +53,28 @@ open class ServerFormsDetailsFetcher(
 
             val forms = formsRepository.getAllNotDeletedByFormId(listItem.formID)
             val thisFormAlreadyDownloaded = forms.isNotEmpty()
+
+            val formHash = listItem.hash
+            val existingForm = if (formHash != null) {
+                getFormByHash(formHash)
+            } else {
+                null
+            }
+
             val isNewerFormVersionAvailable = listItem.hash.let {
                 if (it == null) {
                     false
                 } else if (thisFormAlreadyDownloaded) {
-                    val existingForm = getFormByHash(it)
-                    if (existingForm == null || existingForm.isDeleted) {
-                        true
-                    } else if (manifestFile != null) {
-                        hasUpdatedMediaFiles(manifestFile, existingForm)
-                    } else {
-                        false
-                    }
+                    existingForm == null || existingForm.isDeleted
                 } else {
                     false
                 }
+            }
+
+            val areNewerMediaFilesAvailable = if (existingForm != null && manifestFile != null) {
+                areNewerMediaFilesAvailable(existingForm, manifestFile.mediaFiles)
+            } else {
+                false
             }
 
             ServerFormDetails(
@@ -77,21 +84,10 @@ open class ServerFormsDetailsFetcher(
                 listItem.version,
                 listItem.hash,
                 !thisFormAlreadyDownloaded,
-                isNewerFormVersionAvailable,
-                manifestFile
+                isNewerFormVersionAvailable || areNewerMediaFilesAvailable,
+                manifestFile,
+                FeatureFlags.FASTER_FORM_UPDATES && (!isNewerFormVersionAvailable && areNewerMediaFilesAvailable)
             )
-        }
-    }
-
-    private fun hasUpdatedMediaFiles(
-        manifestFile: ManifestFile,
-        existingForm: Form
-    ): Boolean {
-        val newMediaFiles = manifestFile.mediaFiles
-        return if (newMediaFiles.isNotEmpty()) {
-            areNewerMediaFilesAvailable(existingForm, newMediaFiles)
-        } else {
-            false
         }
     }
 
@@ -108,27 +104,20 @@ open class ServerFormsDetailsFetcher(
         existingForm: Form,
         newMediaFiles: List<MediaFile>
     ): Boolean {
-        val localMediaFiles = FormUtils.getMediaFiles(existingForm)
+        if (newMediaFiles.isEmpty()) {
+            return false
+        }
+
+        val localMediaHashes = FormUtils.getMediaFiles(existingForm)
+            .map { it.getMd5Hash() }
+            .toSet()
+
         return newMediaFiles.any {
-            !isMediaFileAlreadyDownloaded(localMediaFiles, it)
+            !it.filename.endsWith(".zip") && it.hash !in localMediaHashes
         }
     }
 
     private fun getFormByHash(hash: String): Form? {
         return formsRepository.getOneByMd5Hash(hash)
-    }
-
-    private fun isMediaFileAlreadyDownloaded(
-        localMediaFiles: List<File>,
-        newMediaFile: MediaFile
-    ): Boolean {
-        // TODO Zip files are ignored we should find a way to take them into account too
-        if (newMediaFile.filename.endsWith(".zip")) {
-            return true
-        }
-
-        return localMediaFiles.any {
-            newMediaFile.hash == getMd5Hash(it)
-        }
     }
 }

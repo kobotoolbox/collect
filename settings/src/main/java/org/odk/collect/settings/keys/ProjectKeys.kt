@@ -51,7 +51,8 @@ object ProjectKeys {
     const val KEY_BACKGROUND_RECORDING = "background_recording"
 
     // experimental_preferences.xml
-    const val KEY_LOCAL_ENTITIES = "experimental_local_entities"
+    const val KEY_DEBUG_FILTERS = "experimental_debug_filters"
+    const val KEY_MLKIT_SCANNING = "mlkit_scanning"
 
     // values
     const val PROTOCOL_SERVER = "odk_default"

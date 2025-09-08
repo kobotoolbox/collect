@@ -3,6 +3,7 @@ package org.odk.collect.android.database
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
+import androidx.core.database.getLongOrNull
 import org.odk.collect.android.database.forms.DatabaseFormColumns
 import org.odk.collect.android.database.instances.DatabaseInstanceColumns
 import org.odk.collect.androidshared.utils.PathUtils.getAbsoluteFilePath
@@ -35,44 +36,8 @@ object DatabaseObjectMapper {
         values.put(DatabaseFormColumns.AUTO_DELETE, form.autoDelete)
         values.put(DatabaseFormColumns.GEOMETRY_XPATH, form.geometryXpath)
         values.put(DatabaseFormColumns.LAST_DETECTED_ATTACHMENTS_UPDATE_DATE, form.lastDetectedAttachmentsUpdateDate)
+        values.put(DatabaseFormColumns.USES_ENTITIES, Boolean.toString(form.usesEntities()))
         return values
-    }
-
-    @JvmStatic
-    fun getFormFromValues(values: ContentValues, formsPath: String, cachePath: String): Form {
-        val formFilePath = getAbsoluteFilePath(
-            formsPath,
-            values.getAsString(DatabaseFormColumns.FORM_FILE_PATH)
-        )
-
-        val cacheFilePath = values.getAsString(DatabaseFormColumns.JRCACHE_FILE_PATH)?.let {
-            getAbsoluteFilePath(cachePath, it)
-        }
-
-        val mediaPath = values.getAsString(DatabaseFormColumns.FORM_MEDIA_PATH)?.let {
-            getAbsoluteFilePath(formsPath, it)
-        }
-
-        return Form.Builder()
-            .dbId(values.getAsLong(BaseColumns._ID))
-            .displayName(values.getAsString(DatabaseFormColumns.DISPLAY_NAME))
-            .description(values.getAsString(DatabaseFormColumns.DESCRIPTION))
-            .formId(values.getAsString(DatabaseFormColumns.JR_FORM_ID))
-            .version(values.getAsString(DatabaseFormColumns.JR_VERSION))
-            .formFilePath(formFilePath)
-            .submissionUri(values.getAsString(DatabaseFormColumns.SUBMISSION_URI))
-            .base64RSAPublicKey(values.getAsString(DatabaseFormColumns.BASE64_RSA_PUBLIC_KEY))
-            .md5Hash(values.getAsString(DatabaseFormColumns.MD5_HASH))
-            .date(values.getAsLong(DatabaseFormColumns.DATE))
-            .jrCacheFilePath(cacheFilePath)
-            .formMediaPath(mediaPath)
-            .language(values.getAsString(DatabaseFormColumns.LANGUAGE))
-            .autoSend(values.getAsString(DatabaseFormColumns.AUTO_SEND))
-            .autoDelete(values.getAsString(DatabaseFormColumns.AUTO_DELETE))
-            .geometryXpath(values.getAsString(DatabaseFormColumns.GEOMETRY_XPATH))
-            .deleted(values.getAsLong(DatabaseFormColumns.DELETED_DATE) != null)
-            .lastDetectedAttachmentsUpdateDate(values.getAsLong(DatabaseFormColumns.LAST_DETECTED_ATTACHMENTS_UPDATE_DATE))
-            .build()
     }
 
     @JvmStatic
@@ -101,6 +66,7 @@ object DatabaseObjectMapper {
         val geometryXpathColumnIndex = cursor.getColumnIndex(DatabaseFormColumns.GEOMETRY_XPATH)
         val deletedDateColumnIndex = cursor.getColumnIndex(DatabaseFormColumns.DELETED_DATE)
         val lastDetectedAttachmentsUpdateDateColumnIndex = cursor.getColumnIndex(DatabaseFormColumns.LAST_DETECTED_ATTACHMENTS_UPDATE_DATE)
+        val usesEntitiesColumnIndex = cursor.getColumnIndex(DatabaseFormColumns.USES_ENTITIES)
         return Form.Builder()
             .dbId(cursor.getLong(idColumnIndex))
             .displayName(cursor.getString(displayNameColumnIndex))
@@ -134,7 +100,8 @@ object DatabaseObjectMapper {
             .autoDelete(cursor.getString(autoDeleteColumnIndex))
             .geometryXpath(cursor.getString(geometryXpathColumnIndex))
             .deleted(!cursor.isNull(deletedDateColumnIndex))
-            .lastDetectedAttachmentsUpdateDate(if (cursor.isNull(lastDetectedAttachmentsUpdateDateColumnIndex)) null else cursor.getLong(lastDetectedAttachmentsUpdateDateColumnIndex))
+            .lastDetectedAttachmentsUpdateDate(cursor.getLongOrNull(lastDetectedAttachmentsUpdateDateColumnIndex))
+            .usesEntities(Boolean.valueOf(cursor.getString(usesEntitiesColumnIndex)))
             .build()
     }
 
@@ -150,9 +117,12 @@ object DatabaseObjectMapper {
             .formVersion(values.getAsString(DatabaseInstanceColumns.JR_VERSION))
             .status(values.getAsString(DatabaseInstanceColumns.STATUS))
             .lastStatusChangeDate(values.getAsLong(DatabaseInstanceColumns.LAST_STATUS_CHANGE_DATE))
+            .finalizationDate(values.getAsLong(DatabaseInstanceColumns.FINALIZATION_DATE))
             .deletedDate(values.getAsLong(DatabaseInstanceColumns.DELETED_DATE))
             .geometry(values.getAsString(DatabaseInstanceColumns.GEOMETRY))
             .geometryType(values.getAsString(DatabaseInstanceColumns.GEOMETRY_TYPE))
+            .editOf(values.getAsLong(DatabaseInstanceColumns.EDIT_OF))
+            .editNumber(values.getAsLong(DatabaseInstanceColumns.EDIT_NUMBER))
             .build()
     }
 
@@ -170,10 +140,17 @@ object DatabaseObjectMapper {
         val statusColumnIndex = cursor.getColumnIndex(DatabaseInstanceColumns.STATUS)
         val lastStatusChangeDateColumnIndex =
             cursor.getColumnIndex(DatabaseInstanceColumns.LAST_STATUS_CHANGE_DATE)
+        val finalizationDateColumnIndex =
+            cursor.getColumnIndex(DatabaseInstanceColumns.FINALIZATION_DATE)
         val deletedDateColumnIndex = cursor.getColumnIndex(DatabaseInstanceColumns.DELETED_DATE)
         val geometryTypeColumnIndex = cursor.getColumnIndex(DatabaseInstanceColumns.GEOMETRY_TYPE)
         val geometryColumnIndex = cursor.getColumnIndex(DatabaseInstanceColumns.GEOMETRY)
         val databaseIdIndex = cursor.getColumnIndex(BaseColumns._ID)
+        val canDeleteBeforeSendIndex =
+            cursor.getColumnIndex(DatabaseInstanceColumns.CAN_DELETE_BEFORE_SEND)
+        val editOfColumnIndex = cursor.getColumnIndex(DatabaseInstanceColumns.EDIT_OF)
+        val editNumberColumnIndex = cursor.getColumnIndex(DatabaseInstanceColumns.EDIT_NUMBER)
+
         return Instance.Builder()
             .dbId(dbId)
             .displayName(cursor.getString(displayNameColumnIndex))
@@ -189,18 +166,14 @@ object DatabaseObjectMapper {
             .formVersion(cursor.getString(jrVersionColumnIndex))
             .status(cursor.getString(statusColumnIndex))
             .lastStatusChangeDate(cursor.getLong(lastStatusChangeDateColumnIndex))
-            .deletedDate(
-                if (cursor.isNull(deletedDateColumnIndex)) {
-                    null
-                } else {
-                    cursor.getLong(
-                        deletedDateColumnIndex
-                    )
-                }
-            )
+            .finalizationDate(cursor.getLongOrNull(finalizationDateColumnIndex))
+            .deletedDate(cursor.getLongOrNull(deletedDateColumnIndex))
             .geometryType(cursor.getString(geometryTypeColumnIndex))
             .geometry(cursor.getString(geometryColumnIndex))
             .dbId(cursor.getLong(databaseIdIndex))
+            .canDeleteBeforeSend(Boolean.valueOf(cursor.getString(canDeleteBeforeSendIndex)))
+            .editOf(cursor.getLongOrNull(editOfColumnIndex))
+            .editNumber(cursor.getLongOrNull(editNumberColumnIndex))
             .build()
     }
 
@@ -222,9 +195,17 @@ object DatabaseObjectMapper {
         values.put(DatabaseInstanceColumns.JR_VERSION, instance.formVersion)
         values.put(DatabaseInstanceColumns.STATUS, instance.status)
         values.put(DatabaseInstanceColumns.LAST_STATUS_CHANGE_DATE, instance.lastStatusChangeDate)
+        values.put(DatabaseInstanceColumns.FINALIZATION_DATE, instance.finalizationDate)
         values.put(DatabaseInstanceColumns.DELETED_DATE, instance.deletedDate)
         values.put(DatabaseInstanceColumns.GEOMETRY, instance.geometry)
         values.put(DatabaseInstanceColumns.GEOMETRY_TYPE, instance.geometryType)
+        values.put(
+            DatabaseInstanceColumns.CAN_DELETE_BEFORE_SEND,
+            Boolean.toString(instance.canDeleteBeforeSend())
+        )
+        values.put(DatabaseInstanceColumns.EDIT_OF, instance.editOf)
+        values.put(DatabaseInstanceColumns.EDIT_NUMBER, instance.editNumber)
+
         return values
     }
 }

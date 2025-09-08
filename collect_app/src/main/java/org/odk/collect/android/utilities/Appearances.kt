@@ -29,6 +29,7 @@ object Appearances {
     const val BIKRAM_SAMBAT = "bikram-sambat"
     const val MYANMAR = "myanmar"
     const val PERSIAN = "persian"
+    const val BUDDHIST = "buddhist"
     const val NO_CALENDAR = "no-calendar"
     const val MONTH_YEAR = "month-year"
     const val YEAR = "year"
@@ -88,6 +89,8 @@ object Appearances {
     const val URL = "url"
     const val RATING = "rating"
     const val MASKED = "masked"
+    const val COUNTER = "counter"
+    const val MULTILINE = "multiline"
 
     // Get appearance hint and clean it up so it is lower case, without the search function and never null.
     @JvmStatic
@@ -198,5 +201,11 @@ object Appearances {
         return appearance.contains(MASKED) &&
             !appearance.contains(NUMBERS) &&
             prompt.dataType == Constants.DATATYPE_TEXT
+    }
+
+    @JvmStatic
+    fun isMultiline(prompt: FormEntryPrompt): Boolean {
+        val appearance = getSanitizedAppearanceHint(prompt)
+        return appearance.contains(MULTILINE)
     }
 }

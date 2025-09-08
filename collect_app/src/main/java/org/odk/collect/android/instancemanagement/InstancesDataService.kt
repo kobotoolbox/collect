@@ -1,7 +1,6 @@
 package org.odk.collect.android.instancemanagement
 
-import androidx.lifecycle.LiveData
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import org.odk.collect.analytics.Analytics
 import org.odk.collect.android.analytics.AnalyticsEvents
 import org.odk.collect.android.application.Collect
@@ -12,73 +11,86 @@ import org.odk.collect.android.instancemanagement.autosend.FormAutoSendMode
 import org.odk.collect.android.instancemanagement.autosend.InstanceAutoSendFetcher
 import org.odk.collect.android.instancemanagement.autosend.getAutoSendMode
 import org.odk.collect.android.notifications.Notifier
-import org.odk.collect.android.openrosa.OpenRosaHttpInterface
-import org.odk.collect.android.projects.ProjectDependencyProviderFactory
+import org.odk.collect.android.projects.ProjectDependencyModule
+import org.odk.collect.android.state.DataKeys
 import org.odk.collect.android.utilities.ExternalizableFormDefCache
 import org.odk.collect.android.utilities.FormsUploadResultInterpreter
 import org.odk.collect.androidshared.data.AppState
+import org.odk.collect.androidshared.data.DataService
 import org.odk.collect.forms.Form
 import org.odk.collect.forms.instances.Instance
 import org.odk.collect.metadata.PropertyManager
+import org.odk.collect.openrosa.http.OpenRosaHttpInterface
+import org.odk.collect.projects.ProjectDependencyFactory
 import java.io.File
 
 class InstancesDataService(
-    private val appState: AppState,
+    appState: AppState,
     private val instanceSubmitScheduler: InstanceSubmitScheduler,
-    private val projectDependencyProviderFactory: ProjectDependencyProviderFactory,
+    private val projectDependencyModuleFactory: ProjectDependencyFactory<ProjectDependencyModule>,
     private val notifier: Notifier,
     private val propertyManager: PropertyManager,
     private val httpInterface: OpenRosaHttpInterface,
-    private val onUpdate: () -> Unit
-) {
-    val editableCount: LiveData<Int> = appState.getLive(EDITABLE_COUNT_KEY, 0)
-    val sendableCount: LiveData<Int> = appState.getLive(SENDABLE_COUNT_KEY, 0)
-    val sentCount: LiveData<Int> = appState.getLive(SENT_COUNT_KEY, 0)
+    onUpdate: () -> Unit
+) : DataService(appState, onUpdate) {
 
-    fun getInstances(projectId: String): Flow<List<Instance>> {
-        return appState.getFlow("instances:$projectId", emptyList())
+    private val editableCount by qualifiedData(DataKeys.INSTANCES_EDITABLE_COUNT, 0) { projectId ->
+        val projectDependencyModule = projectDependencyModuleFactory.create(projectId)
+        val instancesRepository = projectDependencyModule.instancesRepository
+        instancesRepository.getCountByStatus(
+            Instance.STATUS_INCOMPLETE,
+            Instance.STATUS_INVALID,
+            Instance.STATUS_VALID,
+            Instance.STATUS_NEW_EDIT
+        )
     }
 
-    fun update(projectId: String) {
-        val projectDependencyProvider = projectDependencyProviderFactory.create(projectId)
-        val instancesRepository = projectDependencyProvider.instancesRepository
-
-        val sendableInstances = instancesRepository.getCountByStatus(
+    private val sendableCount by qualifiedData(DataKeys.INSTANCES_SENDABLE_COUNT, 0) { projectId ->
+        val projectDependencyModule = projectDependencyModuleFactory.create(projectId)
+        val instancesRepository = projectDependencyModule.instancesRepository
+        instancesRepository.getCountByStatus(
             Instance.STATUS_COMPLETE,
             Instance.STATUS_SUBMISSION_FAILED
         )
-        val sentInstances = instancesRepository.getCountByStatus(
+    }
+
+    private val sentCount by qualifiedData(DataKeys.INSTANCES_SENT_COUNT, 0) { projectId ->
+        val projectDependencyModule = projectDependencyModuleFactory.create(projectId)
+        val instancesRepository = projectDependencyModule.instancesRepository
+        instancesRepository.getCountByStatus(
             Instance.STATUS_SUBMITTED,
             Instance.STATUS_SUBMISSION_FAILED
         )
-        val editableInstances = instancesRepository.getCountByStatus(
-            Instance.STATUS_INCOMPLETE,
-            Instance.STATUS_INVALID,
-            Instance.STATUS_VALID
-        )
+    }
 
-        appState.setLive(EDITABLE_COUNT_KEY, editableInstances)
-        appState.setLive(SENDABLE_COUNT_KEY, sendableInstances)
-        appState.setLive(SENT_COUNT_KEY, sentInstances)
-        appState.setFlow("instances:$projectId", instancesRepository.all)
+    private val instances by qualifiedData(DataKeys.INSTANCES, emptyList()) { projectId ->
+        val projectDependencyModule = projectDependencyModuleFactory.create(projectId)
+        val instancesRepository = projectDependencyModule.instancesRepository
+        instancesRepository.all
+    }
 
-        onUpdate()
+    fun getEditableCount(projectId: String): StateFlow<Int> = editableCount.flow(projectId)
+    fun getSendableCount(projectId: String): StateFlow<Int> = sendableCount.flow(projectId)
+    fun getSentCount(projectId: String): StateFlow<Int> = sentCount.flow(projectId)
+
+    fun getInstances(projectId: String): StateFlow<List<Instance>> {
+        return instances.flow(projectId)
     }
 
     fun finalizeAllDrafts(projectId: String): FinalizeAllResult {
-        val projectDependencyProvider = projectDependencyProviderFactory.create(projectId)
-        val instancesRepository = projectDependencyProvider.instancesRepository
-        val formsRepository = projectDependencyProvider.formsRepository
-        val storagePathProvider = projectDependencyProvider.storagePathProvider
-        val savepointsRepository = projectDependencyProvider.savepointsRepository
-        val entitiesRepository = projectDependencyProvider.entitiesRepository
+        val projectDependencyModule = projectDependencyModuleFactory.create(projectId)
+        val instancesRepository = projectDependencyModule.instancesRepository
+        val formsRepository = projectDependencyModule.formsRepository
+        val savepointsRepository = projectDependencyModule.savepointsRepository
+        val entitiesRepository = projectDependencyModule.entitiesRepository
 
-        val projectRootDir = File(storagePathProvider.getProjectRootDirPath())
+        val projectRootDir = File(projectDependencyModule.rootDir)
 
         val instances = instancesRepository.getAllByStatus(
             Instance.STATUS_INCOMPLETE,
             Instance.STATUS_INVALID,
-            Instance.STATUS_VALID
+            Instance.STATUS_VALID,
+            Instance.STATUS_NEW_EDIT
         )
 
         val result = instances.fold(FinalizeAllResult(0, 0, false)) { result, instance ->
@@ -96,7 +108,10 @@ class InstancesDataService(
 
                 val formMediaDir = File(form.formMediaPath)
                 val formEntryController =
-                    CollectFormEntryControllerFactory().create(formDef, formMediaDir)
+                    CollectFormEntryControllerFactory(
+                        entitiesRepository,
+                        projectDependencyModule.generalSettings
+                    ).create(formDef, formMediaDir, instance)
                 val formController =
                     FormEntryUseCases.loadDraft(form, instance, formEntryController)
                 if (formController == null) {
@@ -143,11 +158,11 @@ class InstancesDataService(
     }
 
     fun deleteInstances(projectId: String, instanceIds: LongArray): Boolean {
-        val projectDependencyProvider = projectDependencyProviderFactory.create(projectId)
-        val instancesRepository = projectDependencyProvider.instancesRepository
-        val formsRepository = projectDependencyProvider.formsRepository
+        val projectDependencyModule = projectDependencyModuleFactory.create(projectId)
+        val instancesRepository = projectDependencyModule.instancesRepository
+        val formsRepository = projectDependencyModule.formsRepository
 
-        return projectDependencyProvider.instancesLock.withLock { acquiredLock: Boolean ->
+        return projectDependencyModule.instancesLock.withLock { acquiredLock: Boolean ->
             if (acquiredLock) {
                 instanceIds.forEach { instanceId ->
                     InstanceDeleter(
@@ -166,14 +181,22 @@ class InstancesDataService(
         }
     }
 
-    fun deleteAll(projectId: String): Boolean {
-        val projectDependencyProvider =
-            projectDependencyProviderFactory.create(projectId)
-        val instancesRepository = projectDependencyProvider.instancesRepository
+    fun reset(projectId: String): Boolean {
+        val projectDependencyModule =
+            projectDependencyModuleFactory.create(projectId)
+        val instancesRepository = projectDependencyModule.instancesRepository
 
-        return projectDependencyProvider.instancesLock.withLock { acquiredLock: Boolean ->
+        return projectDependencyModule.instancesLock.withLock { acquiredLock: Boolean ->
             if (acquiredLock) {
-                instancesRepository.deleteAll()
+                val grouped = instancesRepository.all.groupBy { it.editOf ?: it.dbId }
+                grouped.values.forEach { group ->
+                    group.sortedByDescending { it.editNumber }
+                        .forEach {
+                            if (it.isDeletable()) {
+                                instancesRepository.delete(it.dbId)
+                            }
+                        }
+                }
                 update(projectId)
                 true
             } else {
@@ -183,30 +206,28 @@ class InstancesDataService(
     }
 
     fun sendInstances(projectId: String, formAutoSend: Boolean = false): Boolean {
-        val projectDependencyProvider =
-            projectDependencyProviderFactory.create(projectId)
+        val projectDependencyModule =
+            projectDependencyModuleFactory.create(projectId)
 
         val instanceSubmitter = InstanceSubmitter(
-            projectDependencyProvider.formsRepository,
-            projectDependencyProvider.generalSettings,
+            projectDependencyModule.formsRepository,
+            projectDependencyModule.generalSettings,
             propertyManager,
             httpInterface,
-            projectDependencyProvider.instancesRepository
+            projectDependencyModule.instancesRepository
         )
 
-        return projectDependencyProvider.changeLockProvider.getInstanceLock(
-            projectDependencyProvider.projectId
-        ).withLock { acquiredLock: Boolean ->
+        return projectDependencyModule.instancesLock.withLock { acquiredLock: Boolean ->
             if (acquiredLock) {
                 val toUpload = InstanceAutoSendFetcher.getInstancesToAutoSend(
-                    projectDependencyProvider.instancesRepository,
-                    projectDependencyProvider.formsRepository,
+                    projectDependencyModule.instancesRepository,
+                    projectDependencyModule.formsRepository,
                     formAutoSend
                 )
 
                 if (toUpload.isNotEmpty()) {
                     val results = instanceSubmitter.submitInstances(toUpload)
-                    notifier.onSubmission(results, projectDependencyProvider.projectId)
+                    notifier.onSubmission(results, projectDependencyModule.projectId)
                     update(projectId)
 
                     FormsUploadResultInterpreter.allFormsUploadedSuccessfully(results)
@@ -227,10 +248,15 @@ class InstancesDataService(
         }
     }
 
-    companion object {
-        private const val EDITABLE_COUNT_KEY = "instancesEditableCount"
-        private const val SENDABLE_COUNT_KEY = "instancesSendableCount"
-        private const val SENT_COUNT_KEY = "instancesSentCount"
+    fun editInstance(instanceFilePath: String, projectId: String): InstanceEditResult {
+        val projectDependencyModule = projectDependencyModuleFactory.create(projectId)
+
+        return LocalInstancesUseCases.editInstance(
+            instanceFilePath,
+            projectDependencyModule.instancesDir,
+            projectDependencyModule.instancesRepository,
+            projectDependencyModule.formsRepository
+        )
     }
 }
 

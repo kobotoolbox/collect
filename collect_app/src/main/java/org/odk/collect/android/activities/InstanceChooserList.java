@@ -34,12 +34,11 @@ import androidx.annotation.NonNull;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
 import org.odk.collect.android.R;
 import org.odk.collect.android.adapters.InstanceListCursorAdapter;
 import org.odk.collect.android.dao.CursorLoaderFactory;
-import org.odk.collect.android.database.DatabaseConnection;
+import org.odk.collect.android.formentry.FormOpeningMode;
+import org.odk.collect.db.sqlite.DatabaseConnection;
 import org.odk.collect.android.database.instances.DatabaseInstanceColumns;
 import org.odk.collect.android.entities.EntitiesRepositoryProvider;
 import org.odk.collect.android.external.FormUriActivity;
@@ -51,7 +50,6 @@ import org.odk.collect.android.injection.DaggerUtils;
 import org.odk.collect.android.instancemanagement.FinalizeAllSnackbarPresenter;
 import org.odk.collect.android.instancemanagement.InstancesDataService;
 import org.odk.collect.android.projects.ProjectsDataService;
-import org.odk.collect.android.utilities.ApplicationConstants;
 import org.odk.collect.android.utilities.FormsRepositoryProvider;
 import org.odk.collect.android.utilities.InstancesRepositoryProvider;
 import org.odk.collect.androidshared.ui.multiclicksafe.MultiClickGuard;
@@ -59,8 +57,6 @@ import org.odk.collect.async.Scheduler;
 import org.odk.collect.lists.EmptyListView;
 import org.odk.collect.material.MaterialProgressDialogFragment;
 import org.odk.collect.settings.SettingsProvider;
-import org.odk.collect.settings.keys.MetaKeys;
-import org.odk.collect.strings.R.string;
 
 import java.util.Arrays;
 
@@ -113,20 +109,10 @@ public class InstanceChooserList extends AppListActivity implements AdapterView.
         setContentView(R.layout.form_chooser_list);
         DaggerUtils.getComponent(this).inject(this);
 
-        String formMode = getIntent().getStringExtra(ApplicationConstants.BundleKeys.FORM_MODE);
-        if (formMode == null || ApplicationConstants.FormModes.EDIT_SAVED.equalsIgnoreCase(formMode)) {
+        String formMode = getIntent().getStringExtra(FormOpeningMode.FORM_MODE_KEY);
+        if (formMode == null || FormOpeningMode.EDIT_SAVED.equalsIgnoreCase(formMode)) {
             setTitle(getString(org.odk.collect.strings.R.string.review_data));
             editMode = true;
-
-            if (!settingsProvider.getMetaSettings().getBoolean(MetaKeys.DRAFTS_PILLS_EDUCATION_SHOWN)) {
-                new MaterialAlertDialogBuilder(this)
-                        .setTitle(string.new_feature)
-                        .setMessage(string.drafts_pills_education_message)
-                        .setPositiveButton(string.ok, null)
-                        .show();
-
-                settingsProvider.getMetaSettings().save(MetaKeys.DRAFTS_PILLS_EDUCATION_SHOWN, true);
-            }
         } else {
             setTitle(getString(org.odk.collect.strings.R.string.view_sent_forms));
             EmptyListView emptyListView = findViewById(android.R.id.empty);
@@ -157,7 +143,7 @@ public class InstanceChooserList extends AppListActivity implements AdapterView.
         init();
 
         BulkFinalizationViewModel bulkFinalizationViewModel = new BulkFinalizationViewModel(
-                projectsDataService.getCurrentProject().getUuid(),
+                projectsDataService.requireCurrentProject().getUuid(),
                 scheduler,
                 instancesDataService,
                 settingsProvider
@@ -198,7 +184,7 @@ public class InstanceChooserList extends AppListActivity implements AdapterView.
             if (view.isEnabled()) {
                 Cursor c = (Cursor) listView.getAdapter().getItem(position);
                 long instanceId = c.getLong(c.getColumnIndex(DatabaseInstanceColumns._ID));
-                Uri instanceUri = InstancesContract.getUri(projectsDataService.getCurrentProject().getUuid(), instanceId);
+                Uri instanceUri = InstancesContract.getUri(projectsDataService.requireCurrentProject().getUuid(), instanceId);
 
                 String action = getIntent().getAction();
                 if (Intent.ACTION_PICK.equals(action)) {
@@ -211,12 +197,12 @@ public class InstanceChooserList extends AppListActivity implements AdapterView.
                     Intent intent = new Intent(this, FormUriActivity.class);
                     intent.setAction(Intent.ACTION_EDIT);
                     intent.setData(instanceUri);
-                    String formMode = parentIntent.getStringExtra(ApplicationConstants.BundleKeys.FORM_MODE);
-                    if (formMode == null || ApplicationConstants.FormModes.EDIT_SAVED.equalsIgnoreCase(formMode)) {
-                        intent.putExtra(ApplicationConstants.BundleKeys.FORM_MODE, ApplicationConstants.FormModes.EDIT_SAVED);
+                    String formMode = parentIntent.getStringExtra(FormOpeningMode.FORM_MODE_KEY);
+                    if (formMode == null || FormOpeningMode.EDIT_SAVED.equalsIgnoreCase(formMode)) {
+                        intent.putExtra(FormOpeningMode.FORM_MODE_KEY, FormOpeningMode.EDIT_SAVED);
                         formLauncher.launch(intent);
                     } else {
-                        intent.putExtra(ApplicationConstants.BundleKeys.FORM_MODE, ApplicationConstants.FormModes.VIEW_SENT);
+                        intent.putExtra(FormOpeningMode.FORM_MODE_KEY, FormOpeningMode.VIEW_SENT);
                         startActivity(intent);
                         finish();
                     }

@@ -1,14 +1,19 @@
 package org.odk.collect.android.feature.instancemanagement
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.Matchers.equalTo
+import org.javarosa.xform.parse.XFormParser
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.RuleChain
 import org.junit.runner.RunWith
+import org.kxml2.kdom.Element
 import org.odk.collect.android.support.TestDependencies
 import org.odk.collect.android.support.pages.ErrorPage
 import org.odk.collect.android.support.pages.FormEntryPage
 import org.odk.collect.android.support.pages.MainMenuPage
+import org.odk.collect.android.support.pages.SendFinalizedFormPage
 import org.odk.collect.android.support.pages.ViewSentFormPage
 import org.odk.collect.android.support.rules.CollectTestRule
 import org.odk.collect.android.support.rules.NotificationDrawerRule
@@ -204,5 +209,57 @@ class AutoSendTest {
         testDependencies.scheduler.runDeferredTasks()
 
         mainMenuPage.assertNumberOfFinalizedForms(1)
+    }
+
+    @Test
+    fun whenFormHasAutoSend_formsAreSentInOldestFirstOrderBasedOnFinalizationTime() {
+        /**
+         * Historically, the only timestamp we tracked for instances was the "last status changed" date.
+         * However, this timestamp is updated any time the instance status changes—not only when a form
+         * is finalized, but also, for example, when a submission attempt fails.
+         *
+         * This could lead to incorrect ordering when sending finalized forms. For instance, if forms A and B
+         * were finalized in that order, and submission of form A failed, its "last status changed" timestamp
+         * would be updated. As a result, when attempting to send both forms later, form B could be sent first,
+         * even though form A was finalized earlier.
+         *
+         * To ensure that forms are always sent in the order they were finalized, we introduced a new timestamp
+         * to track the finalization time specifically.
+         *
+         * This test reproduces the scenario described above to verify that the new finalization timestamp is used
+         * for ordering. It deliberately updates the "last status changed" date of the older instance
+         * to confirm that it does not affect the sending order.
+         */
+        testDependencies.server.alwaysReturnError()
+
+        rule.startAtMainMenu()
+            .setServer(testDependencies.server.url)
+            .copyForm("one-question-autosend.xml")
+
+            .startBlankForm("One Question Autosend")
+            .inputText("31")
+            .swipeToEndScreen()
+            .clickSend()
+
+            .startBlankForm("One Question Autosend")
+            .inputText("32")
+            .swipeToEndScreen()
+            .clickSend()
+
+            .clickSendFinalizedForm(2)
+            .sortByDateOldestFirst()
+            .selectForm(0)
+            .clickSendSelected()
+            .clickOK(SendFinalizedFormPage())
+            .also {
+                testDependencies.server.neverReturnError()
+                testDependencies.scheduler.runDeferredTasks()
+            }
+
+        val firstFormRootElement = XFormParser.getXMLDocument(testDependencies.server.submissions[0].inputStream().reader()).rootElement
+        val secondFormRootElement = XFormParser.getXMLDocument(testDependencies.server.submissions[1].inputStream().reader()).rootElement
+
+        assertThat((firstFormRootElement.getChild(0) as Element).getChild(0), equalTo("31"))
+        assertThat((secondFormRootElement.getChild(0) as Element).getChild(0), equalTo("32"))
     }
 }

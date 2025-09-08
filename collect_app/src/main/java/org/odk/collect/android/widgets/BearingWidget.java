@@ -48,8 +48,8 @@ public class BearingWidget extends QuestionWidget implements WidgetDataReceiver 
     private final WaitingForDataRegistry waitingForDataRegistry;
     private final SensorManager sensorManager;
 
-    public BearingWidget(Context context, QuestionDetails questionDetails, WaitingForDataRegistry waitingForDataRegistry, SensorManager sensorManager) {
-        super(context, questionDetails);
+    public BearingWidget(Context context, QuestionDetails questionDetails, WaitingForDataRegistry waitingForDataRegistry, SensorManager sensorManager, Dependencies dependencies) {
+        super(context, dependencies, questionDetails);
         render();
 
         this.waitingForDataRegistry = waitingForDataRegistry;
@@ -65,7 +65,7 @@ public class BearingWidget extends QuestionWidget implements WidgetDataReceiver 
         } else {
             binding.bearingButton.setOnClickListener(v -> onButtonClick());
         }
-        binding.widgetAnswerText.init(answerFontSize, true, null, false, this::widgetValueChanged);
+        binding.widgetAnswerText.init(answerFontSize, true, null, false, false, this::widgetValueChanged);
         Double answer = StringWidgetUtils.getDoubleAnswerValueFromIAnswerData(questionDetails.getPrompt().getAnswerValue());
         binding.widgetAnswerText.setDecimalType(false, answer);
 
@@ -121,7 +121,7 @@ public class BearingWidget extends QuestionWidget implements WidgetDataReceiver 
 
             waitingForDataRegistry.waitForData(getFormEntryPrompt().getIndex());
         } else {
-            ToastUtils.showLongToast(getContext(), org.odk.collect.strings.R.string.bearing_lack_of_sensors);
+            ToastUtils.showLongToast(org.odk.collect.strings.R.string.bearing_lack_of_sensors);
 
             binding.bearingButton.setEnabled(false);
             binding.widgetAnswerText.updateState(false);

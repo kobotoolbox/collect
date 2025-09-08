@@ -14,7 +14,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
-import org.mockito.kotlin.whenever
 import org.odk.collect.android.injection.DaggerUtils
 import org.odk.collect.android.injection.config.AppDependencyModule
 import org.odk.collect.android.preferences.Defaults
@@ -34,8 +33,8 @@ import org.odk.collect.projects.Project
 import org.odk.collect.settings.SettingsProvider
 import org.odk.collect.settings.keys.ProjectKeys
 import org.odk.collect.settings.keys.ProtectedProjectKeys
+import org.odk.collect.shared.locks.BooleanChangeLock
 import org.odk.collect.shared.settings.Settings
-import org.odk.collect.testshared.BooleanChangeLock
 import java.io.File
 
 @RunWith(AndroidJUnit4::class)
@@ -50,8 +49,7 @@ class ProjectResetterTest {
     private lateinit var anotherProjectId: String
 
     private val propertyManager = mock<PropertyManager>()
-    private val changeLockProvider = mock<ChangeLockProvider>()
-    private val changeLock = BooleanChangeLock()
+    private val changeLockProvider = ChangeLockProvider { BooleanChangeLock() }
 
     @Before
     fun setup() {
@@ -78,8 +76,6 @@ class ProjectResetterTest {
         formsRepositoryProvider = component.formsRepositoryProvider()
         instancesRepositoryProvider = component.instancesRepositoryProvider()
         savepointsRepositoryProvider = component.savepointsRepositoryProvider()
-
-        whenever(changeLockProvider.getInstanceLock(currentProjectId)).thenReturn(changeLock)
     }
 
     @Test
@@ -183,7 +179,7 @@ class ProjectResetterTest {
 
         resetAppState(listOf(ProjectResetter.ResetAction.RESET_FORMS))
 
-        assertEquals(0, formsRepositoryProvider.get(currentProjectId).all.size)
+        assertEquals(0, formsRepositoryProvider.create(currentProjectId).all.size)
         assertFolderEmpty(storagePathProvider.getOdkDirPath(StorageSubdirectory.FORMS, currentProjectId))
         assertFalse(File(storagePathProvider.getOdkDirPath(StorageSubdirectory.METADATA, currentProjectId) + "/itemsets.db").exists())
     }
@@ -196,44 +192,52 @@ class ProjectResetterTest {
 
         resetAppState(listOf(ProjectResetter.ResetAction.RESET_FORMS))
 
-        assertEquals(1, formsRepositoryProvider.get(anotherProjectId).all.size)
+        assertEquals(1, formsRepositoryProvider.create(anotherProjectId).all.size)
         assertTestFormFiles(anotherProjectId)
         assertTrue(File(storagePathProvider.getOdkDirPath(StorageSubdirectory.METADATA, anotherProjectId) + "/itemsets.db").exists())
     }
 
     @Test
-    fun `Reset instances does not clear instances if the instances database is locked`() {
+    fun `Reset instances does not clear instances and savepoints if the instances database is locked`() {
         saveTestInstanceFiles(currentProjectId)
         setupTestInstancesDatabase(currentProjectId)
+        setupTestSavepointsDatabase(currentProjectId)
 
-        changeLock.lock()
+        (changeLockProvider.create(currentProjectId).instancesLock as BooleanChangeLock).lock("blah")
         val failedResetActions = projectResetter.reset(listOf(ProjectResetter.ResetAction.RESET_INSTANCES))
         assertEquals(1, failedResetActions.size)
 
-        assertEquals(1, instancesRepositoryProvider.get(currentProjectId).all.size)
+        assertEquals(1, instancesRepositoryProvider.create(currentProjectId).all.size)
         assertTestInstanceFiles(currentProjectId)
+        assertEquals(1, savepointsRepositoryProvider.create(currentProjectId).getAll().size)
     }
 
     @Test
-    fun `Reset instances clears instances for current project`() {
+    fun `Reset instances clears instances and savepoints for current project`() {
         saveTestInstanceFiles(currentProjectId)
         setupTestInstancesDatabase(currentProjectId)
+        setupTestSavepointsDatabase(anotherProjectId)
+        val instancesRepository = instancesRepositoryProvider.create(currentProjectId)
+        val instance = instancesRepository.all[0]
 
         resetAppState(listOf(ProjectResetter.ResetAction.RESET_INSTANCES))
 
-        assertEquals(0, instancesRepositoryProvider.get(currentProjectId).all.size)
-        assertFolderEmpty(storagePathProvider.getOdkDirPath(StorageSubdirectory.INSTANCES, currentProjectId))
+        assertEquals(0, instancesRepository.all.size)
+        assertEquals(false, File(instance.instanceFilePath).parentFile.exists())
+        assertEquals(1, savepointsRepositoryProvider.create(anotherProjectId).getAll().size)
     }
 
     @Test
-    fun `Reset instances does not clear instances for another projects`() {
+    fun `Reset instances does not clear instances and savepoints for another projects`() {
         saveTestInstanceFiles(anotherProjectId)
         setupTestInstancesDatabase(anotherProjectId)
+        setupTestSavepointsDatabase(anotherProjectId)
 
         resetAppState(listOf(ProjectResetter.ResetAction.RESET_INSTANCES))
 
-        assertEquals(1, instancesRepositoryProvider.get(anotherProjectId).all.size)
+        assertEquals(1, instancesRepositoryProvider.create(anotherProjectId).all.size)
         assertTestInstanceFiles(anotherProjectId)
+        assertEquals(1, savepointsRepositoryProvider.create(anotherProjectId).getAll().size)
     }
 
     @Test
@@ -261,7 +265,7 @@ class ProjectResetterTest {
 
         resetAppState(listOf(ProjectResetter.ResetAction.RESET_CACHE))
 
-        assertEquals(0, savepointsRepositoryProvider.get(currentProjectId).getAll().size)
+        assertEquals(0, savepointsRepositoryProvider.create(currentProjectId).getAll().size)
         assertFolderEmpty(storagePathProvider.getOdkDirPath(StorageSubdirectory.CACHE, currentProjectId))
     }
 
@@ -272,7 +276,7 @@ class ProjectResetterTest {
 
         resetAppState(listOf(ProjectResetter.ResetAction.RESET_CACHE))
 
-        assertEquals(1, savepointsRepositoryProvider.get(anotherProjectId).getAll().size)
+        assertEquals(1, savepointsRepositoryProvider.create(anotherProjectId).getAll().size)
         assertTestCacheFiles(anotherProjectId)
     }
 
@@ -301,18 +305,18 @@ class ProjectResetterTest {
     }
 
     private fun setupTestFormsDatabase(uuid: String) {
-        FormsRepositoryProvider(ApplicationProvider.getApplicationContext()).get(uuid).save(
+        FormsRepositoryProvider(ApplicationProvider.getApplicationContext()).create(uuid).save(
             Form.Builder()
                 .formId("jrFormId")
                 .displayName("displayName")
                 .formFilePath(storagePathProvider.getOdkDirPath(StorageSubdirectory.FORMS, uuid) + "/testFile1.xml")
                 .build()
         )
-        assertEquals(1, formsRepositoryProvider.get(uuid).all.size)
+        assertEquals(1, formsRepositoryProvider.create(uuid).all.size)
     }
 
     private fun setupTestInstancesDatabase(uuid: String) {
-        InstancesRepositoryProvider(ApplicationProvider.getApplicationContext()).get(uuid).save(
+        InstancesRepositoryProvider(ApplicationProvider.getApplicationContext()).create(uuid).save(
             Instance.Builder()
                 .instanceFilePath("testDir1/testFile1")
                 .submissionUri("submissionUri")
@@ -321,14 +325,14 @@ class ProjectResetterTest {
                 .formVersion("jrversion")
                 .build()
         )
-        assertEquals(1, instancesRepositoryProvider.get(uuid).all.size)
+        assertEquals(1, instancesRepositoryProvider.create(uuid).all.size)
     }
 
     private fun setupTestSavepointsDatabase(uuid: String) {
-        SavepointsRepositoryProvider(ApplicationProvider.getApplicationContext(), storagePathProvider).get(uuid).save(
+        SavepointsRepositoryProvider(ApplicationProvider.getApplicationContext(), storagePathProvider).create(uuid).save(
             Savepoint(1, 1, "blah", "blah")
         )
-        assertEquals(1, savepointsRepositoryProvider.get(uuid).getAll().size)
+        assertEquals(1, savepointsRepositoryProvider.create(uuid).getAll().size)
     }
 
     private fun createTestItemsetsDatabaseFile(uuid: String) {

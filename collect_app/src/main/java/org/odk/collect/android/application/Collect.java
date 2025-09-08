@@ -19,15 +19,13 @@ import static org.odk.collect.settings.keys.MetaKeys.KEY_GOOGLE_BUG_154855417_FI
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.os.Build;
-import android.os.StrictMode;
 
 import androidx.annotation.NonNull;
-import androidx.multidex.MultiDex;
+import androidx.annotation.Nullable;
 
 import org.jetbrains.annotations.NotNull;
-import org.odk.collect.android.BuildConfig;
 import org.odk.collect.android.dynamicpreload.ExternalDataManager;
+import org.odk.collect.qrcode.mlkit.MlKitBarcodeScannerViewFactory;
 import org.odk.collect.android.injection.DaggerUtils;
 import org.odk.collect.android.injection.config.AppDependencyComponent;
 import org.odk.collect.android.injection.config.CollectDrawDependencyModule;
@@ -37,13 +35,14 @@ import org.odk.collect.android.injection.config.CollectOsmDroidDependencyModule;
 import org.odk.collect.android.injection.config.CollectProjectsDependencyModule;
 import org.odk.collect.android.injection.config.CollectSelfieCameraDependencyModule;
 import org.odk.collect.android.injection.config.DaggerAppDependencyComponent;
+import org.odk.collect.android.utilities.CollectStrictMode;
 import org.odk.collect.android.utilities.FormsRepositoryProvider;
 import org.odk.collect.android.utilities.LocaleHelper;
 import org.odk.collect.androidshared.data.AppState;
 import org.odk.collect.androidshared.data.StateStore;
-import org.odk.collect.async.network.NetworkStateProvider;
 import org.odk.collect.androidshared.system.ExternalFilesUtils;
 import org.odk.collect.async.Scheduler;
+import org.odk.collect.async.network.NetworkStateProvider;
 import org.odk.collect.audiorecorder.AudioRecorderDependencyComponent;
 import org.odk.collect.audiorecorder.AudioRecorderDependencyComponentProvider;
 import org.odk.collect.audiorecorder.DaggerAudioRecorderDependencyComponent;
@@ -55,7 +54,7 @@ import org.odk.collect.entities.DaggerEntitiesDependencyComponent;
 import org.odk.collect.entities.EntitiesDependencyComponent;
 import org.odk.collect.entities.EntitiesDependencyComponentProvider;
 import org.odk.collect.entities.EntitiesDependencyModule;
-import org.odk.collect.entities.EntitiesRepository;
+import org.odk.collect.entities.storage.EntitiesRepository;
 import org.odk.collect.forms.Form;
 import org.odk.collect.geo.DaggerGeoDependencyComponent;
 import org.odk.collect.geo.GeoDependencyComponent;
@@ -137,16 +136,6 @@ public class Collect extends Application implements
         this.externalDataManager = externalDataManager;
     }
 
-    /*
-        Adds support for multidex support library. For more info check out the link below,
-        https://developer.android.com/studio/build/multidex.html
-    */
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
-    }
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -160,31 +149,10 @@ public class Collect extends Application implements
 
                     applicationComponent.applicationInitializer().initialize();
                     fixGoogleBug154855417();
-                    setupStrictMode();
+                    CollectStrictMode.enable();
+                    MlKitBarcodeScannerViewFactory.init(this);
                 }
         );
-    }
-
-    /**
-     * Enable StrictMode and log violations to the system log.
-     * This catches disk and network access on the main thread, as well as leaked SQLite
-     * cursors and unclosed resources.
-     */
-    private void setupStrictMode() {
-        if (BuildConfig.DEBUG) {
-            StrictMode.ThreadPolicy.Builder policyBuilder = new StrictMode.ThreadPolicy.Builder()
-                    .detectAll()
-                    .permitDiskReads()  // shared preferences are being read on main thread (`GetAndSubmitFormTest`)
-                    .permitDiskWrites() // files are being created on the fly (`GetAndSubmitFormTest`)
-                    .penaltyDeath();
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                policyBuilder.permitUnbufferedIo(); // `ObjectInputStream#readObject` calls
-            }
-
-            StrictMode.setThreadPolicy(policyBuilder
-                    .build());
-        }
     }
 
     private void setupDagger() {
@@ -235,6 +203,7 @@ public class Collect extends Application implements
         defaultSysLanguage = newConfig.locale.getLanguage();
     }
 
+    @Nullable
     public AppDependencyComponent getComponent() {
         return applicationComponent;
     }
@@ -252,7 +221,7 @@ public class Collect extends Application implements
      * @return md5 hash of the form title, a space, the form ID
      */
     public static String getFormIdentifierHash(String formId, String formVersion) {
-        Form form = new FormsRepositoryProvider(Collect.getInstance()).get().getLatestByFormIdAndVersion(formId, formVersion);
+        Form form = new FormsRepositoryProvider(Collect.getInstance()).create().getLatestByFormIdAndVersion(formId, formVersion);
 
         String formTitle = form != null ? form.getDisplayName() : "";
 
@@ -334,8 +303,8 @@ public class Collect extends Application implements
                         @NonNull
                         @Override
                         public EntitiesRepository providesEntitiesRepository() {
-                            String projectId = applicationComponent.currentProjectProvider().getCurrentProject().getUuid();
-                            return applicationComponent.entitiesRepositoryProvider().get(projectId);
+                            String projectId = applicationComponent.currentProjectProvider().requireCurrentProject().getUuid();
+                            return applicationComponent.entitiesRepositoryProvider().create(projectId);
                         }
 
                         @NonNull

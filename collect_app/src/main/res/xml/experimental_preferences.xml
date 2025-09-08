@@ -8,17 +8,17 @@
         android:title="@string/dev_tools"
         app:persistent="false" />
 
+    <SwitchPreference
+        android:key="mlkit_scanning"
+        android:title="@string/use_mlkit_for_barcode_scanning"
+        android:summary="@string/mlkit_is_always_used_for_scanning_project_qr_codes"
+        app:iconSpaceReserved="false" />
+
     <PreferenceCategory
         android:title="@string/entities_title"
         app:allowDividerAbove="false"
         app:allowDividerBelow="false"
         app:iconSpaceReserved="false">
-
-        <SwitchPreferenceCompat
-            android:key="experimental_local_entities"
-            android:title="@string/include_local_entities_setting"
-            android:summary="@string/local_entity_features_summary"
-            app:iconSpaceReserved="false" />
 
         <Preference
             android:key="entities"

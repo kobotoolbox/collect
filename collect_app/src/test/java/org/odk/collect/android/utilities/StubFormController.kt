@@ -5,7 +5,6 @@ import org.javarosa.core.model.FormIndex
 import org.javarosa.core.model.data.IAnswerData
 import org.javarosa.core.model.instance.TreeReference
 import org.javarosa.core.services.transport.payload.ByteArrayPayload
-import org.javarosa.entities.internal.Entities
 import org.javarosa.form.api.FormEntryCaption
 import org.javarosa.form.api.FormEntryPrompt
 import org.odk.collect.android.exception.JavaRosaException
@@ -14,6 +13,7 @@ import org.odk.collect.android.javarosawrapper.FormController
 import org.odk.collect.android.javarosawrapper.InstanceMetadata
 import org.odk.collect.android.javarosawrapper.SuccessValidationResult
 import org.odk.collect.android.javarosawrapper.ValidationResult
+import org.odk.collect.entities.javarosa.finalization.EntitiesExtra
 import java.io.File
 
 open class StubFormController : FormController {
@@ -47,7 +47,7 @@ open class StubFormController : FormController {
 
     override fun getEvent(index: FormIndex?): Int = -1
 
-    override fun getFormIndex(): FormIndex? = null
+    override fun getFormIndex(): FormIndex = FormIndex.createBeginningOfFormIndex()
 
     override fun getLanguage(): String? = null
 
@@ -120,7 +120,7 @@ open class StubFormController : FormController {
 
     override fun getQuestionPrompt(index: FormIndex?): FormEntryPrompt? = null
 
-    override fun getQuestionPrompts(): Array<FormEntryPrompt> = emptyArray()
+    override fun getQuestionPrompts(index: FormIndex): Array<FormEntryPrompt> = emptyArray()
 
     override fun getQuestionPromptConstraintText(index: FormIndex?): String? = null
 
@@ -130,7 +130,7 @@ open class StubFormController : FormController {
 
     override fun isGroupRelevant(): Boolean = false
 
-    override fun getGroupsForCurrentIndex(): Array<FormEntryCaption>? = null
+    override fun getGroupsForIndex(formIndex: FormIndex?): Array<FormEntryCaption> = emptyArray()
 
     override fun indexContainsRepeatableGroup(): Boolean = false
 
@@ -156,5 +156,5 @@ open class StubFormController : FormController {
 
     override fun getAnswer(treeReference: TreeReference?): IAnswerData? = null
 
-    override fun getEntities(): Entities? = null
+    override fun getEntities(): EntitiesExtra? = null
 }

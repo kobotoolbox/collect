@@ -1,8 +1,4 @@
-import dependencies.Versions
 apply from: 'secrets.gradle'
-
-// Plugin for detecting outdated dependencies. Run './gradlew dependencyUpdates' to generate a report.
-apply plugin: "com.github.ben-manes.versions"
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
@@ -16,14 +12,13 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.2'
-        classpath 'com.google.gms:google-services:4.4.1'
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.9'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.23"
-        classpath "org.jlleitschuh.gradle:ktlint-gradle:12.1.0"
-        classpath "com.github.ben-manes:gradle-versions-plugin:0.51.0"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.7.7"
-        classpath "com.google.android.gms:oss-licenses-plugin:0.10.6"
+        classpath libs.gradle
+        classpath libs.googleServices
+        classpath libs.firebaseCrashlyticsGradle
+        classpath libs.kotlinGradlePlugin
+        classpath libs.ktlintGradle
+        classpath libs.navigationSafeArgsGradlePlugin
+        classpath libs.ossLicensesPlugin
     }
 }
 
@@ -110,7 +105,8 @@ tasks.register('testLab') {
                     '--device', 'model=MediumPhone.arm,version=34,locale=en,orientation=portrait',
                     '--timeout', '10m',
                     '--directories-to-pull', '/sdcard',
-                    '--test-targets', "notPackage org.odk.collect.android.regression"
+                    '--test-targets', "notPackage org.odk.collect.android.regression",
+                    '--test-targets', "notPackage org.odk.collect.android.benchmark"
             )
         }
     }

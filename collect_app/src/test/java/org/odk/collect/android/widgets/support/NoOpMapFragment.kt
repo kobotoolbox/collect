@@ -27,6 +27,9 @@ class NoOpMapFragment : Fragment(), MapFragment {
     override fun setCenter(center: MapPoint?, animate: Boolean) {
     }
 
+    override fun zoomToCurrentLocation(center: MapPoint?) {
+    }
+
     override fun zoomToPoint(center: MapPoint?, animate: Boolean) {
     }
 
@@ -34,7 +37,7 @@ class NoOpMapFragment : Fragment(), MapFragment {
     }
 
     override fun zoomToBoundingBox(
-        points: MutableIterable<MapPoint>?,
+        points: Iterable<MapPoint>,
         scaleFactor: Double,
         animate: Boolean
     ) {
@@ -44,7 +47,7 @@ class NoOpMapFragment : Fragment(), MapFragment {
         TODO("Not yet implemented")
     }
 
-    override fun addMarkers(markers: MutableList<MarkerDescription>?): MutableList<Int> {
+    override fun addMarkers(markers: List<MarkerDescription>): MutableList<Int> {
         TODO("Not yet implemented")
     }
 

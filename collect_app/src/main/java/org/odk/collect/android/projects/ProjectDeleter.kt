@@ -2,10 +2,10 @@ package org.odk.collect.android.projects
 
 import org.odk.collect.android.backgroundwork.FormUpdateScheduler
 import org.odk.collect.android.backgroundwork.InstanceSubmitScheduler
-import org.odk.collect.android.database.DatabaseConnection
 import org.odk.collect.android.storage.StoragePathProvider
 import org.odk.collect.android.utilities.ChangeLockProvider
 import org.odk.collect.android.utilities.InstancesRepositoryProvider
+import org.odk.collect.db.sqlite.DatabaseConnection
 import org.odk.collect.forms.instances.Instance
 import org.odk.collect.projects.Project
 import org.odk.collect.projects.ProjectsRepository
@@ -22,7 +22,7 @@ class ProjectDeleter(
     private val changeLockProvider: ChangeLockProvider,
     private val settingsProvider: SettingsProvider
 ) {
-    fun deleteProject(projectId: String = projectsDataService.getCurrentProject().uuid): DeleteProjectResult {
+    fun deleteProject(projectId: String = projectsDataService.requireCurrentProject().uuid): DeleteProjectResult {
         return when {
             unsentInstancesDetected(projectId) -> DeleteProjectResult.UnsentInstances
             runningBackgroundJobsDetected(projectId) -> DeleteProjectResult.RunningBackgroundJobs
@@ -31,10 +31,11 @@ class ProjectDeleter(
     }
 
     private fun unsentInstancesDetected(projectId: String): Boolean {
-        return instancesRepositoryProvider.get(projectId).getAllByStatus(
+        return instancesRepositoryProvider.create(projectId).getAllByStatus(
             Instance.STATUS_INCOMPLETE,
             Instance.STATUS_INVALID,
             Instance.STATUS_VALID,
+            Instance.STATUS_NEW_EDIT,
             Instance.STATUS_COMPLETE,
             Instance.STATUS_SUBMISSION_FAILED
         ).isNotEmpty()
@@ -65,7 +66,7 @@ class ProjectDeleter(
         DatabaseConnection.cleanUp()
 
         return try {
-            projectsDataService.getCurrentProject()
+            projectsDataService.requireCurrentProject()
             DeleteProjectResult.DeletedSuccessfullyInactiveProject
         } catch (e: IllegalStateException) {
             if (projectsRepository.getAll().isEmpty()) {

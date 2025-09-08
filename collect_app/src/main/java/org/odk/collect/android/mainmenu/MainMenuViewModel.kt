@@ -5,7 +5,9 @@ import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.map
+import androidx.lifecycle.switchMap
 import org.odk.collect.android.instancemanagement.InstanceDiskSynchronizer
 import org.odk.collect.android.instancemanagement.InstancesDataService
 import org.odk.collect.android.instancemanagement.autosend.AutoSendSettingsProvider
@@ -109,19 +111,23 @@ class MainMenuViewModel(
     fun refreshInstances() {
         scheduler.immediate<Any?>({
             InstanceDiskSynchronizer(settingsProvider).doInBackground()
-            instancesDataService.update(projectsDataService.getCurrentProject().uuid)
+            instancesDataService.update(projectsDataService.requireCurrentProject().uuid)
             null
         }) { }
     }
 
-    val editableInstancesCount: LiveData<Int>
-        get() = instancesDataService.editableCount
+    private val currentProject = projectsDataService.getCurrentProject().asLiveData()
+    val editableInstancesCount: LiveData<Int> = currentProject.switchMap {
+        instancesDataService.getEditableCount(it!!.uuid).asLiveData()
+    }
 
-    val sendableInstancesCount: LiveData<Int>
-        get() = instancesDataService.sendableCount
+    val sendableInstancesCount: LiveData<Int> = currentProject.switchMap {
+        instancesDataService.getSendableCount(it!!.uuid).asLiveData()
+    }
 
-    val sentInstancesCount: LiveData<Int>
-        get() = instancesDataService.sentCount
+    val sentInstancesCount: LiveData<Int> = currentProject.switchMap {
+        instancesDataService.getSentCount(it!!.uuid).asLiveData()
+    }
 
     fun setSavedForm(uri: Uri?) {
         if (uri == null) {
@@ -137,12 +143,12 @@ class MainMenuViewModel(
     }
 
     private fun getFormSavedSnackbarDetails(uri: Uri): Pair<Int, Int?>? {
-        val instance = instancesRepositoryProvider.get().get(ContentUriHelper.getIdFromUri(uri))
+        val instance = instancesRepositoryProvider.create().get(ContentUriHelper.getIdFromUri(uri))
         return if (instance != null) {
             val message = if (instance.isDraft()) {
                 org.odk.collect.strings.R.string.form_saved_as_draft
             } else if (instance.status == Instance.STATUS_COMPLETE || instance.status == Instance.STATUS_SUBMISSION_FAILED) {
-                val form = formsRepositoryProvider.get()
+                val form = formsRepositoryProvider.create()
                     .getAllByFormIdAndVersion(instance.formId, instance.formVersion).first()
                 if (form.shouldFormBeSentAutomatically(autoSendSettingsProvider.isAutoSendEnabledInSettings())) {
                     org.odk.collect.strings.R.string.form_sending

@@ -110,9 +110,10 @@ class SavedFormListViewModelTest {
 
     @Test
     fun `can sort forms by ascending name`() {
-        val a = InstanceFixtures.instance(displayName = "A")
+        val aa = InstanceFixtures.instance(displayName = "Aa")
+        val ab = InstanceFixtures.instance(displayName = "ab")
         val b = InstanceFixtures.instance(displayName = "B")
-        saveForms("projectId", listOf(b, a),)
+        saveForms("projectId", listOf(b, aa, ab),)
 
         val viewModel =
             SavedFormListViewModel(scheduler, settings, instancesDataService, "projectId")
@@ -120,15 +121,16 @@ class SavedFormListViewModelTest {
         viewModel.sortOrder = SortOrder.NAME_ASC
         assertThat(
             viewModel.formsToDisplay.getOrAwaitValue(scheduler),
-            contains(a, b)
+            contains(aa, ab, b)
         )
     }
 
     @Test
     fun `can sort forms by descending name`() {
-        val a = InstanceFixtures.instance(displayName = "A")
+        val aa = InstanceFixtures.instance(displayName = "Aa")
+        val ab = InstanceFixtures.instance(displayName = "ab")
         val b = InstanceFixtures.instance(displayName = "B")
-        saveForms("projectId", listOf(a, b),)
+        saveForms("projectId", listOf(b, aa, ab),)
 
         val viewModel =
             SavedFormListViewModel(scheduler, settings, instancesDataService, "projectId")
@@ -136,7 +138,7 @@ class SavedFormListViewModelTest {
         viewModel.sortOrder = SortOrder.NAME_DESC
         assertThat(
             viewModel.formsToDisplay.getOrAwaitValue(scheduler),
-            contains(b, a)
+            contains(b, ab, aa)
         )
     }
 
@@ -222,6 +224,45 @@ class SavedFormListViewModelTest {
 
         val result = viewModel.deleteForms(longArrayOf(1))
         assertThat(result.getOrAwaitValue(scheduler)!!.value, equalTo(1))
+    }
+
+    @Test
+    fun `filtering takes into account edit numbers`() {
+        val originalInstance = InstanceFixtures.instance(displayName = "My form")
+        val editedInstance = InstanceFixtures.instance(displayName = "My form", editOf = 1, editNumber = 1)
+        saveForms("projectId", listOf(originalInstance, editedInstance))
+
+        val viewModel =
+            SavedFormListViewModel(scheduler, settings, instancesDataService, "projectId")
+
+        viewModel.filterText = "Edit 1"
+        assertThat(
+            viewModel.formsToDisplay.getOrAwaitValue(scheduler),
+            contains(editedInstance)
+        )
+    }
+
+    @Test
+    fun `sorting takes into account edit numbers`() {
+        val instance1 = InstanceFixtures.instance(displayName = "My form", editOf = 1, editNumber = 1)
+        val instance2 = InstanceFixtures.instance(displayName = "My form", editOf = 1, editNumber = 2)
+        val instance3 = InstanceFixtures.instance(displayName = "My form", editOf = 1, editNumber = 3)
+        saveForms("projectId", listOf(instance1, instance2, instance3),)
+
+        val viewModel =
+            SavedFormListViewModel(scheduler, settings, instancesDataService, "projectId")
+
+        viewModel.sortOrder = SortOrder.NAME_DESC
+        assertThat(
+            viewModel.formsToDisplay.getOrAwaitValue(scheduler),
+            contains(instance3, instance2, instance1)
+        )
+
+        viewModel.sortOrder = SortOrder.NAME_ASC
+        assertThat(
+            viewModel.formsToDisplay.getOrAwaitValue(scheduler),
+            contains(instance1, instance2, instance3)
+        )
     }
 
     private fun saveForms(projectId: String, instances: List<Instance>) {

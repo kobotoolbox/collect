@@ -1,6 +1,7 @@
 build
 .gradle
 .idea
+.kotlin
 local.properties
 *.iml
 .DS_Store
@@ -38,9 +39,6 @@ captures/
 collect_app/.classpath
 collect_app/.project
 collect_app/.settings/
-
-# Submodules
-javarosa/
 
 # Config for the official ODK Collect build
 collect_app/src/odkCollectRelease/

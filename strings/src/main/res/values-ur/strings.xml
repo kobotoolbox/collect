@@ -69,7 +69,6 @@
   <string name="survey_loading_reading_csv_message">CSV فائلز دیکھی جا رہی ہیں</string>
   <string name="parse_error">معذرت،مگر فارم صحیح طرح پڑھا نہیں جا سکا</string>
   <string name="loading_form_failed">فارم لوڈ کرتے ہوئے ایک خرابی واقع ہوئی. دوبارہ کوشش کریں.</string>
-  <string name="parent_form_not_present">اس ڈرافٹ میں ترمیم نہیں ہو رہی، کیونکہ اسکا مماثل خالی فارم موجود نہیں یا پھر ڈیلیٹ کر دیا گیا ہے، فارم کی شناخت: ‎%1$s‏</string>
   <string name="cannot_edit_completed_form">اس فارم میں ترمیم نہیں کی جاسکتی اگر ایک مرتبہ اس کو حتمی شکل دےدی گئ ہو۔ اس کو انکرپٹ کیا جاسکتا ہے</string>
   <!--Displayed when loading a form if that form was previously filled but closed because of a crash or system failure-->
   <string name="savepoint_used"> غیر محفوظ شدہ تبدیلیاںسیو پوائنٹ سےبحال کرلی گئی</string>
@@ -85,6 +84,7 @@
   <string name="jump_to_end">اختتام پر جائیں</string>
   <!--Text of button from the form's table of contents to navigate out of a group or a repeat-->
   <string name="jump_to_previous">اوپر جائیں</string>
+  <!--Text of button from the form's table of contents to edit a finalized form-->
   <!--Displayed below group names in a form's table of contents-->
   <string name="group_label">گروپ</string>
   <!--Displayed below repeat names in a form's table of contents-->
@@ -93,7 +93,6 @@
   <!--This sentence is used in the dialog for adding repeats and will be completed by a singular noun usually. Examples would be ‘Add “observation”?’ or ‘Add “Reading”?’. If the phrase doesn’t make sense in your language you can add a word like “new”, being careful of gender/plural.-->
   <string name="add_repeat_question">ایک اور \"1 %s\"؟</string>
   <string name="add_repeat">ایک دفعہ مزید</string>
-  <string name="dont_add_repeat">مزید نہیں</string>
   <string name="add_another_menu">ایک اور شامل کریں</string>
   <!--Title of overlay menu displayed when long pressing on a question in a form-->
   <string name="edit_prompt">پرامپٹ کی ترمیم کریں</string>
@@ -115,9 +114,7 @@
   <string name="too_complex_form">یہ فارم اس فون کے لئے بہت پیچیدہ ہے۔ اس کو سادہ کرنے کی کوشش کریں، یا پھر فورم پہ مدد حاصل کریں۔</string>
   <string name="survey_internal_error">اندرونی خرابی: فوری طور پر سیٹ اپ ناکام ہوگیا</string>
   <string name="save_enter_data_description">آپ ‎%s‏ کے آخر پر ہیں۔</string>
-  <string name="form_edits_warning_title">فائنل فارم میں تبدیلی نہیں کی جاسکتی۔</string>
-  <string name="form_edits_warning_title_auto_send_enabled">بھیجیں گئے فارم میں تبدیلی نہیں کی جاسکتی۔</string>
-  <string name="form_edits_warning_message">اگر آپ فارم میں تبدیلی کرنا چاہتے ہیں تو فارم کو \"ڈرافٹ میں محفوط\" رکھے، جب تک فارم جمع کرانے کے لئے تیار نہیں۔</string>
+  <string name="form_editing_disabled_hint">اگر آپ فارم میں تبدیلی کرنا چاہتے ہیں تو فارم کو \"ڈرافٹ میں محفوط\" رکھے، جب تک فارم جمع کرانے کے لئے تیار نہیں۔</string>
   <string name="form_edits_warning_learn_more">مزید جانیں</string>
   <string name="save_as_draft">ڈرافٹ میں محفوظ کریں</string>
   <string name="finalize">فائنل کریں</string>
@@ -150,10 +147,7 @@
   <string name="phone_does_not_support_rsa">فون آر ایس اے انکرپشن سپورٹ نہیں کرتا.</string>
   <string name="invalid_rsa_public_key">غلط آر ایس اے  پبلک کی.</string>
   <string name="encryption_error_message">%sفارم کو حتمی طور پر محفوظ نہیں کیا گیا ہے.</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
-  <string name="bad_uri">خراب URI:%s </string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
-  <string name="unrecognized_uri">ناقابل شناخت URI:%s</string>
+  <!--Displayed when an attempt is made to start form filling, but the form is broken-->
   <!--Text displayed when audio recording fails to start-->
   <string name="start_recording_failed">ریکارڈنگ شروع نہیں ہو سکی۔</string>
   <!--Text displayed when user tries to start recording while the mic is already in use-->
@@ -162,8 +156,6 @@
   <string name="answer_file_copy_failed_message">میڈیا اس فارم کے ساتھ اٹیچ نہیں ہو سکا، لیکن ابھی بھی %1$s پر موجود ہے۔</string>
   <!--Text displayed in the audio bar when background audio recording is explicitly disabled from the options menu. Should be as short as possible. The inserted string is ⋮ which indicates the options menu.-->
   <string name="recording_disabled">ریکارڈنگ بند ہے۔ 1%s میں دوبارہ سٹارٹ کریں۔</string>
-  <!--Error displayed when opened filled form has been deleted on disk-->
-  <string name="instance_deleted_message">بھرا ہوا فارم ختم کر دیا گیا ہے۔</string>
   <!--Error displayed when something bad happens during updating widgets in a field-list group-->
   <string name="update_widgets_error">ڈیٹا اپ ڈیٹ نہیں ہو پا رہا۔ اس کی عمومی وجہ یہ ہو سکتی ہے کہ فارم ڈیزائن میں Calculations کو صحیح طریقے سے استعمال نہیں کیا گیا۔ 
 اگر آپ کو بار بار یہی مسئلہ درپیش آ رہا ہے تو پراجیکٹ کے انچارج کو مطلع کریں۔</string>
@@ -176,8 +168,6 @@
   <string name="no_app">درخواست کی گئی ایپلیکیشن موجود نہیں ہے۔ براو مہربانی اعداد و شمار کو خود درج کریں۔</string>
   <string name="null_intent_value">ایکسٹرنل اپلیکیشن  نے متوقع معلومات فراہم نہیں کی.</string>
   <!--Text on button that is part of print questions. Tapping the button prints the value of the question.-->
-  <string name="launch_printer">پرنٹنگ کا آغاز کریں</string>
-  <string name="no_printer">مطلوبہ پرینٹر انسٹال نہیں ہے۔ براہ مہربانی پرینٹر انسٹال کریں۔</string>
   <string name="open_url">یوآرایل کھولیں </string>
   <string name="capture_osm">OpenMapKit شروع کریں</string>
   <string name="recapture_osm"> او ایس ایم ٹیگنگ دوبارہ کریں</string>
@@ -338,6 +328,18 @@
   <string name="persian_month_10">Dey</string>
   <string name="persian_month_11">Bahman</string>
   <string name="persian_month_12">Esfand</string>
+  <!--1st month in the Buddhist calendar-->
+  <!--2nd month in the Buddhist calendar-->
+  <!--3rd month in the Buddhist calendar-->
+  <!--4th month in the Buddhist calendar-->
+  <!--5th month in the Buddhist calendar-->
+  <!--6th month in the Buddhist calendar-->
+  <!--7th month in the Buddhist calendar-->
+  <!--8th month in the Buddhist calendar-->
+  <!--9th month in the Buddhist calendar-->
+  <!--10th month in the Buddhist calendar-->
+  <!--11th month in the Buddhist calendar-->
+  <!--12th month in the Buddhist calendar-->
   <!--Displays dates in specialized calendars with the Gregorian dates in parentheses. This is translated so right-to-left languages can specify the correct order-->
   <string name="custom_date">%1$s (%2$s)</string>
   <!--Displayed when a form media file such as an image for a question label or an audio file for a choice is invalid-->
@@ -405,10 +407,7 @@
   <!--Text for option where layer should be available to the current project only-->
   <!--Text for message displayed in a dialog to confirm that the layer should be deleted. The placeholder is the name of the layer as displayed in the list-->
   <string name="record_geopoint">پوائنٹ کو ریکارڈ کریں</string>
-  <string name="location_accuracy">درستگی: %1$s میٹر</string>
-  <string name="location_provider">لوکیشن مہیا کرنے والا: %s</string>
   <string name="provider_disabled_error">معذرت، لوکیشن فراہم کرنے والے نااہل کئے گئے ہیں</string>
-  <string name="gps_result">طول عرض:  %1$s \nطول بلد: %2$s \n اونچائی:  %3$s میٹر\n ایکیوریسی: %4$s میٹر</string>
   <string name="google_play_services_not_available">یہ فارم آپ کی لوکیشن کو ریکارڈ کرنا چاہتا ہے، مگر Google Play Services دستیاب نہیں ہیں۔</string>
   <string name="location_providers_disabled_dialog_message">یہ فارم آپ کی لوکیشن حاصل کرنا چاہتا ہے، لیکن لوکیشن سیٹنگ بند ہے۔ براہ مہربانی اس کو اینڈرائڈ سیٹنگز سے کھولیں۔</string>
   <!--Action to go to Android settings. Displayed when location providers are disabled.-->
@@ -431,7 +430,6 @@
   <string name="improving_accuracy">درستگی کو زیادہ کیا جا رہا ہے۔ انتظار کریں۔</string>
   <string name="accuracy_status_title">لوکیشن حاصل کی جا رہی ہے۔</string>
   <!--The accuracy of a location fix in meters-->
-  <string name="accuracy_m">%1$s میٹر</string>
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in W 18°48'8"-->
   <string name="west">ڈبلیو%1$s%2$s%3$s</string>
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in E 18°48'8"-->
@@ -472,10 +470,6 @@
     <item quantity="one"> %d میٹرز</item>
     <item quantity="other"> %d میٹرز</item>
   </plurals>
-  <string name="location_status_searching">لوکیشن منتخب کی جا رہی ہے۔ انتظار کریں۔۔۔</string>
-  <string name="location_status_accuracy">لوکیشن درستگی: %.2f میٹر</string>
-  <string name="location_status_acceptable">لوکیشن درستگی: %.2f میٹر (مناسب)</string>
-  <string name="location_status_unacceptable">لوکیشن درستگی: %.2f میٹر (نامناسب)</string>
   <string name="collection_status_paused">درج شدہ پوائنٹس: %d</string>
   <string name="collection_status_placement">درج شدہ پوائنٹس: %d (کلک کرکے پوائنٹس کو سیٹ کریں)</string>
   <string name="collection_status_manual">درج شدہ پوائنٹس: %d (دستی ریکارڈنگ)</string>
@@ -483,7 +477,6 @@
   <string name="collection_status_auto_minutes">درج شدہ پوائنٹس: %1$d (ہر %2$d منٹ بعد ریکارڈنگ)</string>
   <string name="collection_status_auto_seconds_accuracy">درج شدہ پوائنٹس: %1$d (ہر %2$d سیکنڈز بعد ریکارڈنگ، درستگی %3$d میٹر)</string>
   <string name="collection_status_auto_minutes_accuracy">درج شدہ پوائنٹس: %1$d (ہر %2$d منٹ بعد ریکارڈنگ، درستگی %3$d میٹر)</string>
-  <string name="geopoint_instruction">پلیس مارک کرنے کے لیے طویل دبائیں یا ایڈ مارکر بٹن ٹیپ کریں</string>
   <string name="geopoint_no_draggable_instruction"> مارکر بٹن پر کلک کریں.</string>
   <string name="discard">ختم کر دینا</string>
   <string name="select_item_count">%s: %d (%d میپ پہ موجود)</string>
@@ -560,7 +553,6 @@
   <!--Displayed in error dialog for form downloads. Followed by instructions to talk to person who asked to collect data-->
   <string name="form_with_no_hash_error">سرور نے اس فارم کا hash مہیا نہیں کیا۔</string>
   <!--Displayed in error dialog for form downloads. Followed by instructions to talk to person who asked to collect data-->
-  <string name="form_parsing_error">اس فارم پر کام نہیں ہو سکتا۔</string>
   <!--Displayed in error dialog for form downloads. Followed by instructions to talk to person who asked to collect data-->
   <string name="form_save_disk_error">اس فارم کو ڈاون لوڈ کرتے وقت فون کی ڈسک کا مسئلہ آ رہا ہے۔</string>
   <!--Displayed in error dialog for form downloads. Followed by instructions to talk to person who asked to collect data-->
@@ -593,7 +585,6 @@
   <!--Title of a settings section-->
   <string name="client">یوزر انٹرفیس</string>
   <!--Subtext of a settings section-->
-  <string name="user_interface_settings_subtext">ایپ کی زبان، تھیم، الفاظ کا سائز</string>
   <!--Title of a settings section-->
   <string name="maps">نقشہ جات</string>
   <!--Subtext of a settings section-->
@@ -732,6 +723,7 @@
   <string name="unlock_settings">سیٹنگز کو کھولیں</string>
   <!--Label for an item displayed in the project settings menu to indicate that settings are unlocked-->
   <string name="settings_unlocked">سیٹنگز کھل چکی ہیں</string>
+  <!--Summary on setting that's currently not available because the user has entered settings from form entry-->
   <!--##############################################
      # PROTECTED SETTINGS
      ##############################################-->
@@ -851,7 +843,6 @@ Constraint processing</string>
   <string name="fs_delete_media_path_if_file_error">\'%s\'ڈیلیٹ نہیں ھو سکا۔ برائے مہربانی فائل کو خود سے ڈٰیلیٹ کریں اور فارم دوبارہ ڈاؤنلوڈ کریں،</string>
   <string name="fs_create_media_folder_error">میڈیا فولڈر %s نہیں بن سکا.</string>
   <string name="fs_file_copy_error">کاپی نہیں کر سکا \'%1$s\' اوور \'%2$s\'. وجہ:%3$s</string>
-  <string name="survey_multiple_forms_error">آپ نے ایک ہی  ID اور ورژن کے ساتھ دو مختلف فارم ڈاؤن لوڈ کیے ہیں. شاید وہ وہی وقت تھے جو مختلف اوقات میں یا مختلف سرورز میں اپ لوڈ کیے گئے ہیں. کسی بھی صورت میں، آپ کو ایک کو ڈیلیٹ کرنا چاہئے.</string>
   <string name="select_odk_shortcut">او ڈی کے شارٹ کٹ منتخب کریں</string>
   <string name="background_audio_help">یہ فارم آوازکی ریکارڈنگ آپ کے فون کے مائک سے کرتا ہے۔
 
@@ -910,28 +901,40 @@ Constraint processing</string>
   <!--Preceded by "Don't have a project yet?" question-->
   <string name="try_demo">ڈیمو دیکھیں</string>
   <string name="scan_configuration_qr_code">سیٹنگز کا QR کوڈ سکین کریں</string>
-  <!--Error shown when a user tries to open a form that's in a different project-->
-  <string name="wrong_project_selected_for_form">اس فارم کو کھولنے کے لئے پہلے KoboCollect کھولیں اور اس پراجیکٹ کا انتخاب کریں جس میں یہ موجود ہے۔</string>
-  <!--Error shown when a user tries to open a form when there are no projects-->
-  <string name="app_not_configured">KoboCollect ابھی تک Configure نہیں کیا گیا۔ براہ مہربانی KoboCollect کو کھولیں اور سیٹنگ کریں۔
-
-اگر آپ نے کسی Shortcut پہ کلک کیا ہے، تو آپ کوKoboCollect سیٹ کرنے کی بعد اس کو دوبارہ بنانا پڑے گا۔</string>
   <!--##############################################
     # Errors
     ##############################################-->
   <string name="show_details">تفصیلات دکھائیں</string>
   <string name="errors">غلطیاں</string>
   <!--##############################################
+    # Form opening errors
+    ##############################################-->
+  <!--Error shown when a user tries to open a form that's in a different project-->
+  <string name="wrong_project_selected_for_form">اس فارم کو کھولنے کے لئے پہلے KoboCollect کھولیں اور اس پراجیکٹ کا انتخاب کریں جس میں یہ موجود ہے۔</string>
+  <!--Error shown when a user tries to open a form when there are no projects-->
+  <string name="app_not_configured">KoboCollect ابھی تک Configure نہیں کیا گیا۔ براہ مہربانی KoboCollect کو کھولیں اور سیٹنگ کریں۔
+
+اگر آپ نے کسی Shortcut پہ کلک کیا ہے، تو آپ کوKoboCollect سیٹ کرنے کی بعد اس کو دوبارہ بنانا پڑے گا۔</string>
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
+  <string name="unrecognized_uri">ناقابل شناخت URI:%s</string>
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
+  <string name="bad_uri">خراب URI:%s </string>
+  <!--Error displayed when opened filled form has been deleted on disk-->
+  <string name="instance_deleted_message">بھرا ہوا فارم ختم کر دیا گیا ہے۔</string>
+  <!--Error shown when a user tries to edit a form but there is no corresponding blank form-->
+  <string name="parent_form_not_present">اس ڈرافٹ میں ترمیم نہیں ہو رہی، کیونکہ اسکا مماثل خالی فارم موجود نہیں یا پھر ڈیلیٹ کر دیا گیا ہے، فارم کی شناخت: ‎%1$s‏</string>
+  <!--Error shown when a user tries to open a form but there is more than one form with the same form ID-->
+  <string name="survey_multiple_forms_error">آپ نے ایک ہی  ID اور ورژن کے ساتھ دو مختلف فارم ڈاؤن لوڈ کیے ہیں. شاید وہ وہی وقت تھے جو مختلف اوقات میں یا مختلف سرورز میں اپ لوڈ کیے گئے ہیں. کسی بھی صورت میں، آپ کو ایک کو ڈیلیٹ کرنا چاہئے.</string>
+  <!--Error shown when a user tries to open a form when forms update is being applied in the background-->
+  <!--##############################################
     # Permissions
     ##############################################-->
   <string name="open_settings">سیٹنگز کھولیں</string>
   <!--An entity is any person, place or thing that a form can be about. This title appears on an experimental settings screen to view entities managed in the current project.-->
-  <string name="entities_title">Entities</string>
   <!--Title for setting that controls whether local entity features are enabled or not-->
   <!--Text for button that leads to browser for the user to view and manage entity lists-->
-  <!--Text for button that deletes all entities for the project-->
-  <!--Text for button that adds a new entity list-->
   <!--Label for entity that has been created offline and is not on the server yet-->
+  <!--Error message displayed when a user opens a form with an unrecognized entity version-->
   <!--##############################################
     # Crash handling
     ##############################################-->
@@ -950,6 +953,7 @@ Constraint processing</string>
   <string name="crash_app">Crash app</string>
   <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <string name="crash_app_summary">Force an uncaught exception causing the app to crash</string>
+  <!--Option provided in the Developer tools settings to allow debugging filters during form entry-->
   <string name="permission_dialog_title">اجازت کی تفصیل</string>
   <string name="permission_dialog_text">آپ سے پوچھا جائے گا کہ KoboCollect نیچے دی گئی چیزوں کو استعمال کر سکتا ہے۔ اگر آپ مطمئن ہیں تو Allow کا بٹن دبایئں۔</string>
   <string name="notifications">نوٹس</string>
@@ -1018,10 +1022,6 @@ Constraint processing</string>
   <string name="draft_no_errors">کوئی غلطی نہیں ہے</string>
   <!--Title of section of features that the user can uncheck to hide from the Drafts screen-->
   <string name="uncheck_to_hide_from_drafts">ڈرافٹس میں سے چھپانے کے لئے uncheck کریں</string>
-  <!--Title for dialog explaining the drafts marked with "Error" shown to the user the first time they view the Drafts screen-->
-  <string name="new_feature">نیا فیچر</string>
-  <!--Message for dialog explaining the drafts marked with "Error" shown to the user the first time they view the Drafts screen-->
-  <string name="drafts_pills_education_message">ڈرافٹ کی فہرست اب validation کی غلطیاں بھی دکھائے گی۔ ہر دفعہ جب آپ کسی فارم کو ڈرافٹ کے طور پر محفوظ کریں گے، اس کا validation کا سٹیٹس update ہو جائے گا۔ جن ڈرافٹس میں غلطیاں موجود ہیں، ان میں یا تو ضروری سوالات کے جوابات نہیں ہیں، یا پھران میں کوئی value غلط ہے۔ </string>
   <!--Message displayed when the list of questions is empty-->
   <string name="empty_list_of_questions">یہاں دکھانے کو کچھ نہیں ہے</string>
   <!--Message displayed when the list of blank forms is empty-->
@@ -1046,7 +1046,7 @@ Constraint processing</string>
     # Savepoint recovery dialog
     ##############################################-->
   <!--Title displayed in a dialog before starting a form if there is a work to recover-->
-  <!--Message displayed in a dialog before starting a form if there is a work to recover-->
+  <!--Message displayed in a dialog before starting a form if there is a work to recover. Please format date appropriately for your language: http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html-->
   <!--Text for the button that accepts the recovery of the work-->
   <!--Text for the button that declines the recovery of the work-->
   <string name="do_not_recover">ختم کر دینا</string>
@@ -1060,4 +1060,14 @@ Constraint processing</string>
   <!--Text for the button that displays a map for getting a new polygon-->
   <!--Text for the button that displays a map for viewing or changing an already existing polygon-->
   <!--Text for the button that displays a map for viewing an already existing polygon-->
+  <!--Text to describe a field for setting settings JSON in a mobile device management platform (MDM)-->
+  <!--Text for the dialog that is displayed while the form is being prepared for editing-->
+  <!--Instance name with a suffix indicating the edit number, if this is an edited instance-->
+  <!--Text for the dialog title displayed when a user attempts to edit a finalized form and a newer draft version exists-->
+  <!--Text for the dialog message displayed when a user attempts to edit a finalized form and a newer draft version exists-->
+  <!--Text for the dialog positive button displayed when a user attempts to edit a finalized form and a newer draft version exists-->
+  <!--Text for the dialog title displayed when a user attempts to edit a finalized form and a newer finalized version exists-->
+  <!--Text for the dialog message displayed when a user attempts to edit a finalized form and a newer finalized version exists-->
+  <!--Text for the dialog positive button displayed when a user attempts to edit a finalized form and a newer finalized version exists-->
+  <!--Text for the snackbar shown when editing of a finalized form begins-->
 </resources>

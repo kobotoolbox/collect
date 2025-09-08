@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentActivity;
 import org.jetbrains.annotations.NotNull;
 import org.odk.collect.android.R;
 import org.odk.collect.androidshared.ui.ToastUtils;
-import org.odk.collect.entities.EntityBrowserActivity;
+import org.odk.collect.entities.browser.EntityBrowserActivity;
 
 public class ExperimentalPreferencesFragment extends BaseProjectPreferencesFragment {
 
@@ -36,7 +36,7 @@ public class ExperimentalPreferencesFragment extends BaseProjectPreferencesFragm
         super.onViewCreated(view, savedInstanceState);
 
         if (getPreferenceScreen().getPreferenceCount() == 0) {
-            ToastUtils.showLongToast(requireContext(), "No experimental settings at the moment!");
+            ToastUtils.showLongToast("No experimental settings at the moment!");
             getParentFragmentManager().popBackStack();
         }
     }

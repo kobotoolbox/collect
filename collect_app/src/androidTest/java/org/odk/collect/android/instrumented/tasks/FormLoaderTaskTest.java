@@ -26,6 +26,7 @@ import org.odk.collect.android.tasks.FormLoaderTask;
 import org.odk.collect.android.tasks.FormLoaderTask.FormEntryControllerFactory;
 import org.odk.collect.android.utilities.FormsRepositoryProvider;
 import org.odk.collect.forms.Form;
+import org.odk.collect.forms.instances.Instance;
 import org.odk.collect.projects.Project;
 
 import java.io.File;
@@ -44,7 +45,7 @@ public class FormLoaderTaskTest {
 
     private final FormEntryControllerFactory formEntryControllerFactory = new FormEntryControllerFactory() {
         @Override
-        public FormEntryController create(FormDef formDef, File formMediaDir) {
+        public FormEntryController create(FormDef formDef, File formMediaDir, Instance instance) {
             return new FormEntryController(new FormEntryModel(formDef));
         }
     };
@@ -69,7 +70,7 @@ public class FormLoaderTaskTest {
     @Test
     public void loadSearchFromExternalCSVmultipleTimes() throws Exception {
         final String formPath = storagePathProvider.getOdkDirPath(StorageSubdirectory.FORMS) + File.separator + SIMPLE_SEARCH_EXTERNAL_CSV_FORM;
-        final Form form = new FormsRepositoryProvider(ApplicationProvider.getApplicationContext()).get().getOneByPath(formPath);
+        final Form form = new FormsRepositoryProvider(ApplicationProvider.getApplicationContext()).create().getOneByPath(formPath);
         final Uri formUri = FormsContract.getUri("DEMO", form.getDbId());
 
         // initial load with side effects

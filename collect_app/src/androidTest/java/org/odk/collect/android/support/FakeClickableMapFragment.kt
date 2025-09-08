@@ -31,13 +31,16 @@ class FakeClickableMapFragment : Fragment(), MapFragment {
     }
 
     override fun setCenter(center: MapPoint?, animate: Boolean) {}
+    override fun zoomToCurrentLocation(center: MapPoint?) {
+        TODO("Not yet implemented")
+    }
 
     override fun zoomToPoint(center: MapPoint?, animate: Boolean) {}
 
     override fun zoomToPoint(center: MapPoint?, zoom: Double, animate: Boolean) {}
 
     override fun zoomToBoundingBox(
-        points: MutableIterable<MapPoint>?,
+        points: Iterable<MapPoint>,
         scaleFactor: Double,
         animate: Boolean
     ) {}

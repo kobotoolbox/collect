@@ -19,18 +19,17 @@ import org.odk.collect.android.activities.FormDownloadListActivity
 import org.odk.collect.android.activities.InstanceChooserList
 import org.odk.collect.android.application.MapboxClassInstanceCreator
 import org.odk.collect.android.databinding.MainMenuBinding
+import org.odk.collect.android.formentry.FormOpeningMode
 import org.odk.collect.android.formlists.blankformlist.BlankFormListActivity
 import org.odk.collect.android.formmanagement.FormFillingIntentFactory
 import org.odk.collect.android.instancemanagement.send.InstanceUploaderListActivity
 import org.odk.collect.android.projects.ProjectIconView
 import org.odk.collect.android.projects.ProjectSettingsDialog
 import org.odk.collect.android.utilities.ActionRegister
-import org.odk.collect.android.utilities.ApplicationConstants
 import org.odk.collect.androidshared.data.consume
 import org.odk.collect.androidshared.ui.DialogFragmentUtils
 import org.odk.collect.androidshared.ui.SnackbarUtils
 import org.odk.collect.androidshared.ui.multiclicksafe.MultiClickGuard
-import org.odk.collect.projects.Project
 import org.odk.collect.settings.SettingsProvider
 import org.odk.collect.strings.R.string
 import org.odk.collect.webpage.WebViewActivity
@@ -69,9 +68,11 @@ class MainMenuFragment(
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        currentProjectViewModel.currentProject.observe(viewLifecycleOwner) { (_, name): Project.Saved ->
-            requireActivity().invalidateOptionsMenu()
-            requireActivity().title = name
+        currentProjectViewModel.currentProject.observe(viewLifecycleOwner) { project ->
+            if (project != null) {
+                requireActivity().invalidateOptionsMenu()
+                requireActivity().title = project.name
+            }
         }
 
         val binding = MainMenuBinding.bind(view)
@@ -94,7 +95,7 @@ class MainMenuFragment(
                 action = value.action?.let { action ->
                     SnackbarUtils.Action(getString(action)) {
                         formEntryFlowLauncher.launch(
-                            FormFillingIntentFactory.editInstanceIntent(
+                            FormFillingIntentFactory.editDraftFormIntent(
                                 requireContext(),
                                 value.uri
                             )
@@ -104,17 +105,27 @@ class MainMenuFragment(
                 displayDismissButton = true
             )
         }
+
+        currentProjectViewModel.currentProject.observe(viewLifecycleOwner) {
+            if (it?.isOldGoogleDriveProject == true) {
+                binding.googleDriveDeprecationBanner.root.visibility = View.VISIBLE
+                binding.googleDriveDeprecationBanner.learnMoreButton.setOnClickListener {
+                    val intent = Intent(requireContext(), WebViewActivity::class.java)
+                    intent.putExtra("url", "https://forum.getodk.org/t/40097")
+                    startActivity(intent)
+                }
+            } else {
+                binding.googleDriveDeprecationBanner.root.visibility = View.GONE
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
-
-        currentProjectViewModel.refresh()
         mainMenuViewModel.refreshInstances()
 
         val binding = MainMenuBinding.bind(requireView())
         setButtonsVisibility(binding)
-        manageGoogleDriveDeprecationBanner(binding)
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
@@ -146,7 +157,7 @@ class MainMenuFragment(
     }
 
     private fun initToolbar(binding: MainMenuBinding) {
-        val toolbar = binding.root.findViewById<Toolbar>(org.odk.collect.android.R.id.toolbar)
+        val toolbar = binding.root.findViewById<Toolbar>(org.odk.collect.androidshared.R.id.toolbar)
         (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
     }
 
@@ -175,8 +186,8 @@ class MainMenuFragment(
             formEntryFlowLauncher.launch(
                 Intent(requireActivity(), InstanceChooserList::class.java).apply {
                     putExtra(
-                        ApplicationConstants.BundleKeys.FORM_MODE,
-                        ApplicationConstants.FormModes.EDIT_SAVED
+                        FormOpeningMode.FORM_MODE_KEY,
+                        FormOpeningMode.EDIT_SAVED
                     )
                 }
             )
@@ -195,8 +206,8 @@ class MainMenuFragment(
             startActivity(
                 Intent(requireActivity(), InstanceChooserList::class.java).apply {
                     putExtra(
-                        ApplicationConstants.BundleKeys.FORM_MODE,
-                        ApplicationConstants.FormModes.VIEW_SENT
+                        FormOpeningMode.FORM_MODE_KEY,
+                        FormOpeningMode.VIEW_SENT
                     )
                 }
             )
@@ -248,18 +259,5 @@ class MainMenuFragment(
             if (mainMenuViewModel.shouldGetBlankFormButtonBeVisible()) View.VISIBLE else View.GONE
         binding.manageForms.visibility =
             if (mainMenuViewModel.shouldDeleteSavedFormButtonBeVisible()) View.VISIBLE else View.GONE
-    }
-
-    private fun manageGoogleDriveDeprecationBanner(binding: MainMenuBinding) {
-        if (currentProjectViewModel.currentProject.value.isOldGoogleDriveProject) {
-            binding.googleDriveDeprecationBanner.root.visibility = View.VISIBLE
-            binding.googleDriveDeprecationBanner.learnMoreButton.setOnClickListener {
-                val intent = Intent(requireContext(), WebViewActivity::class.java)
-                intent.putExtra("url", "https://forum.getodk.org/t/40097")
-                startActivity(intent)
-            }
-        } else {
-            binding.googleDriveDeprecationBanner.root.visibility = View.GONE
-        }
     }
 }

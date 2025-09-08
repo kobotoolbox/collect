@@ -13,6 +13,7 @@ import org.mockito.kotlin.verify
 import org.mockito.kotlin.verifyNoMoreInteractions
 import org.mockito.kotlin.whenever
 import org.odk.collect.projects.Project
+import org.odk.collect.projects.ProjectConfigurationResult
 import org.odk.collect.projects.ProjectsRepository
 import org.odk.collect.settings.InMemSettingsProvider
 import org.odk.collect.settings.keys.AppConfigurationKeys
@@ -68,7 +69,7 @@ class SettingsImporterTest {
     @Test
     fun `when JSON settings are invalid returns 'INVALID_SETTINGS'`() {
         whenever(settingsValidator.isValid(emptySettings())).thenReturn(false)
-        assertThat(importer.fromJSON(emptySettings(), currentProject, JSONObject()), `is`(SettingsImportingResult.INVALID_SETTINGS))
+        assertThat(importer.fromJSON(emptySettings(), currentProject, JSONObject()), `is`(ProjectConfigurationResult.INVALID_SETTINGS))
     }
 
     @Test
@@ -86,7 +87,7 @@ class SettingsImporterTest {
                 JSONObject().put("key3", 5)
             )
 
-        assertThat(importer.fromJSON(json.toString(), currentProject, JSONObject()), `is`(SettingsImportingResult.SUCCESS))
+        assertThat(importer.fromJSON(json.toString(), currentProject, JSONObject()), `is`(ProjectConfigurationResult.SUCCESS))
 
         assertThat(generalSettings.contains("key3"), `is`(false))
         assertThat(adminSettings.contains("key3"), `is`(false))
@@ -124,7 +125,7 @@ class SettingsImporterTest {
                 currentProject,
                 deviceUnsupportedSettings
             ),
-            `is`(SettingsImportingResult.SUCCESS)
+            `is`(ProjectConfigurationResult.SUCCESS)
         )
 
         assertThat(generalSettings.contains("key3"), `is`(true))
@@ -135,7 +136,7 @@ class SettingsImporterTest {
 
     @Test
     fun `for supported settings that do not exist in json save defaults`() {
-        assertThat(importer.fromJSON(emptySettings(), currentProject, JSONObject()), `is`(SettingsImportingResult.SUCCESS))
+        assertThat(importer.fromJSON(emptySettings(), currentProject, JSONObject()), `is`(ProjectConfigurationResult.SUCCESS))
         assertSettings(
             generalSettings,
             "key1",
@@ -165,7 +166,7 @@ class SettingsImporterTest {
                 JSONObject().put("key1", 6)
             )
 
-        assertThat(importer.fromJSON(json.toString(), currentProject, JSONObject()), `is`(SettingsImportingResult.SUCCESS))
+        assertThat(importer.fromJSON(json.toString(), currentProject, JSONObject()), `is`(ProjectConfigurationResult.SUCCESS))
         assertSettings(
             generalSettings,
             "key1",
@@ -194,7 +195,7 @@ class SettingsImporterTest {
             "key1",
             0
         )
-        assertThat(importer.fromJSON(emptySettings(), currentProject, JSONObject()), `is`(SettingsImportingResult.SUCCESS))
+        assertThat(importer.fromJSON(emptySettings(), currentProject, JSONObject()), `is`(ProjectConfigurationResult.SUCCESS))
         assertSettings(
             generalSettings,
             "key1",
@@ -227,7 +228,7 @@ class SettingsImporterTest {
             projectsRepository,
             projectDetailsCreator
         )
-        assertThat(importer.fromJSON(emptySettings(), currentProject, JSONObject()), `is`(SettingsImportingResult.SUCCESS))
+        assertThat(importer.fromJSON(emptySettings(), currentProject, JSONObject()), `is`(ProjectConfigurationResult.SUCCESS))
     }
 
     @Test // Migrations might use old keys that are "unknown" to the app
@@ -253,11 +254,11 @@ class SettingsImporterTest {
             projectsRepository,
             projectDetailsCreator
         )
-        assertThat(importer.fromJSON(json.toString(), currentProject, JSONObject()), `is`(SettingsImportingResult.SUCCESS))
+        assertThat(importer.fromJSON(json.toString(), currentProject, JSONObject()), `is`(ProjectConfigurationResult.SUCCESS))
     }
 
     @Test
-    fun afterSettingsImportedAndMigrated_runsSettingsChangeHandler() {
+    fun afterSettingsImportedAndMigrated_runsSettingsChangeHandlerWithUpdatedKeys() {
         importer = SettingsImporter(
             settingsProvider,
             { _: Settings?, _: Settings? -> },
@@ -268,8 +269,30 @@ class SettingsImporterTest {
             projectsRepository,
             projectDetailsCreator
         )
-        assertThat(importer.fromJSON(emptySettings(), currentProject, JSONObject()), `is`(SettingsImportingResult.SUCCESS))
-        verify(settingsChangeHandler).onSettingsChanged("1")
+
+        var generalJson = JSONObject()
+            .put("key1", "default")
+            .put("key2", true)
+        var adminJson = JSONObject()
+            .put("key2", 5)
+        var settings = JSONObject()
+            .put(AppConfigurationKeys.GENERAL, generalJson)
+            .put(AppConfigurationKeys.ADMIN, adminJson)
+
+        assertThat(importer.fromJSON(settings.toString(), currentProject, JSONObject()), `is`(ProjectConfigurationResult.SUCCESS))
+        verify(settingsChangeHandler).onSettingsChanged("1", emptyList(), emptyList())
+
+        generalJson = JSONObject()
+            .put("key1", "foo")
+            .put("key2", true)
+        adminJson = JSONObject()
+            .put("key2", 10)
+        settings = JSONObject()
+            .put(AppConfigurationKeys.GENERAL, generalJson)
+            .put(AppConfigurationKeys.ADMIN, adminJson)
+
+        assertThat(importer.fromJSON(settings.toString(), currentProject, JSONObject()), `is`(ProjectConfigurationResult.SUCCESS))
+        verify(settingsChangeHandler).onSettingsChanged("1", listOf("key1"), listOf("key2"))
         verifyNoMoreInteractions(settingsChangeHandler)
     }
 
@@ -336,7 +359,7 @@ class SettingsImporterTest {
             .put(AppConfigurationKeys.GENERAL, generalJson)
             .put(AppConfigurationKeys.ADMIN, JSONObject())
 
-        assertThat(importer.fromJSON(settings.toString(), currentProject, JSONObject()), `is`(SettingsImportingResult.GD_PROJECT))
+        assertThat(importer.fromJSON(settings.toString(), currentProject, JSONObject()), `is`(ProjectConfigurationResult.GD_PROJECT))
     }
 
     private fun emptySettings(): String {

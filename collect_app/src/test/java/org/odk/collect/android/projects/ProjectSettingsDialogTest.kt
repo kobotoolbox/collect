@@ -1,6 +1,7 @@
 package org.odk.collect.android.projects
 
 import androidx.core.view.children
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.test.espresso.Espresso.onView
@@ -26,21 +27,22 @@ import org.odk.collect.android.injection.config.AppDependencyModule
 import org.odk.collect.android.mainmenu.CurrentProjectViewModel
 import org.odk.collect.android.preferences.screens.ProjectPreferencesActivity
 import org.odk.collect.android.support.CollectHelpers
-import org.odk.collect.androidshared.livedata.MutableNonNullLiveData
 import org.odk.collect.androidshared.ui.FragmentFactoryBuilder
 import org.odk.collect.fragmentstest.FragmentScenarioLauncherRule
 import org.odk.collect.projects.InMemProjectsRepository
 import org.odk.collect.projects.Project
 import org.odk.collect.projects.ProjectsRepository
+import org.odk.collect.qrcode.BarcodeScannerViewContainer
 import org.odk.collect.settings.SettingsProvider
 import org.odk.collect.shared.strings.UUIDGenerator
+import org.odk.collect.testshared.FakeBarcodeScannerViewFactory
 import org.odk.collect.testshared.RobolectricHelpers
 
 @RunWith(AndroidJUnit4::class)
 class ProjectSettingsDialogTest {
 
     private val currentProjectViewModel: CurrentProjectViewModel = mock {
-        on { currentProject } doReturn MutableNonNullLiveData(
+        on { currentProject } doReturn MutableLiveData(
             Project.Saved(
                 "x",
                 "Project X",
@@ -74,6 +76,10 @@ class ProjectSettingsDialogTest {
                 settingsProvider: SettingsProvider?
             ): ProjectsRepository {
                 return projectsRepository
+            }
+
+            override fun providesBarcodeScannerViewFactory(settingsProvider: SettingsProvider): BarcodeScannerViewContainer.Factory {
+                return FakeBarcodeScannerViewFactory()
             }
         })
     }

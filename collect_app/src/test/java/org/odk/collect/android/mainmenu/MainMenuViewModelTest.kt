@@ -2,15 +2,18 @@ package org.odk.collect.android.mainmenu
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import kotlinx.coroutines.flow.MutableStateFlow
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.equalTo
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.kotlin.any
 import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 import org.odk.collect.android.external.InstancesContract
+import org.odk.collect.android.instancemanagement.InstancesDataService
 import org.odk.collect.android.instancemanagement.autosend.AutoSendSettingsProvider
 import org.odk.collect.android.projects.ProjectsDataService
 import org.odk.collect.android.utilities.FormsRepositoryProvider
@@ -32,17 +35,24 @@ import java.util.concurrent.TimeoutException
 class MainMenuViewModelTest {
     private val formsRepository = InMemFormsRepository()
     private val formsRepositoryProvider = mock<FormsRepositoryProvider>().apply {
-        whenever(get()).thenReturn(formsRepository)
+        whenever(create()).thenReturn(formsRepository)
     }
     private val instancesRepository = InMemInstancesRepository()
     private val instancesRepositoryProvider = mock<InstancesRepositoryProvider>().apply {
-        whenever(get()).thenReturn(instancesRepository)
+        whenever(create()).thenReturn(instancesRepository)
     }
     private val autoSendSettingsProvider = mock<AutoSendSettingsProvider>()
     private val settingsProvider = InMemSettingsProvider()
 
     private val projectsDataService = mock<ProjectsDataService> {
-        on { getCurrentProject() } doReturn Project.DEMO_PROJECT
+        on { requireCurrentProject() } doReturn Project.DEMO_PROJECT
+        on { getCurrentProject() } doReturn MutableStateFlow(Project.DEMO_PROJECT)
+    }
+
+    private val instancesDataService = mock<InstancesDataService> {
+        on { getSendableCount(any()) } doReturn MutableStateFlow(0)
+        on { getEditableCount(any()) } doReturn MutableStateFlow(0)
+        on { getSentCount(any()) } doReturn MutableStateFlow(0)
     }
 
     private val scheduler = FakeScheduler()
@@ -365,6 +375,6 @@ class MainMenuViewModelTest {
     }
 
     private fun createViewModelWithVersion(version: String): MainMenuViewModel {
-        return MainMenuViewModel(mock(), VersionInformation { version }, settingsProvider, mock(), scheduler, formsRepositoryProvider, instancesRepositoryProvider, autoSendSettingsProvider, projectsDataService)
+        return MainMenuViewModel(mock(), VersionInformation { version }, settingsProvider, instancesDataService, scheduler, formsRepositoryProvider, instancesRepositoryProvider, autoSendSettingsProvider, projectsDataService)
     }
 }

@@ -3,7 +3,6 @@ package org.odk.collect.android.instancemanagement
 import org.odk.collect.analytics.Analytics
 import org.odk.collect.android.analytics.AnalyticsEvents
 import org.odk.collect.android.application.Collect
-import org.odk.collect.android.openrosa.OpenRosaHttpInterface
 import org.odk.collect.android.upload.FormUploadException
 import org.odk.collect.android.upload.InstanceServerUploader
 import org.odk.collect.android.upload.InstanceUploader
@@ -16,6 +15,7 @@ import org.odk.collect.forms.instances.Instance
 import org.odk.collect.forms.instances.InstancesRepository
 import org.odk.collect.metadata.PropertyManager
 import org.odk.collect.metadata.PropertyManager.Companion.PROPMGR_DEVICE_ID
+import org.odk.collect.openrosa.http.OpenRosaHttpInterface
 import org.odk.collect.settings.keys.ProjectKeys
 import org.odk.collect.shared.settings.Settings
 import timber.log.Timber
@@ -34,7 +34,7 @@ class InstanceSubmitter(
 
         val uploader = setUpODKUploader()
 
-        for (instance in toUpload) {
+        for (instance in toUpload.sortedBy { it.finalizationDate }) {
             try {
                 val destinationUrl = uploader.getUrlToSubmitTo(instance, deviceId, null, null)
                 uploader.uploadOneSubmission(instance, destinationUrl)
@@ -67,8 +67,8 @@ class InstanceSubmitter(
         // communicated to the user. Maybe successful delete should also be communicated?
         if (InstanceAutoDeleteChecker.shouldInstanceBeDeleted(formsRepository, generalSettings.getBoolean(ProjectKeys.KEY_DELETE_AFTER_SEND), instance)) {
             InstanceDeleter(
-                InstancesRepositoryProvider(Collect.getInstance()).get(),
-                FormsRepositoryProvider(Collect.getInstance()).get()
+                InstancesRepositoryProvider(Collect.getInstance()).create(),
+                FormsRepositoryProvider(Collect.getInstance()).create()
             ).delete(instance.dbId)
         }
     }

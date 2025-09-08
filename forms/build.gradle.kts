@@ -1,8 +1,6 @@
-import dependencies.Dependencies
-
 plugins {
-    id("java-library")
-    id("kotlin")
+    alias(libs.plugins.javaLibrary)
+    alias(libs.plugins.kotlinLibrary)
 }
 
 apply(from = "../config/quality.gradle")
@@ -13,5 +11,7 @@ java {
 }
 
 dependencies {
-    implementation(Dependencies.kotlin_stdlib)
+    implementation(libs.kotlinStdlib)
+    testImplementation(libs.junit)
+    testImplementation(libs.hamcrest)
 }

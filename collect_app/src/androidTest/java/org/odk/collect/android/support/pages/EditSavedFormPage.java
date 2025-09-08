@@ -38,24 +38,11 @@ import androidx.appcompat.widget.Toolbar;
 import org.odk.collect.android.R;
 
 public class EditSavedFormPage extends Page<EditSavedFormPage> {
-    private final boolean firstOpen;
-
-    public EditSavedFormPage(boolean first) {
-        this.firstOpen = first;
-    }
 
     @Override
     public EditSavedFormPage assertOnPage() {
-        closeDraftsPillsEducationDialog();
         assertText(org.odk.collect.strings.R.string.review_data);
         return this;
-    }
-
-    private void closeDraftsPillsEducationDialog() {
-        if (firstOpen) {
-            assertTextInDialog(org.odk.collect.strings.R.string.new_feature);
-            clickOKOnDialog();
-        }
     }
 
     public EditSavedFormPage checkInstanceState(String instanceName, String desiredStatus) {
@@ -86,6 +73,11 @@ public class EditSavedFormPage extends Page<EditSavedFormPage> {
     public FormHierarchyPage clickOnForm(String formName) {
         scrollToAndClickOnForm(formName);
         return new FormHierarchyPage(formName).assertOnPage();
+    }
+
+    public SavepointRecoveryDialogPage clickOnFormWithSavepoint(String formName) {
+        scrollToAndClickOnForm(formName);
+        return new SavepointRecoveryDialogPage().assertOnPage();
     }
 
     public AppClosedPage clickOnFormClosingApp(String formName) {

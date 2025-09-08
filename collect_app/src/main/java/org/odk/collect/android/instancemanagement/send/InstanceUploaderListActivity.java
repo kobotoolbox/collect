@@ -32,7 +32,6 @@ import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -64,6 +63,7 @@ import org.odk.collect.android.mainmenu.MainMenuActivity;
 import org.odk.collect.android.preferences.screens.ProjectPreferencesActivity;
 import org.odk.collect.android.projects.ProjectsDataService;
 import org.odk.collect.androidshared.ui.MenuExtKt;
+import org.odk.collect.androidshared.ui.ObviousProgressBar;
 import org.odk.collect.androidshared.ui.ToastUtils;
 import org.odk.collect.androidshared.ui.multiclicksafe.MultiClickGuard;
 import org.odk.collect.async.network.NetworkStateProvider;
@@ -125,7 +125,7 @@ public class InstanceUploaderListActivity extends LocalizedActivity implements
     private InstanceUploaderAdapter listAdapter;
     private Integer selectedSortingOrder;
     private List<FormListSortingOption> sortingOptions;
-    private ProgressBar progressBar;
+    private ObviousProgressBar progressBar;
     private String filterText;
 
     private MultiSelectViewModel<Object> multiSelectViewModel;
@@ -170,12 +170,12 @@ public class InstanceUploaderListActivity extends LocalizedActivity implements
 
     public void onUploadButtonsClicked() {
         if (!connectivityProvider.isDeviceOnline()) {
-            ToastUtils.showShortToast(this, org.odk.collect.strings.R.string.no_connection);
+            ToastUtils.showShortToast(org.odk.collect.strings.R.string.no_connection);
             return;
         }
 
         if (autoSendOngoing) {
-            ToastUtils.showShortToast(this, org.odk.collect.strings.R.string.send_in_progress);
+            ToastUtils.showShortToast(org.odk.collect.strings.R.string.send_in_progress);
             return;
         }
 
@@ -187,7 +187,7 @@ public class InstanceUploaderListActivity extends LocalizedActivity implements
             multiSelectViewModel.unselectAll();
         } else {
             // no items selected
-            ToastUtils.showLongToast(this, org.odk.collect.strings.R.string.noselect_error);
+            ToastUtils.showLongToast(org.odk.collect.strings.R.string.noselect_error);
         }
     }
 
@@ -195,16 +195,16 @@ public class InstanceUploaderListActivity extends LocalizedActivity implements
     public void setContentView(View view) {
         super.setContentView(view);
 
-        listView = findViewById(android.R.id.list);
+        listView = findViewById(R.id.scrollable_container);
         listView.setOnItemClickListener((AdapterView.OnItemClickListener) this);
         listView.setEmptyView(findViewById(android.R.id.empty));
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(org.odk.collect.androidshared.R.id.progressBar);
 
         // Use the nicer-looking drawable with Material Design insets.
         listView.setDivider(ContextCompat.getDrawable(this, org.odk.collect.androidshared.R.drawable.list_item_divider));
         listView.setDividerHeight(1);
 
-        setSupportActionBar(findViewById(R.id.toolbar));
+        setSupportActionBar(findViewById(org.odk.collect.androidshared.R.id.toolbar));
 
         init();
     }
@@ -257,7 +257,7 @@ public class InstanceUploaderListActivity extends LocalizedActivity implements
     private void updateAutoSendStatus() {
         // This shouldn't use WorkManager directly but it's likely this code will be removed when
         // we eventually move sending forms to a Foreground Service (rather than a blocking AsyncTask)
-        String tag = ((FormUpdateAndInstanceSubmitScheduler) instanceSubmitScheduler).getAutoSendTag(projectsDataService.getCurrentProject().getUuid());
+        String tag = ((FormUpdateAndInstanceSubmitScheduler) instanceSubmitScheduler).getAutoSendTag(projectsDataService.requireCurrentProject().getUuid());
         LiveData<List<WorkInfo>> statuses = WorkManager.getInstance().getWorkInfosForUniqueWorkLiveData(tag);
         statuses.observe(this, workStatuses -> {
             if (workStatuses != null) {
@@ -376,11 +376,12 @@ public class InstanceUploaderListActivity extends LocalizedActivity implements
         Cursor c = (Cursor) listView.getAdapter().getItem(position);
         boolean encryptedForm = !Boolean.parseBoolean(c.getString(c.getColumnIndex(DatabaseInstanceColumns.CAN_EDIT_WHEN_COMPLETE)));
         if (encryptedForm) {
-            ToastUtils.showLongToast(this, org.odk.collect.strings.R.string.encrypted_form);
+            ToastUtils.showLongToast(org.odk.collect.strings.R.string.encrypted_form);
         } else {
             long instanceId = c.getLong(c.getColumnIndex(DatabaseInstanceColumns._ID));
-            Intent intent = FormFillingIntentFactory.editInstanceIntent(this, projectsDataService.getCurrentProject().getUuid(), instanceId);
+            Intent intent = FormFillingIntentFactory.editDraftFormIntent(this, projectsDataService.requireCurrentProject().getUuid(), instanceId);
             startActivity(intent);
+            finish();
         }
     }
 
@@ -534,7 +535,7 @@ public class InstanceUploaderListActivity extends LocalizedActivity implements
     }
 
     private void showProgressBar() {
-        progressBar.setVisibility(View.VISIBLE);
+        progressBar.show();
     }
 
     private void hideProgressBarAndAllow() {
@@ -542,7 +543,7 @@ public class InstanceUploaderListActivity extends LocalizedActivity implements
     }
 
     private void hideProgressBar() {
-        progressBar.setVisibility(View.GONE);
+        progressBar.hide();
     }
 
     private CharSequence getFilterText() {

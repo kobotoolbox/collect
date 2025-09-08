@@ -14,6 +14,7 @@
 
 package org.odk.collect.android.widgets;
 
+import static org.odk.collect.android.utilities.Appearances.hasAppearance;
 import static org.odk.collect.android.utilities.ApplicationConstants.RequestCodes;
 
 import android.annotation.SuppressLint;
@@ -94,8 +95,8 @@ public class ExStringWidget extends QuestionWidget implements WidgetDataReceiver
     private boolean hasExApp = true;
     private final StringRequester stringRequester;
 
-    public ExStringWidget(Context context, QuestionDetails questionDetails, WaitingForDataRegistry waitingForDataRegistry, StringRequester stringRequester) {
-        super(context, questionDetails);
+    public ExStringWidget(Context context, QuestionDetails questionDetails, WaitingForDataRegistry waitingForDataRegistry, StringRequester stringRequester, Dependencies dependencies) {
+        super(context, dependencies, questionDetails);
         render();
 
         this.waitingForDataRegistry = waitingForDataRegistry;
@@ -120,10 +121,14 @@ public class ExStringWidget extends QuestionWidget implements WidgetDataReceiver
                 QuestionFontSizeUtils.getFontSize(settings, QuestionFontSizeUtils.FontSize.HEADLINE_6),
                 true,
                 StringWidgetUtils.getNumberOfRows(questionDetails.getPrompt()),
+                Appearances.isMultiline(prompt),
                 Appearances.isMasked(prompt),
                 this::widgetValueChanged
         );
         binding.widgetAnswerText.setAnswer(getFormEntryPrompt().getAnswerText());
+        if (hasAppearance(getFormEntryPrompt(), Appearances.HIDDEN_ANSWER)) {
+            binding.widgetAnswerText.setVisibility(GONE);
+        }
 
         return binding.getRoot();
     }

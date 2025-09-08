@@ -49,8 +49,8 @@ public class BarcodeWidget extends QuestionWidget implements WidgetDataReceiver 
     private final CameraUtils cameraUtils;
 
     public BarcodeWidget(Context context, QuestionDetails questionDetails, WaitingForDataRegistry waitingForDataRegistry,
-                         CameraUtils cameraUtils) {
-        super(context, questionDetails);
+                         CameraUtils cameraUtils, Dependencies dependencies) {
+        super(context, dependencies, questionDetails);
         render();
 
         this.waitingForDataRegistry = waitingForDataRegistry;
@@ -147,7 +147,7 @@ public class BarcodeWidget extends QuestionWidget implements WidgetDataReceiver 
             if (cameraUtils.isFrontCameraAvailable(getContext())) {
                 intent.addExtra(FRONT, true);
             } else {
-                ToastUtils.showLongToast(getContext(), org.odk.collect.strings.R.string.error_front_camera_unavailable);
+                ToastUtils.showLongToast(org.odk.collect.strings.R.string.error_front_camera_unavailable);
             }
         }
     }

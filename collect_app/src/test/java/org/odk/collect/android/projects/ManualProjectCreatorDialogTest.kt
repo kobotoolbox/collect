@@ -1,5 +1,6 @@
 package org.odk.collect.android.projects
 
+import android.app.Application
 import android.content.Context
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -30,6 +31,7 @@ import org.odk.collect.android.support.CollectHelpers
 import org.odk.collect.android.support.Matchers.isPasswordHidden
 import org.odk.collect.fragmentstest.FragmentScenarioLauncherRule
 import org.odk.collect.projects.Project
+import org.odk.collect.projects.ProjectCreator
 import org.odk.collect.projects.ProjectsRepository
 import org.odk.collect.settings.ODKAppSettingsImporter
 import org.odk.collect.settings.SettingsProvider
@@ -100,7 +102,7 @@ class ManualProjectCreatorDialogTest {
         val scenario = launcherRule.launch(ManualProjectCreatorDialog::class.java)
         scenario.onFragment {
             onView(withHint(org.odk.collect.strings.R.string.server_url)).inRoot(isDialog())
-                .perform(replaceText("demo.getodk.org"))
+                .perform(replaceText("kc.kobotoolbox.org"))
             onView(withText(org.odk.collect.strings.R.string.add)).inRoot(isDialog()).perform(click())
             assertThat(it.isVisible, `is`(true))
 
@@ -113,7 +115,7 @@ class ManualProjectCreatorDialogTest {
     fun `Server project creation should be triggered after clicking on the 'Add' button`() {
         val projectCreator = mock<ProjectCreator> {}
         val projectsDataService = mock<ProjectsDataService> {
-            on { getCurrentProject() } doReturn Project.DEMO_PROJECT
+            on { requireCurrentProject() } doReturn Project.DEMO_PROJECT
         }
 
         CollectHelpers.overrideAppDependencyModule(object : AppDependencyModule() {
@@ -127,6 +129,7 @@ class ManualProjectCreatorDialogTest {
             }
 
             override fun providesCurrentProjectProvider(
+                application: Application,
                 settingsProvider: SettingsProvider,
                 projectsRepository: ProjectsRepository,
                 analyticsInitializer: AnalyticsInitializer,
@@ -145,7 +148,7 @@ class ManualProjectCreatorDialogTest {
             onView(withHint(org.odk.collect.strings.R.string.password)).inRoot(isDialog()).perform(replaceText("1234"))
 
             onView(withText(org.odk.collect.strings.R.string.add)).inRoot(isDialog()).perform(click())
-            verify(projectCreator).createNewProject("{\"general\":{\"server_url\":\"https:\\/\\/my-server.com\",\"username\":\"adam\",\"password\":\"1234\"},\"admin\":{},\"project\":{}}")
+            verify(projectCreator).createNewProject("{\"general\":{\"server_url\":\"https:\\/\\/my-server.com\",\"username\":\"adam\",\"password\":\"1234\"},\"admin\":{},\"project\":{}}", true)
         }
     }
 

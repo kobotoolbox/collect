@@ -20,13 +20,13 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import org.odk.collect.android.activities.FormFillingActivity;
 import org.odk.collect.android.fragments.dialogs.SimpleDialog;
 import org.odk.collect.android.injection.DaggerUtils;
 import org.odk.collect.android.listeners.InstanceUploaderListener;
-import org.odk.collect.android.openrosa.OpenRosaConstants;
 import org.odk.collect.android.tasks.InstanceUploaderTask;
 import org.odk.collect.android.utilities.ApplicationConstants;
 import org.odk.collect.android.utilities.ArrayUtils;
@@ -37,6 +37,7 @@ import org.odk.collect.android.utilities.InstancesRepositoryProvider;
 import org.odk.collect.android.views.DayNightProgressDialog;
 import org.odk.collect.forms.FormsRepository;
 import org.odk.collect.forms.instances.InstancesRepository;
+import org.odk.collect.openrosa.http.OpenRosaConstants;
 import org.odk.collect.settings.SettingsProvider;
 import org.odk.collect.strings.localization.LocalizedActivity;
 
@@ -97,8 +98,8 @@ public class InstanceUploaderActivity extends LocalizedActivity implements Insta
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DaggerUtils.getComponent(this).inject(this);
-        instancesRepository = instancesRepositoryProvider.get();
-        formsRepository = formsRepositoryProvider.get();
+        instancesRepository = instancesRepositoryProvider.create();
+        formsRepository = formsRepositoryProvider.create();
 
         init(savedInstanceState);
     }
@@ -177,7 +178,7 @@ public class InstanceUploaderActivity extends LocalizedActivity implements Insta
             instanceUploaderTask = new InstanceUploaderTask();
 
             if (url != null) {
-                instanceUploaderTask.setCompleteDestinationUrl(url + OpenRosaConstants.SUBMISSION);
+                instanceUploaderTask.setCompleteDestinationUrl(url + OpenRosaConstants.SUBMISSION, getReferrerUri(), true);
 
                 if (deleteInstanceAfterUpload != null) {
                     instanceUploaderTask.setDeleteInstanceAfterSubmission(deleteInstanceAfterUpload);
@@ -376,7 +377,7 @@ public class InstanceUploaderActivity extends LocalizedActivity implements Insta
         // TODO: is this really needed here? When would the task not have gotten a server set in
         // init already?
         if (url != null) {
-            instanceUploaderTask.setCompleteDestinationUrl(url + OpenRosaConstants.SUBMISSION, false);
+            instanceUploaderTask.setCompleteDestinationUrl(url + OpenRosaConstants.SUBMISSION, getReferrerUri(), false);
         }
         instanceUploaderTask.setRepositories(instancesRepository, formsRepository, settingsProvider);
         instanceUploaderTask.execute(instancesToSend);
@@ -385,5 +386,15 @@ public class InstanceUploaderActivity extends LocalizedActivity implements Insta
     @Override
     public void cancelledUpdatingCredentials() {
         finish();
+    }
+
+    private String getReferrerUri() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            Uri referrerUri = getReferrer();
+            if (referrerUri != null) {
+                return referrerUri.toString();
+            }
+        }
+        return "unknown";
     }
 }

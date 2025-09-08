@@ -14,7 +14,6 @@
 
 package org.odk.collect.geo.geopoly;
 
-import static org.odk.collect.androidshared.system.ContextUtils.getThemeAttributeValue;
 import static org.odk.collect.geo.Constants.EXTRA_READ_ONLY;
 import static org.odk.collect.geo.GeoActivityUtils.requireLocationPermissions;
 
@@ -41,6 +40,8 @@ import org.odk.collect.geo.Constants;
 import org.odk.collect.geo.GeoDependencyComponentProvider;
 import org.odk.collect.geo.GeoUtils;
 import org.odk.collect.geo.R;
+import org.odk.collect.geo.geopoint.AccuracyStatusView;
+import org.odk.collect.geo.geopoint.LocationAccuracy;
 import org.odk.collect.location.Location;
 import org.odk.collect.location.tracker.LocationTracker;
 import org.odk.collect.maps.LineDescription;
@@ -48,7 +49,7 @@ import org.odk.collect.maps.MapConsts;
 import org.odk.collect.maps.MapFragment;
 import org.odk.collect.maps.MapFragmentFactory;
 import org.odk.collect.maps.MapPoint;
-import org.odk.collect.maps.layers.OfflineMapLayersPicker;
+import org.odk.collect.maps.layers.OfflineMapLayersPickerBottomSheetDialogFragment;
 import org.odk.collect.maps.layers.ReferenceLayerRepository;
 import org.odk.collect.settings.SettingsProvider;
 import org.odk.collect.strings.localization.LocalizedActivity;
@@ -111,7 +112,7 @@ public class GeoPolyActivity extends LocalizedActivity implements GeoPolySetting
     ImageButton backspaceButton;
     ImageButton saveButton;
 
-    private TextView locationStatus;
+    private AccuracyStatusView locationStatus;
     private TextView collectionStatus;
 
     private View settingsView;
@@ -154,7 +155,7 @@ public class GeoPolyActivity extends LocalizedActivity implements GeoPolySetting
 
         getSupportFragmentManager().setFragmentFactory(new FragmentFactoryBuilder()
                 .forClass(MapFragment.class, () -> (Fragment) mapFragmentFactory.createMapFragment())
-                .forClass(OfflineMapLayersPicker.class, () -> new OfflineMapLayersPicker(getActivityResultRegistry(), referenceLayerRepository, scheduler, settingsProvider, externalWebPageHelper))
+                .forClass(OfflineMapLayersPickerBottomSheetDialogFragment.class, () -> new OfflineMapLayersPickerBottomSheetDialogFragment(getActivityResultRegistry(), referenceLayerRepository, scheduler, settingsProvider, externalWebPageHelper))
                 .build()
         );
 
@@ -266,11 +267,11 @@ public class GeoPolyActivity extends LocalizedActivity implements GeoPolySetting
         recordButton.setOnClickListener(v -> recordPoint(map.getGpsLocation()));
 
         findViewById(R.id.layers).setOnClickListener(v -> {
-            DialogFragmentUtils.showIfNotShowing(OfflineMapLayersPicker.class, getSupportFragmentManager());
+            DialogFragmentUtils.showIfNotShowing(OfflineMapLayersPickerBottomSheetDialogFragment.class, getSupportFragmentManager());
         });
 
         zoomButton = findViewById(R.id.zoom);
-        zoomButton.setOnClickListener(v -> map.zoomToPoint(map.getGpsLocation(), true));
+        zoomButton.setOnClickListener(v -> map.zoomToCurrentLocation(map.getGpsLocation()));
 
         List<MapPoint> points = new ArrayList<>();
         Intent intent = getIntent();
@@ -412,7 +413,7 @@ public class GeoPolyActivity extends LocalizedActivity implements GeoPolySetting
     private void onGpsLocationReady(MapFragment map) {
         // Don't zoom to current location if a user is manually entering points
         if (getWindow().isActive() && (!inputActive || recordingEnabled)) {
-            map.zoomToPoint(map.getGpsLocation(), true);
+            map.zoomToCurrentLocation(map.getGpsLocation());
         }
         updateUi();
     }
@@ -495,17 +496,15 @@ public class GeoPolyActivity extends LocalizedActivity implements GeoPolySetting
         int seconds = INTERVAL_OPTIONS[intervalIndex];
         int minutes = seconds / 60;
         int meters = ACCURACY_THRESHOLD_OPTIONS[accuracyThresholdIndex];
-        locationStatus.setText(
-            location == null ? getString(org.odk.collect.strings.R.string.location_status_searching)
-                : !usingThreshold ? getString(org.odk.collect.strings.R.string.location_status_accuracy, location.accuracy)
-                : acceptable ? getString(org.odk.collect.strings.R.string.location_status_acceptable, location.accuracy)
-                : getString(org.odk.collect.strings.R.string.location_status_unacceptable, location.accuracy)
-        );
-        locationStatus.setBackgroundColor(
-                location == null ? getThemeAttributeValue(this, com.google.android.material.R.attr.colorPrimary)
-                        : acceptable ? getThemeAttributeValue(this, com.google.android.material.R.attr.colorPrimary)
-                        : getThemeAttributeValue(this, com.google.android.material.R.attr.colorError)
-        );
+
+        if (location != null) {
+            if (usingThreshold & !acceptable) {
+                locationStatus.setAccuracy(new LocationAccuracy.Unacceptable((float) location.accuracy));
+            } else {
+                locationStatus.setAccuracy(new LocationAccuracy.Improving((float) location.accuracy));
+            }
+        }
+
         collectionStatus.setText(
             !inputActive ? getString(org.odk.collect.strings.R.string.collection_status_paused, numPoints)
                 : !recordingEnabled ? getString(org.odk.collect.strings.R.string.collection_status_placement, numPoints)

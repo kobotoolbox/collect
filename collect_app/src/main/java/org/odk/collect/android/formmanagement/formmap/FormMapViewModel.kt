@@ -9,6 +9,7 @@ import org.json.JSONObject
 import org.odk.collect.android.R
 import org.odk.collect.android.instancemanagement.getStatusDescription
 import org.odk.collect.android.instancemanagement.showAsEditable
+import org.odk.collect.android.instancemanagement.userVisibleInstanceName
 import org.odk.collect.androidshared.livedata.MutableNonNullLiveData
 import org.odk.collect.androidshared.livedata.NonNullLiveData
 import org.odk.collect.async.Scheduler
@@ -117,7 +118,7 @@ class FormMapViewModel(
             val info = "$instanceLastStatusChangeDate\n${dateFormat.format(instance.deletedDate)}"
             MappableSelectItem.MappableSelectPoint(
                 instance.dbId,
-                instance.displayName,
+                instance.userVisibleInstanceName(resources),
                 point = MapPoint(latitude, longitude),
                 smallIcon = getDrawableIdForStatus(instance.status, false),
                 largeIcon = getDrawableIdForStatus(instance.status, true),
@@ -132,7 +133,7 @@ class FormMapViewModel(
             val info = "$instanceLastStatusChangeDate\n${resources.getString(org.odk.collect.strings.R.string.cannot_edit_completed_form)}"
             MappableSelectItem.MappableSelectPoint(
                 instance.dbId,
-                instance.displayName,
+                instance.userVisibleInstanceName(resources),
                 point = MapPoint(latitude, longitude),
                 smallIcon = getDrawableIdForStatus(instance.status, false),
                 largeIcon = getDrawableIdForStatus(instance.status, true),
@@ -148,7 +149,7 @@ class FormMapViewModel(
 
             MappableSelectItem.MappableSelectPoint(
                 instance.dbId,
-                instance.displayName,
+                instance.userVisibleInstanceName(resources),
                 point = MapPoint(latitude, longitude),
                 smallIcon = getDrawableIdForStatus(instance.status, false),
                 largeIcon = getDrawableIdForStatus(instance.status, true),
@@ -162,7 +163,7 @@ class FormMapViewModel(
     private fun instanceStatusToMappableSelectionItemStatus(instance: Instance): Status? {
         return when (instance.status) {
             Instance.STATUS_INVALID, Instance.STATUS_INCOMPLETE -> Status.ERRORS
-            Instance.STATUS_VALID -> Status.NO_ERRORS
+            Instance.STATUS_VALID, Instance.STATUS_NEW_EDIT -> Status.NO_ERRORS
             else -> null
         }
     }
@@ -186,7 +187,7 @@ class FormMapViewModel(
 
     private fun getDrawableIdForStatus(status: String, enlarged: Boolean): Int {
         return when (status) {
-            Instance.STATUS_INCOMPLETE, Instance.STATUS_VALID, Instance.STATUS_INVALID -> if (enlarged) R.drawable.ic_room_form_state_incomplete_48dp else R.drawable.ic_room_form_state_incomplete_24dp
+            Instance.STATUS_INCOMPLETE, Instance.STATUS_VALID, Instance.STATUS_INVALID, Instance.STATUS_NEW_EDIT -> if (enlarged) R.drawable.ic_room_form_state_incomplete_48dp else R.drawable.ic_room_form_state_incomplete_24dp
             Instance.STATUS_COMPLETE -> if (enlarged) R.drawable.ic_room_form_state_complete_48dp else R.drawable.ic_room_form_state_complete_24dp
             Instance.STATUS_SUBMITTED -> if (enlarged) R.drawable.ic_room_form_state_submitted_48dp else R.drawable.ic_room_form_state_submitted_24dp
             Instance.STATUS_SUBMISSION_FAILED -> if (enlarged) R.drawable.ic_room_form_state_submission_failed_48dp else R.drawable.ic_room_form_state_submission_failed_24dp

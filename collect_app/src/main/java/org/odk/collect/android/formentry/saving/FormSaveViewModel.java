@@ -2,6 +2,7 @@ package org.odk.collect.android.formentry.saving;
 
 import static org.odk.collect.android.tasks.SaveFormToDisk.SAVED;
 import static org.odk.collect.android.tasks.SaveFormToDisk.SAVED_AND_EXIT;
+import static org.odk.collect.android.tasks.SaveFormToDisk.SAVE_ERROR;
 import static org.odk.collect.shared.strings.StringUtils.isBlank;
 
 import android.net.Uri;
@@ -17,7 +18,6 @@ import androidx.lifecycle.ViewModel;
 import org.apache.commons.io.IOUtils;
 import org.javarosa.form.api.FormEntryController;
 import org.odk.collect.android.application.Collect;
-import org.odk.collect.android.dao.helpers.InstancesDaoHelper;
 import org.odk.collect.android.dynamicpreload.ExternalDataManager;
 import org.odk.collect.android.formentry.FormSession;
 import org.odk.collect.android.formentry.audit.AuditEvent;
@@ -34,7 +34,7 @@ import org.odk.collect.androidshared.livedata.LiveDataUtils;
 import org.odk.collect.async.Cancellable;
 import org.odk.collect.async.Scheduler;
 import org.odk.collect.audiorecorder.recording.AudioRecorder;
-import org.odk.collect.entities.EntitiesRepository;
+import org.odk.collect.entities.storage.EntitiesRepository;
 import org.odk.collect.forms.Form;
 import org.odk.collect.forms.instances.Instance;
 import org.odk.collect.forms.instances.InstancesRepository;
@@ -167,8 +167,17 @@ public class FormSaveViewModel extends ViewModel implements MaterialProgressDial
                 removeSavepoint(form.getDbId(), instance != null ? instance.getDbId() : null);
                 SaveFormToDisk.removeIndexFile(formController.getInstanceFile().getName());
 
-                // if it's not already saved, erase everything
-                if (!InstancesDaoHelper.isInstanceAvailable(getAbsoluteInstancePath())) {
+                if (canBeFullyDiscarded()) {
+                    if (instance != null) {
+                        scheduler.immediate(() -> {
+                            instancesDataService.deleteInstances(
+                                    projectsDataService.getCurrentProject().getValue().getUuid(),
+                                    new long[] {instance.getDbId()}
+                            );
+                            return null;
+                        }, result -> {
+                        });
+                    }
                     String instanceFolder = formController.getInstanceFile().getParent();
                     FileUtils.purgeMediaPath(instanceFolder);
                 }
@@ -248,7 +257,7 @@ public class FormSaveViewModel extends ViewModel implements MaterialProgressDial
                 handleTaskResult(saveToDiskResult, saveRequest);
                 clearMediaFiles();
             }
-        }, new ArrayList<>(originalFiles.values()), projectsDataService.getCurrentProject().getUuid(), entitiesRepository, instancesRepository).execute();
+        }, new ArrayList<>(originalFiles.values()), projectsDataService.requireCurrentProject().getUuid(), entitiesRepository, instancesRepository).execute();
     }
 
     private void handleTaskResult(SaveToDiskResult taskResult, SaveRequest saveRequest) {
@@ -256,7 +265,7 @@ public class FormSaveViewModel extends ViewModel implements MaterialProgressDial
             return;
         }
 
-        if (taskResult.getSaveResult() == SAVED || taskResult.getSaveResult() == SAVED_AND_EXIT) {
+        if (taskResult.getSaveResult() != SAVE_ERROR) {
             removeSavepoint(form.getDbId(), instance != null ? instance.getDbId() : null);
         }
 
@@ -272,7 +281,7 @@ public class FormSaveViewModel extends ViewModel implements MaterialProgressDial
                         formController.getAuditEventLogger().logEvent(AuditEvent.AuditEventType.FORM_EXIT, false, clock.get());
                         formController.getAuditEventLogger().logEvent(AuditEvent.AuditEventType.FORM_FINALIZE, true, clock.get());
 
-                        instancesDataService.instanceFinalized(projectsDataService.getCurrentProject().getUuid(), form);
+                        instancesDataService.instanceFinalized(projectsDataService.requireCurrentProject().getUuid(), form);
                     } else {
                         formController.getAuditEventLogger().logEvent(AuditEvent.AuditEventType.FORM_EXIT, true, clock.get());
                     }
@@ -284,7 +293,7 @@ public class FormSaveViewModel extends ViewModel implements MaterialProgressDial
                 break;
             }
 
-            case SaveFormToDisk.SAVE_ERROR: {
+            case SAVE_ERROR: {
                 formController.getAuditEventLogger().logEvent(AuditEvent.AuditEventType.SAVE_ERROR, true, clock.get());
                 saveResult.setValue(new SaveResult(SaveResult.State.SAVE_ERROR, saveRequest, taskResult.getSaveErrorMessage()));
                 break;
@@ -421,6 +430,10 @@ public class FormSaveViewModel extends ViewModel implements MaterialProgressDial
 
     public void answerFileErrorDisplayed() {
         answerFileError.setValue(null);
+    }
+
+    public boolean canBeFullyDiscarded() {
+        return instance == null || instance.getStatus().equals(Instance.STATUS_NEW_EDIT);
     }
 
     public Long getLastSavedTime() {

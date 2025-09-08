@@ -5,6 +5,7 @@ import androidx.test.rule.GrantPermissionRule
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.RuleChain
+import org.odk.collect.android.support.StubOpenRosaServer.EntityListItem
 import org.odk.collect.android.support.TestDependencies
 import org.odk.collect.android.support.pages.EntitiesPage
 import org.odk.collect.android.support.pages.ExperimentalPage
@@ -39,7 +40,7 @@ class SwitchProjectTest {
             // Switch to Turtle nesting
             .openProjectSettingsDialog()
             .assertCurrentProject("my-server.com", "John / my-server.com")
-            .assertInactiveProject("Demo project", "demo.getodk.org")
+            .assertInactiveProject("Demo project", "kc.kobotoolbox.org")
             .selectProject("Demo project")
             .checkIsToastWithMessageDisplayed(org.odk.collect.strings.R.string.switched_project, "Demo project")
             .assertProjectIcon("D")
@@ -47,7 +48,16 @@ class SwitchProjectTest {
 
     @Test
     fun switchingProject_switchesSettingsFormsInstancesAndEntities() {
-        testDependencies.server.addForm("One Question Entity Registration", "one-question-entity", "1", "one-question-entity-registration.xml")
+        testDependencies.server.addForm(
+            "One Question Entity Registration",
+            "one-question-entity",
+            "1",
+            "one-question-entity-registration.xml"
+        )
+        testDependencies.server.addForm(
+            "one-question-entity-update.xml",
+            listOf(EntityListItem("people.csv"))
+        )
 
         rule.startAtMainMenu()
             // Copy and fill form
@@ -76,7 +86,6 @@ class SwitchProjectTest {
             .clickOKOnDialog(MainMenuPage())
 
             // Fill form
-            .addEntityListInBrowser("people")
             .startBlankForm("One Question Entity Registration")
             .fillOutAndFinalize(FormEntryPage.QuestionAndAnswer("Name", "Alice"))
             .clickSendFinalizedForm(1)
@@ -100,7 +109,7 @@ class SwitchProjectTest {
             .clickSettings()
             .clickServerSettings()
             .clickOnURL()
-            .assertText("https://demo.getodk.org")
+            .assertText("https://kc.kobotoolbox.org/kobodemouser")
             .clickOKOnDialog()
             .pressBack(ProjectSettingsPage())
             .pressBack(MainMenuPage())
@@ -111,7 +120,7 @@ class SwitchProjectTest {
             .pressBack(MainMenuPage())
 
             // Check instances
-            .clickDrafts(1, false)
+            .clickDrafts(1)
             .assertText("Two Question")
             .pressBack(MainMenuPage())
 

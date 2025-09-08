@@ -20,7 +20,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.odk.collect.android.external.FormUriActivity
 import org.odk.collect.android.external.FormsContract
-import org.odk.collect.android.formhierarchy.FormHierarchyActivity
+import org.odk.collect.android.formhierarchy.FormHierarchyFragmentHostActivity
 import org.odk.collect.android.formmanagement.FormFillingIntentFactory
 import org.odk.collect.android.injection.config.AppDependencyComponent
 import org.odk.collect.android.injection.config.AppDependencyModule
@@ -39,7 +39,7 @@ import org.odk.collect.formstest.FormFixtures.form
 import org.odk.collect.strings.R
 import org.odk.collect.testshared.ActivityControllerRule
 import org.odk.collect.testshared.AssertIntentsHelper
-import org.odk.collect.testshared.Assertions.assertText
+import org.odk.collect.testshared.Assertions.assertVisible
 import org.odk.collect.testshared.FakeScheduler
 import org.odk.collect.testshared.Interactions
 import org.odk.collect.testshared.RobolectricHelpers.recreateWithProcessRestore
@@ -83,7 +83,7 @@ class FormFillingActivityTest {
         val projectId = CollectHelpers.setupDemoProject()
 
         val form = setupForm("forms/two-question.xml")
-        val intent = FormFillingIntentFactory.newInstanceIntent(
+        val intent = FormFillingIntentFactory.newFormIntent(
             application,
             FormsContract.getUri(projectId, form!!.dbId),
             FormFillingActivity::class
@@ -92,28 +92,28 @@ class FormFillingActivityTest {
         // Start activity
         val initial = activityControllerRule.build(FormFillingActivity::class.java, intent).setup()
         scheduler.flush()
-        assertText(withText("Two Question"))
-        assertText(withText("What is your name?"))
+        assertVisible(withText("Two Question"))
+        assertVisible(withText("What is your name?"))
 
         Interactions.clickOn(withText(R.string.form_forward))
         scheduler.flush()
-        assertText(withText("What is your age?"))
+        assertVisible(withText("What is your age?"))
 
-        // Recreate and assert we start FormHierarchyActivity
+        // Recreate and assert we start FormHierarchyFragmentHostActivity
         val recreated = activityControllerRule.add {
             initial.recreateWithProcessRestore { resetProcess(dependencies) }
         }
 
         scheduler.flush()
-        assertIntentsHelper.assertNewIntent(FormHierarchyActivity::class)
+        assertIntentsHelper.assertNewIntent(FormHierarchyFragmentHostActivity::class)
 
-        // Return to FormFillingActivity from FormHierarchyActivity
+        // Return to FormFillingActivity from FormHierarchyFragmentHostActivity
         val hierarchyIntent = shadowOf(recreated.get()).nextStartedActivityForResult.intent
         shadowOf(recreated.get()).receiveResult(hierarchyIntent, Activity.RESULT_CANCELED, null)
         scheduler.flush()
 
-        assertText(withText("Two Question"))
-        assertText(withText("What is your age?"))
+        assertVisible(withText("Two Question"))
+        assertVisible(withText("What is your age?"))
     }
 
     @Test
@@ -121,7 +121,7 @@ class FormFillingActivityTest {
         val projectId = CollectHelpers.setupDemoProject()
 
         val form = setupForm("forms/two-question.xml")
-        val intent = FormFillingIntentFactory.newInstanceIntent(
+        val intent = FormFillingIntentFactory.newFormIntent(
             application,
             FormsContract.getUri(projectId, form!!.dbId),
             FormFillingActivity::class
@@ -130,31 +130,31 @@ class FormFillingActivityTest {
         // Start activity
         val initial = activityControllerRule.build(FormFillingActivity::class.java, intent).setup()
         scheduler.flush()
-        assertText(withText("Two Question"))
-        assertText(withText("What is your name?"))
+        assertVisible(withText("Two Question"))
+        assertVisible(withText("What is your name?"))
 
         Interactions.clickOn(withText(R.string.form_forward))
         scheduler.flush()
-        assertText(withText("What is your age?"))
+        assertVisible(withText("What is your age?"))
 
         Interactions.clickOn(withContentDescription(R.string.view_hierarchy))
-        assertIntentsHelper.assertNewIntent(FormHierarchyActivity::class)
+        assertIntentsHelper.assertNewIntent(FormHierarchyFragmentHostActivity::class)
 
-        // Recreate and assert we start FormHierarchyActivity
+        // Recreate and assert we start FormHierarchyFragmentHostActivity
         val recreated = activityControllerRule.add {
             initial.recreateWithProcessRestore { resetProcess(dependencies) }
         }
 
         scheduler.flush()
-        assertIntentsHelper.assertNewIntent(FormHierarchyActivity::class)
+        assertIntentsHelper.assertNewIntent(FormHierarchyFragmentHostActivity::class)
 
-        // Return to FormFillingActivity from FormHierarchyActivity
+        // Return to FormFillingActivity from FormHierarchyFragmentHostActivity
         val hierarchyIntent = shadowOf(recreated.get()).nextStartedActivityForResult.intent
         shadowOf(recreated.get()).receiveResult(hierarchyIntent, Activity.RESULT_CANCELED, null)
         scheduler.flush()
 
-        assertText(withText("Two Question"))
-        assertText(withText("What is your age?"))
+        assertVisible(withText("Two Question"))
+        assertVisible(withText("What is your age?"))
     }
 
     @Test
@@ -162,7 +162,7 @@ class FormFillingActivityTest {
         val projectId = CollectHelpers.setupDemoProject()
 
         val form = setupForm("forms/two-question.xml")
-        val intent = FormFillingIntentFactory.newInstanceIntent(
+        val intent = FormFillingIntentFactory.newFormIntent(
             application,
             FormsContract.getUri(projectId, form!!.dbId),
             FormFillingActivity::class
@@ -171,12 +171,12 @@ class FormFillingActivityTest {
         // Start activity
         val initial = activityControllerRule.build(FormFillingActivity::class.java, intent).setup()
         scheduler.flush()
-        assertText(withText("Two Question"))
-        assertText(withText("What is your name?"))
+        assertVisible(withText("Two Question"))
+        assertVisible(withText("What is your name?"))
 
         Interactions.clickOn(withText(R.string.form_forward))
         scheduler.flush()
-        assertText(withText("What is your age?"))
+        assertVisible(withText("What is your age?"))
 
         val initialFragmentManager = initial.get().supportFragmentManager
         DialogFragmentUtils.showIfNotShowing(TestDialogFragment::class.java, initialFragmentManager)
@@ -185,21 +185,21 @@ class FormFillingActivityTest {
             equalTo(true)
         )
 
-        // Recreate and assert we start FormHierarchyActivity
+        // Recreate and assert we start FormHierarchyFragmentHostActivity
         val recreated = activityControllerRule.add {
             initial.recreateWithProcessRestore { resetProcess(dependencies) }
         }
 
         scheduler.flush()
-        assertIntentsHelper.assertNewIntent(FormHierarchyActivity::class)
+        assertIntentsHelper.assertNewIntent(FormHierarchyFragmentHostActivity::class)
 
-        // Return to FormFillingActivity from FormHierarchyActivity
+        // Return to FormFillingActivity from FormHierarchyFragmentHostActivity
         val hierarchyIntent = shadowOf(recreated.get()).nextStartedActivityForResult.intent
         shadowOf(recreated.get()).receiveResult(hierarchyIntent, Activity.RESULT_CANCELED, null)
         scheduler.flush()
 
-        assertText(withText("Two Question"))
-        assertText(withText("What is your age?"))
+        assertVisible(withText("Two Question"))
+        assertVisible(withText("What is your age?"))
     }
 
     @Test
@@ -207,7 +207,7 @@ class FormFillingActivityTest {
         val projectId = CollectHelpers.setupDemoProject()
 
         val form = setupForm("forms/two-question-external.xml")
-        val intent = FormFillingIntentFactory.newInstanceIntent(
+        val intent = FormFillingIntentFactory.newFormIntent(
             application,
             FormsContract.getUri(projectId, form!!.dbId),
             FormFillingActivity::class
@@ -216,12 +216,12 @@ class FormFillingActivityTest {
         // Start activity
         val initial = activityControllerRule.build(FormFillingActivity::class.java, intent).setup()
         scheduler.flush()
-        assertText(withText("Two Question"))
-        assertText(withText("What is your name?"))
+        assertVisible(withText("Two Question"))
+        assertVisible(withText("What is your name?"))
 
         Interactions.clickOn(withText(R.string.form_forward))
         scheduler.flush()
-        assertText(withText("What is your age?"))
+        assertVisible(withText("What is your age?"))
 
         // Open external app
         Interactions.clickOn(withContentDescription(R.string.launch_app))
@@ -236,9 +236,9 @@ class FormFillingActivityTest {
         scheduler.flush()
 
         assertIntentsHelper.assertNoNewIntent()
-        assertText(withText("Two Question"))
-        assertText(withText("What is your age?"))
-        assertText(withText("159"))
+        assertVisible(withText("Two Question"))
+        assertVisible(withText("What is your age?"))
+        assertVisible(withText("159"))
     }
 
     /**
@@ -249,7 +249,7 @@ class FormFillingActivityTest {
     fun whenFormDoesNotExist_showsFatalError() {
         val projectId = CollectHelpers.setupDemoProject()
 
-        val intent = FormFillingIntentFactory.newInstanceIntent(
+        val intent = FormFillingIntentFactory.newFormIntent(
             application,
             FormsContract.getUri(projectId, 101),
             FormFillingActivity::class
@@ -257,8 +257,8 @@ class FormFillingActivityTest {
 
         val scenario = scenarioLauncherRule.launch<FormFillingActivity>(intent)
         scheduler.flush()
-        assertText(
-            withText("This form no longer exists, please email support@getodk.org with a description of what you were doing when this happened."),
+        assertVisible(
+            withText("This form no longer exists, please email support@kobotoolbox.org with a description of what you were doing when this happened."),
             root = isDialog()
         )
 
@@ -273,7 +273,7 @@ class FormFillingActivityTest {
             File(formsDir, "two-question.xml")
         )
 
-        val formsRepository = component.formsRepositoryProvider().get()
+        val formsRepository = component.formsRepositoryProvider().create()
         val form = formsRepository.save(form(formFilePath = formFile.absolutePath))
         return form
     }

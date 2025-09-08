@@ -34,8 +34,8 @@ public class ExVideoWidget extends QuestionWidget implements FileWidget, WidgetD
     File answerFile;
 
     public ExVideoWidget(Context context, QuestionDetails questionDetails, QuestionMediaManager questionMediaManager,
-                         WaitingForDataRegistry waitingForDataRegistry, FileRequester fileRequester) {
-        super(context, questionDetails);
+                         WaitingForDataRegistry waitingForDataRegistry, FileRequester fileRequester, Dependencies dependencies) {
+        super(context, dependencies, questionDetails);
 
         this.waitingForDataRegistry = waitingForDataRegistry;
         this.questionMediaManager = questionMediaManager;
@@ -93,7 +93,7 @@ public class ExVideoWidget extends QuestionWidget implements FileWidget, WidgetD
             }
         } else if (object != null) {
             if (object instanceof File) {
-                ToastUtils.showLongToast(getContext(), org.odk.collect.strings.R.string.invalid_file_type);
+                ToastUtils.showLongToast(org.odk.collect.strings.R.string.invalid_file_type);
                 mediaUtils.deleteMediaFile(((File) object).getAbsolutePath());
                 Timber.e(new Error("ExVideoWidget's setBinaryData must receive a video file but received: " + FileUtils.getMimeType((File) object)));
             } else {

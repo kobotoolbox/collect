@@ -12,12 +12,10 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringContains.containsString;
 
-import org.jetbrains.annotations.NotNull;
 import org.odk.collect.android.R;
 import org.odk.collect.android.support.StorageUtils;
 import org.odk.collect.android.support.TestScheduler;
 import org.odk.collect.testshared.WaitFor;
-import org.odk.collect.strings.R.string;
 
 import java.io.IOException;
 import java.util.List;
@@ -55,9 +53,9 @@ public class MainMenuPage extends Page<MainMenuPage> {
         return new AddNewRepeatDialog(repeatName).assertOnPage();
     }
 
-    public ErrorDialog startBlankFormWithError(String formName) {
+    public ErrorDialog startBlankFormWithError(String formName, boolean isFatal) {
         goToBlankForm(formName);
-        return new ErrorDialog().assertOnPage();
+        return new ErrorDialog().assertOnPage(isFatal);
     }
 
     public OkDialog startBlankFormWithDialog(String formName) {
@@ -78,21 +76,13 @@ public class MainMenuPage extends Page<MainMenuPage> {
     }
 
     public EditSavedFormPage clickDrafts() {
-        return clickDrafts(true);
-    }
-
-    public EditSavedFormPage clickDrafts(boolean firstOpen) {
         onView(withId(R.id.review_data)).perform(click());
-        return new EditSavedFormPage(firstOpen).assertOnPage();
+        return new EditSavedFormPage().assertOnPage();
     }
 
     public EditSavedFormPage clickDrafts(int formCount) {
-        return clickDrafts(formCount, true);
-    }
-
-    public EditSavedFormPage clickDrafts(int formCount, boolean firstOpen) {
         assertNumberOfEditableForms(formCount);
-        return clickDrafts(firstOpen);
+        return clickDrafts();
     }
 
     public MainMenuPage assertNumberOfFinalizedForms(int number) {
@@ -288,37 +278,9 @@ public class MainMenuPage extends Page<MainMenuPage> {
         return new EntitiesPage().assertOnPage();
     }
 
-    public MainMenuPage addEntityListInBrowser(String entityList) {
-        return openEntityBrowser()
-                .clickOptionsIcon(string.add_entity_list)
-                .clickOnTextInPopup(string.add_entity_list)
-                .inputText(entityList)
-                .clickOnTextInDialog(string.add)
-                .assertText(entityList)
-                .pressBack(new ExperimentalPage())
-                .pressBack(new ProjectSettingsPage())
-                .pressBack(new MainMenuPage());
-    }
-
     public MainMenuPage refreshForms() {
         return clickFillBlankForm()
                 .clickRefresh()
-                .pressBack(new MainMenuPage());
-    }
-
-    public MainMenuPage setupEntities(String entityList) {
-        return enableLocalEntitiesInForms()
-                .addEntityListInBrowser(entityList)
-                .refreshForms();
-    }
-
-    @NotNull
-    public MainMenuPage enableLocalEntitiesInForms() {
-        return openProjectSettingsDialog()
-                .clickSettings()
-                .clickExperimental()
-                .clickOnString(org.odk.collect.strings.R.string.include_local_entities_setting)
-                .pressBack(new ProjectSettingsPage())
                 .pressBack(new MainMenuPage());
     }
 }

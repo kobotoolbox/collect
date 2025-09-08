@@ -46,6 +46,7 @@ import org.junit.Assert.fail
 import org.odk.collect.android.BuildConfig
 import org.odk.collect.android.R
 import org.odk.collect.android.application.Collect
+import org.odk.collect.android.injection.config.AppDependencyModule
 import org.odk.collect.android.storage.StoragePathProvider
 import org.odk.collect.android.support.ActivityHelpers.getLaunchIntent
 import org.odk.collect.android.support.actions.RotateAction
@@ -131,7 +132,7 @@ abstract class Page<T : Page<T>> {
     }
 
     fun assertText(text: String): T {
-        Assertions.assertText(withText(text))
+        Assertions.assertVisible(withText(text))
         return this as T
     }
 
@@ -252,7 +253,12 @@ abstract class Page<T : Page<T>> {
     }
 
     fun clickOnText(text: String): T {
-        Interactions.clickOn(withText(text))
+        Interactions.clickOn(
+            allOf(
+                withText(text),
+                withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)
+            )
+        )
         return this as T
     }
 
@@ -290,11 +296,11 @@ abstract class Page<T : Page<T>> {
         return clickOnTextInDialog(getTranslatedString(text))
     }
 
-    fun <D : Page<D>> clickOnTextInDialog(text: Int, destination: D): D {
+    fun <D : Page<D>> clickOnTextInDialog(text: Int, destination: Page<D>): D {
         return clickOnTextInDialog(getTranslatedString(text), destination)
     }
 
-    fun <D : Page<D>> clickOnTextInDialog(text: String, destination: D): D {
+    fun <D : Page<D>> clickOnTextInDialog(text: String, destination: Page<D>): D {
         clickOnTextInDialog(text)
         return destination.assertOnPage()
     }
@@ -319,13 +325,13 @@ abstract class Page<T : Page<T>> {
         return this as T
     }
 
-    fun inputText(text: String?): T {
+    fun inputText(text: String): T {
         onView(withClassName(endsWith("EditText"))).perform(replaceText(text))
         closeSoftKeyboard()
         return this as T
     }
 
-    fun inputText(hint: Int, text: String?): T {
+    fun inputText(hint: Int, text: String): T {
         onView(withHint(getTranslatedString(hint))).perform(replaceText(text))
         closeSoftKeyboard()
         return this as T
@@ -372,12 +378,8 @@ abstract class Page<T : Page<T>> {
         return this as T
     }
 
-    fun checkIsSnackbarErrorVisible(): T {
-        onView(allOf(withId(com.google.android.material.R.id.snackbar_text))).check(
-            matches(
-                isDisplayed()
-            )
-        )
+    fun checkIsSnackbarErrorVisible(text: String): T {
+        onView(withId(com.google.android.material.R.id.snackbar_text)).check(matches(withText(containsString(text))))
         return this as T
     }
 
@@ -495,8 +497,8 @@ abstract class Page<T : Page<T>> {
         return this as T
     }
 
-    fun assertTextInDialog(text: Int): T {
-        return assertTextInDialog(getTranslatedString(text))
+    fun assertTextInDialog(text: Int, vararg formatArgs: Any): T {
+        return assertTextInDialog(getTranslatedString(text, *formatArgs))
     }
 
     fun closeSnackbar(): T {
@@ -533,9 +535,10 @@ abstract class Page<T : Page<T>> {
     fun <D : Page<D>> killAndReopenApp(
         launcherRule: ActivityScenarioLauncherRule,
         recentAppsRule: RecentAppsRule,
-        destination: D
+        destination: D,
+        appDependencyModule: AppDependencyModule? = null
     ): D {
-        recentAppsRule.leaveAndKillApp()
+        recentAppsRule.leaveAndKillApp(appDependencyModule)
 
         // reopen
         launcherRule.launch<Activity>(getLaunchIntent())
@@ -576,6 +579,35 @@ abstract class Page<T : Page<T>> {
         }
 
         return destination
+    }
+
+    fun assertNoId(id: Int): T {
+        onView(withId(id)).check(doesNotExist())
+        return this as T
+    }
+
+    fun async(): AsyncPage<T> {
+        return AsyncPage(this as T)
+    }
+
+    fun assertTextBelow(below: String, above: String): T {
+        Assertions.assertBelow(withText(below), withText(above))
+        return this as T
+    }
+
+    fun assertTextBelow(below: Int, above: String): T {
+        Assertions.assertBelow(withText(getTranslatedString(below)), withText(above))
+        return this as T
+    }
+
+    fun assertTextBelow(below: String, above: Int): T {
+        Assertions.assertBelow(withText(below), withText(getTranslatedString(above)))
+        return this as T
+    }
+
+    fun assertTextBesides(one: Matcher<String>, two: Matcher<String>): T {
+        Assertions.assertVisible(withText(one), sibling = withText(two))
+        return this as T
     }
 
     companion object {

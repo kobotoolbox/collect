@@ -23,13 +23,14 @@ import android.database.SQLException;
 import android.net.Uri;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
 import org.javarosa.core.model.FormDef;
 import org.javarosa.core.model.FormIndex;
-import org.javarosa.core.model.instance.InstanceInitializationFactory;
+import org.javarosa.core.model.FormInitializationMode;
 import org.javarosa.core.model.instance.TreeElement;
 import org.javarosa.core.model.instance.TreeReference;
 import org.javarosa.core.model.instance.utils.DefaultAnswerResolver;
@@ -56,6 +57,7 @@ import org.odk.collect.android.utilities.InstancesRepositoryProvider;
 import org.odk.collect.android.utilities.ZipUtils;
 import org.odk.collect.async.Scheduler;
 import org.odk.collect.async.SchedulerAsyncTaskMimic;
+import org.odk.collect.entities.javarosa.spec.UnrecognizedEntityVersionException;
 import org.odk.collect.forms.Form;
 import org.odk.collect.forms.instances.Instance;
 import org.odk.collect.forms.savepoints.Savepoint;
@@ -66,6 +68,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -141,7 +144,9 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
 
     FECWrapper data;
 
-    public FormLoaderTask(Uri uri, String uriMimeType, String xpath, String waitingXPath, FormEntryControllerFactory formEntryControllerFactory, Scheduler scheduler, SavepointsRepository savepointsRepository) {
+    public FormLoaderTask(Uri uri, String uriMimeType, String xpath, String waitingXPath,
+                          FormEntryControllerFactory formEntryControllerFactory, Scheduler scheduler,
+                          SavepointsRepository savepointsRepository) {
         super(scheduler);
         this.uri = uri;
         this.uriMimeType = uriMimeType;
@@ -160,15 +165,15 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
         errorMsg = null;
 
         if (uriMimeType != null && uriMimeType.equals(InstancesContract.CONTENT_ITEM_TYPE)) {
-            instance = new InstancesRepositoryProvider(Collect.getInstance()).get().get(ContentUriHelper.getIdFromUri(uri));
+            instance = new InstancesRepositoryProvider(Collect.getInstance()).create().get(ContentUriHelper.getIdFromUri(uri));
             instancePath = instance.getInstanceFilePath();
 
-            List<Form> candidateForms = new FormsRepositoryProvider(Collect.getInstance()).get().getAllByFormIdAndVersion(instance.getFormId(), instance.getFormVersion());
+            List<Form> candidateForms = new FormsRepositoryProvider(Collect.getInstance()).create().getAllByFormIdAndVersion(instance.getFormId(), instance.getFormVersion());
 
             form = candidateForms.get(0);
             savepoint = savepointsRepository.get(form.getDbId(), instance.getDbId());
         } else if (uriMimeType != null && uriMimeType.equals(FormsContract.CONTENT_ITEM_TYPE)) {
-            form = new FormsRepositoryProvider(Collect.getInstance()).get().get(ContentUriHelper.getIdFromUri(uri));
+            form = new FormsRepositoryProvider(Collect.getInstance()).create().get(ContentUriHelper.getIdFromUri(uri));
             if (form == null) {
                 Timber.e(new Error("form is null"));
                 errorMsg = "This form no longer exists, please email support@kobotoolbox.org with a description of what you were doing when this happened.";
@@ -191,12 +196,16 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
         unzipMediaFiles(formMediaDir);
         setupReferenceManagerForForm(ReferenceManager.instance(), formMediaDir);
 
+        logFormDetails(formXml, formMediaDir);
+
         FormDef formDef = null;
         try {
             formDef = createFormDefFromCacheOrXml(form.getFormFilePath(), formXml);
         } catch (StackOverflowError e) {
             Timber.e(e);
             errorMsg = getLocalizedString(Collect.getInstance(), org.odk.collect.strings.R.string.too_complex_form);
+        } catch (UnrecognizedEntityVersionException e) {
+            errorMsg = getLocalizedString(Collect.getInstance(), org.odk.collect.strings.R.string.unrecognized_entity_version, e.getEntityVersion());
         } catch (Exception e) {
             Timber.w(e);
             errorMsg = "An unknown error has occurred. Please ask your project leadership to email support@kobotoolbox.org with information about this form.";
@@ -226,7 +235,7 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
         }
 
         // create FormEntryController from formdef
-        final FormEntryController fec = formEntryControllerFactory.create(formDef, formMediaDir);
+        final FormEntryController fec = formEntryControllerFactory.create(formDef, formMediaDir, instance);
 
         boolean usedSavepoint = false;
 
@@ -273,6 +282,35 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
         return data;
     }
 
+    private void logFormDetails(File formFile, File formMediaDir) {
+        long formFileBytesSize = formFile.length();
+
+        List<String> csvFileBytesSizes = new ArrayList<>();
+        File[] files = formMediaDir.listFiles();
+        if (files != null) {
+            for (File mediaFile : files) {
+                if (mediaFile.getName().endsWith(".csv")) {
+                    csvFileBytesSizes.add(mediaFile.length() + "B");
+                }
+            }
+        }
+
+        if (csvFileBytesSizes.isEmpty()) {
+            Timber.w(
+                    "Attempting to load from %s, file is %dB",
+                    formFile.getAbsolutePath(),
+                    formFileBytesSize
+            );
+        } else {
+            Timber.w(
+                    "Attempting to load from %s, file is %dB and has CSV files %s",
+                    formFile.getAbsolutePath(),
+                    formFileBytesSize,
+                    String.join(", ", csvFileBytesSizes)
+            );
+        }
+    }
+
     private static void unzipMediaFiles(File formMediaDir) {
         File[] zipFiles = formMediaDir.listFiles(new FileFilter() {
             @Override
@@ -302,7 +340,6 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
         }
 
         // no binary, read from xml
-        Timber.i("Attempting to load from: %s", formXml.getAbsolutePath());
         final long start = System.currentTimeMillis();
         String lastSavedSrc = FileUtils.getOrCreateLastSavedSrc(formXml);
         FormDef formDefFromXml = XFormUtils.getFormFromFormXml(formPath, lastSavedSrc);
@@ -366,7 +403,6 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
     }
 
     private boolean initializeForm(FormDef formDef, FormEntryController fec) throws IOException {
-        final InstanceInitializationFactory instanceInit = new InstanceInitializationFactory();
         boolean usedSavepoint = false;
 
         if (instancePath != null) {
@@ -385,13 +421,13 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
                     Timber.i("Importing data");
                     publishProgress(getLocalizedString(Collect.getInstance(), org.odk.collect.strings.R.string.survey_loading_reading_data_message));
                     importData(instanceXml, fec);
-                    formDef.initialize(false, instanceInit);
+                    formDef.initialize(FormInitializationMode.DRAFT_FORM_EDIT);
                 } catch (IOException | RuntimeException e) {
                     // Skip a savepoint file that is corrupted or 0-sized
                     if (usedSavepoint && !(e.getCause() instanceof XPathTypeMismatchException)) {
                         usedSavepoint = false;
                         instancePath = null;
-                        formDef.initialize(true, instanceInit);
+                        formDef.initialize(FormInitializationMode.NEW_FORM);
                         Timber.e(e, "Bad savepoint");
                     } else {
                         // The saved instance is corrupted.
@@ -401,10 +437,10 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
                     }
                 }
             } else {
-                formDef.initialize(true, instanceInit);
+                formDef.initialize(FormInitializationMode.NEW_FORM);
             }
         } else {
-            formDef.initialize(true, instanceInit);
+            formDef.initialize(FormInitializationMode.NEW_FORM);
         }
         return usedSavepoint;
     }
@@ -580,6 +616,6 @@ public class FormLoaderTask extends SchedulerAsyncTaskMimic<Void, String, FormLo
     }
 
     public interface FormEntryControllerFactory {
-        FormEntryController create(@NonNull FormDef formDef, @NonNull File formMediaDir);
+        FormEntryController create(@NonNull FormDef formDef, @NonNull File formMediaDir, @Nullable Instance instance);
     }
 }

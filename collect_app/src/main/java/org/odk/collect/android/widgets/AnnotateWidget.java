@@ -49,8 +49,8 @@ import java.util.Locale;
 public class AnnotateWidget extends BaseImageWidget {
     AnnotateWidgetBinding binding;
 
-    public AnnotateWidget(Context context, QuestionDetails prompt, QuestionMediaManager questionMediaManager, WaitingForDataRegistry waitingForDataRegistry, String tmpImageFilePath) {
-        super(context, prompt, questionMediaManager, waitingForDataRegistry, tmpImageFilePath);
+    public AnnotateWidget(Context context, QuestionDetails prompt, QuestionMediaManager questionMediaManager, WaitingForDataRegistry waitingForDataRegistry, String tmpImageFilePath, Dependencies dependencies) {
+        super(context, prompt, questionMediaManager, waitingForDataRegistry, tmpImageFilePath, dependencies);
         imageClickHandler = new DrawImageClickHandler(DrawActivity.OPTION_ANNOTATE, RequestCodes.ANNOTATE_IMAGE, org.odk.collect.strings.R.string.annotate_image);
         imageCaptureHandler = new ImageCaptureHandler();
 
@@ -136,7 +136,7 @@ public class AnnotateWidget extends BaseImageWidget {
         if (newImageObj instanceof File) {
             String mimeType = FileUtils.getMimeType((File) newImageObj);
             if ("image/gif".equals(mimeType)) {
-                ToastUtils.showLongToast(getContext(), org.odk.collect.strings.R.string.gif_not_supported);
+                ToastUtils.showLongToast(org.odk.collect.strings.R.string.gif_not_supported);
             } else {
                 super.setData(newImageObj);
                 binding.annotateButton.setEnabled(binaryName != null);

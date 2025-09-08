@@ -25,10 +25,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.VisibleForTesting;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentContainerView;
 
@@ -38,20 +36,17 @@ import org.odk.collect.androidshared.ui.ToastUtils;
 import org.odk.collect.async.Scheduler;
 import org.odk.collect.externalapp.ExternalAppUtils;
 import org.odk.collect.geo.GeoDependencyComponentProvider;
-import org.odk.collect.geo.GeoUtils;
 import org.odk.collect.geo.R;
 import org.odk.collect.maps.MapFragment;
 import org.odk.collect.maps.MapFragmentFactory;
 import org.odk.collect.maps.MapPoint;
-import org.odk.collect.maps.layers.OfflineMapLayersPicker;
+import org.odk.collect.maps.layers.OfflineMapLayersPickerBottomSheetDialogFragment;
 import org.odk.collect.maps.layers.ReferenceLayerRepository;
 import org.odk.collect.maps.markers.MarkerDescription;
 import org.odk.collect.maps.markers.MarkerIconDescription;
 import org.odk.collect.settings.SettingsProvider;
 import org.odk.collect.strings.localization.LocalizedActivity;
 import org.odk.collect.webpage.ExternalWebPageHelper;
-
-import java.text.DecimalFormat;
 
 import javax.inject.Inject;
 
@@ -103,8 +98,7 @@ public class GeoPointMapActivity extends LocalizedActivity {
     private MapFragment map;
     private int featureId = -1;  // will be a positive featureId once map is ready
 
-    private TextView locationStatus;
-    private TextView locationInfo;
+    private AccuracyStatusView locationStatus;
 
     private MapPoint location;
     private ImageButton placeMarkerButton;
@@ -140,7 +134,7 @@ public class GeoPointMapActivity extends LocalizedActivity {
         ((GeoDependencyComponentProvider) getApplication()).getGeoDependencyComponent().inject(this);
         getSupportFragmentManager().setFragmentFactory(new FragmentFactoryBuilder()
                 .forClass(MapFragment.class, () -> (Fragment) mapFragmentFactory.createMapFragment())
-                .forClass(OfflineMapLayersPicker.class, () -> new OfflineMapLayersPicker(getActivityResultRegistry(), referenceLayerRepository, scheduler, settingsProvider, externalWebPageHelper))
+                .forClass(OfflineMapLayersPickerBottomSheetDialogFragment.class, () -> new OfflineMapLayersPickerBottomSheetDialogFragment(getActivityResultRegistry(), referenceLayerRepository, scheduler, settingsProvider, externalWebPageHelper))
                 .build()
         );
         super.onCreate(savedInstanceState);
@@ -154,13 +148,12 @@ public class GeoPointMapActivity extends LocalizedActivity {
             setContentView(R.layout.geopoint_layout);
         } catch (NoClassDefFoundError e) {
             Timber.e(e, "Google maps not accessible due to: %s ", e.getMessage());
-            ToastUtils.showShortToast(this, org.odk.collect.strings.R.string.google_play_services_error_occured);
+            ToastUtils.showShortToast(org.odk.collect.strings.R.string.google_play_services_error_occured);
             finish();
             return;
         }
 
-        locationStatus = findViewById(R.id.location_status);
-        locationInfo = findViewById(R.id.location_info);
+        locationStatus = findViewById(R.id.status_section);
         placeMarkerButton = findViewById(R.id.place_marker);
         zoomButton = findViewById(R.id.zoom);
 
@@ -197,7 +190,6 @@ public class GeoPointMapActivity extends LocalizedActivity {
         state.putBoolean(ZOOM_BUTTON_ENABLED_KEY, zoomButton.isEnabled());
         state.putBoolean(CLEAR_BUTTON_ENABLED_KEY, clearButton.isEnabled());
         state.putInt(LOCATION_STATUS_VISIBILITY_KEY, locationStatus.getVisibility());
-        state.putInt(LOCATION_INFO_VISIBILITY_KEY, locationInfo.getVisibility());
     }
 
     public void returnLocation() {
@@ -238,11 +230,11 @@ public class GeoPointMapActivity extends LocalizedActivity {
 
         // Focuses on marked location
         zoomButton.setEnabled(false);
-        zoomButton.setOnClickListener(v -> map.zoomToPoint(map.getGpsLocation(), true));
+        zoomButton.setOnClickListener(v -> map.zoomToCurrentLocation(map.getGpsLocation()));
 
         // Menu Layer Toggle
         findViewById(R.id.layer_menu).setOnClickListener(v -> {
-            DialogFragmentUtils.showIfNotShowing(OfflineMapLayersPicker.class, getSupportFragmentManager());
+            DialogFragmentUtils.showIfNotShowing(OfflineMapLayersPickerBottomSheetDialogFragment.class, getSupportFragmentManager());
         });
 
         clearButton = findViewById(R.id.clear);
@@ -254,7 +246,6 @@ public class GeoPointMapActivity extends LocalizedActivity {
                 // locationStatus.setVisibility(View.VISIBLE);
             }
             // placeMarkerButton.setEnabled(true);
-            locationInfo.setVisibility(View.VISIBLE);
             locationStatus.setVisibility(View.VISIBLE);
             pointFromIntent = false;
         });
@@ -264,7 +255,7 @@ public class GeoPointMapActivity extends LocalizedActivity {
             intentDraggable = intent.getBooleanExtra(EXTRA_DRAGGABLE_ONLY, false);
             if (!intentDraggable) {
                 // Not Draggable, set text for Map else leave as placement-map text
-                locationInfo.setText(getString(org.odk.collect.strings.R.string.geopoint_no_draggable_instruction));
+                locationStatus.setTitle(getString(org.odk.collect.strings.R.string.geopoint_no_draggable_instruction));
             }
 
             intentReadOnly = intent.getBooleanExtra(EXTRA_READ_ONLY, false);
@@ -285,7 +276,6 @@ public class GeoPointMapActivity extends LocalizedActivity {
 
                 captureLocation = true;
                 pointFromIntent = true;
-                locationInfo.setVisibility(View.GONE);
                 locationStatus.setVisibility(View.GONE);
                 zoomButton.setEnabled(true);
                 foundFirstLocation = true;
@@ -334,7 +324,6 @@ public class GeoPointMapActivity extends LocalizedActivity {
         zoomButton.setEnabled(state.getBoolean(ZOOM_BUTTON_ENABLED_KEY, false));
         clearButton.setEnabled(state.getBoolean(CLEAR_BUTTON_ENABLED_KEY, false));
 
-        locationInfo.setVisibility(state.getInt(LOCATION_INFO_VISIBILITY_KEY, View.GONE));
         locationStatus.setVisibility(state.getInt(LOCATION_STATUS_VISIBILITY_KEY, View.GONE));
     }
 
@@ -354,21 +343,16 @@ public class GeoPointMapActivity extends LocalizedActivity {
             }
 
             if (!foundFirstLocation) {
-                map.zoomToPoint(map.getGpsLocation(), true);
+                map.zoomToCurrentLocation(map.getGpsLocation());
                 foundFirstLocation = true;
             }
 
-            locationStatus.setText(formatLocationStatus(map.getLocationProvider(), point.accuracy));
+            locationStatus.setAccuracy(new LocationAccuracy.Improving((float) point.accuracy));
         }
     }
 
     public String formatResult(MapPoint point) {
         return String.format("%s %s %s %s", point.latitude, point.longitude, point.altitude, point.accuracy);
-    }
-
-    public String formatLocationStatus(String provider, double accuracyRadius) {
-        return getString(org.odk.collect.strings.R.string.location_accuracy, new DecimalFormat("#.##").format(accuracyRadius))
-                + " " + getString(org.odk.collect.strings.R.string.location_provider, GeoUtils.capitalizeGps(provider));
     }
 
     public void onDragEnd(int draggedFeatureId) {
@@ -418,9 +402,5 @@ public class GeoPointMapActivity extends LocalizedActivity {
         }
         captureLocation = true;
         setClear = false;
-    }
-
-    @VisibleForTesting public String getLocationStatus() {
-        return locationStatus.getText().toString();
     }
 }

@@ -53,6 +53,7 @@ import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.crypto.BadPaddingException;
@@ -137,10 +138,7 @@ public class EncryptionUtils {
                 md.update(instanceMetadata.instanceId.getBytes(UTF_8));
                 md.update(key);
                 byte[] messageDigest = md.digest();
-                ivSeedArray = new byte[IV_BYTE_LENGTH];
-                for (int i = 0; i < IV_BYTE_LENGTH; ++i) {
-                    ivSeedArray[i] = messageDigest[i % messageDigest.length];
-                }
+                ivSeedArray = Arrays.copyOf(messageDigest, IV_BYTE_LENGTH);
             } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
                 Timber.e(e, "Unable to set md5 hash for instanceid and symmetric key.");
                 throw new IllegalArgumentException(e.getMessage());
@@ -267,7 +265,7 @@ public class EncryptionUtils {
         Form form = null;
 
         if (InstancesContract.CONTENT_ITEM_TYPE.equals(Collect.getInstance().getContentResolver().getType(uri))) {
-            Instance instance = new InstancesRepositoryProvider(Collect.getInstance()).get().get(ContentUriHelper.getIdFromUri(uri));
+            Instance instance = new InstancesRepositoryProvider(Collect.getInstance()).create().get(ContentUriHelper.getIdFromUri(uri));
             if (instance == null) {
                 String msg = getLocalizedString(Collect.getInstance(), org.odk.collect.strings.R.string.not_exactly_one_record_for_this_instance);
                 Timber.e(new Error(msg));
@@ -277,11 +275,11 @@ public class EncryptionUtils {
             formId = instance.getFormId();
             formVersion = instance.getFormVersion();
 
-            List<Form> forms = new FormsRepositoryProvider(Collect.getInstance()).get().getAllByFormIdAndVersion(formId, formVersion);
+            List<Form> forms = new FormsRepositoryProvider(Collect.getInstance()).create().getAllByFormIdAndVersion(formId, formVersion);
 
             // OK to finalize with form definition that was soft-deleted. OK if there are multiple
             // forms with the same formid/version as long as only one is active (not deleted).
-            if (forms.isEmpty() || new FormsRepositoryProvider(Collect.getInstance()).get().getAllNotDeletedByFormIdAndVersion(formId, formVersion).size() > 1) {
+            if (forms.isEmpty() || new FormsRepositoryProvider(Collect.getInstance()).create().getAllNotDeletedByFormIdAndVersion(formId, formVersion).size() > 1) {
                 String msg = getLocalizedString(Collect.getInstance(), org.odk.collect.strings.R.string.not_exactly_one_blank_form_for_this_form_id);
                 Timber.d(msg);
                 throw new EncryptionException(msg, null);

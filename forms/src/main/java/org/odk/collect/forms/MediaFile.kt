@@ -17,8 +17,16 @@ package org.odk.collect.forms
 
 import java.io.Serializable
 
-data class MediaFile(
+data class MediaFile @JvmOverloads constructor(
     val filename: String,
     val hash: String,
-    val downloadUrl: String
-) : Serializable
+    val downloadUrl: String,
+    val type: Type? = null,
+    val integrityUrl: String? = null
+) : Serializable {
+
+    enum class Type {
+        ENTITY_LIST,
+        APPROVAL_ENTITY_LIST
+    }
+}

@@ -25,13 +25,14 @@ object InstanceListItemView {
 
         val imageView = view.findViewById<ImageView>(R.id.image)
         setImageFromStatus(imageView, instance)
+        view.findViewById<TextView>(R.id.form_title).text = instance.userVisibleInstanceName(context.resources)
         setUpSubtext(view, instance, context)
 
         val pill = view.findViewById<ErrorsPill>(R.id.chip)
         if (pill != null) {
             when (instance.status) {
                 Instance.STATUS_INVALID, Instance.STATUS_INCOMPLETE -> pill.errors = true
-                Instance.STATUS_VALID -> pill.errors = false
+                Instance.STATUS_VALID, Instance.STATUS_NEW_EDIT -> pill.errors = false
                 else -> pill.visibility = View.GONE
             }
         }
@@ -41,7 +42,7 @@ object InstanceListItemView {
             var isFormEncrypted = false
             val formId = instance.formId
             val formVersion = instance.formVersion
-            val form = FormsRepositoryProvider(context.applicationContext).get()
+            val form = FormsRepositoryProvider(context.applicationContext).create()
                 .getLatestByFormIdAndVersion(formId, formVersion)
 
             if (form != null) {

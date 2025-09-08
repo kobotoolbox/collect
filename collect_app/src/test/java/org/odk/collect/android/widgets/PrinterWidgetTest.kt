@@ -17,7 +17,7 @@ import org.odk.collect.android.utilities.QuestionMediaManager
 import org.odk.collect.android.widgets.base.QuestionWidgetTest
 import org.odk.collect.androidshared.ui.multiclicksafe.MultiClickSafeMaterialButton
 import org.odk.collect.printer.HtmlPrinter
-import org.odk.collect.qrcode.QRCodeCreator
+import org.odk.collect.qrcode.zxing.QRCodeCreator
 import org.odk.collect.testshared.FakeScheduler
 
 class PrinterWidgetTest : QuestionWidgetTest<PrinterWidget, IAnswerData>() {
@@ -26,7 +26,13 @@ class PrinterWidgetTest : QuestionWidgetTest<PrinterWidget, IAnswerData>() {
     private val qrCodeCreator = mock<QRCodeCreator>()
     private val htmlPrinter = mock<HtmlPrinter>()
 
-    override fun createWidget() = PrinterWidget(activity, QuestionDetails(formEntryPrompt), PrinterWidgetViewModel(scheduler, qrCodeCreator, htmlPrinter), questionMediaManager)
+    override fun createWidget() = PrinterWidget(
+        activity,
+        QuestionDetails(formEntryPrompt),
+        PrinterWidgetViewModel(scheduler, qrCodeCreator, htmlPrinter),
+        questionMediaManager,
+        dependencies
+    )
 
     @Test
     fun `clicking the button should trigger printing html document if answer exists`() {

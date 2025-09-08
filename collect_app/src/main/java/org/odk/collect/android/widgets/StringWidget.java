@@ -40,14 +40,15 @@ import org.odk.collect.android.widgets.utilities.StringWidgetUtils;
 public class StringWidget extends QuestionWidget {
     public final WidgetAnswerText widgetAnswerText;
 
-    protected StringWidget(Context context, QuestionDetails questionDetails) {
-        super(context, questionDetails);
+    protected StringWidget(Context context, QuestionDetails questionDetails, Dependencies dependencies) {
+        super(context, dependencies, questionDetails);
 
         widgetAnswerText = new WidgetAnswerText(context);
         widgetAnswerText.init(
                 QuestionFontSizeUtils.getFontSize(settings, QuestionFontSizeUtils.FontSize.HEADLINE_6),
                 questionDetails.isReadOnly(),
                 StringWidgetUtils.getNumberOfRows(questionDetails.getPrompt()),
+                Appearances.isMultiline(questionDetails.getPrompt()),
                 Appearances.isMasked(questionDetails.getPrompt()),
                 this::widgetValueChanged
         );

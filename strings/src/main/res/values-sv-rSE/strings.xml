@@ -69,6 +69,7 @@
   <string name="jump_to_end">Gå till slutet</string>
   <!--Text of button from the form's table of contents to navigate out of a group or a repeat-->
   <string name="jump_to_previous">Flytta upp</string>
+  <!--Text of button from the form's table of contents to edit a finalized form-->
   <!--Displayed below group names in a form's table of contents-->
   <string name="group_label">Gruppera</string>
   <!--Displayed below repeat names in a form's table of contents-->
@@ -77,7 +78,6 @@
   <!--This sentence is used in the dialog for adding repeats and will be completed by a singular noun usually. Examples would be ‘Add “observation”?’ or ‘Add “Reading”?’. If the phrase doesn’t make sense in your language you can add a word like “new”, being careful of gender/plural.-->
   <string name="add_repeat_question">Vill du lägga till \"%s\"?</string>
   <string name="add_repeat">Lägg till</string>
-  <string name="dont_add_repeat">Lägg inte till</string>
   <string name="add_another_menu">Lägg till ytterligare en</string>
   <!--Title of overlay menu displayed when long pressing on a question in a form-->
   <string name="edit_prompt">Inmatningstext</string>
@@ -116,15 +116,11 @@
   <string name="phone_does_not_support_rsa">Telefonen stöder inte RSA-kryptering.</string>
   <string name="invalid_rsa_public_key">Ogiltig publik RSA-nyckel.</string>
   <string name="encryption_error_message">%s formulär har inte sparats som avslutat.</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
-  <string name="bad_uri">Ogiltig URI: %s</string>
-  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
-  <string name="unrecognized_uri">Okänd URI: %s</string>
+  <!--Displayed when an attempt is made to start form filling, but the form is broken-->
   <!--Text displayed when audio recording fails to start-->
   <!--Text displayed when user tries to start recording while the mic is already in use-->
   <!--Error message displayed when copying media from a temporary directory fails-->
   <!--Text displayed in the audio bar when background audio recording is explicitly disabled from the options menu. Should be as short as possible. The inserted string is ⋮ which indicates the options menu.-->
-  <!--Error displayed when opened filled form has been deleted on disk-->
   <!--Error displayed when something bad happens during updating widgets in a field-list group-->
   <!--##############################################
     # FORM FEATURES
@@ -135,8 +131,6 @@
   <string name="no_app">Det begärda programmet saknas. Vänligen mata in värdet manuellt.</string>
   <string name="null_intent_value">Den externa applikationen gav inte förväntad information.</string>
   <!--Text on button that is part of print questions. Tapping the button prints the value of the question.-->
-  <string name="launch_printer">Starta utskrift</string>
-  <string name="no_printer">Den valda skrivaren är inte installerad. Vänligen installera skrivaren.</string>
   <string name="open_url">Öppna URL</string>
   <string name="capture_osm">Starta OpenMapKit</string>
   <string name="recapture_osm">Upprepa OSM-taggning</string>
@@ -264,6 +258,18 @@
   <string name="islamic_month_11">Dhu al-Qidah</string>
   <string name="islamic_month_12">Dhu al-Hijjah</string>
   <string name="persian_month_4">Tir</string>
+  <!--1st month in the Buddhist calendar-->
+  <!--2nd month in the Buddhist calendar-->
+  <!--3rd month in the Buddhist calendar-->
+  <!--4th month in the Buddhist calendar-->
+  <!--5th month in the Buddhist calendar-->
+  <!--6th month in the Buddhist calendar-->
+  <!--7th month in the Buddhist calendar-->
+  <!--8th month in the Buddhist calendar-->
+  <!--9th month in the Buddhist calendar-->
+  <!--10th month in the Buddhist calendar-->
+  <!--11th month in the Buddhist calendar-->
+  <!--12th month in the Buddhist calendar-->
   <!--Displays dates in specialized calendars with the Gregorian dates in parentheses. This is translated so right-to-left languages can specify the correct order-->
   <string name="custom_date">%1$s (%2$s)</string>
   <!--Displayed when a form media file such as an image for a question label or an audio file for a choice is invalid-->
@@ -325,7 +331,6 @@
   <!--Text for option where layer should be available to the current project only-->
   <!--Text for message displayed in a dialog to confirm that the layer should be deleted. The placeholder is the name of the layer as displayed in the list-->
   <string name="provider_disabled_error">Tyvärr, platstjänster är inaktiverade!</string>
-  <string name="gps_result">Latitud: %1$s\nLongitud: %2$s\nAltitud: %3$sm\nNoggrannhet: %4$sm</string>
   <!--Action to go to Android settings. Displayed when location providers are disabled.-->
   <!--Displayed in the form filling menu when a form has background location enabled-->
   <!--Displayed in the form filling menu when a form has background location disabled-->
@@ -358,7 +363,6 @@
   <string name="accuracy_requirement">Krav på noggrannhet:</string>
   <string name="none">Ingen</string>
   <!--Used to display choices for accuracy requirements in geotrace and geoshape questions-->
-  <string name="geopoint_instruction">Lång tryckning för att placera markör eller knacka på knappen \'lägg till markör\'</string>
   <string name="geopoint_no_draggable_instruction">Knacka på knappen \'lägg till markör\'.</string>
   <string name="discard">Ignorera</string>
   <!--Name of an action button-->
@@ -546,6 +550,7 @@
   <!--Displayed when a device property such as the phone number is not available-->
   <!--Label for an item displayed in the project settings menu to unlock settings-->
   <!--Label for an item displayed in the project settings menu to indicate that settings are unlocked-->
+  <!--Summary on setting that's currently not available because the user has entered settings from form entry-->
   <!--##############################################
      # PROTECTED SETTINGS
      ##############################################-->
@@ -634,7 +639,6 @@ Dela KoboCollect med dem.</string>
   <string name="fs_delete_media_path_if_file_error">Kan inte radera \'%s\'. Vänligen radera filen manuellt och ladda hem formuläret igen.</string>
   <string name="fs_create_media_folder_error">Kan inte skapa mediamappen \'%s\'.</string>
   <string name="fs_file_copy_error">Kan inte kopiera \'%1$s\' över \'%2$s\'. Orsak: %3$s</string>
-  <string name="survey_multiple_forms_error">Du har laddat ner två olika formulär med samma ID och version. Kanske har dem laddats upp vid olika tidpunkter eller till olika servrar. I vilket fall som helst bör du radera ett av dem.</string>
   <string name="select_odk_shortcut">Välj KoboToolbox genväg</string>
   <!--##############################################
      # Projects
@@ -658,20 +662,31 @@ Dela KoboCollect med dem.</string>
   <!--Text for the button that allows for manually entering project details. Should be short-->
   <!--Immediately followed by "Try Collect" which is a link to create a demo project-->
   <!--Preceded by "Don't have a project yet?" question-->
-  <!--Error shown when a user tries to open a form that's in a different project-->
-  <!--Error shown when a user tries to open a form when there are no projects-->
   <!--##############################################
     # Errors
     ##############################################-->
+  <!--##############################################
+    # Form opening errors
+    ##############################################-->
+  <!--Error shown when a user tries to open a form that's in a different project-->
+  <!--Error shown when a user tries to open a form when there are no projects-->
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI mime type is unknown-->
+  <string name="unrecognized_uri">Okänd URI: %s</string>
+  <!--Displayed when form filling is attempted to be launched by intent but the intent URI is incorrect-->
+  <string name="bad_uri">Ogiltig URI: %s</string>
+  <!--Error displayed when opened filled form has been deleted on disk-->
+  <!--Error shown when a user tries to edit a form but there is no corresponding blank form-->
+  <!--Error shown when a user tries to open a form but there is more than one form with the same form ID-->
+  <string name="survey_multiple_forms_error">Du har laddat ner två olika formulär med samma ID och version. Kanske har dem laddats upp vid olika tidpunkter eller till olika servrar. I vilket fall som helst bör du radera ett av dem.</string>
+  <!--Error shown when a user tries to open a form when forms update is being applied in the background-->
   <!--##############################################
     # Permissions
     ##############################################-->
   <!--An entity is any person, place or thing that a form can be about. This title appears on an experimental settings screen to view entities managed in the current project.-->
   <!--Title for setting that controls whether local entity features are enabled or not-->
   <!--Text for button that leads to browser for the user to view and manage entity lists-->
-  <!--Text for button that deletes all entities for the project-->
-  <!--Text for button that adds a new entity list-->
   <!--Label for entity that has been created offline and is not on the server yet-->
+  <!--Error message displayed when a user opens a form with an unrecognized entity version-->
   <!--##############################################
     # Crash handling
     ##############################################-->
@@ -684,6 +699,7 @@ Dela KoboCollect med dem.</string>
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
   <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
+  <!--Option provided in the Developer tools settings to allow debugging filters during form entry-->
   <!--##############################################
     # Form saved Snackbar
     ##############################################-->
@@ -701,8 +717,6 @@ Dela KoboCollect med dem.</string>
   <!--Displayed above a draft that has constraints that aren't met or required questions that aren't answered or both. Should match the wording for the 'Check for errors' feature.-->
   <!--Displayed above a draft that has no constraint violations and in which all required questions have been answered. Should match the wording for the 'Check for errors' feature.-->
   <!--Title of section of features that the user can uncheck to hide from the Drafts screen-->
-  <!--Title for dialog explaining the drafts marked with "Error" shown to the user the first time they view the Drafts screen-->
-  <!--Message for dialog explaining the drafts marked with "Error" shown to the user the first time they view the Drafts screen-->
   <!--Message displayed when the list of questions is empty-->
   <!--Message displayed when the list of blank forms is empty-->
   <!--Subtext displayed when the list of blank forms is empty-->
@@ -720,7 +734,7 @@ Dela KoboCollect med dem.</string>
     # Savepoint recovery dialog
     ##############################################-->
   <!--Title displayed in a dialog before starting a form if there is a work to recover-->
-  <!--Message displayed in a dialog before starting a form if there is a work to recover-->
+  <!--Message displayed in a dialog before starting a form if there is a work to recover. Please format date appropriately for your language: http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html-->
   <!--Text for the button that accepts the recovery of the work-->
   <!--Text for the button that declines the recovery of the work-->
   <string name="do_not_recover">Ignorera</string>
@@ -734,4 +748,14 @@ Dela KoboCollect med dem.</string>
   <!--Text for the button that displays a map for getting a new polygon-->
   <!--Text for the button that displays a map for viewing or changing an already existing polygon-->
   <!--Text for the button that displays a map for viewing an already existing polygon-->
+  <!--Text to describe a field for setting settings JSON in a mobile device management platform (MDM)-->
+  <!--Text for the dialog that is displayed while the form is being prepared for editing-->
+  <!--Instance name with a suffix indicating the edit number, if this is an edited instance-->
+  <!--Text for the dialog title displayed when a user attempts to edit a finalized form and a newer draft version exists-->
+  <!--Text for the dialog message displayed when a user attempts to edit a finalized form and a newer draft version exists-->
+  <!--Text for the dialog positive button displayed when a user attempts to edit a finalized form and a newer draft version exists-->
+  <!--Text for the dialog title displayed when a user attempts to edit a finalized form and a newer finalized version exists-->
+  <!--Text for the dialog message displayed when a user attempts to edit a finalized form and a newer finalized version exists-->
+  <!--Text for the dialog positive button displayed when a user attempts to edit a finalized form and a newer finalized version exists-->
+  <!--Text for the snackbar shown when editing of a finalized form begins-->
 </resources>

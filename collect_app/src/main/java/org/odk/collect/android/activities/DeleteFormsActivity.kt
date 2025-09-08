@@ -27,8 +27,8 @@ import org.odk.collect.android.formlists.savedformlist.DeleteSavedFormFragment
 import org.odk.collect.android.formlists.savedformlist.SavedFormListViewModel
 import org.odk.collect.android.formmanagement.FormsDataService
 import org.odk.collect.android.injection.DaggerUtils
+import org.odk.collect.android.injection.config.ProjectDependencyModuleFactory
 import org.odk.collect.android.instancemanagement.InstancesDataService
-import org.odk.collect.android.projects.ProjectDependencyProviderFactory
 import org.odk.collect.android.projects.ProjectsDataService
 import org.odk.collect.androidshared.ui.FragmentFactoryBuilder
 import org.odk.collect.androidshared.ui.ListFragmentStateAdapter
@@ -41,7 +41,7 @@ import javax.inject.Inject
 
 class DeleteFormsActivity : LocalizedActivity() {
     @Inject
-    lateinit var projectDependencyProviderFactory: ProjectDependencyProviderFactory
+    lateinit var projectDependencyModuleFactory: ProjectDependencyModuleFactory
 
     @Inject
     lateinit var projectsDataService: ProjectsDataService
@@ -60,15 +60,15 @@ class DeleteFormsActivity : LocalizedActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         DaggerUtils.getComponent(this).inject(this)
 
-        val projectId = projectsDataService.getCurrentProject().uuid
-        val projectDependencyProvider = projectDependencyProviderFactory.create(projectId)
+        val projectId = projectsDataService.requireCurrentProject().uuid
+        val projectDependencyModule = projectDependencyModuleFactory.create(projectId)
 
         val viewModelFactory = ViewModelFactory(
-            projectDependencyProvider.instancesRepository,
+            projectDependencyModule.instancesRepository,
             this.application,
             formsDataService,
             scheduler,
-            projectDependencyProvider.generalSettings,
+            projectDependencyModule.generalSettings,
             projectId,
             instanceDataService
         )

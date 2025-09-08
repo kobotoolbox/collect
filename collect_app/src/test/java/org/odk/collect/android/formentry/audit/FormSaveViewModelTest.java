@@ -41,7 +41,7 @@ import org.odk.collect.android.tasks.SaveFormToDisk;
 import org.odk.collect.android.tasks.SaveToDiskResult;
 import org.odk.collect.android.utilities.MediaUtils;
 import org.odk.collect.audiorecorder.recording.AudioRecorder;
-import org.odk.collect.entities.EntitiesRepository;
+import org.odk.collect.entities.storage.EntitiesRepository;
 import org.odk.collect.forms.Form;
 import org.odk.collect.forms.instances.Instance;
 import org.odk.collect.forms.instances.InstancesRepository;
@@ -98,7 +98,7 @@ public class FormSaveViewModelTest {
 
         audioRecorder = mock(AudioRecorder.class);
         projectsDataService = mock(ProjectsDataService.class);
-        when(projectsDataService.getCurrentProject()).thenReturn(Project.Companion.getDEMO_PROJECT());
+        when(projectsDataService.requireCurrentProject()).thenReturn(Project.Companion.getDEMO_PROJECT());
 
         formSession = new MutableLiveData<>(new FormSession(formController, form));
         viewModel = new FormSaveViewModel(savedStateHandle, () -> CURRENT_TIME, formSaver, mediaUtils, scheduler, audioRecorder, projectsDataService, formSession, entitiesRepository, instancesRepository, savepointsRepository, mock());
@@ -507,6 +507,33 @@ public class FormSaveViewModelTest {
         whenFormSaverFinishes(SaveFormToDisk.SAVED);
 
         assertThat(viewModel.getLastSavedTime(), equalTo(formSaver.instance.getLastStatusChangeDate()));
+    }
+
+    @Test
+    public void canBeFullyDiscarded_whenNewInstance_returnsTrue() {
+        assertThat(viewModel.canBeFullyDiscarded(), equalTo(true));
+    }
+
+    @Test
+    public void canBeFullyDiscarded_whenSavedInstance_returnsFalse() {
+        Instance instance = new Instance.Builder()
+                .lastStatusChangeDate(123L)
+                .status(Instance.STATUS_VALID)
+                .build();
+
+        formSession.setValue(new FormSession(formController, form, instance));
+        assertThat(viewModel.canBeFullyDiscarded(), equalTo(false));
+    }
+
+    @Test
+    public void canBeFullyDiscarded_whenNewlyEditedInstance_returnsTrue() {
+        Instance instance = new Instance.Builder()
+                .lastStatusChangeDate(123L)
+                .status(Instance.STATUS_NEW_EDIT)
+                .build();
+
+        formSession.setValue(new FormSession(formController, form, instance));
+        assertThat(viewModel.canBeFullyDiscarded(), equalTo(true));
     }
 
     private void whenReasonRequiredToSave() {
