@@ -3,6 +3,7 @@ package org.odk.collect.android.formhierarchy;
 import static android.app.Activity.RESULT_OK;
 import static org.odk.collect.android.formentry.repeats.DeleteRepeatDialogFragment.REQUEST_DELETE_REPEAT;
 import static org.odk.collect.android.javarosawrapper.FormIndexUtils.getPreviousLevel;
+import static org.odk.collect.androidshared.ui.SnackbarUtils.showSnackbar;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -54,6 +55,7 @@ import org.odk.collect.android.javarosawrapper.JavaRosaFormController;
 import org.odk.collect.android.utilities.FormEntryPromptUtils;
 import org.odk.collect.android.utilities.HtmlUtils;
 import org.odk.collect.androidshared.ui.DialogFragmentUtils;
+import org.odk.collect.androidshared.ui.SnackbarUtils;
 import org.odk.collect.androidshared.ui.multiclicksafe.MultiClickGuard;
 import org.odk.collect.async.Scheduler;
 import org.odk.collect.forms.instances.Instance;
@@ -294,6 +296,18 @@ public class FormHierarchyFragment extends Fragment {
         }
 
         getChildFragmentManager().setFragmentResultListener(REQUEST_DELETE_REPEAT, getViewLifecycleOwner(), (requestKey, result) -> onRepeatDeleted());
+
+        boolean newEdit = FormHierarchyFragmentArgs.fromBundle(getArguments()).getNewEdit();
+        if (newEdit) {
+            showSnackbar(
+                    view,
+                    getString(org.odk.collect.strings.R.string.finalized_form_edit_started),
+                    SnackbarUtils.DURATION_LONG,
+                    null,
+                    null,
+                    true
+            );
+        }
     }
 
     public void refreshView() {
