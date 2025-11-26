@@ -599,7 +599,7 @@
   <string name="form_updates_available">Atualizações de formulários disponíveis</string>
   <string name="newer_version_of_a_form_info">Esta é uma atualização de um formulário que você possui</string>
   <string name="form_update_error">Falha na atualização do formulário</string>
-  <string name="form_update_error_massage">Abrir o ODK Collect para tentar novamente</string>
+  <string name="form_update_error_massage">Abrir o KoboCollect para tentar novamente</string>
   <string name="form_update_succeeded">Sucesso na atualização do formulário</string>
   <!--Text for notification shown while syncing forms with the server-->
   <string name="form_update_notification_title">Sincronizando formulários</string>
@@ -1009,7 +1009,7 @@
   <!--Label for entity that has been created offline and is not on the server yet-->
   <string name="offline">Offline</string>
   <!--Error message displayed when a user opens a form with an unrecognized entity version-->
-  <string name="unrecognized_entity_version">Este formulário não é compatível com esta versão do ODK Collect. Por favor, atualize o ODK Collect. Se o problema persistir, informe a pessoa responsável pela coleta de dados.\n\nVersão de especificação das Entidades do Formulário: %s</string>
+  <string name="unrecognized_entity_version">Este formulário não é compatível com esta versão do KoboCollect. Por favor, atualize o KoboCollect. Se o problema persistir, informe a pessoa responsável pela coleta de dados.\n\nVersão de especificação das Entidades do Formulário: %s</string>
   <!--##############################################
     # Crash handling
     ##############################################-->

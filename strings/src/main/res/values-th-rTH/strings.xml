@@ -35,7 +35,7 @@
   <!--A sort option for blank forms. When this option is selected, the form for which a filled instance was last filled will go first.-->
   <!--Displayed in search boxes for form lists or question types that involve search-->
   <string name="search">ค้นหา</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -275,7 +275,7 @@
   <string name="start">เริ่มต้น</string>
   <string name="enable_gps">เปิด GPS</string>
   <string name="geotrace_title">GeoTrace</string>
-  <string name="geo_exit_warning">ยกเลิกการเปลี่ยนแปลงและกลับไปที่ ODK?</string>
+  <string name="geo_exit_warning">ยกเลิกการเปลี่ยนแปลงและกลับไปที่ KoboToolbox?</string>
   <string name="polygon_validator">ต้องมีจุดพิกัด 3 จุดขึ้นไปเพื่อสร้าง Polygon</string>
   <string name="clear">ลบ</string>
   <!--Used to display choices for location recording interval in geotrace and geoshape questions-->
@@ -374,9 +374,9 @@
   <string name="change_server_url">URL ของเซิร์ฟเวอร์</string>
   <string name="url_error">ขออภัย URL ไม่ถูกต้อง</string>
   <string name="username">ชื่อผู้ใช้</string>
-  <string name="change_username">ชื่อผู้ใช้งาน ODK</string>
+  <string name="change_username">ชื่อผู้ใช้งาน KoboToolbox</string>
   <string name="password">รหัสผ่าน</string>
-  <string name="change_password">รหัสผ่าน ODK</string>
+  <string name="change_password">รหัสผ่าน KoboToolbox</string>
   <string name="password_error_whitespace">ไม่สามารถใช้ช่องว่างนำหน้าและตามหลังรหัสผ่าน</string>
   <string name="username_error_whitespace">ไม่สามารถใช้ช่องว่างนำหน้าและตามหลังชื่อผู้ใช้</string>
   <string name="language">ภาษา</string>
@@ -492,7 +492,7 @@
   <string name="fs_delete_media_path_if_file_error">ไม่สามารถลบ \'%s\' กรุณาลบไฟล์ด้วยตนเองแล้วดาวน์โหลดแบบสำรวจใหม่</string>
   <string name="fs_create_media_folder_error">ไม่สามารถสร้างแฟ้มมีเดีย \'%s\'</string>
   <string name="fs_file_copy_error">ไม่สามารถคัดลอก \'%1$s\' บน \'%2$s\' เนื่องจาก %3$s</string>
-  <string name="select_odk_shortcut">เลือก ODK Shortcut</string>
+  <string name="select_odk_shortcut">เลือก KoboToolbox Shortcut</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -556,7 +556,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--Option provided in the Developer tools settings to allow debugging filters during form entry-->
   <!--Option provided in the Experimental settings to revert to the old ZXing based barcode scanner-->
   <!--##############################################

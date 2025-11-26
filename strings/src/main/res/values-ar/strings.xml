@@ -47,13 +47,13 @@
   <string name="search">بحث</string>
   <string name="not_granted_permission">النشاط الذي تحاول بدء القيام به يحتاج إلى إذن لم تحصل عليه بعد.</string>
   <string name="storage_runtime_permission_denied_title">أذونات التخزين</string>
-  <string name="storage_runtime_permission_denied_desc">بدون هذه الأذونات لا يمكن لبرنامج ODK Collect الوصول إلى الاستمارات أو حفظ الإجابات. أعد فتح التطبيق عندما تكون مستعدًا لمنحهم.</string>
+  <string name="storage_runtime_permission_denied_desc">بدون هذه الأذونات لا يمكن لبرنامج KoboCollect الوصول إلى الاستمارات أو حفظ الإجابات. أعد فتح التطبيق عندما تكون مستعدًا لمنحهم.</string>
   <string name="location_runtime_permissions_denied_title">الأذونات الخاصة بالموقع</string>
-  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. ODK Collect only captures location if the precise location permission is granted.-->
+  <!--Starting in Android 12, Android makes it possible to give precise or approximate location permissions to an application. KoboCollect only captures location if the precise location permission is granted.-->
   <string name="camera_runtime_permission_denied_title">إذن الكاميرا</string>
-  <string name="camera_runtime_permission_denied_desc">بدون هذا الإذن لا يمكن لبرنامج ODK Collect الوصول إلى الكاميرا. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
+  <string name="camera_runtime_permission_denied_desc">بدون هذا الإذن لا يمكن لبرنامج KoboCollect الوصول إلى الكاميرا. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
   <string name="record_audio_runtime_permission_denied_title">إذن تسجيل الصوت</string>
-  <string name="record_audio_runtime_permission_denied_desc">بدون هذا الإذن لا يمكن لبرنامج ODK Collect الوصول إلى الميكروفون. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
+  <string name="record_audio_runtime_permission_denied_desc">بدون هذا الإذن لا يمكن لبرنامج KoboCollect الوصول إلى الميكروفون. يرجى المحاولة مرة أخرى عندما تكون مستعدًا لمنحه.</string>
   <!--##############################################
     # FILL BLANK FORM
     ##############################################-->
@@ -452,7 +452,7 @@
   <string name="geotrace_title">تتبع المسار</string>
   <string name="gps_enable_message">GPS غير مفعلة على جهازك. هل تريد تفعيلها؟</string>
   <string name="geo_clear_warning">الميزة تم إنشاؤها مسبقاً. هل ترغب في إزالتها؟</string>
-  <string name="geo_exit_warning">تجاهل التعديلات والعودة إلى ODK؟</string>
+  <string name="geo_exit_warning">تجاهل التعديلات والعودة إلى KoboToolbox؟</string>
   <string name="polygon_validator">يجب توفر 3 نقاط لإنشاء مضلع</string>
   <string name="polyline_validator">يجب توفر نقطتين لإنشاء خط</string>
   <string name="clear">إلغاء</string>
@@ -606,7 +606,7 @@
   <string name="username">إسم المستخدم</string>
   <string name="change_username">إسم المستخدم</string>
   <string name="password">كلمة المرور</string>
-  <string name="change_password">ODK كلمة المرور</string>
+  <string name="change_password">KoboToolbox كلمة المرور</string>
   <string name="password_error_whitespace">الفراغات في البداية أو النهاية غير مسموح بها في كلمات المرور</string>
   <string name="username_error_whitespace">الفراغات في البداية أو النهاية غير مسموح بها في اسم المستخدم</string>
   <string name="app_theme">المظهر</string>
@@ -751,14 +751,14 @@
      # ABOUT
      ##############################################-->
   <string name="about_preferences">حول التطبيق</string>
-  <string name="tell_your_friends">مشاركة رابط ODK Collect</string>
-  <string name="tell_your_friends_msg">هل ما زال زملائك يجمعون البيانات على الورق؟ شارك ODK Collect معهم.</string>
+  <string name="tell_your_friends">مشاركة رابط KoboCollect</string>
+  <string name="tell_your_friends_msg">هل ما زال زملائك يجمعون البيانات على الورق؟ شارك KoboCollect معهم.</string>
   <string name="leave_a_review">اترك تقييم في Play Store</string>
   <string name="leave_a_review_msg">تقييمك (الذي نأمل أن يكون إيجابيا) يزيد من رؤية التطبيق في Play Store.</string>
-  <string name="odk_website">زيارة موقع ODK</string>
-  <string name="odk_website_summary">يستخدم ODK لجمع البيانات من أجل الصالح الاجتماعي في البيئات الصعبة.</string>
-  <string name="odk_forum">انضم إلى منتدى ODK</string>
-  <string name="odk_forum_summary">انضم إلى المنتدى للحصول على الدعم وطلب الميزات والمساهمة بالكود / الترجمات!</string>
+  <string name="odk_website">زيارة موقع KoboToolbox</string>
+  <string name="odk_website_summary">KoboCollect is part of KoboToolbox and based on ODK Collect.</string>
+  <string name="odk_forum">انضم إلى منتدى KoboToolbox</string>
+  <string name="odk_forum_summary">Join the forum to get support and connect with other users!</string>
   <string name="all_open_source_licenses">مكتبات و تراخيص مفتوحة المصدر</string>
   <string name="all_open_source_licenses_msg">نقف على أكتاف العمالقة!</string>
   <!--##############################################
@@ -801,7 +801,7 @@
   <string name="fs_delete_media_path_if_file_error">لا يمكن حذف  \'%s\'.  يرجى حذف الملف يدويا وقم باعادة تحميل الاستمارة.</string>
   <string name="fs_create_media_folder_error">لا يمكن انشاء ملف وسائط متعددة \'%s\'.</string>
   <string name="fs_file_copy_error">لا يمكن النسخ  \'%1$s\' فوق  \'%2$s\'. السبب: \'%3$s\'</string>
-  <string name="select_odk_shortcut">اختيار اختصار ODK</string>
+  <string name="select_odk_shortcut">اختيار اختصار KoboToolbox</string>
   <!--##############################################
      # Projects
      ##############################################-->
@@ -868,7 +868,7 @@
     ##############################################-->
   <!--Section title in settings-->
   <!--Option provided in the Developer tools settings to force an application crash-->
-  <!--An uncaught exception is an exception that is not handled by ODK Collect and so will force the application to close-->
+  <!--An uncaught exception is an exception that is not handled by KoboCollect and so will force the application to close-->
   <!--Option provided in the Developer tools settings to allow debugging filters during form entry-->
   <!--Option provided in the Experimental settings to revert to the old ZXing based barcode scanner-->
   <!--##############################################
