@@ -43,7 +43,7 @@ class BlankFormListItemTest {
         assertThat(blankFormListItem.geometryPath, `is`(form.geometryXpath))
         assertThat(blankFormListItem.dateOfCreation, `is`(form.date))
         assertThat(blankFormListItem.dateOfLastUsage, `is`(3L))
-        assertThat(blankFormListItem.contentUri, `is`(Uri.parse("content://org.odk.collect.android.provider.odk.forms/forms/1?projectId=DEMO")))
+        assertThat(blankFormListItem.contentUri, `is`(Uri.parse("content://org.koboc.collect.android.provider.odk.forms/forms/1?projectId=DEMO")))
     }
 
     @Test

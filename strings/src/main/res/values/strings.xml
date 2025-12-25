@@ -159,7 +159,6 @@
     <string name="form_editing_enabled_after_finalizing_hint">To make changes after finalizing your form, go to \"Ready to send\", open the form, and tap the edit icon.</string>
     <!-- Details shown in an information box on the end of form screen when the form allows edits after sending -->
     <string name="form_editing_enabled_after_sending_hint">To make changes after sending your form, go to \"Sent\", open the form, and tap the edit icon.</string>
-    <string name="form_edits_warning_learn_more">Learn more</string>
     <!-- Button text for saving as draft -->
     <string name="save_as_draft">Save as draft</string>
     <!-- Button text for finalizing a submission. Displayed instead of "Send" when auto-send is off or the device is offline -->
@@ -243,7 +242,12 @@
 
     <string name="get_barcode">Get Barcode</string>
     <string name="replace_barcode">Replace Barcode</string>
+
+    <!-- Prompt under view finder to describe where to place the camera to scan a barcode -->
     <string name="barcode_scanner_prompt">Place the barcode inside the rectangle</string>
+
+    <!-- Label for button that rotates camera orientation when scanning barcodes -->
+    <string name="rotate_device">Rotate device</string>
 
     <string name="open_file">Open file</string>
 
@@ -339,7 +343,7 @@
     <string name="edit_value">Edit value</string>
     <!-- Displayed in form questions for which the user needs to select a value -->
     <string name="no_value_selected">No value selected</string>
-    <string name="selected">Selected: </string>
+    <string name="selected_title">Selected: </string>
 
     <string name="trigger">OK. Please continue.</string>
 
@@ -727,7 +731,11 @@
     <string name="form_updates_available">Form updates available</string>
     <string name="newer_version_of_a_form_info">This is an update to a form you have</string>
     <string name="form_update_error">Form update failed</string>
+    <string name="form_update_error_massage">Open KoboCollect to try again</string>
     <string name="form_update_succeeded">Form update succeeded</string>
+
+    <!-- Text for notification shown while syncing forms with the server -->
+    <string name="form_update_notification_title">Syncing forms</string>
 
     <string name="load_remote_form_error">Form list download failed</string>
 
@@ -1128,12 +1136,26 @@
     <string name="using_project">Using %s</string>
     <!-- Description for screen readers of the action to switch to a different existing project. This is part of the project selection dialog -->
     <string name="switch_to_project">Switch to %s</string>
-    <string name="delete_project_confirm_message">All blank forms, submissions and settings will be permanently deleted.</string>
-    <string name="delete_project_yes">Yes</string>
-    <string name="delete_project_no">No</string>
-    <string name="cannot_delete_project_title">Project can\'t be deleted</string>
-    <string name="cannot_delete_project_message_one">You have unsent submissions. To delete the project, you must first send or delete those submissions.</string>
-    <string name="cannot_delete_project_message_two">Background jobs are running. Please try again later.</string>
+    <!-- Text for the dialog title displayed when a user attempts to delete the current project -->
+    <string name="delete_project_dialog_title">Delete %s</string>
+
+    <!-- Text that appears above the list of counts of different kinds of forms shown before deleting a project -->
+    <string name="delete_project_message">By deleting this project, you will permanently delete the following</string>
+    <!-- Instructions telling the user they need to type a specific word to confirm deletion of the project -->
+    <string name="delete_project_instructions">Type %1$s to confirm this action.</string>
+    <!-- The word that needs to be typed to confirm deletion of the form. Should be all lowercase to allow for case insensitive matching -->
+    <string name="delete_trigger">delete</string>
+    <!-- The list item for form definition count in the project delete confirmation dialog -->
+    <string name="form_definitions_count">Form definitions: %1$d</string>
+    <!-- The list item for sent count in the project delete confirmation dialog -->
+    <string name="sent_count">Sent: %1$d</string>
+    <!-- The list item for unsent count in the project delete confirmation dialog -->
+    <string name="unsent_count">Unsent: %1$d</string>
+    <!-- The list item for draft count in the project delete confirmation dialog -->
+    <string name="drafts_count">Drafts: %1$d</string>
+
+    <!-- Text for the button that confirms deleting the project -->
+    <string name="delete_project_confirm_button_text">Delete project</string>
     <string name="or">OR</string>
     <string name="hex_color">Hex color</string>
     <string name="invalid_hex_code">Invalid hex code</string>
@@ -1245,9 +1267,8 @@
     <string name="debug_filters">Debug filters</string>
     <string name="debug_filters_summary">Show debug information for filter expression executions during form entry</string>
 
-    <!-- Option provided in the Experimental settings to opt in/out of the newer ML Kit based barcode scanner -->
-    <string name="use_mlkit_for_barcode_scanning">Use ML Kit for barcode scanning</string>
-    <string name="mlkit_is_always_used_for_scanning_project_qr_codes">ML Kit is always used for scanning project QR codes</string>
+    <!-- Option provided in the Experimental settings to revert to the old ZXing based barcode scanner -->
+    <string name="use_zxing_for_barcode_scanning">Revert to older barcode scanner</string>
 
     <string name="permission_dialog_title">About permissions</string>
     <string name="permission_dialog_text">You will be asked to allow KoboCollect access to the features below, select “allow” if you want to use them.</string>

@@ -9,6 +9,7 @@ import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.flow.Flow
 import org.odk.collect.async.Cancellable
 import org.odk.collect.async.CoroutineAndWorkManagerScheduler
+import org.odk.collect.async.NotificationInfo
 import org.odk.collect.async.Scheduler
 import org.odk.collect.async.TaskSpec
 import org.odk.collect.async.network.NetworkStateProvider
@@ -50,6 +51,20 @@ class TestScheduler(private val networkStateProvider: NetworkStateProvider) : Sc
         }
     }
 
+    override fun immediate(
+        tag: String,
+        spec: TaskSpec,
+        inputData: Map<String, String>,
+        notificationInfo: NotificationInfo
+    ) {
+        increment()
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        wrappedScheduler.immediate {
+            spec.getTask(context, inputData, true) { false }.get()
+            decrement()
+        }
+    }
+
     override fun networkDeferred(
         tag: String,
         spec: TaskSpec,
@@ -78,12 +93,13 @@ class TestScheduler(private val networkStateProvider: NetworkStateProvider) : Sc
         return wrappedScheduler.isDeferredRunning(tag)
     }
 
-    fun runDeferredTasks() {
+    @JvmOverloads
+    fun runDeferredTasks(isLastUniqueExecution: Boolean = true, isStopped: Boolean = false) {
         if (networkStateProvider.isDeviceOnline) {
             val applicationContext = ApplicationProvider.getApplicationContext<Context>()
             deferredTasks.removeIf { deferredTask ->
                 if (deferredTask.networkConstraint == null || deferredTask.networkConstraint == networkStateProvider.currentNetwork) {
-                    deferredTask.spec.getTask(applicationContext, deferredTask.inputData, true)
+                    deferredTask.spec.getTask(applicationContext, deferredTask.inputData, isLastUniqueExecution) { isStopped }
                         .get()
                     deferredTask.repeatPeriod == null
                 } else {
