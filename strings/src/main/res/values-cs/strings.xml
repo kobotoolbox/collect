@@ -1029,7 +1029,7 @@
   <!--First part of the message shown in the banner, informing the user that their device will soon be unsupported-->
   <string name="min_sdk_deprecation_banner_title">Vaše zařízení již brzy nebude možné aktualizovat.</string>
   <!--Second part of the message shown in the banner, informing the user that their device will soon be unsupported-->
-  <string name="min_sdk_deprecation_banner_message">Od konce roku 2026 bude aplikace KoboCollect vyžadovat systém Android 8+.</string>
+  <string name="min_sdk_deprecation_banner_message">Od začátku roku 2026 bude aplikace KoboCollect vyžadovat systém Android 8+.</string>
   <!--Button text that opens a forum post with more information about upcoming device support changes-->
   <string name="min_sdk_deprecation_learn_more">Více informací</string>
   <!--Button text to dismiss the banner-->
