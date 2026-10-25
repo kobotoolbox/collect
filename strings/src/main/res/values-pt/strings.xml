@@ -1046,7 +1046,7 @@
   <!--First part of the message shown in the banner, informing the user that their device will soon be unsupported-->
   <string name="min_sdk_deprecation_banner_title">Seu dispositivo não conseguirá mais receber atualizações em breve.</string>
   <!--Second part of the message shown in the banner, informing the user that their device will soon be unsupported-->
-  <string name="min_sdk_deprecation_banner_message">A partir dos últimos meses de 2026, o KoboCollect exigirá versão de Android 8.0 ou mais recente.</string>
+  <string name="min_sdk_deprecation_banner_message">Com início nos primeiros meses de 2026, o KoboCollect exigirá versão de Android 8.0 ou mais recente.</string>
   <!--Button text that opens a forum post with more information about upcoming device support changes-->
   <string name="min_sdk_deprecation_learn_more">Saiba mais</string>
   <!--Button text to dismiss the banner-->
