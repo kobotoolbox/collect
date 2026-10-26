@@ -87,7 +87,11 @@ class BlankFormListMenuProvider(
         return when (item.itemId) {
             R.id.menu_refresh -> {
                 if (networkStateProvider?.isDeviceOnline == true) {
-                    viewModel.syncWithServer()
+                    viewModel.syncWithServer().observe(activity) { success: Boolean ->
+                        if (success) {
+                            ToastUtils.showShortToast(org.odk.collect.strings.R.string.form_update_succeeded)
+                        }
+                    }
                 } else {
                     ToastUtils.showShortToast(org.odk.collect.strings.R.string.no_connection)
                 }

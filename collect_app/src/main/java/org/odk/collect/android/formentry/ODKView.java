@@ -41,7 +41,6 @@ import androidx.activity.ComponentActivity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
-import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.LifecycleOwner;
 
 import org.javarosa.core.model.Constants;
@@ -54,6 +53,7 @@ import org.javarosa.core.reference.ReferenceManager;
 import org.javarosa.form.api.FormEntryCaption;
 import org.javarosa.form.api.FormEntryPrompt;
 import org.odk.collect.android.R;
+import org.odk.collect.android.activities.FormFillingActivity;
 import org.odk.collect.android.application.Collect;
 import org.odk.collect.android.dynamicpreload.ExternalAppsUtils;
 import org.odk.collect.android.exception.ExternalParamsException;
@@ -89,8 +89,6 @@ import org.odk.collect.audiorecorder.recording.AudioRecorder;
 import org.odk.collect.permissions.PermissionListener;
 import org.odk.collect.permissions.PermissionsProvider;
 import org.odk.collect.settings.SettingsProvider;
-import org.odk.collect.timedgrid.NavigationAwareWidget;
-import org.odk.collect.timedgrid.NavigationWarning;
 
 import java.io.File;
 import java.io.Serializable;
@@ -99,7 +97,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -149,7 +146,7 @@ public class ODKView extends SwipeHandler.View implements OnLongClickListener, W
      * @param advancingPage   whether this view is being created after a forward swipe through the
      */
     public ODKView(
-            FragmentActivity context,
+            ComponentActivity context,
             final FormEntryPrompt[] questionPrompts,
             FormEntryCaption[] groups,
             boolean advancingPage,
@@ -190,7 +187,8 @@ public class ODKView extends SwipeHandler.View implements OnLongClickListener, W
                 this.viewLifecycle,
                 new FileRequesterImpl(intentLauncher, externalAppIntentProvider, formController),
                 new StringRequesterImpl(intentLauncher, externalAppIntentProvider, formController),
-                formController
+                formController,
+                (FormFillingActivity) context
         );
 
         widgets = new ArrayList<>();
@@ -565,19 +563,9 @@ public class ODKView extends SwipeHandler.View implements OnLongClickListener, W
         return qw.getLocalVisibleRect(scrollBounds);
     }
 
-    public void focusToTopOf(FormIndex index) {
-        for (QuestionWidget widget : widgets) {
-            if (widget.getFormEntryPrompt().getIndex().equals(index)) {
-                focusToTopOf(widget);
-                break;
-            }
-        }
-    }
-
-    public void focusToTopOf(@Nullable QuestionWidget qw) {
+    public void scrollToTopOf(@Nullable QuestionWidget qw) {
         if (qw != null && widgets.contains(qw)) {
             findViewById(R.id.odk_view_container).scrollTo(0, qw.getTop());
-            qw.setFocus(getContext());
         }
     }
 
@@ -704,7 +692,12 @@ public class ODKView extends SwipeHandler.View implements OnLongClickListener, W
         for (QuestionWidget questionWidget : getWidgets()) {
             if (formIndex.equals(questionWidget.getFormEntryPrompt().getIndex())) {
                 questionWidget.displayError(errorMessage);
-                focusToTopOf(questionWidget);
+                // postDelayed is needed because otherwise scrolling may not work as expected in case when
+                // answers are validated during form finalization.
+                postDelayed(() -> {
+                    questionWidget.setFocus(getContext());
+                    scrollToTopOf(questionWidget);
+                }, 400);
             } else {
                 questionWidget.hideError();
             }
@@ -806,16 +799,5 @@ public class ODKView extends SwipeHandler.View implements OnLongClickListener, W
         for (FormEntryPrompt questionAfterSave : prompts) {
             this.questions.add(new ImmutableDisplayableQuestion(questionAfterSave));
         }
-    }
-
-    @Nullable
-    public NavigationWarning isNavigationBlocked() {
-        return widgets.stream()
-                .filter(widget -> widget instanceof NavigationAwareWidget)
-                .map(widget -> (NavigationAwareWidget) widget)
-                .map(NavigationAwareWidget::shouldBlockNavigation)
-                .filter(Objects::nonNull)
-                .findFirst()
-                .orElse(null);
     }
 }

@@ -48,7 +48,6 @@ dependencies {
     implementation(project(":androidtest"))
     implementation(project(":service-test"))
     implementation(project(":qr-code"))
-    implementation(project(":web-page"))
     implementation(libs.androidxRecyclerview)
     implementation(libs.kotlinStdlib)
     implementation(libs.androidxCoreKtx)

@@ -18,21 +18,18 @@
 
 package org.odk.collect.android.dynamicpreload.handler;
 
-import static org.odk.collect.strings.localization.LocalizedApplicationKt.getLocalizedString;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import org.javarosa.core.model.SelectChoice;
 import org.javarosa.core.model.condition.EvaluationContext;
 import org.javarosa.xpath.expr.XPathFuncExpr;
-import org.jetbrains.annotations.NotNull;
 import org.odk.collect.android.application.Collect;
+import org.odk.collect.android.exception.ExternalDataException;
 import org.odk.collect.android.dynamicpreload.ExternalDataManager;
 import org.odk.collect.android.dynamicpreload.ExternalDataUtil;
 import org.odk.collect.android.dynamicpreload.ExternalSQLiteOpenHelper;
 import org.odk.collect.android.dynamicpreload.ExternalSelectChoice;
-import org.odk.collect.android.exception.ExternalDataException;
 import org.odk.collect.shared.strings.StringUtils;
 
 import java.util.ArrayList;
@@ -42,6 +39,8 @@ import java.util.List;
 import java.util.Set;
 
 import timber.log.Timber;
+
+import static org.odk.collect.strings.localization.LocalizedApplicationKt.getLocalizedString;
 
 /**
  * Author: Meletis Margaritis
@@ -82,7 +81,7 @@ public class ExternalDataHandlerSearch extends ExternalDataHandlerBase {
     }
 
     @Override
-    public @NotNull List<@NotNull Class<?>@NotNull []> getPrototypes() {
+    public List<Class[]> getPrototypes() {
         return new ArrayList<>();
     }
 

@@ -15,7 +15,6 @@ package org.odk.collect.maps
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-import org.odk.collect.shared.geometry.Point
 
 @Parcelize
 data class MapPoint @JvmOverloads constructor(
@@ -24,7 +23,3 @@ data class MapPoint @JvmOverloads constructor(
     @JvmField val altitude: Double = 0.0,
     @JvmField val accuracy: Double = 0.0
 ) : Parcelable
-
-fun MapPoint.toPoint(): Point {
-    return Point(latitude, longitude)
-}

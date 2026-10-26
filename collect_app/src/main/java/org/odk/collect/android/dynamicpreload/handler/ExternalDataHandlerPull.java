@@ -24,7 +24,6 @@ import android.database.sqlite.SQLiteException;
 
 import org.javarosa.core.model.condition.EvaluationContext;
 import org.javarosa.xpath.expr.XPathFuncExpr;
-import org.jetbrains.annotations.NotNull;
 import org.odk.collect.android.dynamicpreload.ExternalDataManager;
 import org.odk.collect.android.dynamicpreload.ExternalDataUtil;
 import org.odk.collect.android.dynamicpreload.ExternalSQLiteOpenHelper;
@@ -53,7 +52,7 @@ public class ExternalDataHandlerPull extends ExternalDataHandlerBase {
     }
 
     @Override
-    public @NotNull List<@NotNull Class<?>@NotNull []> getPrototypes() {
+    public List<Class[]> getPrototypes() {
         return new ArrayList<>();
     }
 

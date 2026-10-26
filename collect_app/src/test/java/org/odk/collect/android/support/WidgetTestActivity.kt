@@ -2,9 +2,8 @@ package org.odk.collect.android.support
 
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import org.odk.collect.android.application.CollectComposeThemeProvider
 
-class WidgetTestActivity : AppCompatActivity(), CollectComposeThemeProvider {
+class WidgetTestActivity : AppCompatActivity() {
     @JvmField
     val viewsRegisterForContextMenu = mutableListOf<View>()
 

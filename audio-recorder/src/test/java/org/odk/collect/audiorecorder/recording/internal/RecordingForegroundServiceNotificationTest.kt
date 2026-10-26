@@ -13,7 +13,6 @@ import org.hamcrest.Matchers.equalTo
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.odk.collect.androidshared.data.getState
-import org.odk.collect.androidshared.utils.InMemUniqueIdGenerator
 import org.robolectric.Robolectric
 import org.robolectric.Shadows.shadowOf
 
@@ -24,11 +23,7 @@ class RecordingForegroundServiceNotificationTest {
     fun dismiss_stopsUpdatingNotification() {
         val service = Robolectric.buildService(TestService::class.java).get()
         val recordingRepository = RecordingRepository(ApplicationProvider.getApplicationContext<Application>().getState())
-        val recordingForegroundServiceNotification = RecordingForegroundServiceNotification(
-            service,
-            recordingRepository,
-            InMemUniqueIdGenerator()
-        )
+        val recordingForegroundServiceNotification = RecordingForegroundServiceNotification(service, recordingRepository)
 
         recordingForegroundServiceNotification.show()
         recordingForegroundServiceNotification.dismiss()

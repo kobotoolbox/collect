@@ -222,7 +222,7 @@ public class BackgroundLocationManager implements LocationClient.LocationClientL
             AuditConfig auditConfig = helper.getCurrentFormAuditConfig();
 
             locationClient.setPriority(auditConfig.getLocationPriority());
-            locationClient.setUpdateInterval(auditConfig.getLocationMinInterval());
+            locationClient.setUpdateIntervals(auditConfig.getLocationMinInterval(), auditConfig.getLocationMinInterval());
             locationClient.start(this);
 
             currentState = BackgroundLocationState.RECEIVING_LOCATIONS;

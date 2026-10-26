@@ -1,12 +1,10 @@
 package org.odk.collect.geo.geopoint
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import kotlinx.coroutines.flow.MutableStateFlow
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.equalTo
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
@@ -22,11 +20,7 @@ class LocationTrackerGeoPointViewModelTest {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    val currentLocation = MutableStateFlow<Location?>(null)
-    private val locationTracker = mock<LocationTracker> {
-        on { getLocation() } doReturn currentLocation
-    }
-
+    private val locationTracker = mock<LocationTracker>()
     private val satelliteInfoClient = mock<SatelliteInfoClient>()
     private val scheduler = FakeScheduler()
 
@@ -52,7 +46,7 @@ class LocationTrackerGeoPointViewModelTest {
         viewModel.start(accuracyThreshold = 0.0f)
 
         val location = viewModel.acceptedLocation
-        currentLocation.value = null
+        whenever(locationTracker.getCurrentLocation()).thenReturn(null)
         scheduler.runForeground()
         assertThat(location.getOrAwaitValue(), equalTo(null))
     }
@@ -63,12 +57,7 @@ class LocationTrackerGeoPointViewModelTest {
         viewModel.start(accuracyThreshold = 1.0f)
 
         val location = viewModel.acceptedLocation
-        currentLocation.value = Location(
-            0.0,
-            0.0,
-            0.0,
-            1.1f
-        )
+        whenever(locationTracker.getCurrentLocation()).thenReturn(Location(0.0, 0.0, 0.0, 1.1f))
         scheduler.runForeground()
         assertThat(location.getOrAwaitValue(), equalTo(null))
     }
@@ -80,7 +69,7 @@ class LocationTrackerGeoPointViewModelTest {
 
         val location = viewModel.acceptedLocation
         val locationTrackerLocation = Location(0.0, 0.0, 0.0, 1.0f)
-        currentLocation.value = locationTrackerLocation
+        whenever(locationTracker.getCurrentLocation()).thenReturn(locationTrackerLocation)
         scheduler.runForeground()
         assertThat(location.getOrAwaitValue(), equalTo(locationTrackerLocation))
     }
@@ -92,7 +81,7 @@ class LocationTrackerGeoPointViewModelTest {
 
         val location = viewModel.acceptedLocation
         val locationTrackerLocation = Location(0.0, 0.0, 0.0, 0.9f)
-        currentLocation.value = locationTrackerLocation
+        whenever(locationTracker.getCurrentLocation()).thenReturn(locationTrackerLocation)
         scheduler.runForeground()
         assertThat(location.getOrAwaitValue(), equalTo(locationTrackerLocation))
     }
@@ -104,16 +93,11 @@ class LocationTrackerGeoPointViewModelTest {
 
         val location = viewModel.acceptedLocation
         val locationTrackerLocation = Location(0.0, 0.0, 0.0, 1.0f)
-        currentLocation.value = locationTrackerLocation
+        whenever(locationTracker.getCurrentLocation()).thenReturn(locationTrackerLocation)
         scheduler.runForeground()
         assertThat(location.getOrAwaitValue(), equalTo(locationTrackerLocation))
 
-        currentLocation.value = Location(
-            1.0,
-            1.0,
-            1.0,
-            1.0f
-        )
+        whenever(locationTracker.getCurrentLocation()).thenReturn(Location(1.0, 1.0, 1.0, 1.0f))
         scheduler.runForeground()
         assertThat(location.getOrAwaitValue(), equalTo(locationTrackerLocation))
     }
@@ -124,7 +108,7 @@ class LocationTrackerGeoPointViewModelTest {
         viewModel.start()
 
         val currentAccuracy = viewModel.currentAccuracy
-        currentLocation.value = null
+        whenever(locationTracker.getCurrentLocation()).thenReturn(null)
         scheduler.runForeground()
         assertThat(currentAccuracy.getOrAwaitValue(), equalTo(null))
     }
@@ -136,30 +120,15 @@ class LocationTrackerGeoPointViewModelTest {
 
         val currentAccuracy = viewModel.currentAccuracy
 
-        currentLocation.value = Location(
-            0.0,
-            0.0,
-            0.0,
-            6.1f
-        )
+        whenever(locationTracker.getCurrentLocation()).thenReturn(Location(0.0, 0.0, 0.0, 6.1f))
         scheduler.runForeground()
         assertThat(currentAccuracy.getOrAwaitValue(), equalTo(LocationAccuracy.Improving(6.1f)))
 
-        currentLocation.value = Location(
-            0.0,
-            0.0,
-            0.0,
-            5.0f + 5.1f
-        )
+        whenever(locationTracker.getCurrentLocation()).thenReturn(Location(0.0, 0.0, 0.0, 5.0f + 5.1f))
         scheduler.runForeground()
         assertThat(currentAccuracy.getOrAwaitValue(), equalTo(LocationAccuracy.Poor(5.0f + 5.1f)))
 
-        currentLocation.value = Location(
-            0.0,
-            0.0,
-            0.0,
-            20.1f
-        )
+        whenever(locationTracker.getCurrentLocation()).thenReturn(Location(0.0, 0.0, 0.0, 20.1f))
         scheduler.runForeground()
         assertThat(currentAccuracy.getOrAwaitValue(), equalTo(LocationAccuracy.Unacceptable(20.1f)))
     }
@@ -171,21 +140,11 @@ class LocationTrackerGeoPointViewModelTest {
 
         val currentAccuracy = viewModel.currentAccuracy
 
-        currentLocation.value = Location(
-            0.0,
-            0.0,
-            0.0,
-            11f
-        )
+        whenever(locationTracker.getCurrentLocation()).thenReturn(Location(0.0, 0.0, 0.0, 11f))
         scheduler.runForeground()
         assertThat(currentAccuracy.getOrAwaitValue(), equalTo(LocationAccuracy.Unacceptable(11f)))
 
-        currentLocation.value = Location(
-            0.0,
-            0.0,
-            0.0,
-            10f
-        )
+        whenever(locationTracker.getCurrentLocation()).thenReturn(Location(0.0, 0.0, 0.0, 10f))
         scheduler.runForeground()
         assertThat(currentAccuracy.getOrAwaitValue(), equalTo(LocationAccuracy.Improving(10f)))
     }
@@ -197,21 +156,11 @@ class LocationTrackerGeoPointViewModelTest {
 
         val currentAccuracy = viewModel.currentAccuracy
 
-        currentLocation.value = Location(
-            0.0,
-            0.0,
-            0.0,
-            10f
-        )
+        whenever(locationTracker.getCurrentLocation()).thenReturn(Location(0.0, 0.0, 0.0, 10f))
         scheduler.runForeground()
         assertThat(currentAccuracy.getOrAwaitValue(), equalTo(LocationAccuracy.Unacceptable(10f)))
 
-        currentLocation.value = Location(
-            0.0,
-            0.0,
-            0.0,
-            9f
-        )
+        whenever(locationTracker.getCurrentLocation()).thenReturn(Location(0.0, 0.0, 0.0, 9f))
         scheduler.runForeground()
         assertThat(currentAccuracy.getOrAwaitValue(), equalTo(LocationAccuracy.Improving(9f)))
     }
@@ -238,7 +187,7 @@ class LocationTrackerGeoPointViewModelTest {
 
         val location = viewModel.acceptedLocation
         val locationTrackerLocation = Location(0.0, 0.0, 0.0, 2.5f)
-        currentLocation.value = locationTrackerLocation
+        whenever(locationTracker.getCurrentLocation()).thenReturn(locationTrackerLocation)
         scheduler.runForeground()
         assertThat(location.getOrAwaitValue(), equalTo(null))
 
@@ -257,17 +206,12 @@ class LocationTrackerGeoPointViewModelTest {
 
         val location = viewModel.acceptedLocation
         val locationTrackerLocation = Location(0.0, 0.0, 0.0, 2.5f)
-        currentLocation.value = locationTrackerLocation
+        whenever(locationTracker.getCurrentLocation()).thenReturn(locationTrackerLocation)
         scheduler.runForeground()
         viewModel.forceLocation()
         assertThat(location.getOrAwaitValue(), equalTo(locationTrackerLocation))
 
-        currentLocation.value = Location(
-            0.0,
-            0.0,
-            0.0,
-            5.5f
-        )
+        whenever(locationTracker.getCurrentLocation()).thenReturn(Location(0.0, 0.0, 0.0, 5.5f))
         scheduler.runForeground()
         assertThat(location.getOrAwaitValue(), equalTo(locationTrackerLocation))
     }

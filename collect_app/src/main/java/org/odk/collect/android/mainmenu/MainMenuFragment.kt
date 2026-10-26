@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import org.odk.collect.android.activities.DeleteFormsActivity
@@ -28,17 +27,16 @@ import org.odk.collect.android.projects.ProjectIconView
 import org.odk.collect.android.projects.ProjectSettingsDialog
 import org.odk.collect.android.utilities.ActionRegister
 import org.odk.collect.androidshared.data.consume
-import org.odk.collect.androidshared.data.getState
 import org.odk.collect.androidshared.ui.DialogFragmentUtils
-import org.odk.collect.androidshared.ui.FragmentFactoryBuilder
 import org.odk.collect.androidshared.ui.SnackbarUtils
 import org.odk.collect.androidshared.ui.multiclicksafe.MultiClickGuard
+import org.odk.collect.settings.SettingsProvider
 import org.odk.collect.strings.R.string
-import org.odk.collect.webpage.WebPageService
+import org.odk.collect.webpage.WebViewActivity
 
 class MainMenuFragment(
     private val viewModelFactory: ViewModelProvider.Factory,
-    private val webPageService: WebPageService
+    private val settingsProvider: SettingsProvider
 ) : Fragment() {
 
     private lateinit var mainMenuViewModel: MainMenuViewModel
@@ -52,12 +50,6 @@ class MainMenuFragment(
         }
 
     override fun onAttach(context: Context) {
-        childFragmentManager.fragmentFactory = FragmentFactoryBuilder()
-            .forClass(MinSdkDeprecationBanner::class) {
-                MinSdkDeprecationBanner(context.getState(), webPageService)
-            }
-            .build()
-
         super.onAttach(context)
         val viewModelProvider = ViewModelProvider(requireActivity(), viewModelFactory)
         mainMenuViewModel = viewModelProvider[MainMenuViewModel::class.java]
@@ -119,10 +111,9 @@ class MainMenuFragment(
             if (it?.isOldGoogleDriveProject == true) {
                 binding.googleDriveDeprecationBanner.root.visibility = View.VISIBLE
                 binding.googleDriveDeprecationBanner.learnMoreButton.setOnClickListener {
-                    webPageService.openWebPage(
-                        requireActivity(),
-                        "https://forum.getodk.org/t/40097".toUri()
-                    )
+                    val intent = Intent(requireContext(), WebViewActivity::class.java)
+                    intent.putExtra("url", "https://forum.getodk.org/t/40097")
+                    startActivity(intent)
                 }
             } else {
                 binding.googleDriveDeprecationBanner.root.visibility = View.GONE

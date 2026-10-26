@@ -2,6 +2,7 @@ package org.odk.collect.android.audio;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static org.odk.collect.androidshared.livedata.LiveDataUtils.zip4;
 import static org.odk.collect.androidshared.ui.DialogFragmentUtils.showIfNotShowing;
 import static org.odk.collect.strings.localization.LocalizedApplicationKt.getLocalizedString;
 
@@ -24,7 +25,6 @@ import org.odk.collect.android.formentry.BackgroundAudioViewModel;
 import org.odk.collect.android.formentry.FormEntryViewModel;
 import org.odk.collect.android.injection.DaggerUtils;
 import org.odk.collect.androidshared.data.Consumable;
-import org.odk.collect.androidshared.livedata.LiveDataUtils;
 import org.odk.collect.audiorecorder.recording.AudioRecorder;
 import org.odk.collect.audiorecorder.recording.RecordingSession;
 import org.odk.collect.strings.format.LengthFormatterKt;
@@ -66,20 +66,18 @@ public class AudioRecordingControllerFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        LiveDataUtils.combine4(
+        zip4(
                 formEntryViewModel.hasBackgroundRecording(),
                 backgroundAudioViewModel.isBackgroundRecordingEnabled(),
                 audioRecorder.getCurrentSession(),
                 audioRecorder.failedToStart()
         ).observe(getViewLifecycleOwner(), quad -> {
-            if (quad.second != null && quad.fourth != null) {
-                boolean hasBackgroundRecording = quad.first;
-                boolean isBackgroundRecordingEnabled = quad.second;
-                RecordingSession session = quad.third;
-                Consumable<Exception> failedToStart = quad.fourth;
+            boolean hasBackgroundRecording = quad.first;
+            boolean isBackgroundRecordingEnabled = quad.second;
+            RecordingSession session = quad.third;
+            Consumable<Exception> failedToStart = quad.fourth;
 
-                update(hasBackgroundRecording, isBackgroundRecordingEnabled, session, failedToStart);
-            }
+            update(hasBackgroundRecording, isBackgroundRecordingEnabled, session, failedToStart);
         });
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {

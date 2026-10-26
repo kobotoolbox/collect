@@ -167,10 +167,6 @@ public final class ExternalDataUtil {
             XPathFuncExpr xpathfuncexpr, FormController formController) throws FileNotFoundException {
         try {
             List<SelectChoice> selectChoices = formEntryPrompt.getSelectChoices();
-            if (!containsConfigurationChoice(selectChoices)) {
-                String filePath = getFilePath(xpathfuncexpr, formController);
-                throw new FileNotFoundException(filePath);
-            }
             ArrayList<SelectChoice> returnedChoices = new ArrayList<>();
             for (SelectChoice selectChoice : selectChoices) {
                 String value = selectChoice.getValue();
@@ -216,7 +212,14 @@ public final class ExternalDataUtil {
             }
             return returnedChoices;
         } catch (Exception e) {
-            String filePath = getFilePath(xpathfuncexpr, formController);
+            String fileName = String.valueOf(xpathfuncexpr.args[0].eval(null, null));
+            if (!fileName.endsWith(".csv")) {
+                fileName = fileName + ".csv";
+            }
+            String filePath = fileName;
+            if (formController != null) {
+                filePath = formController.getMediaFolder() + File.separator + fileName;
+            }
             if (!new File(filePath).exists()) {
                 throw new FileNotFoundException(filePath);
             }
@@ -341,31 +344,5 @@ public final class ExternalDataUtil {
         } catch (NumberFormatException e) {
             return false;
         }
-    }
-
-    /**
-     * The config row is a special row in the choices worksheet that defines how
-     * choices are mapped from an external .csv file with list_name, name and label,
-     * where these correspond to columns in the .csv file.
-     */
-    private static boolean containsConfigurationChoice(List<SelectChoice> selectChoices) {
-        for (SelectChoice choice : selectChoices) {
-            if (!isAnInteger(choice.getValue())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static String getFilePath(XPathFuncExpr xpathfuncexpr, FormController formController) {
-        String fileName = String.valueOf(xpathfuncexpr.args[0].eval(null, null));
-        if (!fileName.endsWith(".csv")) {
-            fileName = fileName + ".csv";
-        }
-        String filePath = fileName;
-        if (formController != null) {
-            filePath = formController.getMediaFolder() + File.separator + fileName;
-        }
-        return filePath;
     }
 }

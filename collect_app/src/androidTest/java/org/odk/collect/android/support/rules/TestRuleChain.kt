@@ -5,15 +5,15 @@ import android.os.Build
 import androidx.test.rule.GrantPermissionRule
 import org.junit.rules.RuleChain
 import org.odk.collect.android.support.CountingTaskExecutorIdlingResource
+import org.odk.collect.android.support.SchedulerIdlingResource
 import org.odk.collect.android.support.TestDependencies
-import org.odk.collect.android.support.async.AsyncWorkTrackerIdlingResource
 
 object TestRuleChain {
 
     @JvmStatic
     @JvmOverloads
     fun chain(testDependencies: TestDependencies = TestDependencies()): RuleChain {
-        val asyncWorkTrackerIdlingResource = AsyncWorkTrackerIdlingResource()
+        val schedulerIdlingResource = SchedulerIdlingResource(testDependencies.scheduler)
         val countingTaskExecutorIdlingResource = CountingTaskExecutorIdlingResource()
 
         return RuleChain
@@ -25,7 +25,7 @@ object TestRuleChain {
             .around(countingTaskExecutorIdlingResource)
             .around(
                 IdlingResourceRule(
-                    listOf(asyncWorkTrackerIdlingResource, countingTaskExecutorIdlingResource)
+                    listOf(schedulerIdlingResource, countingTaskExecutorIdlingResource)
                 )
             )
     }

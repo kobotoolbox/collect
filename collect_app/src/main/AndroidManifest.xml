@@ -126,10 +126,7 @@ the specific language governing permissions and limitations under the License.
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="org.odk.collect.draw.DrawActivity"
-            android:theme="@style/Theme.Collect"
-            tools:replace="android:theme"
-            android:screenOrientation="landscape"
-            android:resizeableActivity="false"/>
+            android:screenOrientation="landscape" />
         <activity android:name=".activities.InstanceChooserList" />
         <activity
             android:name=".formlists.blankformlist.BlankFormListActivity"
@@ -169,6 +166,7 @@ the specific language governing permissions and limitations under the License.
 
         <activity android:name=".activities.FormMapActivity" />
         <activity android:name=".activities.BearingActivity" />
+        <activity android:name="org.odk.collect.webpage.WebViewActivity" />
         <activity
             android:name="org.odk.collect.selfiecamera.CaptureSelfieActivity"
             android:theme="@style/Theme.Collect"

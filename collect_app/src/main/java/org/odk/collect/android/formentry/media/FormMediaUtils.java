@@ -69,7 +69,7 @@ public final class FormMediaUtils {
     }
 
     public static int getPlayColor(FormEntryPrompt prompt, ThemeUtils themeUtils) {
-        int playColor = themeUtils.getColorPrimary();
+        int playColor = themeUtils.getAccentColor();
 
         String playColorString = prompt.getFormElement().getAdditionalAttribute(null, "playColor");
         if (playColorString != null) {

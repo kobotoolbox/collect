@@ -11,7 +11,8 @@ import org.odk.collect.maps.PolygonDescription
 import org.odk.collect.maps.markers.MarkerDescription
 import org.odk.collect.maps.markers.MarkerIconDescription
 import kotlin.random.Random
-class FakeMapFragment(private val ready: Boolean = false) : Fragment(), MapFragment {
+
+class FakeMapFragment : Fragment(), MapFragment {
 
     private var clickListener: PointListener? = null
     private var gpsLocationListener: PointListener? = null
@@ -23,7 +24,6 @@ class FakeMapFragment(private val ready: Boolean = false) : Fragment(), MapFragm
     private var readyListener: ReadyListener? = null
     private var gpsLocation: MapPoint? = null
     private var featureClickListener: FeatureListener? = null
-    private var dragListener: FeatureListener? = null
     private val markers = mutableMapOf<Int, MapPoint>()
     private val markerIcons = mutableMapOf<Int, MarkerIconDescription?>()
     private val polyLines = mutableMapOf<Int, LineDescription>()
@@ -37,10 +37,6 @@ class FakeMapFragment(private val ready: Boolean = false) : Fragment(), MapFragm
         errorListener: MapFragment.ErrorListener?
     ) {
         this.readyListener = readyListener
-
-        if (ready) {
-            ready()
-        }
     }
 
     fun ready() {
@@ -127,13 +123,6 @@ class FakeMapFragment(private val ready: Boolean = false) : Fragment(), MapFragm
         return featureId
     }
 
-    override fun updatePolyLine(
-        featureId: Int,
-        lineDescription: LineDescription
-    ) {
-        polyLines[featureId] = lineDescription
-    }
-
     override fun addPolygon(polygonDescription: PolygonDescription): Int {
         val featureId = generateFeatureId()
         polygons[featureId] = polygonDescription
@@ -141,22 +130,23 @@ class FakeMapFragment(private val ready: Boolean = false) : Fragment(), MapFragm
         return featureId
     }
 
-    override fun updatePolygon(
-        featureId: Int,
-        polygonDescription: PolygonDescription
-    ) {
-        polygons[featureId] = polygonDescription
+    override fun appendPointToPolyLine(featureId: Int, point: MapPoint) {
+        val poly = polyLines[featureId]!!
+        polyLines[featureId] = poly.copy(points = poly.points + point)
     }
 
-    override fun getPolyPoints(featureId: Int): List<MapPoint> {
-        return polyLines[featureId]?.points ?: polygons[featureId]?.points ?: emptyList()
+    override fun removePolyLineLastPoint(featureId: Int) {
+        val poly = polyLines[featureId]!!
+        polyLines[featureId] = poly.copy(points = poly.points.dropLast(1))
+    }
+
+    override fun getPolyLinePoints(featureId: Int): List<MapPoint> {
+        return polyLines[featureId]!!.points
     }
 
     override fun clearFeatures() {
         markers.clear()
         markerIcons.clear()
-        polyLines.clear()
-        polygons.clear()
     }
 
     override fun setClickListener(listener: PointListener?) {
@@ -172,10 +162,7 @@ class FakeMapFragment(private val ready: Boolean = false) : Fragment(), MapFragm
         featureClickListener = listener
     }
 
-    override fun setDragEndListener(listener: FeatureListener?) {
-        dragListener = listener
-    }
-
+    override fun setDragEndListener(listener: FeatureListener?) {}
     override fun setGpsLocationEnabled(enabled: Boolean) {}
     override fun getGpsLocation(): MapPoint? {
         return gpsLocation
@@ -241,6 +228,10 @@ class FakeMapFragment(private val ready: Boolean = false) : Fragment(), MapFragm
         return polyLines.values.toList()
     }
 
+    fun isPolyClosed(index: Int): Boolean {
+        return polyLines[featureIds[index]]!!.closed
+    }
+
     fun isPolyDraggable(index: Int): Boolean {
         return polyLines[featureIds[index]]!!.draggable
     }
@@ -272,10 +263,5 @@ class FakeMapFragment(private val ready: Boolean = false) : Fragment(), MapFragm
 
     fun setZoomLevel(zoomLevel: Float?) {
         zoomLevelSetByUser = zoomLevel
-    }
-
-    fun dragPolyLine(featureId: Int, new: List<MapPoint>) {
-        polyLines[featureId] = polyLines[featureId]!!.copy(points = new)
-        dragListener?.onFeature(featureId)
     }
 }

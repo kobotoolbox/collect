@@ -26,23 +26,23 @@ import org.javarosa.form.api.FormEntryPrompt;
 import org.odk.collect.android.databinding.UrlWidgetAnswerBinding;
 import org.odk.collect.android.formentry.questions.QuestionDetails;
 import org.odk.collect.androidshared.ui.ToastUtils;
-import org.odk.collect.webpage.WebPageService;
+import org.odk.collect.webpage.ExternalWebPageHelper;
 
 @SuppressLint("ViewConstructor")
 public class UrlWidget extends QuestionWidget {
     UrlWidgetAnswerBinding binding;
 
-    private final WebPageService webPageService;
+    private final ExternalWebPageHelper externalWebPageHelper;
 
-    public UrlWidget(Context context, QuestionDetails questionDetails, WebPageService webPageService, Dependencies dependencies) {
+    public UrlWidget(Context context, QuestionDetails questionDetails, ExternalWebPageHelper externalWebPageHelper, Dependencies dependencies) {
         super(context, dependencies, questionDetails);
         render();
 
-        this.webPageService = webPageService;
+        this.externalWebPageHelper = externalWebPageHelper;
     }
 
     @Override
-    protected View onCreateWidgetView(Context context, FormEntryPrompt prompt, int answerFontSize) {
+    protected View onCreateAnswerView(Context context, FormEntryPrompt prompt, int answerFontSize) {
         binding = UrlWidgetAnswerBinding.inflate(((Activity) context).getLayoutInflater());
         binding.urlButton.setOnClickListener(v -> onButtonClick());
 
@@ -72,10 +72,18 @@ public class UrlWidget extends QuestionWidget {
         binding.urlButton.cancelLongPress();
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (externalWebPageHelper.getServiceConnection() != null) {
+            getContext().unbindService(externalWebPageHelper.getServiceConnection());
+        }
+    }
+
     public void onButtonClick() {
         if (getFormEntryPrompt().getAnswerValue() != null) {
-            Activity activity = (Activity) getContext();
-            webPageService.openWebPage(activity, Uri.parse(getFormEntryPrompt().getAnswerText()));
+            externalWebPageHelper.bindCustomTabsService(getContext(), null);
+            externalWebPageHelper.openWebPageInCustomTab((Activity) getContext(), Uri.parse(getFormEntryPrompt().getAnswerText()));
         } else {
             ToastUtils.showShortToast("No URL set");
         }

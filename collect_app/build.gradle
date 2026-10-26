@@ -45,16 +45,23 @@ def getMasterCommitCount = { ->
 }
 
 def getVersionName = { ->
-    return providers.exec {
-        switch (ant.properties.os) {
-            case 'windows':
-                commandLine 'cmd', '/c', 'git', 'describe', '--tags', '--dirty', '--always'
-                break
-            case 'unix':
-                commandLine 'git', 'describe', '--tags', '--dirty', '--always'
-                break
+    try {
+        def stdout = new ByteArrayOutputStream()
+        exec {
+            switch (ant.properties.os) {
+                case 'windows':
+                    commandLine 'cmd', '/c', 'git', 'describe', '--tags', '--dirty', '--always'
+                    break
+                case 'unix':
+                    commandLine 'git', 'describe', '--tags', '--dirty', '--always'
+                    break
+            }
+            standardOutput = stdout
         }
-    }.getStandardOutput().getAsText().get().trim()
+        return stdout.toString().trim()
+    } catch (ignored) {
+        return null
+    }
 }
 
 def secrets = getSecrets()
@@ -78,14 +85,11 @@ android {
         applicationId('org.koboc.collect.android')
         minSdk libs.versions.minSdk.get().toInteger()
         targetSdkVersion libs.versions.targetSdk.get().toInteger()
-        versionCode 4151
+        versionCode 4150
         versionName getVersionName()
         testInstrumentationRunner('androidx.test.runner.AndroidJUnitRunner')
         vectorDrawables.useSupportLibrary = true
-    }
-
-    base {
-        archivesName = "ODK-Collect"
+        archivesBaseName = 'ODK-Collect'
     }
 
     signingConfigs {
@@ -274,7 +278,6 @@ dependencies {
     implementation project(':db')
     implementation project(':open-rosa')
     implementation project(':mobile-device-management')
-    implementation project(':timedgrid')
 
     if (getSecrets().getProperty('MAPBOX_DOWNLOADS_TOKEN', '') != '') {
         implementation project(':mapbox')
@@ -325,7 +328,6 @@ dependencies {
     // Android Architecture Components:
     implementation libs.androidxLifecycleRuntimeKtx
     implementation libs.androidxLifecycleLivedataKtx
-    implementation libs.androidxLifecycleViewmodelCompose
     implementation libs.androidxViewpager2
 
     // Dagger:
@@ -352,8 +354,6 @@ dependencies {
     implementation(composeBom)
     implementation(libs.androidXComposeMaterial)
     implementation(libs.androidXConstraintLayoutCompose)
-    implementation(libs.androidXComposeMaterialIcons)
-    implementation(libs.androidXComposePreview)
 
     testImplementation project(':forms-test')
 
@@ -369,8 +369,8 @@ dependencies {
     testImplementation(project(":shadows"))
     testImplementation(project(":test-forms"))
 
-    testImplementation libs.androidXComposeUiTestJunit4
     testImplementation libs.robolectric
+
     testImplementation libs.androidxTestExtJunit
     testImplementation libs.androidxArchCoreTesting
 
@@ -383,8 +383,6 @@ dependencies {
     androidTestImplementation project(':androidtest')
     androidTestImplementation project(':test-forms')
 
-    androidTestImplementation(composeBom)
-    androidTestImplementation libs.androidXComposeUiTestJunit4
     androidTestImplementation libs.caverockAndroidsvg
     androidTestImplementation libs.mockitoAndroid
     androidTestImplementation libs.androidxTestExtJunit
@@ -406,7 +404,6 @@ dependencies {
 
     // Real LeakCanary for debug and selfSigned builds only: notifications, analysis, etc
     debugImplementation libs.leakcanary
-    debugImplementation(libs.androidXComposeTooling)
     selfSignedReleaseImplementation libs.leakcanary
 }
 

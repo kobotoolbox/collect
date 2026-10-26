@@ -10,14 +10,13 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.Observer
 import org.odk.collect.androidshared.ui.ReturnToAppActivity
-import org.odk.collect.androidshared.utils.UniqueIdGenerator
+import org.odk.collect.audiorecorder.R
 import org.odk.collect.audiorecorder.recording.RecordingSession
 import org.odk.collect.strings.format.formatLength
 import org.odk.collect.strings.localization.getLocalizedString
 
-internal class RecordingForegroundServiceNotification(private val service: Service, private val recordingRepository: RecordingRepository, private val uniqueIdGenerator: UniqueIdGenerator) {
+internal class RecordingForegroundServiceNotification(private val service: Service, private val recordingRepository: RecordingRepository) {
 
-    private val notificationId = uniqueIdGenerator.getInt(NOTIFICATION_IDENTIFIER)
     private val notificationIntent = Intent(service, ReturnToAppActivity::class.java)
     private val notificationBuilder = NotificationCompat.Builder(service, NOTIFICATION_CHANNEL)
         .setContentTitle(service.getLocalizedString(org.odk.collect.strings.R.string.recording))
@@ -31,7 +30,7 @@ internal class RecordingForegroundServiceNotification(private val service: Servi
     private val sessionObserver = Observer<RecordingSession?> {
         if (it != null) {
             notificationBuilder.setContentText(formatLength(it.duration))
-            notificationManager.notify(notificationId, notificationBuilder.build())
+            notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build())
         }
     }
 
@@ -40,7 +39,7 @@ internal class RecordingForegroundServiceNotification(private val service: Servi
         val notification = notificationBuilder
             .build()
 
-        service.startForeground(notificationId, notification)
+        service.startForeground(NOTIFICATION_ID, notification)
         recordingRepository.currentSession.observeForever(sessionObserver)
     }
 
@@ -62,7 +61,7 @@ internal class RecordingForegroundServiceNotification(private val service: Servi
     }
 
     companion object {
-        private const val NOTIFICATION_IDENTIFIER = "recording"
+        private const val NOTIFICATION_ID = 1
         private const val NOTIFICATION_CHANNEL = "recording_channel"
     }
 }

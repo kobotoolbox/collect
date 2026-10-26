@@ -33,7 +33,7 @@ import org.odk.collect.settings.keys.ProjectKeys
 import org.odk.collect.settings.keys.ProjectKeys.CATEGORY_BASEMAP
 import org.odk.collect.settings.keys.ProjectKeys.KEY_BASEMAP_SOURCE
 import org.odk.collect.strings.localization.getLocalizedString
-import org.odk.collect.webpage.WebPageService
+import org.odk.collect.webpage.ExternalWebPageHelper
 import javax.inject.Inject
 
 class MapsPreferencesFragment : BaseProjectPreferencesFragment(), Preference.OnPreferenceClickListener {
@@ -47,7 +47,7 @@ class MapsPreferencesFragment : BaseProjectPreferencesFragment(), Preference.OnP
     lateinit var scheduler: Scheduler
 
     @Inject
-    lateinit var webPageService: WebPageService
+    lateinit var externalWebPageHelper: ExternalWebPageHelper
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -57,7 +57,7 @@ class MapsPreferencesFragment : BaseProjectPreferencesFragment(), Preference.OnP
     override fun onCreate(savedInstanceState: Bundle?) {
         childFragmentManager.fragmentFactory = FragmentFactoryBuilder()
             .forClass(OfflineMapLayersPickerBottomSheetDialogFragment::class) {
-                OfflineMapLayersPickerBottomSheetDialogFragment(requireActivity().activityResultRegistry, referenceLayerRepository, scheduler, settingsProvider, webPageService)
+                OfflineMapLayersPickerBottomSheetDialogFragment(requireActivity().activityResultRegistry, referenceLayerRepository, scheduler, settingsProvider, externalWebPageHelper)
             }
             .build()
 

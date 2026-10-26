@@ -18,7 +18,6 @@ import org.odk.collect.mobiledevicemanagement.MDMConfigObserver
 import org.odk.collect.permissions.PermissionsProvider
 import org.odk.collect.settings.SettingsProvider
 import org.odk.collect.strings.localization.LocalizedActivity
-import org.odk.collect.webpage.WebPageService
 import javax.inject.Inject
 
 class MainMenuActivity : LocalizedActivity(), CollectComposeThemeProvider {
@@ -34,9 +33,6 @@ class MainMenuActivity : LocalizedActivity(), CollectComposeThemeProvider {
 
     @Inject
     lateinit var mdmConfigObserver: MDMConfigObserver
-
-    @Inject
-    lateinit var webPageService: WebPageService
 
     private lateinit var currentProjectViewModel: CurrentProjectViewModel
 
@@ -84,7 +80,7 @@ class MainMenuActivity : LocalizedActivity(), CollectComposeThemeProvider {
                     ProjectSettingsDialog(viewModelFactory)
                 }
                 .forClass(MainMenuFragment::class) {
-                    MainMenuFragment(viewModelFactory, webPageService)
+                    MainMenuFragment(viewModelFactory, settingsProvider)
                 }
                 .build()
 

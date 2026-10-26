@@ -18,7 +18,6 @@ import org.odk.collect.android.injection.config.AppDependencyModule
 import org.odk.collect.android.injection.config.ProjectDependencyModuleFactory
 import org.odk.collect.android.notifications.Notifier
 import org.odk.collect.android.support.CollectHelpers
-import org.odk.collect.androidshared.utils.UniqueIdGenerator
 import org.odk.collect.projects.ProjectsRepository
 import org.odk.collect.settings.SettingsProvider
 
@@ -41,8 +40,7 @@ class SyncFormsTaskSpecTest {
             override fun providesNotifier(
                 application: Application,
                 settingsProvider: SettingsProvider,
-                projectsRepository: ProjectsRepository,
-                uniqueIdGenerator: UniqueIdGenerator
+                projectsRepository: ProjectsRepository
             ): Notifier {
                 return notifier
             }

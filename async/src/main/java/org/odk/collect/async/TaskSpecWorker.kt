@@ -41,8 +41,8 @@ class TaskSpecWorker(
             return Result.retry()
         }
 
-        val isForeground = inputData.getBoolean(FOREGROUND, false)
-        if (isForeground) {
+        val foreground = inputData.getBoolean(FOREGROUND, false)
+        if (foreground) {
             val notificationChannel = inputData.getString(FOREGROUND_NOTIFICATION_CHANNEL)!!
             val notificationChannelName =
                 inputData.getString(FOREGROUND_NOTIFICATION_CHANNEL_NAME)!!
@@ -59,18 +59,21 @@ class TaskSpecWorker(
             )
         }
 
-        val result = taskSpec.run(
-            applicationContext,
-            stringInputData,
-            runAttemptCount,
-            isForeground,
-            { isStopped }
-        )
+        try {
+            val completed =
+                taskSpec.getTask(applicationContext, stringInputData, foreground || isLastUniqueExecution(taskSpec)) { isStopped }.get()
+            val maxRetries = taskSpec.maxRetries
 
-        return when (result) {
-            TaskSpec.Result.SUCCESS -> Result.success()
-            TaskSpec.Result.FAILURE -> Result.failure()
-            TaskSpec.Result.RETRY -> Result.retry()
+            return if (completed) {
+                Result.success()
+            } else if (!foreground && (maxRetries == null || runAttemptCount < maxRetries)) {
+                Result.retry()
+            } else {
+                Result.failure()
+            }
+        } catch (t: Throwable) {
+            taskSpec.onException(t)
+            return Result.failure()
         }
     }
 
@@ -116,6 +119,9 @@ class TaskSpecWorker(
                 .createNotificationChannel(notificationChannel)
         }
     }
+
+    private fun isLastUniqueExecution(spec: TaskSpec) =
+        spec.maxRetries?.let { runAttemptCount >= it } ?: true
 
     companion object {
         const val DATA_TASK_SPEC_CLASS = "taskSpecClass"

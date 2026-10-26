@@ -48,9 +48,5 @@ public interface InstancesRepository {
      */
     void deleteWithLogging(Long id);
 
-    class IntegrityException extends RuntimeException {
-        public IntegrityException(String message) {
-            super(message);
-        }
-    }
+    class IntegrityException extends RuntimeException {}
 }

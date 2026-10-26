@@ -1,7 +1,5 @@
 package org.odk.collect.async
 
-import android.net.NetworkCapabilities
-import android.net.NetworkRequest
 import androidx.work.Constraints
 import androidx.work.Data
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -59,25 +57,14 @@ class CoroutineAndWorkManagerScheduler(
         inputData: Map<String, String>,
         networkConstraint: Scheduler.NetworkType?
     ) {
-        val networkRequest = NetworkRequest.Builder().apply {
-            addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-
-            when (networkConstraint) {
-                Scheduler.NetworkType.WIFI -> addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-                Scheduler.NetworkType.CELLULAR -> addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
-                else -> Unit
-            }
-        }.build()
-
-        val networkType = when (networkConstraint) {
+        val constraintNetworkType = when (networkConstraint) {
             Scheduler.NetworkType.WIFI -> NetworkType.UNMETERED
             Scheduler.NetworkType.CELLULAR -> NetworkType.METERED
             else -> NetworkType.CONNECTED
         }
 
-        val constraints = Constraints
-            .Builder()
-            .setRequiredNetworkRequest(networkRequest, networkType)
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(constraintNetworkType)
             .build()
 
         val workManagerInputData = Data.Builder()

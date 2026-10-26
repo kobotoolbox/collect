@@ -8,6 +8,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.odk.collect.android.utilities.ApplicationConstants.RequestCodes.GEOSHAPE_CAPTURE;
+import static org.odk.collect.android.utilities.ApplicationConstants.RequestCodes.GEOTRACE_CAPTURE;
 import static org.odk.collect.android.utilities.ApplicationConstants.RequestCodes.LOCATION_CAPTURE;
 import static org.odk.collect.android.widgets.support.GeoWidgetHelpers.getRandomDoubleArray;
 import static org.odk.collect.android.widgets.support.QuestionWidgetHelpers.promptWithAnswer;
@@ -17,11 +19,11 @@ import static org.odk.collect.geo.Constants.EXTRA_RETAIN_MOCK_ACCURACY;
 import static org.robolectric.Shadows.shadowOf;
 import static java.util.Arrays.asList;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.fragment.app.FragmentActivity;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.javarosa.core.model.FormIndex;
@@ -37,11 +39,12 @@ import org.odk.collect.android.utilities.Appearances;
 import org.odk.collect.android.widgets.support.FakeWaitingForDataRegistry;
 import org.odk.collect.geo.geopoint.GeoPointActivity;
 import org.odk.collect.geo.geopoint.GeoPointMapActivity;
+import org.odk.collect.geo.geopoly.GeoPolyActivity;
 import org.odk.collect.maps.MapPoint;
-import org.odk.collect.testshared.MockDialogFragment;
-import org.odk.collect.testshared.MockFragmentFactory;
 import org.robolectric.Robolectric;
 import org.robolectric.shadows.ShadowActivity;
+
+import java.util.ArrayList;
 
 @RunWith(AndroidJUnit4.class)
 public class ActivityGeoDataRequesterTest {
@@ -50,7 +53,7 @@ public class ActivityGeoDataRequesterTest {
     private final FakeWaitingForDataRegistry waitingForDataRegistry = new FakeWaitingForDataRegistry();
     private final GeoPointData answer = new GeoPointData(getRandomDoubleArray());
 
-    private FragmentActivity testActivity;
+    private Activity testActivity;
     private ShadowActivity shadowActivity;
     private FormEntryPrompt prompt;
     private FormIndex formIndex;
@@ -60,9 +63,8 @@ public class ActivityGeoDataRequesterTest {
 
     @Before
     public void setUp() {
-        testActivity = Robolectric.buildActivity(FragmentActivity.class).setup().get();
+        testActivity = Robolectric.buildActivity(Activity.class).get();
         shadowActivity = shadowOf(testActivity);
-        testActivity.getSupportFragmentManager().setFragmentFactory(new MockFragmentFactory());
 
         prompt = promptWithAnswer(null);
         formIndex = mock(FormIndex.class);
@@ -85,16 +87,38 @@ public class ActivityGeoDataRequesterTest {
     }
 
     @Test
-    public void whenPermissionIsNotGranted_requestGeoTrace_doesNotOpenDialog() {
+    public void whenPermissionIsNotGranted_requestGeoShape_doesNotLaunchAnyIntent() {
         permissionsProvider.setPermissionGranted(false);
-        activityGeoDataRequester.requestGeoPoly(prompt);
+        activityGeoDataRequester.requestGeoShape(prompt, "", waitingForDataRegistry);
 
-        assertThat(testActivity.getSupportFragmentManager().getFragments().size(), equalTo(0));
+        assertNull(shadowActivity.getNextStartedActivity());
+        assertTrue(waitingForDataRegistry.waiting.isEmpty());
+    }
+
+    @Test
+    public void whenPermissionIsNotGranted_requestGeoTrace_doesNotLaunchAnyIntent() {
+        permissionsProvider.setPermissionGranted(false);
+        activityGeoDataRequester.requestGeoTrace(prompt, "", waitingForDataRegistry);
+
+        assertNull(shadowActivity.getNextStartedActivity());
+        assertTrue(waitingForDataRegistry.waiting.isEmpty());
     }
 
     @Test
     public void whenPermissionIGranted_requestGeoPoint_setsFormIndexWaitingForData() {
         activityGeoDataRequester.requestGeoPoint(prompt, "", waitingForDataRegistry);
+        assertTrue(waitingForDataRegistry.waiting.contains(formIndex));
+    }
+
+    @Test
+    public void whenPermissionIGranted_requestGeoShape_setsFormIndexWaitingForData() {
+        activityGeoDataRequester.requestGeoShape(prompt, "", waitingForDataRegistry);
+        assertTrue(waitingForDataRegistry.waiting.contains(formIndex));
+    }
+
+    @Test
+    public void whenPermissionIGranted_requestGeoTrace_setsFormIndexWaitingForData() {
+        activityGeoDataRequester.requestGeoTrace(prompt, "", waitingForDataRegistry);
         assertTrue(waitingForDataRegistry.waiting.contains(formIndex));
     }
 
@@ -241,11 +265,68 @@ public class ActivityGeoDataRequesterTest {
     }
 
     @Test
-    public void requestGeoTrace_opensDialog() {
-        activityGeoDataRequester.requestGeoPoly(prompt);
-        MockDialogFragment mockFragment = (MockDialogFragment) testActivity.getSupportFragmentManager().getFragments().get(0);
-        assertThat(mockFragment.getFragmentClass(), equalTo(GeoPolyDialogFragment.class));
-        assertThat(mockFragment.requireArguments().getSerializable(WidgetAnswerDialogFragment.ARG_FORM_INDEX), equalTo(prompt.getIndex()));
+    public void requestGeoShape_launchesCorrectIntent() {
+        activityGeoDataRequester.requestGeoShape(prompt, "2.0 3.0 4 5; 6.0 7.0 8 9", waitingForDataRegistry);
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+
+        assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPolyActivity.class));
+        assertEquals(shadowActivity.getNextStartedActivityForResult().requestCode, GEOSHAPE_CAPTURE);
+
+        Bundle bundle = startedIntent.getExtras();
+
+        ArrayList<MapPoint> expectedPolygon = new ArrayList<>();
+        expectedPolygon.add(new MapPoint(2.0, 3.0, 4, 5));
+        expectedPolygon.add(new MapPoint(6.0, 7.0, 8, 9));
+        assertThat(bundle.getParcelableArrayList(GeoPolyActivity.EXTRA_POLYGON), equalTo(expectedPolygon));
+
+        assertThat(bundle.get(GeoPolyActivity.OUTPUT_MODE_KEY), equalTo(GeoPolyActivity.OutputMode.GEOSHAPE));
+        assertThat(bundle.getBoolean(EXTRA_READ_ONLY), equalTo(false));
+    }
+
+    @Test
+    public void whenWidgetIsReadOnly_requestGeoShape_launchesCorrectIntent() {
+        when(prompt.isReadOnly()).thenReturn(true);
+        activityGeoDataRequester.requestGeoShape(prompt, "2.0 3.0 4 5; 6.0 7.0 8 9", waitingForDataRegistry);
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+
+        assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPolyActivity.class));
+        assertEquals(shadowActivity.getNextStartedActivityForResult().requestCode, GEOSHAPE_CAPTURE);
+
+        Bundle bundle = startedIntent.getExtras();
+        assertThat(bundle.getBoolean(EXTRA_READ_ONLY), equalTo(true));
+    }
+
+    @Test
+    public void requestGeoTrace_launchesCorrectIntent() {
+        activityGeoDataRequester.requestGeoTrace(prompt, "2.0 3.0 4 5; 6.0 7.0 8 9", waitingForDataRegistry);
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+
+        assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPolyActivity.class));
+        assertEquals(shadowActivity.getNextStartedActivityForResult().requestCode, GEOTRACE_CAPTURE);
+
+        Bundle bundle = startedIntent.getExtras();
+
+        ArrayList<MapPoint> expectedPolygon = new ArrayList<>();
+        expectedPolygon.add(new MapPoint(2.0, 3.0, 4, 5));
+        expectedPolygon.add(new MapPoint(6.0, 7.0, 8, 9));
+        assertThat(bundle.getParcelableArrayList(GeoPolyActivity.EXTRA_POLYGON), equalTo(expectedPolygon));
+
+        assertThat(bundle.get(GeoPolyActivity.OUTPUT_MODE_KEY), equalTo(GeoPolyActivity.OutputMode.GEOTRACE));
+        assertThat(bundle.getBoolean(EXTRA_READ_ONLY), equalTo(false));
+    }
+
+    @Test
+    public void whenWidgetIsReadOnly_requestGeoTrace_launchesCorrectIntent() {
+        when(prompt.isReadOnly()).thenReturn(true);
+
+        activityGeoDataRequester.requestGeoTrace(prompt, "2.0 3.0 4 5; 6.0 7.0 8 9", waitingForDataRegistry);
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+
+        assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPolyActivity.class));
+        assertEquals(shadowActivity.getNextStartedActivityForResult().requestCode, GEOTRACE_CAPTURE);
+
+        Bundle bundle = startedIntent.getExtras();
+        assertThat(bundle.getBoolean(EXTRA_READ_ONLY), equalTo(true));
     }
 
     @Test
@@ -266,6 +347,48 @@ public class ActivityGeoDataRequesterTest {
 
         startedIntent = shadowActivity.getNextStartedActivity();
         assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPointActivity.class));
+        assertFalse(startedIntent.getBooleanExtra(EXTRA_RETAIN_MOCK_ACCURACY, true));
+    }
+
+    @Test
+    public void requestGeoShape_whenWidgetHasAllowMockAccuracy_addsItToIntent() {
+        when(prompt.getBindAttributes())
+                .thenReturn(asList(TreeElement.constructAttributeElement("odk", "allow-mock-accuracy", "true")));
+
+        activityGeoDataRequester.requestGeoShape(prompt, "blah", waitingForDataRegistry);
+
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+        assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPolyActivity.class));
+        assertTrue(startedIntent.getBooleanExtra(EXTRA_RETAIN_MOCK_ACCURACY, false));
+
+        when(prompt.getBindAttributes())
+                .thenReturn(asList(TreeElement.constructAttributeElement("odk", "allow-mock-accuracy", "false")));
+
+        activityGeoDataRequester.requestGeoShape(prompt, "blah", waitingForDataRegistry);
+
+        startedIntent = shadowActivity.getNextStartedActivity();
+        assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPolyActivity.class));
+        assertFalse(startedIntent.getBooleanExtra(EXTRA_RETAIN_MOCK_ACCURACY, true));
+    }
+
+    @Test
+    public void requestGeoTrace_whenWidgetHasAllowMockAccuracy_addsItToIntent() {
+        when(prompt.getBindAttributes())
+                .thenReturn(asList(TreeElement.constructAttributeElement("odk", "allow-mock-accuracy", "true")));
+
+        activityGeoDataRequester.requestGeoTrace(prompt, "blah", waitingForDataRegistry);
+
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+        assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPolyActivity.class));
+        assertTrue(startedIntent.getBooleanExtra(EXTRA_RETAIN_MOCK_ACCURACY, false));
+
+        when(prompt.getBindAttributes())
+                .thenReturn(asList(TreeElement.constructAttributeElement("odk", "allow-mock-accuracy", "false")));
+
+        activityGeoDataRequester.requestGeoTrace(prompt, "blah", waitingForDataRegistry);
+
+        startedIntent = shadowActivity.getNextStartedActivity();
+        assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPolyActivity.class));
         assertFalse(startedIntent.getBooleanExtra(EXTRA_RETAIN_MOCK_ACCURACY, true));
     }
 }

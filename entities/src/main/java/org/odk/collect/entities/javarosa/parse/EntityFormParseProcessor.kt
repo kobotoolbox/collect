@@ -2,14 +2,13 @@ package org.odk.collect.entities.javarosa.parse
 
 import org.javarosa.core.model.DataBinding
 import org.javarosa.core.model.FormDef
-import org.javarosa.core.model.instance.TreeElement
-import org.javarosa.core.model.instance.TreeReference
 import org.javarosa.model.xform.XPathReference
 import org.javarosa.xform.parse.XFormParser
 import org.javarosa.xform.parse.XFormParser.BindAttributeProcessor
 import org.javarosa.xform.parse.XFormParser.FormDefProcessor
 import org.javarosa.xform.parse.XFormParser.MissingModelAttributeException
 import org.javarosa.xform.parse.XFormParser.ModelAttributeProcessor
+import org.odk.collect.entities.BuildConfig
 import org.odk.collect.entities.javarosa.parse.EntityFormParseProcessor.Companion.VERSIONS.V2022_1
 import org.odk.collect.entities.javarosa.parse.EntityFormParseProcessor.Companion.VERSIONS.V2023_1
 import org.odk.collect.entities.javarosa.parse.EntityFormParseProcessor.Companion.VERSIONS.V2024_1
@@ -17,8 +16,8 @@ import org.odk.collect.entities.javarosa.parse.EntityFormParseProcessor.Companio
 import org.odk.collect.entities.javarosa.spec.EntityFormParser
 import org.odk.collect.entities.javarosa.spec.UnrecognizedEntityVersionException
 
-class EntityFormParseProcessor() : BindAttributeProcessor, FormDefProcessor, ModelAttributeProcessor {
-    private val bindAttributes = mutableListOf<Pair<TreeReference, String>>()
+class EntityFormParseProcessor : BindAttributeProcessor, FormDefProcessor, ModelAttributeProcessor {
+    private val saveTos = mutableListOf<Pair<XPathReference, String>>()
     private var version: String? = null
 
     override fun getModelAttributes(): Set<Pair<String, String>> {
@@ -28,6 +27,10 @@ class EntityFormParseProcessor() : BindAttributeProcessor, FormDefProcessor, Mod
     @Throws(XFormParser.ParseException::class)
     override fun processModelAttribute(name: String, value: String) {
         version = value
+
+        if (BuildConfig.DEBUG && value.startsWith(V2025_1)) {
+            return
+        }
 
         if (SUPPORTED_VERSIONS.none { value.startsWith(it) }) {
             throw UnrecognizedEntityVersionException(value)
@@ -39,8 +42,7 @@ class EntityFormParseProcessor() : BindAttributeProcessor, FormDefProcessor, Mod
     }
 
     override fun processBindAttribute(name: String, value: String, binding: DataBinding) {
-        val reference = (binding.reference as XPathReference).reference as TreeReference
-        bindAttributes.add(Pair(reference, value))
+        saveTos.add(Pair(binding.reference as XPathReference, value))
     }
 
     @Throws(XFormParser.ParseException::class)
@@ -50,27 +52,11 @@ class EntityFormParseProcessor() : BindAttributeProcessor, FormDefProcessor, Mod
                 if (it == null) {
                     throw MissingModelAttributeException(ENTITIES_NAMESPACE, "entities-version")
                 } else if (LOCAL_ENTITY_VERSIONS.any { prefix -> it.startsWith(prefix) }) {
-                    val saveTos = bindAttributes.mapNotNull { (ref, value) ->
-                        val parentElement = formDef.mainInstance.resolveReference(ref).parent as TreeElement
-                        findNearestEntityGroupElement(parentElement)?.let { entityGroup ->
-                            SaveTo(ref, value, entityGroup.ref.genericize())
-                        }
-                    }
                     val entityFormExtra = EntityFormExtra(saveTos)
                     formDef.extras.put(entityFormExtra)
                 }
             }
         }
-    }
-
-    private fun findNearestEntityGroupElement(element: TreeElement?): TreeElement? {
-        if (element == null) {
-            return null
-        }
-        if (EntityFormParser.hasEntityElement(element)) {
-            return element
-        }
-        return findNearestEntityGroupElement(element.parent as? TreeElement)
     }
 
     companion object {
@@ -83,11 +69,11 @@ class EntityFormParseProcessor() : BindAttributeProcessor, FormDefProcessor, Mod
         }
 
         private const val ENTITIES_NAMESPACE = "http://www.opendatakit.org/xforms/entities"
-        private val SUPPORTED_VERSIONS = arrayOf(V2022_1, V2023_1, V2024_1, V2025_1)
-        private val LOCAL_ENTITY_VERSIONS = arrayOf(V2024_1, V2025_1)
+        private val SUPPORTED_VERSIONS = arrayOf(V2022_1, V2023_1, V2024_1)
+        private val LOCAL_ENTITY_VERSIONS = arrayOf(V2024_1)
 
         private fun isEntityForm(formDef: FormDef): Boolean {
-            return EntityFormParser.hasEntityElement(formDef.mainInstance.root)
+            return EntityFormParser.getEntityElement(formDef.mainInstance) != null
         }
     }
 }

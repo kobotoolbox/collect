@@ -42,6 +42,7 @@ import org.odk.collect.android.formlists.sorting.FormListSortingOption;
 import org.odk.collect.android.formmanagement.FormSourceExceptionMapper;
 import org.odk.collect.android.formmanagement.FormsDataService;
 import org.odk.collect.android.formmanagement.ServerFormDetails;
+import org.odk.collect.android.formmanagement.ServerFormsDetailsFetcher;
 import org.odk.collect.android.formmanagement.download.FormDownloadException;
 import org.odk.collect.android.fragments.dialogs.FormsDownloadResultDialog;
 import org.odk.collect.android.injection.DaggerUtils;
@@ -119,6 +120,9 @@ public class FormDownloadListActivity extends FormListActivity implements FormLi
 
     @Inject
     WebCredentialsUtils webCredentialsUtils;
+
+    @Inject
+    ServerFormsDetailsFetcher serverFormsDetailsFetcher;
 
     @Inject
     NetworkStateProvider connectivityProvider;
@@ -290,12 +294,12 @@ public class FormDownloadListActivity extends FormListActivity implements FormLi
 
             if (viewModel.isDownloadOnlyMode()) {
                 // Handle external app download case with different server
-                downloadFormListTask = new DownloadFormListTask();
+                downloadFormListTask = new DownloadFormListTask(serverFormsDetailsFetcher);
                 downloadFormListTask.setAlternateCredentials(webCredentialsUtils, viewModel.getUrl(), viewModel.getUsername(), viewModel.getPassword());
                 downloadFormListTask.setDownloaderListener(this);
                 downloadFormListTask.execute();
             } else {
-                downloadFormListTask = new DownloadFormListTask();
+                downloadFormListTask = new DownloadFormListTask(serverFormsDetailsFetcher);
                 downloadFormListTask.setDownloaderListener(this);
                 downloadFormListTask.execute();
             }
@@ -460,7 +464,7 @@ public class FormDownloadListActivity extends FormListActivity implements FormLi
         }
 
         ServerFormDetails form = viewModel.getFormDetailsByFormId().get(formId);
-        return form.getType() != ServerFormDetails.Type.OnDevice;
+        return form.isNotOnDevice() || form.isUpdated();
     }
 
     /**

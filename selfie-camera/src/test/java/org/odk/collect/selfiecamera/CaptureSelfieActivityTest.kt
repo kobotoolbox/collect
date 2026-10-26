@@ -94,7 +94,7 @@ class CaptureSelfieActivityTest {
 
     @Test
     fun clickingPreview_whenThereIsAnErrorSavingImage_showsToast() {
-        ToastUtils.alertStore.enabled = true
+        ToastUtils.recordToasts = true
         camera.failToSave = true
 
         val intent = Intent(application, CaptureSelfieActivity::class.java).also {
@@ -104,13 +104,13 @@ class CaptureSelfieActivityTest {
         launcher.launch<CaptureSelfieActivity>(intent)
         onView(withId(R.id.preview)).perform(click())
 
-        val latestToast = ToastUtils.alertStore.popAll().last()
+        val latestToast = ToastUtils.popRecordedToasts().last()
         assertThat(latestToast, equalTo(application.getString(org.odk.collect.strings.R.string.camera_error)))
     }
 
     @Test
     fun whenCameraFailsToInitialize_showsToast() {
-        ToastUtils.alertStore.enabled = true
+        ToastUtils.recordToasts = true
         camera.failToInitialize = true
 
         val intent = Intent(application, CaptureSelfieActivity::class.java).also {
@@ -118,7 +118,7 @@ class CaptureSelfieActivityTest {
         }
 
         launcher.launch<CaptureSelfieActivity>(intent)
-        val latestToast = ToastUtils.alertStore.popAll().first()
+        val latestToast = ToastUtils.popRecordedToasts().first()
         assertThat(latestToast, equalTo(application.getString(org.odk.collect.strings.R.string.camera_failed_to_initialize)))
     }
 }

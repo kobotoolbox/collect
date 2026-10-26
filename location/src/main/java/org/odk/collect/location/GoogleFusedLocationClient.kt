@@ -32,6 +32,7 @@ class GoogleFusedLocationClient(
 
     private var locationListener: LocationListener? = null
     private var updateInterval = DEFAULT_UPDATE_INTERVAL
+    private var fastestUpdateInterval = DEFAULT_FASTEST_UPDATE_INTERVAL
     private var retainMockAccuracy = false
 
     override fun start(listener: LocationClientListener) {
@@ -72,8 +73,9 @@ class GoogleFusedLocationClient(
         return locationListener != null
     }
 
-    override fun setUpdateInterval(updateInterval: Long) {
+    override fun setUpdateIntervals(updateInterval: Long, fastestUpdateInterval: Long) {
         this.updateInterval = updateInterval
+        this.fastestUpdateInterval = fastestUpdateInterval
     }
 
     override fun onLocationChanged(location: Location) {
@@ -86,7 +88,7 @@ class GoogleFusedLocationClient(
         return LocationRequest.create().apply {
             priority = this@GoogleFusedLocationClient.getPriority().value
             interval = updateInterval
-            fastestInterval = updateInterval
+            fastestInterval = fastestUpdateInterval
         }
     }
 
@@ -95,6 +97,12 @@ class GoogleFusedLocationClient(
          * The default requested time between location updates, in milliseconds.
          */
         private const val DEFAULT_UPDATE_INTERVAL: Long = 5000
+
+        /**
+         * The default maximum rate at which location updates can arrive (other updates will be throttled),
+         * in milliseconds.
+         */
+        private const val DEFAULT_FASTEST_UPDATE_INTERVAL: Long = 2500
     }
 }
 

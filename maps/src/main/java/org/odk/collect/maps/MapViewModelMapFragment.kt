@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
  */
 abstract class MapViewModelMapFragment : Fragment(), MapFragment {
 
-    protected abstract fun getMapViewModel(): MapViewModel
+    abstract fun getMapViewModel(): MapViewModel
 
     final override fun setCenter(center: MapPoint?, animate: Boolean) {
         getMapViewModel().moveTo(center, animate)

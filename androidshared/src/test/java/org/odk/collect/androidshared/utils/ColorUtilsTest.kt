@@ -10,36 +10,36 @@ import org.junit.runner.RunWith
 class ColorUtilsTest {
     @Test
     fun `return null when color is empty`() {
-        assertThat("".sanitizeToColorInt(), equalTo(null))
+        assertThat("".toColorInt(), equalTo(null))
     }
 
     @Test
     fun `return null when color is blank`() {
-        assertThat(" ".sanitizeToColorInt(), equalTo(null))
+        assertThat(" ".toColorInt(), equalTo(null))
     }
 
     @Test
     fun `return null when color is invalid`() {
-        assertThat("qwerty".sanitizeToColorInt(), equalTo(null))
+        assertThat("qwerty".toColorInt(), equalTo(null))
     }
 
     @Test
     fun `return color int for valid hex color with # prefix`() {
-        assertThat("#aaccee".sanitizeToColorInt(), equalTo(-5583634))
+        assertThat("#aaccee".toColorInt(), equalTo(-5583634))
     }
 
     @Test
     fun `return color int for valid hex color without # prefix`() {
-        assertThat("aaccee".sanitizeToColorInt(), equalTo(-5583634))
+        assertThat("aaccee".toColorInt(), equalTo(-5583634))
     }
 
     @Test
     fun `return color int for valid shorthand hex color with # prefix`() {
-        assertThat("#ace".sanitizeToColorInt(), equalTo(-5583634))
+        assertThat("#ace".toColorInt(), equalTo(-5583634))
     }
 
     @Test
     fun `return color int for valid shorthand hex color without # prefix`() {
-        assertThat("ace".sanitizeToColorInt(), equalTo(-5583634))
+        assertThat("ace".toColorInt(), equalTo(-5583634))
     }
 }
