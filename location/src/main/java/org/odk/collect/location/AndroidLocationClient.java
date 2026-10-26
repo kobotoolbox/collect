@@ -131,7 +131,7 @@ public class AndroidLocationClient
     }
 
     @Override
-    public void setUpdateInterval(long updateInterval) {
+    public void setUpdateIntervals(long updateInterval, long fastestUpdateInterval) {
         // Do nothing.
     }
 

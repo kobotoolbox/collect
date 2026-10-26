@@ -22,7 +22,6 @@ import org.odk.collect.androidshared.ui.DialogFragmentUtils
 import org.odk.collect.androidshared.ui.FragmentFactoryBuilder
 import org.odk.collect.androidshared.ui.ToastUtils
 import org.odk.collect.androidshared.ui.multiclicksafe.setMultiClickSafeOnClickListener
-import org.odk.collect.androidshared.utils.sanitizeToColorInt
 import org.odk.collect.async.Scheduler
 import org.odk.collect.geo.GeoDependencyComponentProvider
 import org.odk.collect.geo.databinding.SelectionMapLayoutBinding
@@ -39,7 +38,7 @@ import org.odk.collect.material.BottomSheetBehavior
 import org.odk.collect.material.MaterialProgressDialogFragment
 import org.odk.collect.permissions.PermissionsChecker
 import org.odk.collect.settings.SettingsProvider
-import org.odk.collect.webpage.WebPageService
+import org.odk.collect.webpage.ExternalWebPageHelper
 import javax.inject.Inject
 
 /**
@@ -70,7 +69,7 @@ class SelectionMapFragment(
     lateinit var settingsProvider: SettingsProvider
 
     @Inject
-    lateinit var webPageService: WebPageService
+    lateinit var externalWebPageHelper: ExternalWebPageHelper
 
     private val selectedItemViewModel by viewModels<SelectedItemViewModel>()
 
@@ -98,7 +97,7 @@ class SelectionMapFragment(
                 mapFragmentFactory.createMapFragment() as Fragment
             }
             .forClass(OfflineMapLayersPickerBottomSheetDialogFragment::class) {
-                OfflineMapLayersPickerBottomSheetDialogFragment(requireActivity().activityResultRegistry, referenceLayerRepository, scheduler, settingsProvider, webPageService)
+                OfflineMapLayersPickerBottomSheetDialogFragment(requireActivity().activityResultRegistry, referenceLayerRepository, scheduler, settingsProvider, externalWebPageHelper)
             }
             .build()
 
@@ -320,7 +319,7 @@ class SelectionMapFragment(
 
                         map.setMarkerIcon(
                             featureId,
-                            MarkerIconDescription.DrawableResource(item.largeIcon, item.color, item.symbol)
+                            MarkerIconDescription(item.largeIcon, item.color, item.symbol)
                         )
                     }
                 }
@@ -381,7 +380,7 @@ class SelectionMapFragment(
         if (featureId != null) {
             map.setMarkerIcon(
                 featureId,
-                MarkerIconDescription.DrawableResource(selectedItem.smallIcon, selectedItem.color, selectedItem.symbol)
+                MarkerIconDescription(selectedItem.smallIcon, selectedItem.color, selectedItem.symbol)
             )
         }
     }
@@ -403,29 +402,16 @@ class SelectionMapFragment(
                 MapPoint(it.point.latitude, it.point.longitude),
                 false,
                 MapFragment.BOTTOM,
-                MarkerIconDescription.DrawableResource(it.smallIcon, it.color, it.symbol)
+                MarkerIconDescription(it.smallIcon, it.color, it.symbol)
             )
         }
 
         val pointIds = map.addMarkers(markerDescriptions)
         val lineIds = lines.fold(listOf<Int>()) { ids, item ->
-            ids + map.addPolyLine(
-                LineDescription(
-                    item.points,
-                    item.strokeWidth,
-                    item.strokeColor?.sanitizeToColorInt()
-                )
-            )
+            ids + map.addPolyLine(LineDescription(item.points, item.strokeWidth, item.strokeColor))
         }
         val polygonIds = polygons.fold(listOf<Int>()) { ids, item ->
-            ids + map.addPolygon(
-                PolygonDescription(
-                    item.points,
-                    item.strokeWidth,
-                    item.strokeColor?.sanitizeToColorInt(),
-                    item.fillColor?.sanitizeToColorInt()
-                )
-            )
+            ids + map.addPolygon(PolygonDescription(item.points, item.strokeWidth, item.strokeColor, item.fillColor))
         }
 
         (singlePoints + lines + polygons).zip(pointIds + lineIds + polygonIds).forEach { (item, featureId) ->

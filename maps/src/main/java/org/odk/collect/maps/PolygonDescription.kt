@@ -1,16 +1,15 @@
 package org.odk.collect.maps
 
 import androidx.core.graphics.ColorUtils
+import org.odk.collect.androidshared.utils.toColorInt
 
 data class PolygonDescription(
-    override val points: List<MapPoint> = emptyList(),
+    val points: List<MapPoint> = emptyList(),
     private val strokeWidth: String? = null,
-    private val strokeColor: Int? = null,
-    private val fillColor: Int? = null,
-    override val highlightLastPoint: Boolean = false,
-    val draggable: Boolean = false
-) : TraceDescription {
-    override fun getStrokeWidth(): Float {
+    private val strokeColor: String? = null,
+    private val fillColor: String? = null
+) {
+    fun getStrokeWidth(): Float {
         return try {
             strokeWidth?.toFloat()?.let {
                 if (it >= 0) {
@@ -24,21 +23,23 @@ data class PolygonDescription(
         }
     }
 
-    override fun getStrokeColor(): Int {
-        return strokeColor ?: MapConsts.DEFAULT_STROKE_COLOR
+    fun getStrokeColor(): Int {
+        val customColor = strokeColor?.toColorInt()
+        return customColor ?: MapConsts.DEFAULT_STROKE_COLOR
     }
 
     fun getFillColor(): Int {
-        val customColor = fillColor?.let {
+        val customColor = fillColor?.toColorInt()?.let {
             ColorUtils.setAlphaComponent(
                 it,
                 MapConsts.DEFAULT_FILL_COLOR_OPACITY
             )
         }
 
-        return customColor ?: ColorUtils.setAlphaComponent(
-            MapConsts.DEFAULT_STROKE_COLOR,
-            MapConsts.DEFAULT_FILL_COLOR_OPACITY
-        )
+        return customColor
+            ?: ColorUtils.setAlphaComponent(
+                MapConsts.DEFAULT_STROKE_COLOR,
+                MapConsts.DEFAULT_FILL_COLOR_OPACITY
+            )
     }
 }

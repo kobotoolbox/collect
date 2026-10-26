@@ -1,6 +1,6 @@
 package org.odk.collect.android.widgets
 
-import androidx.fragment.app.FragmentActivity
+import android.app.Activity
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.CoreMatchers.instanceOf
@@ -27,7 +27,7 @@ import org.odk.collect.android.widgets.items.SelectOneWidget
 
 @RunWith(AndroidJUnit4::class)
 class WidgetFactoryTest {
-    private val activity: FragmentActivity = CollectHelpers.buildThemedActivity(WidgetTestActivity::class.java).get()
+    private val activity: Activity = CollectHelpers.buildThemedActivity(WidgetTestActivity::class.java).get()
 
     private var widgetFactory = WidgetFactory(
         activity,
@@ -42,7 +42,8 @@ class WidgetFactoryTest {
         null,
         null,
         null,
-        null
+        null,
+        mock()
     )
 
     @Test

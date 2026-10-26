@@ -38,7 +38,7 @@ class CounterWidget(
         binding.plusButton.isEnabled = value == null || value < MAX_VALUE
     }
 
-    override fun onCreateWidgetView(
+    override fun onCreateAnswerView(
         context: Context,
         prompt: FormEntryPrompt,
         answerFontSize: Int

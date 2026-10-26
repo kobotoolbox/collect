@@ -39,7 +39,7 @@ import org.odk.collect.maps.MapPoint;
 import org.odk.collect.maps.layers.ReferenceLayerRepository;
 import org.odk.collect.settings.InMemSettingsProvider;
 import org.odk.collect.settings.SettingsProvider;
-import org.odk.collect.webpage.WebPageService;
+import org.odk.collect.webpage.ExternalWebPageHelper;
 import org.robolectric.shadows.ShadowApplication;
 
 import java.util.List;
@@ -88,7 +88,7 @@ public class GeoPointMapActivityTest {
 
                     @NonNull
                     @Override
-                    public WebPageService providesWebPageService() {
+                    public ExternalWebPageHelper providesExternalWebPageHelper() {
                         return mock();
                     }
                 })

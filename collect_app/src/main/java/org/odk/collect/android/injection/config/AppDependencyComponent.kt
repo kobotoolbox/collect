@@ -76,7 +76,6 @@ import org.odk.collect.android.utilities.SavepointsRepositoryProvider
 import org.odk.collect.android.utilities.ThemeUtils
 import org.odk.collect.android.widgets.QuestionWidget
 import org.odk.collect.android.widgets.items.SelectOneFromMapDialogFragment
-import org.odk.collect.androidshared.utils.UniqueIdGenerator
 import org.odk.collect.async.Scheduler
 import org.odk.collect.async.network.NetworkStateProvider
 import org.odk.collect.draw.DrawActivity
@@ -90,7 +89,7 @@ import org.odk.collect.projects.ProjectCreator
 import org.odk.collect.projects.ProjectsRepository
 import org.odk.collect.settings.ODKAppSettingsImporter
 import org.odk.collect.settings.SettingsProvider
-import org.odk.collect.webpage.WebPageService
+import org.odk.collect.webpage.ExternalWebPageHelper
 import javax.inject.Singleton
 
 /**
@@ -299,7 +298,5 @@ interface AppDependencyComponent {
 
     fun projectDependencyModuleFactory(): ProjectDependencyModuleFactory
 
-    fun webPageService(): WebPageService
-
-    fun uniqueIdGenerator(): UniqueIdGenerator
+    fun externalWebPageHelper(): ExternalWebPageHelper
 }

@@ -6,7 +6,6 @@ import org.odk.collect.android.formmanagement.download.FormDownloadException
 import org.odk.collect.android.formmanagement.download.FormDownloader
 import org.odk.collect.android.instancemanagement.autosend.getLastUpdated
 import org.odk.collect.android.utilities.FileUtils
-import org.odk.collect.android.utilities.FormUtils
 import org.odk.collect.async.OngoingWorkListener
 import org.odk.collect.entities.LocalEntityUseCases
 import org.odk.collect.entities.server.EntitySource
@@ -15,74 +14,12 @@ import org.odk.collect.forms.Form
 import org.odk.collect.forms.FormSource
 import org.odk.collect.forms.FormSourceException
 import org.odk.collect.forms.FormsRepository
-import org.odk.collect.forms.ManifestFile
 import org.odk.collect.forms.MediaFile
 import org.odk.collect.shared.strings.Md5.getMd5Hash
-import timber.log.Timber
 import java.io.File
 import java.io.IOException
 
 object ServerFormUseCases {
-
-    @JvmStatic
-    @Throws(FormSourceException::class)
-    fun fetchFormDetails(
-        formsRepository: FormsRepository,
-        formSource: FormSource
-    ): List<ServerFormDetails> {
-        val formList = formSource.fetchFormList()
-        return formList.map { listItem ->
-            val manifestFile = listItem.manifestURL?.let {
-                getManifestFile(formSource, it)
-            }
-
-            val forms = formsRepository.getAllNotDeletedByFormId(listItem.formID)
-            val thisFormAlreadyDownloaded = forms.isNotEmpty()
-
-            val formHash = listItem.hash
-            val existingForm = if (formHash != null) {
-                formsRepository.getOneByMd5Hash(formHash)
-            } else {
-                null
-            }
-
-            val areNewerMediaFilesAvailable = if (existingForm != null && manifestFile != null) {
-                areNewerMediaFilesAvailable(existingForm, manifestFile.mediaFiles)
-            } else {
-                false
-            }
-
-            val type = if (existingForm != null) {
-                if (existingForm.isDeleted) {
-                    ServerFormDetails.Type.New
-                } else if (areNewerMediaFilesAvailable) {
-                    ServerFormDetails.Type.UpdatedMedia
-                } else {
-                    ServerFormDetails.Type.OnDevice
-                }
-            } else if (thisFormAlreadyDownloaded) {
-                if (listItem.hash == null) {
-                    ServerFormDetails.Type.OnDevice
-                } else if (forms.any { it.version == listItem.version }) {
-                    ServerFormDetails.Type.UpdatedHash
-                } else {
-                    ServerFormDetails.Type.UpdatedVersion
-                }
-            } else {
-                ServerFormDetails.Type.New
-            }
-
-            ServerFormDetails(
-                listItem.name,
-                listItem.downloadURL,
-                listItem.formID,
-                listItem.version,
-                listItem.hash,
-                manifestFile,
-                type
-            )
-        }
-    }
 
     fun downloadForms(
         forms: List<ServerFormDetails>,
@@ -172,12 +109,22 @@ object ServerFormUseCases {
                     newAttachmentsDownloaded = true
                     downloadMediaFile(formSource, mediaFile, tempMediaFile, tempDir, stateListener)
 
-                    LocalEntityUseCases.updateLocalEntitiesFromServer(
-                        entityListName,
-                        tempMediaFile,
-                        entitiesRepository,
-                        mediaFile
-                    )
+                    /**
+                     * We wrap and then rethrow exceptions that happen here to make them easier to
+                     * track in Crashlytics. This can be removed in the next release once any
+                     * unexpected exceptions "in the wild" are identified.
+                     */
+                    try {
+                        LocalEntityUseCases.updateLocalEntitiesFromServer(
+                            entityListName,
+                            tempMediaFile,
+                            entitiesRepository,
+                            entitySource,
+                            mediaFile
+                        )
+                    } catch (t: Throwable) {
+                        throw EntityListUpdateException(t)
+                    }
                 } else {
                     val existingForm = formsRepository.getAllByFormIdAndVersion(
                         formToDownload.formId,
@@ -191,37 +138,13 @@ object ServerFormUseCases {
                         }
                     }
                 }
-
-                /**
-                 * Ensures local offline Entities are cleaned up when they have been deleted on the server.
-                 *
-                 * Normally this cleanup is triggered during sync as part of a full update with the server
-                 * whenever the Entity list hash from Central changes.
-                 * However, there is a case where the hash stays the same:
-                 *  - a sync happens and the current hash is stored,
-                 *  - an Entity is created locally and a form is uploaded, creating the Entity on the server,
-                 *  - the Entity is then deleted on the server,
-                 *  - another sync occurs, but the hash is the same as the stored one because the list
-                 *    contents are identical to before the local Entity was added.
-                 *
-                 * In this case, the usual hash-based update will not detect the deletion. Collect must
-                 * use the integrityUrl to check for missing Entities and remove them locally.
-                 */
-                LocalEntityUseCases.cleanUpDeletedOfflineEntities(
-                    entityListName,
-                    entitiesRepository,
-                    entitySource,
-                    mediaFile
-                )
             } else {
                 val existingFile = searchForExistingMediaFile(currentOrLastFormVersion, mediaFile)
                 if (existingFile != null) {
                     val existingFileHash = existingFile.getMd5Hash()
 
                     if (existingFileHash.contentEquals(mediaFile.hash)) {
-                        if (formToDownload.type != ServerFormDetails.Type.UpdatedMedia) {
-                            copyFileToDirectory(existingFile, tempMediaDir)
-                        }
+                        copyFileToDirectory(existingFile, tempMediaDir)
                     } else {
                         downloadMediaFile(
                             formSource,
@@ -296,32 +219,6 @@ object ServerFormUseCases {
             }
         } else {
             null
-        }
-    }
-
-    private fun getManifestFile(formSource: FormSource, manifestUrl: String): ManifestFile? {
-        return try {
-            formSource.fetchManifest(manifestUrl)
-        } catch (formSourceException: FormSourceException) {
-            Timber.w(formSourceException)
-            null
-        }
-    }
-
-    private fun areNewerMediaFilesAvailable(
-        existingForm: Form,
-        newMediaFiles: List<MediaFile>
-    ): Boolean {
-        if (newMediaFiles.isEmpty()) {
-            return false
-        }
-
-        val localMediaHashes = FormUtils.getMediaFiles(existingForm)
-            .map { it.getMd5Hash() }
-            .toSet()
-
-        return newMediaFiles.any {
-            !it.filename.endsWith(".zip") && it.hash !in localMediaHashes
         }
     }
 }

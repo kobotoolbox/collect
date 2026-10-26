@@ -78,8 +78,6 @@
   <string name="repeatable_group_label">Повторюєма Група</string>
   <string name="exit">Вийти</string>
   <!--This sentence is used in the dialog for adding repeats and will be completed by a singular noun usually. Examples would be ‘Add “observation”?’ or ‘Add “Reading”?’. If the phrase doesn’t make sense in your language you can add a word like “new”, being careful of gender/plural.-->
-  <!--Text of button from the 'Add new repeat' dialog to confirm adding a repeat-->
-  <!--Text of button from the 'Add new repeat' dialog to cancel adding a repeat-->
   <string name="add_another_menu">Додати</string>
   <!--Title of overlay menu displayed when long pressing on a question in a form-->
   <string name="edit_prompt">Редагувати запит</string>
@@ -113,6 +111,8 @@
   <string name="data_saved_error">Вибачте, не вдалось зберегти анкету!</string>
   <string name="data_saved_ok">Анкету успішно збережено!</string>
   <string name="save_point_error">Помилка при збереженні точки відновлення: %s</string>
+  <!--Dialog title when exiting a drawing view. The name of the kind of drawing will be included-->
+  <string name="quit_application">Вийти з %s</string>
   <!--Used when exiting a form filling session in which a form was not properly loaded. &lt; and &gt; surrounds the text so it will appear as <no form loaded>-->
   <string name="keep_changes">Зберегти зміни</string>
   <!--Please format date appropriately for your language: http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html-->
@@ -155,7 +155,8 @@
   <string name="replace_barcode">Змінити штрих-код</string>
   <!--Prompt under view finder to describe where to place the camera to scan a barcode-->
   <string name="barcode_scanner_prompt">Розмістіть штрихкод в прямокутнику</string>
-  <!--Label for button that rotates camera orientation when scanning barcodes-->
+  <!--Message shown when barcode is successfully scanned-->
+  <!--Label for button that exits barcode scanning after success-->
   <string name="open_file">Відкрити файл</string>
   <string name="rank_items">Засоби оцінки</string>
   <string name="invalid_range_widget">Цей віджет має некоректні параметри!</string>
@@ -166,8 +167,7 @@
   <string name="take_picture_instruction">Щоб зробити знімок торкніться екрану</string>
   <string name="error_front_camera_unavailable">Фронтальна камера на цьому пристрої не доступна</string>
   <string name="annotate_image">Додати Анотацію</string>
-  <!--Title displayed in a dialog for saving a signature, drawing, or annotated image-->
-  <!--Explanation message displayed in a dialog for saving a signature, drawing, or annotated image-->
+  <!--Dialog heading for saving annotated image-->
   <string name="save_and_close">Зберегти та закрити</string>
   <string name="signature_capture">Сфотографувати Підпис</string>
   <string name="sign_button">Отримати підпис</string>
@@ -358,9 +358,11 @@
   <string name="south">Південь %1$s%2$s%3$s</string>
   <!--%1$s represents degrees, %2$s represents minutes and %3$s represents seconds as in N 18°48'8"-->
   <string name="north">Північ %1$s%2$s%3$s</string>
+  <string name="geoshape_title">ГеоФігура</string>
   <string name="input_method">Метод введення</string>
   <string name="start">Почати</string>
   <string name="enable_gps">Увімкнути GPS</string>
+  <string name="geotrace_title">ГеоМаршрут</string>
   <string name="geo_clear_warning">Ознака вже створена. Бажаєте очистити ознаку?</string>
   <string name="geo_exit_warning">Скасувати зміни і повернутись до KoboToolbox?</string>
   <string name="polygon_validator">Для багатокутника необхідно мінімум 3 точки</string>
@@ -409,17 +411,6 @@
   <!--Description for button that zooms a map so that it shows all items-->
   <!--Description for button that pauses automatic location recording-->
   <!--Description for button that removes the last recorded point-->
-  <!--Message shown when an error with the trace/shape has been fixed-->
-  <!--Description for button that explains how to modify the map-->
-  <!--Title for instructions on how to modify map features-->
-  <!--Instruction in a list on how to move a point-->
-  <!--Instruction in a list on how to remove the most recently added point-->
-  <!--Instruction in a list on how to delete the current shape to start over-->
-  <!--Instruction in a list on how to add a new point-->
-  <!--Instruction in a list on how to tap to add a point-->
-  <!--Instruction in a list on how to delete the entire shape-->
-  <!--Button text to close the instructions dialog-->
-  <!--Button text to open the instructions dialog from the error snackbar-->
   <!--##############################################
     # SEND FINALIZED FORM
     ##############################################-->
@@ -513,6 +504,8 @@
   <string name="password_error_whitespace">в паролях заборонені початкові та кінцеві пробіли</string>
   <string name="username_error_whitespace">в імені користувача заборонені початкові та кінцеві пробіли</string>
   <string name="app_theme">Тема</string>
+  <string name="theme_light">Світла тема</string>
+  <string name="theme_dark">Темна тема</string>
   <string name="language">Мова</string>
   <string name="use_device_language">Використовувати мову пристрою</string>
   <string name="font_size">Розмір шрифту</string>
@@ -674,6 +667,7 @@
   <string name="cancel_loading_form">Скасувати</string>
   <string name="cancel_location">Скасувати</string>
   <string name="do_not_change">Скасувати</string>
+  <string name="do_not_exit">Скасувати</string>
   <string name="canceling">Скасування</string>
   <string name="notification_channel_name">Загальні сповіщення</string>
   <string name="success">Успішно!</string>
@@ -715,7 +709,6 @@
   <!--##############################################
     # Errors
     ##############################################-->
-  <!--Error shown when the user tries to open a web page from the app, but they don't have a browser installed-->
   <!--##############################################
     # Form opening errors
     ##############################################-->
@@ -734,6 +727,7 @@
     # Permissions
     ##############################################-->
   <!--An entity is any person, place or thing that a form can be about. This title appears on an experimental settings screen to view entities managed in the current project.-->
+  <!--Title for setting that controls whether local entity features are enabled or not-->
   <!--Text for button that leads to browser for the user to view and manage entity lists-->
   <!--Label for entity that has been created offline and is not on the server yet-->
   <!--Error message displayed when a user opens a form with an unrecognized entity version-->
@@ -743,13 +737,6 @@
   <!--##############################################
     # Google Drive deprecation
     ##############################################-->
-  <!--##############################################
-    # Min SDK deprecation banner
-    ##############################################-->
-  <!--First part of the message shown in the banner, informing the user that their device will soon be unsupported-->
-  <!--Second part of the message shown in the banner, informing the user that their device will soon be unsupported-->
-  <!--Button text that opens a forum post with more information about upcoming device support changes-->
-  <!--Button text to dismiss the banner-->
   <!--##############################################
     # Developer tools
     ##############################################-->

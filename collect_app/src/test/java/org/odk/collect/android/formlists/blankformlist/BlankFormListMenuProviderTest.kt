@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.hamcrest.CoreMatchers.instanceOf
 import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.CoreMatchers.nullValue
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Before
 import org.junit.Test
@@ -102,6 +103,29 @@ class BlankFormListMenuProviderTest {
         menuProvider.onPrepareMenu(menu)
 
         assertThat(menu.findItem(R.id.menu_refresh).isEnabled, `is`(true))
+    }
+
+    @Test
+    fun `clicking refresh for sync shows success toast`() {
+        whenever(viewModel.syncWithServer()).thenReturn(MutableLiveData(true))
+
+        val menuProvider = createMenuProvider()
+        menuProvider.onMenuItemSelected(RoboMenuItem(R.id.menu_refresh))
+
+        assertThat(
+            ShadowToast.getTextOfLatestToast(),
+            `is`(activity.getString(org.odk.collect.strings.R.string.form_update_succeeded))
+        )
+    }
+
+    @Test
+    fun `clicking refresh for sync when syncing fails does not show toast`() {
+        whenever(viewModel.syncWithServer()).thenReturn(MutableLiveData(false))
+
+        val menuProvider = createMenuProvider()
+        menuProvider.onMenuItemSelected(RoboMenuItem(R.id.menu_refresh))
+
+        assertThat(ShadowToast.getLatestToast(), nullValue())
     }
 
     @Test

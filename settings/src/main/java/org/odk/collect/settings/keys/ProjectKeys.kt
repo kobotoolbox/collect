@@ -11,6 +11,7 @@ object ProjectKeys {
     const val KEY_PASSWORD = "password"
 
     // user_interface_preferences.xml
+    const val KEY_APP_THEME = "appTheme"
     const val KEY_APP_LANGUAGE = "app_language"
     const val KEY_FONT_SIZE = "font_size"
     const val KEY_NAVIGATION = "navigation"

@@ -17,6 +17,8 @@ package org.odk.collect.android.utilities;
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 import static org.odk.collect.androidshared.system.ContextUtils.getThemeAttributeValue;
 
 import android.content.Context;
@@ -27,8 +29,10 @@ import androidx.annotation.StyleRes;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import org.odk.collect.android.R;
+import org.odk.collect.android.application.FeatureFlags;
 import org.odk.collect.android.injection.DaggerUtils;
 import org.odk.collect.settings.SettingsProvider;
+import org.odk.collect.settings.keys.ProjectKeys;
 
 import javax.inject.Inject;
 
@@ -81,13 +85,34 @@ public final class ThemeUtils {
                 R.style.Theme_Collect_Light_Spinner_TimePicker_Dialog;
     }
 
+    public boolean isSystemTheme() {
+        if (FeatureFlags.NO_THEME_SETTING) {
+            return true;
+        } else {
+            return getPrefsTheme().equals(context.getString(org.odk.collect.strings.R.string.app_theme_system));
+        }
+    }
+
     public boolean isDarkTheme() {
-        int uiMode = context.getResources().getConfiguration().uiMode;
-        return (uiMode & UI_MODE_NIGHT_MASK) == UI_MODE_NIGHT_YES;
+        if (isSystemTheme()) {
+            int uiMode = context.getResources().getConfiguration().uiMode;
+            return (uiMode & UI_MODE_NIGHT_MASK) == UI_MODE_NIGHT_YES;
+        } else {
+            String theme = getPrefsTheme();
+            return theme.equals(context.getString(org.odk.collect.strings.R.string.app_theme_dark));
+        }
     }
 
     public void setDarkModeForCurrentProject() {
-        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_FOLLOW_SYSTEM);
+        if (isSystemTheme()) {
+            AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_FOLLOW_SYSTEM);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(isDarkTheme() ? MODE_NIGHT_YES : MODE_NIGHT_NO);
+        }
+    }
+
+    private String getPrefsTheme() {
+        return settingsProvider.getUnprotectedSettings().getString(ProjectKeys.KEY_APP_THEME);
     }
 
     /**
@@ -99,7 +124,12 @@ public final class ThemeUtils {
     }
 
     @ColorInt
+    public int getAccentColor() {
+        return getThemeAttributeValue(context, com.google.android.material.R.attr.colorAccent);
+    }
+
+    @ColorInt
     public int getColorPrimary() {
-        return getThemeAttributeValue(context, androidx.appcompat.R.attr.colorPrimary);
+        return getThemeAttributeValue(context, com.google.android.material.R.attr.colorPrimary);
     }
 }

@@ -134,12 +134,7 @@ class FakeScheduler : Scheduler {
         }
     }
 
-    @JvmOverloads
-    fun flush(enforce: Boolean = false) {
-        if (enforce && backgroundTasks.isEmpty() && foregroundTasks.isEmpty()) {
-            throw IllegalStateException("No tasks to run!")
-        }
-
+    fun flush() {
         while (backgroundTasks.isNotEmpty() || foregroundTasks.isNotEmpty()) {
             runBackground()
             runForeground()

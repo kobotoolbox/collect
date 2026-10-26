@@ -1,20 +1,10 @@
 package org.odk.collect.android.widgets;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.nullValue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
-import static org.odk.collect.android.widgets.support.QuestionWidgetHelpers.promptWithAnswer;
-import static org.odk.collect.android.widgets.support.QuestionWidgetHelpers.widgetDependencies;
-import static org.odk.collect.android.widgets.support.QuestionWidgetHelpers.widgetTestActivity;
-
 import android.app.Activity;
 import android.net.Uri;
 import android.view.View.OnLongClickListener;
 
+import androidx.browser.customtabs.CustomTabsServiceConnection;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.javarosa.core.model.data.StringData;
@@ -24,8 +14,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.odk.collect.android.formentry.questions.QuestionDetails;
 import org.odk.collect.android.support.WidgetTestActivity;
-import org.odk.collect.webpage.WebPageService;
+import org.odk.collect.webpage.ExternalWebPageHelper;
 import org.robolectric.shadows.ShadowToast;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.nullValue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.odk.collect.android.widgets.support.QuestionWidgetHelpers.promptWithAnswer;
+import static org.odk.collect.android.widgets.support.QuestionWidgetHelpers.widgetDependencies;
+import static org.odk.collect.android.widgets.support.QuestionWidgetHelpers.widgetTestActivity;
 
 /**
  * @author James Knight
@@ -34,13 +36,13 @@ import org.robolectric.shadows.ShadowToast;
 @RunWith(AndroidJUnit4.class)
 public class UrlWidgetTest {
     private WidgetTestActivity spyActivity;
-    private WebPageService webPageService;
+    private ExternalWebPageHelper externalWebPageHelper;
     private OnLongClickListener listener;
 
     @Before
     public void setUp() {
         spyActivity = spy(widgetTestActivity());
-        webPageService = mock(WebPageService.class);
+        externalWebPageHelper = mock(ExternalWebPageHelper.class);
         listener = mock(OnLongClickListener.class);
     }
 
@@ -74,7 +76,8 @@ public class UrlWidgetTest {
         UrlWidget widget = createWidget(promptWithAnswer(null));
         widget.binding.urlButton.performClick();
 
-        verify(webPageService, never()).openWebPage(null, null);
+        verify(externalWebPageHelper, never()).bindCustomTabsService(null, null);
+        verify(externalWebPageHelper, never()).openWebPageInCustomTab(null, null);
     }
 
     @Test
@@ -82,7 +85,8 @@ public class UrlWidgetTest {
         UrlWidget widget = createWidget(promptWithAnswer(null));
         widget.binding.urlButton.performClick();
 
-        verify(webPageService, never()).openWebPage(null, null);
+        verify(externalWebPageHelper, never()).bindCustomTabsService(null, null);
+        verify(externalWebPageHelper, never()).openWebPageInCustomTab(null, null);
         assertThat(ShadowToast.getTextOfLatestToast(), equalTo("No URL set"));
     }
 
@@ -91,7 +95,8 @@ public class UrlWidgetTest {
         UrlWidget widget = createWidget(promptWithAnswer(new StringData("blah")));
         widget.binding.urlButton.performClick();
 
-        verify(webPageService).openWebPage((Activity) widget.getContext(), Uri.parse("blah"));
+        verify(externalWebPageHelper).bindCustomTabsService(widget.getContext(), null);
+        verify(externalWebPageHelper).openWebPageInCustomTab((Activity) widget.getContext(), Uri.parse("blah"));
     }
 
     @Test
@@ -102,7 +107,26 @@ public class UrlWidgetTest {
         verify(listener).onLongClick(widget.binding.urlButton);
     }
 
+    @Test
+    public void detachingFromWindow_doesNotCallOnServiceDisconnected_whenServiceConnectionIsNull() {
+        when(externalWebPageHelper.getServiceConnection()).thenReturn(null);
+
+        UrlWidget widget = createWidget(promptWithAnswer(null));
+        widget.onDetachedFromWindow();
+        verify(spyActivity, never()).unbindService(null);
+    }
+
+    @Test
+    public void detachingFromWindow_disconnectsService_whenServiceConnectionIsNotNull() {
+        CustomTabsServiceConnection serviceConnection = mock(CustomTabsServiceConnection.class);
+        when(externalWebPageHelper.getServiceConnection()).thenReturn(serviceConnection);
+
+        UrlWidget widget = createWidget(promptWithAnswer(null));
+        widget.onDetachedFromWindow();
+        verify(spyActivity).unbindService(serviceConnection);
+    }
+
     private UrlWidget createWidget(FormEntryPrompt prompt) {
-        return new UrlWidget(spyActivity, new QuestionDetails(prompt), webPageService, widgetDependencies());
+        return new UrlWidget(spyActivity, new QuestionDetails(prompt), externalWebPageHelper, widgetDependencies());
     }
 }

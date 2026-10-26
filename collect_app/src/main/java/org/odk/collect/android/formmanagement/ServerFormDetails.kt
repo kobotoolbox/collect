@@ -22,68 +22,12 @@ data class ServerFormDetails @JvmOverloads constructor(
     val formId: String?,
     val formVersion: String?,
     val hash: String?,
-    val manifest: ManifestFile?,
-    val type: Type
+    val isNotOnDevice: Boolean,
+    val isUpdated: Boolean,
+    val manifest: ManifestFile?
 ) : Serializable {
 
-    @Deprecated(message = "Use primary constructor instead")
-    constructor(
-        formName: String?,
-        downloadUrl: String?,
-        formId: String?,
-        formVersion: String?,
-        hash: String?,
-        isNotOnDevice: Boolean,
-        isUpdated: Boolean,
-        manifest: ManifestFile?,
-    ) : this(
-        formName,
-        downloadUrl,
-        formId,
-        formVersion,
-        hash,
-        manifest,
-        if (isNotOnDevice) {
-            Type.New
-        } else if (isUpdated) {
-            Type.UpdatedVersion
-        } else {
-            Type.OnDevice
-        }
-    )
-
-    fun isUpdated(): Boolean {
-        return type != Type.OnDevice && type != Type.New
-    }
-
     companion object {
-        private const val serialVersionUID = 4L
-    }
-
-    enum class Type {
-        /**
-         * The form is on the device already
-         */
-        OnDevice,
-
-        /**
-         * The form is not on the device
-         */
-        New,
-
-        /**
-         * The form is on the device, but this is a new version with a new form version and hash
-         */
-        UpdatedVersion,
-
-        /**
-         * The form is on the device, but this is a new version with a new hash
-         */
-        UpdatedHash,
-
-        /**
-         * This version of the form is on the device, but new/updated media files are available
-         */
-        UpdatedMedia
+        private const val serialVersionUID = 3L
     }
 }

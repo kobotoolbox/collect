@@ -10,5 +10,15 @@ interface GeoDataRequester {
         waitingForDataRegistry: WaitingForDataRegistry
     )
 
-    fun requestGeoPoly(prompt: FormEntryPrompt)
+    fun requestGeoShape(
+        prompt: FormEntryPrompt,
+        answerText: String?,
+        waitingForDataRegistry: WaitingForDataRegistry
+    )
+
+    fun requestGeoTrace(
+        prompt: FormEntryPrompt,
+        answerText: String?,
+        waitingForDataRegistry: WaitingForDataRegistry
+    )
 }

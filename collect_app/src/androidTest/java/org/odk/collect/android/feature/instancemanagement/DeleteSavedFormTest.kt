@@ -48,7 +48,7 @@ class DeleteSavedFormTest {
     fun whenFinalizedButNotSentFormHasCreatedALocalEntity_doesNotAppearInListToDelete() {
         testDependencies.server.addForm("one-question-entity-registration.xml")
 
-        rule.withProject(testDependencies.server.url, matchExactly = true)
+        rule.withMatchExactlyProject(testDependencies.server.url)
             // Drafts can be deleted
             .startBlankForm("One Question Entity Registration")
             .fillOutAndSave(FormEntryPage.QuestionAndAnswer("Name", "Logan Roy"))

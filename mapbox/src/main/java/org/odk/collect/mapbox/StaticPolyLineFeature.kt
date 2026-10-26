@@ -28,6 +28,11 @@ internal class StaticPolyLineFeature(
                 Point.fromLngLat(it.longitude, it.latitude, it.altitude)
             }
             .toMutableList()
+            .also {
+                if (lineDescription.closed && it.isNotEmpty()) {
+                    it.add(it.first())
+                }
+            }
 
         polylineAnnotation?.let {
             polylineAnnotationManager.delete(it)

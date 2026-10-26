@@ -12,8 +12,8 @@ import com.mapbox.maps.plugin.annotation.generated.PolylineAnnotationOptions
 import org.odk.collect.maps.LineDescription
 import org.odk.collect.maps.MapFragment
 import org.odk.collect.maps.MapPoint
-import org.odk.collect.maps.getMarkersForPoints
 
+/** A polyline that can be manipulated by dragging Symbols at its vertices. */
 internal class DynamicPolyLineFeature(
     private val context: Context,
     private val pointAnnotationManager: PointAnnotationManager,
@@ -23,21 +23,24 @@ internal class DynamicPolyLineFeature(
     private val featureDragEndListener: MapFragment.FeatureListener?,
     private val lineDescription: LineDescription
 ) : LineFeature {
-    override val points: List<MapPoint>
-        get() = _points.toList()
-
-    private val _points = mutableListOf<MapPoint>()
+    override val points = mutableListOf<MapPoint>()
     private val pointAnnotations = mutableListOf<PointAnnotation>()
     private val pointAnnotationClickListener = ClickListener()
     private val pointAnnotationDragListener = DragListener()
     private var polylineAnnotation: PolylineAnnotation? = null
 
     init {
-        val markerDescriptions = lineDescription.getMarkersForPoints()
-        markerDescriptions.forEach {
-            _points.add(it.point)
+        lineDescription.points.forEach {
+            points.add(it)
             pointAnnotations.add(
-                MapUtils.createPointAnnotation(pointAnnotationManager, context, it)
+                MapUtils.createPointAnnotation(
+                    pointAnnotationManager,
+                    it,
+                    true,
+                    MapFragment.CENTER,
+                    org.odk.collect.icons.R.drawable.ic_map_point,
+                    context
+                )
             )
         }
 
@@ -69,7 +72,31 @@ internal class DynamicPolyLineFeature(
         }
 
         pointAnnotations.clear()
-        _points.clear()
+        points.clear()
+    }
+
+    fun appendPoint(point: MapPoint) {
+        points.add(point)
+        pointAnnotations.add(
+            MapUtils.createPointAnnotation(
+                pointAnnotationManager,
+                point,
+                true,
+                MapFragment.CENTER,
+                org.odk.collect.icons.R.drawable.ic_map_point,
+                context
+            )
+        )
+        updateLine()
+    }
+
+    fun removeLastPoint() {
+        if (pointAnnotations.isNotEmpty()) {
+            pointAnnotationManager.delete(pointAnnotations.last())
+            pointAnnotations.removeAt(pointAnnotations.lastIndex)
+            points.removeAt(points.lastIndex)
+            updateLine()
+        }
     }
 
     private fun updateLine() {
@@ -78,6 +105,11 @@ internal class DynamicPolyLineFeature(
                 Point.fromLngLat(it.longitude, it.latitude, it.altitude)
             }
             .toMutableList()
+            .also {
+                if (lineDescription.closed && it.isNotEmpty()) {
+                    it.add(it.first())
+                }
+            }
 
         polylineAnnotation?.let {
             polylineAnnotationManager.delete(it)
@@ -113,7 +145,7 @@ internal class DynamicPolyLineFeature(
         override fun onAnnotationDrag(annotation: com.mapbox.maps.plugin.annotation.Annotation<*>) {
             pointAnnotations.forEachIndexed { index, pointAnnotation ->
                 if (annotation.id == pointAnnotation.id) {
-                    _points[index] = MapUtils.mapPointFromPointAnnotation(pointAnnotation)
+                    points[index] = MapUtils.mapPointFromPointAnnotation(pointAnnotation)
                 }
             }
             updateLine()

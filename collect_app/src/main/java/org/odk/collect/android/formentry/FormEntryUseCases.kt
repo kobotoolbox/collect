@@ -132,7 +132,7 @@ object FormEntryUseCases {
 
         return if (valid) {
             val newInstance = finalizeFormController(instance, formController, instancesRepository, entitiesRepository)
-            saveFinalizedInstanceToDisk(formController)
+            saveInstanceToDisk(formController)
             newInstance
         } else {
             instancesRepository.save(
@@ -174,15 +174,9 @@ object FormEntryUseCases {
     }
 
     @JvmStatic
-    private fun saveFinalizedInstanceToDisk(formController: FormController) {
+    private fun saveInstanceToDisk(formController: FormController) {
         val payload = formController.getSubmissionXml()
         FileUtils.write(formController.getInstanceFile(), payload!!.payloadBytes)
-    }
-
-    @JvmStatic
-    private fun saveInstanceToDisk(formController: FormController) {
-        val payload = formController.getFilledInFormXml()
-        FileUtils.write(formController.getInstanceFile(), payload.payloadBytes)
     }
 
     private fun getInstanceFromFormController(

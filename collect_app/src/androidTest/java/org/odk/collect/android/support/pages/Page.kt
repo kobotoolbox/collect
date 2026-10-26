@@ -53,8 +53,7 @@ import org.odk.collect.android.support.actions.RotateAction
 import org.odk.collect.android.support.matchers.CustomMatchers.withIndex
 import org.odk.collect.android.support.rules.RecentAppsRule
 import org.odk.collect.android.utilities.ActionRegister
-import org.odk.collect.androidshared.ui.SnackbarUtils
-import org.odk.collect.androidshared.ui.ToastUtils
+import org.odk.collect.androidshared.ui.ToastUtils.popRecordedToasts
 import org.odk.collect.androidtest.ActivityScenarioLauncherRule
 import org.odk.collect.strings.localization.getLocalizedQuantityString
 import org.odk.collect.strings.localization.getLocalizedString
@@ -220,29 +219,24 @@ abstract class Page<T : Page<T>> {
     }
 
     fun checkIsSnackbarWithMessageDisplayed(message: String): T {
-        Assertions.assertAlert(
-            SnackbarUtils.alertStore,
-            message,
-            "No Snackbar with text \"$message\" shown on screen!"
-        )
+        onView(withText(message)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
         return this as T
     }
 
     fun assertToastNotDisplayed(message: String): T {
-        Assertions.assertNoAlert(
-            ToastUtils.alertStore,
-            message,
-            "Toast with text \"$message\" shown on screen!"
-        )
+        Espresso.onIdle()
+        if (popRecordedToasts().stream().anyMatch { s: String -> s == message }) {
+            throw RuntimeException("Toast with text \"$message\" shown on screen!")
+        }
+
         return this as T
     }
 
     fun checkIsToastWithMessageDisplayed(message: String): T {
-        Assertions.assertAlert(
-            ToastUtils.alertStore,
-            message,
-            "No Toast with text \"$message\" shown on screen!"
-        )
+        Espresso.onIdle()
+        if (!popRecordedToasts().stream().anyMatch { s: String -> s == message }) {
+            throw RuntimeException("No Toast with text \"$message\" shown on screen!")
+        }
         return this as T
     }
 
@@ -386,6 +380,11 @@ abstract class Page<T : Page<T>> {
         } catch (e: InterruptedException) {
             Timber.i(e)
         }
+        return this as T
+    }
+
+    fun checkIsSnackbarErrorVisible(text: String): T {
+        onView(withId(com.google.android.material.R.id.snackbar_text)).check(matches(withText(containsString(text))))
         return this as T
     }
 

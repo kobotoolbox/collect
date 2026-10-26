@@ -34,23 +34,22 @@ class CollectTestRule @JvmOverloads constructor(
 
     fun startAtFirstLaunch() = FirstLaunchPage()
 
-    @JvmOverloads
-    fun withProject(serverUrl: String, matchExactly: Boolean = false): MainMenuPage {
-        return if (matchExactly) {
-            startAtFirstLaunch()
-                .clickManuallyEnterProjectDetails()
-                .inputUrl(serverUrl)
-                .addProject()
-                .enableMatchExactly()
-                .clickFillBlankForm()
-                .clickRefresh()
-                .pressBack(MainMenuPage())
-        } else {
-            startAtFirstLaunch()
-                .clickManuallyEnterProjectDetails()
-                .inputUrl(serverUrl)
-                .addProject()
-        }
+    fun withProject(serverUrl: String): MainMenuPage {
+        return startAtFirstLaunch()
+            .clickManuallyEnterProjectDetails()
+            .inputUrl(serverUrl)
+            .addProject()
+    }
+
+    fun withMatchExactlyProject(serverUrl: String): MainMenuPage {
+        return startAtFirstLaunch()
+            .clickManuallyEnterProjectDetails()
+            .inputUrl(serverUrl)
+            .addProject()
+            .enableMatchExactly()
+            .clickFillBlankForm()
+            .clickRefresh()
+            .pressBack(MainMenuPage())
     }
 
     fun withProject(testServer: StubOpenRosaServer, vararg formFiles: String): MainMenuPage {

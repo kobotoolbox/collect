@@ -67,6 +67,7 @@ object LocalEntityUseCases {
         list: String,
         serverList: File,
         entitiesRepository: EntitiesRepository,
+        entitySource: EntitySource,
         mediaFile: MediaFile
     ) {
         val existingListHash = entitiesRepository.getList(list)?.hash
@@ -116,12 +117,13 @@ object LocalEntityUseCases {
             }
         }
 
-        missingFromServer.values
-            .filter { it.state == Entity.State.ONLINE }
-            .forEach {
-                entitiesRepository.delete(list, it.id)
-            }
-
+        handleMissingEntities(
+            list,
+            missingFromServer.values,
+            entitiesRepository,
+            entitySource,
+            mediaFile.integrityUrl
+        )
         entitiesRepository.save(list, *newAndUpdated.toTypedArray())
         entitiesRepository.updateList(
             list,
@@ -130,19 +132,22 @@ object LocalEntityUseCases {
         )
     }
 
-    fun cleanUpDeletedOfflineEntities(
+    private fun handleMissingEntities(
         list: String,
+        missingFromServer: Collection<Entity.Saved>,
         entitiesRepository: EntitiesRepository,
         entitySource: EntitySource,
-        mediaFile: MediaFile
+        integrityUrl: String?
     ) {
-        val offlineLocalEntities = entitiesRepository
-            .query(list)
-            .filter { it.state == Entity.State.OFFLINE }
+        val missingOnline = missingFromServer.filter { it.state == Entity.State.ONLINE }
+        val missingOffline = missingFromServer.filter { it.state == Entity.State.OFFLINE }
 
-        val integrityUrl = mediaFile.integrityUrl
-        if (integrityUrl != null && offlineLocalEntities.isNotEmpty()) {
-            entitySource.fetchDeletedStates(integrityUrl, offlineLocalEntities.map { it.id }).forEach {
+        missingOnline.forEach {
+            entitiesRepository.delete(list, it.id)
+        }
+
+        if (integrityUrl != null && missingOffline.isNotEmpty()) {
+            entitySource.fetchDeletedStates(integrityUrl, missingOffline.map { it.id }).forEach {
                 if (it.second) {
                     entitiesRepository.delete(list, it.first)
                 }

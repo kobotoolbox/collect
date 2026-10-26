@@ -6,27 +6,31 @@ import com.mapbox.maps.extension.style.layers.properties.generated.IconAnchor
 import com.mapbox.maps.plugin.annotation.generated.PointAnnotation
 import com.mapbox.maps.plugin.annotation.generated.PointAnnotationManager
 import com.mapbox.maps.plugin.annotation.generated.PointAnnotationOptions
+import org.odk.collect.maps.LineDescription
 import org.odk.collect.maps.MapFragment
 import org.odk.collect.maps.MapPoint
-import org.odk.collect.maps.TraceDescription
 import org.odk.collect.maps.markers.MarkerDescription
-import org.odk.collect.maps.markers.MarkerIconCreator.toBitmap
+import org.odk.collect.maps.markers.MarkerIconCreator
+import org.odk.collect.maps.markers.MarkerIconDescription
 
 object MapUtils {
     fun createPointAnnotation(
         pointAnnotationManager: PointAnnotationManager,
-        context: Context,
-        markerDescription: MarkerDescription
+        point: MapPoint,
+        draggable: Boolean,
+        @MapFragment.Companion.IconAnchor iconAnchor: String,
+        iconDrawableId: Int,
+        context: Context
     ): PointAnnotation {
         return pointAnnotationManager.create(
             PointAnnotationOptions()
-                .withPoint(Point.fromLngLat(markerDescription.point.longitude, markerDescription.point.latitude, markerDescription.point.altitude))
-                .withIconImage(markerDescription.iconDescription.toBitmap(context))
+                .withPoint(Point.fromLngLat(point.longitude, point.latitude, point.altitude))
+                .withIconImage(MarkerIconCreator.getMarkerIconBitmap(context, MarkerIconDescription(iconDrawableId)))
                 .withIconSize(1.0)
                 .withSymbolSortKey(10.0)
-                .withDraggable(markerDescription.isDraggable)
+                .withDraggable(draggable)
                 .withTextOpacity(0.0)
-                .withIconAnchor(getIconAnchorValue(markerDescription.iconAnchor))
+                .withIconAnchor(getIconAnchorValue(iconAnchor))
         )
     }
 
@@ -38,7 +42,7 @@ object MapUtils {
         val pointAnnotationOptionsList = markerFeatures.map {
             PointAnnotationOptions()
                 .withPoint(Point.fromLngLat(it.point.longitude, it.point.latitude, it.point.altitude))
-                .withIconImage(it.iconDescription.toBitmap(context))
+                .withIconImage(MarkerIconCreator.getMarkerIconBitmap(context, it.iconDescription))
                 .withIconSize(1.0)
                 .withSymbolSortKey(10.0)
                 .withDraggable(it.isDraggable)
@@ -65,7 +69,7 @@ object MapUtils {
 
     // To ensure consistent stroke width across map platforms like Mapbox, Google, and OSM,
     // the value for Mapbox needs to be divided by 3.
-    fun convertStrokeWidth(traceDescription: TraceDescription): Double {
-        return (traceDescription.getStrokeWidth() / 3).toDouble()
+    fun convertStrokeWidth(lineDescription: LineDescription): Double {
+        return (lineDescription.getStrokeWidth() / 3).toDouble()
     }
 }

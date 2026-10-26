@@ -1,11 +1,10 @@
 package org.odk.collect.androidshared.utils
 
+import android.graphics.Color
 import androidx.annotation.ColorInt
-import androidx.core.graphics.ColorUtils
-import androidx.core.graphics.toColorInt
 
 @ColorInt
-fun String.sanitizeToColorInt() = try {
+fun String.toColorInt() = try {
     var sanitizedColor = if (this.startsWith("#")) {
         this
     } else {
@@ -16,13 +15,9 @@ fun String.sanitizeToColorInt() = try {
         sanitizedColor = shorthandToLonghandHexColor(sanitizedColor)
     }
 
-    sanitizedColor.toColorInt()
+    Color.parseColor(sanitizedColor)
 } catch (e: IllegalArgumentException) {
     null
-}
-
-fun Int.opaque(): Int {
-    return ColorUtils.setAlphaComponent(this, 100)
 }
 
 private fun shorthandToLonghandHexColor(shorthandColor: String): String {

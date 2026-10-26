@@ -1,21 +1,10 @@
 package org.odk.collect.android.formmanagement;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.is;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static java.util.Arrays.asList;
-
 import org.junit.Test;
 import org.odk.collect.android.formmanagement.download.FormDownloadException;
 import org.odk.collect.android.formmanagement.download.FormDownloader;
 import org.odk.collect.android.formmanagement.matchexactly.ServerFormsSynchronizer;
 import org.odk.collect.forms.Form;
-import org.odk.collect.forms.FormSource;
 import org.odk.collect.forms.FormSourceException;
 import org.odk.collect.forms.FormsRepository;
 import org.odk.collect.forms.instances.InstancesRepository;
@@ -27,18 +16,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import static java.util.Arrays.asList;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 public class ServerFormsSynchronizerTest {
 
     private final FormsRepository formsRepository = new InMemFormsRepository();
     private final InstancesRepository instancesRepository = new InMemInstancesRepository();
     private final RecordingFormDownloader formDownloader = new RecordingFormDownloader();
-    private final ServerFormsSynchronizer.ServerFormsDetailsFetcher serverFormDetailsFetcher = mock(ServerFormsSynchronizer.ServerFormsDetailsFetcher.class);
-    private final FormSource formSource = mock(FormSource.class);
-    private final ServerFormsSynchronizer synchronizer = new ServerFormsSynchronizer(serverFormDetailsFetcher, formsRepository, instancesRepository, formDownloader, formSource);
+    private final ServerFormsDetailsFetcher serverFormDetailsFetcher = mock(ServerFormsDetailsFetcher.class);
+    private final ServerFormsSynchronizer synchronizer = new ServerFormsSynchronizer(serverFormDetailsFetcher, formsRepository, instancesRepository, formDownloader);
 
     @Test
     public void downloadsNewForms() throws Exception {
-        when(serverFormDetailsFetcher.fetchFormDetails(formsRepository, formSource)).thenReturn(asList(
+        when(serverFormDetailsFetcher.fetchFormDetails()).thenReturn(asList(
                 new ServerFormDetails("form-1", "http://example.com/form-1", "form-1", "server", "form-1-hash", true, false, null)
         ));
 
@@ -48,7 +46,7 @@ public class ServerFormsSynchronizerTest {
 
     @Test
     public void downloadsUpdatedForms() throws Exception {
-        when(serverFormDetailsFetcher.fetchFormDetails(formsRepository, formSource)).thenReturn(asList(
+        when(serverFormDetailsFetcher.fetchFormDetails()).thenReturn(asList(
                 new ServerFormDetails("form-1", "http://example.com/form-1", "form-1", "server", "form-1-hash", false, true, null)
         ));
 
@@ -65,7 +63,7 @@ public class ServerFormsSynchronizerTest {
                 .formFilePath(FormUtils.createXFormFile("1", "1").getAbsolutePath())
                 .build());
 
-        when(serverFormDetailsFetcher.fetchFormDetails(formsRepository, formSource)).thenReturn(asList(
+        when(serverFormDetailsFetcher.fetchFormDetails()).thenReturn(asList(
                 new ServerFormDetails("form-1", "http://example.com/form-1", "form-1", "server", "form-1-hash", false, false, null)
         ));
 
@@ -75,7 +73,7 @@ public class ServerFormsSynchronizerTest {
 
     @Test
     public void doesNotDownloadExistingForms() throws Exception {
-        when(serverFormDetailsFetcher.fetchFormDetails(formsRepository, formSource)).thenReturn(asList(
+        when(serverFormDetailsFetcher.fetchFormDetails()).thenReturn(asList(
                 new ServerFormDetails("form-1", "http://example.com/form-1", "form-1", "server", "form-1-hash", false, false, null)
         ));
 
@@ -86,7 +84,7 @@ public class ServerFormsSynchronizerTest {
     @Test
     public void whenFetchingFormDetailsThrowsAnError_throwsError() throws Exception {
         FormSourceException exception = new FormSourceException.AuthRequired();
-        when(serverFormDetailsFetcher.fetchFormDetails(formsRepository, formSource)).thenThrow(exception);
+        when(serverFormDetailsFetcher.fetchFormDetails()).thenThrow(exception);
 
         try {
             synchronizer.synchronize();
@@ -102,12 +100,12 @@ public class ServerFormsSynchronizerTest {
                 new ServerFormDetails("form-2", "http://example.com/form-2", "form-2", "server", "form-2-hash", true, false, null)
         );
 
-        when(serverFormDetailsFetcher.fetchFormDetails(formsRepository, formSource)).thenReturn(serverForms);
+        when(serverFormDetailsFetcher.fetchFormDetails()).thenReturn(serverForms);
 
         FormDownloader formDownloader = mock(FormDownloader.class);
         doThrow(new FormDownloadException.FormSourceError(new FormSourceException.FetchError())).when(formDownloader).downloadForm(serverForms.get(0), null, null);
 
-        ServerFormsSynchronizer synchronizer = new ServerFormsSynchronizer(serverFormDetailsFetcher, formsRepository, instancesRepository, formDownloader, formSource);
+        ServerFormsSynchronizer synchronizer = new ServerFormsSynchronizer(serverFormDetailsFetcher, formsRepository, instancesRepository, formDownloader);
 
         try {
             synchronizer.synchronize();
